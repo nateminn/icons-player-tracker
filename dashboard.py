@@ -4,10 +4,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import numpy as np
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+# from google.oauth2 import service_account
+# from googleapiclient.discovery import build
+# import gspread
+# from oauth2client.service_account import ServiceAccountCredentials
 
 # Page configuration
 st.set_page_config(
