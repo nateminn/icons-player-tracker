@@ -134,7 +134,7 @@ with st.sidebar:
             "Search Volume Range:",
             min_value=min_vol,
             max_value=max_vol,
-            value=(min_vol, min(1000, max_vol)),
+            value=(min_vol, max_vol)),
             step=10
         )
     else:
