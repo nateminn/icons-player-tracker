@@ -4,8 +4,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 import numpy as np
-import base64
-import io
 
 # Page configuration
 st.set_page_config(
@@ -43,14 +41,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ============================================================================
-# OPTION 1: Load from a protected URL (Recommended for production)
-# ============================================================================
 @st.cache_data(ttl=3600)  # Cache for 1 hour
 def load_csv_data():
     """Load the CSV data from GitHub"""
     try:
-        # Load from your GitHub repository - icons-player-tracker
+        # Load from your GitHub repository
         url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main/ICONS_DASHBOARD_MASTER_20250911.csv"
         df = pd.read_csv(url)
         
@@ -61,60 +56,35 @@ def load_csv_data():
         df['july_2025_volume'] = pd.to_numeric(df['july_2025_volume'], errors='coerce').fillna(0)
         df['has_volume'] = pd.to_numeric(df['has_volume'], errors='coerce').fillna(0)
         
-        st.success("✅ Data loaded successfully")
         return df
         
     except Exception as e:
-        st.error("Unable to load data. Please check your internet connection or contact the administrator.")
-        # Don't show the actual error to users for security
+        st.error(f"Unable to load data from GitHub. Error: {str(e)}")
         return pd.DataFrame()
-
-# ============================================================================
-# OPTION 2: Embed compressed data directly (for smaller datasets)
-# ============================================================================
-# If your dataset is not too large, you can encode it directly:
-"""
-# First, run this separately to encode your CSV:
-import pandas as pd
-import base64
-import zlib
-
-# Read your CSV
-df = pd.read_csv('ICONS_DASHBOARD_MASTER_20250911.csv')
-csv_string = df.to_csv(index=False)
-
-# Compress and encode
-compressed = zlib.compress(csv_string.encode())
-encoded = base64.b64encode(compressed).decode()
-
-# Save to a text file
-with open('encoded_data.txt', 'w') as f:
-    f.write(encoded)
-
-# Then paste the encoded string in your code:
-ENCODED_DATA = 'paste_your_encoded_string_here'
-
-@st.cache_data
-def load_csv_data():
-    compressed = base64.b64decode(ENCODED_DATA.encode())
-    csv_string = zlib.decompress(compressed).decode()
-    df = pd.read_csv(io.StringIO(csv_string))
-    return df
-"""
 
 # Header
 st.markdown('<h1 class="main-header">⚽ Icons Player Demand Tracker</h1>', unsafe_allow_html=True)
 st.markdown("### Global Search Demand Analysis for Football Players - July 2025")
 
-# Load data (users cannot modify this)
-df = load_csv_data()
+# Load data
+with st.spinner('Loading data from GitHub...'):
+    df = load_csv_data()
 
 if df.empty:
     st.error("""
-    ### Data Not Available
-    The dashboard data is currently unavailable. Please contact the administrator.
+    ### ⚠️ Data Loading Error
+    
+    Could not load the data from GitHub. Please check:
+    1. Your internet connection
+    2. The GitHub repository is accessible
+    3. The CSV file exists at the specified location
+    
+    **Expected file location:**
+    https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main/ICONS_DASHBOARD_MASTER_20250911.csv
     """)
     st.stop()
+else:
+    st.success(f"✅ Successfully loaded {len(df):,} rows of data")
 
 # Sidebar filters
 with st.sidebar:
@@ -122,14 +92,14 @@ with st.sidebar:
     st.markdown("### 🔍 Filters")
     
     # Show data status
-    st.info(f"📊 Dataset: {len(df):,} rows loaded")
-    st.caption("Last updated: September 2025")
+    st.info(f"📊 Dataset: {len(df):,} rows")
+    st.caption("Data source: GitHub Repository")
     
     # Country filter
     selected_countries = st.multiselect(
         "Select Countries:",
         options=sorted(df['country'].unique()),
-        default=sorted(df['country'].unique())[:5]
+        default=sorted(df['country'].unique())[:5]  # Default to first 5 countries
     )
     
     # Player filter
@@ -560,24 +530,22 @@ if not filtered_df.empty:
         else:
             st.info("No merchandise data available for the selected filters")
     
-    # Export functionality - Limited to filtered view only
+    # Export functionality
     st.markdown("---")
-    st.markdown("### 📊 Export Current View")
+    st.markdown("### 💾 Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        # Only allow export of current filtered view
         csv = filtered_df.to_csv(index=False)
         st.download_button(
-            label="📥 Download Current View (CSV)",
+            label="📥 Download Filtered Data (CSV)",
             data=csv,
-            file_name=f"player_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-            mime="text/csv",
-            help="Download the currently filtered data view"
+            file_name=f"player_demand_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+            mime="text/csv"
         )
     
     with col2:
-        # Summary statistics only
+        # Summary statistics
         summary_data = filtered_df.groupby('actual_player').agg({
             'july_2025_volume': ['sum', 'mean'],
             'country': 'nunique',
@@ -587,28 +555,29 @@ if not filtered_df.empty:
         summary_csv = summary_data.to_csv()
         
         st.download_button(
-            label="📊 Download Summary Stats (CSV)",
+            label="📊 Download Player Summary (CSV)",
             data=summary_csv,
-            file_name=f"summary_stats_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-            mime="text/csv",
-            help="Download summary statistics for current view"
+            file_name=f"player_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+            mime="text/csv"
         )
     
     with col3:
-        st.info(f"📈 Current view: {len(filtered_df):,} rows")
+        # Info about the current filter
+        st.info(f"📈 Showing {len(filtered_df):,} rows from {len(df):,} total")
 
 else:
     # Empty state when filters return no data
     st.warning("No data matches the current filter criteria. Please adjust your filters.")
+    st.info(f"Total dataset contains {len(df):,} rows with {df['actual_player'].nunique()} unique players across {df['country'].nunique()} countries.")
 
-# Footer with limited info
+# Footer with data info
 st.markdown("---")
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.caption(f"📊 Analyzing {df['actual_player'].nunique()} players")
+    st.caption(f"💾 Data: {len(df):,} total rows")
 with col2:
-    st.caption(f"🌍 Across {df['country'].nunique()} markets")
+    st.caption(f"👥 Players: {df['actual_player'].nunique()} unique")
 with col3:
-    st.caption("📅 July 2025 Data")
+    st.caption(f"🌍 Markets: {df['country'].nunique()} countries")
 
-st.caption("Icons Player Demand Tracker | © 2025 | Data is proprietary and confidential")
+st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Built with Streamlit")
