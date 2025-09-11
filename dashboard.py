@@ -85,8 +85,8 @@ else:
 
 # Sidebar filters
 with st.sidebar:
-    st.markdown("## 📊 Dashboard Controls")
-    st.markdown("### 🔍 Filters")
+    st.markdown("## Dashboard Controls")
+    st.markdown("### Filters")
     
     # Show data status
     st.info(f"  Dataset: {len(df):,} rows")
