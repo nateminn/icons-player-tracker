@@ -50,7 +50,7 @@ st.markdown("""
 def load_csv_data():
     """Load the CSV data from GitHub"""
     try:
-        # Load from your GitHub repository
+        # Load from your GitHub repository - icons-player-tracker
         url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main/ICONS_DASHBOARD_MASTER_20250911.csv"
         df = pd.read_csv(url)
         
