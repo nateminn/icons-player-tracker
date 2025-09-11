@@ -89,7 +89,7 @@ with st.sidebar:
     st.markdown("### 🔍 Filters")
     
     # Show data status
-    st.info(f"📊 Dataset: {len(df):,} rows")
+    st.info(f"  Dataset: {len(df):,} rows")
     st.caption("Data source: GitHub Repository")
     
     # Country filter
