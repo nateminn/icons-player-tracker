@@ -60,7 +60,7 @@ def load_csv_data():
         return pd.DataFrame()
 
 # Header
-st.markdown('<h1 class="main-header">⚽ Icons Player Demand Tracker</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header">Icons Player Demand Tracker</h1>', unsafe_allow_html=True)
 st.markdown("### Global Search Demand Analysis for Football Players - July 2025")
 
 # Load data
