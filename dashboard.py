@@ -454,7 +454,7 @@ if not filtered_df.empty:
     
     with tab5:
         # Merchandise Analysis
-        st.markdown("### 🛍️ Merchandise Search Analysis")
+        st.markdown("### 👕 Merchandise Search Analysis")
         
         merch_df = filtered_df[filtered_df['search_type'] == 'Merchandise']
         
