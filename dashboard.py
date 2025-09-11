@@ -198,7 +198,7 @@ if not filtered_df.empty:
     st.markdown("---")
     
     # Tabs for different views
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📈 Overview", "🌍 Market Analysis", "👤 Player Details", "📊 Comparisons", "🛍️ Merchandise"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📈 Overview", "🌍 Market Analysis", "👤 Player Details", "📊 Comparisons", "👕 Merchandise"])
     
     with tab1:
         # Overview charts
