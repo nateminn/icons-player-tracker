@@ -99,7 +99,7 @@ with st.sidebar:
     selected_countries = st.multiselect(
         "Select Countries:",
         options=sorted(df['country'].unique()),
-        default=sorted(df['country'].unique())[:5]  # Default to first 5 countries
+        default=sorted(df['country'].unique())  
     )
     
     # Player filter
