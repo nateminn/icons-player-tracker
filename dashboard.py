@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
-import numpy as np
+import numpy as n
 
 # Page configuration
 st.set_page_config(
