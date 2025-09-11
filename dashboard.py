@@ -107,7 +107,7 @@ with st.sidebar:
     selected_players = st.multiselect(
         "Select Players:",
         options=available_players,
-        default=available_players[:10] if len(available_players) > 10 else available_players
+        default=available_players
     )
     
     # Search type filter
