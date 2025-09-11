@@ -81,7 +81,7 @@ if df.empty:
     """)
     st.stop()
 else:
-    st.success(f"✅ Successfully loaded {len(df):,} rows of data")
+    st.success(f" Successfully loaded {len(df):,} rows of data")
 
 # Sidebar filters
 with st.sidebar:
