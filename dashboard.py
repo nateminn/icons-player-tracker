@@ -72,7 +72,7 @@ st.markdown("### Global Search Demand Analysis for Football Players - July 2025"
 df = load_csv_data()
 
 if df.empty:
-    st.warning("Please add your CSV file named 'player_data.csv' to the same directory as this script.")
+    st.warning("Please ensure your CSV file 'ICONS_DASHBOARD_MASTER_20250911.csv' is on your Desktop, or use the file uploader above.")
     st.info("""
     ### Expected CSV Format:
     Your CSV should have the following columns:
@@ -85,6 +85,9 @@ if df.empty:
     - search_type
     - july_2025_volume
     - has_volume
+    
+    ### File Location:
+    The dashboard is looking for: **ICONS_DASHBOARD_MASTER_20250911.csv** on your Desktop
     """)
     st.stop()
 
