@@ -571,10 +571,10 @@ else:
 st.markdown("---")
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.caption(f"💾 Data: {len(df):,} total rows")
+    st.caption(f"Data: {len(df):,} total rows")
 with col2:
-    st.caption(f"👥 Players: {df['actual_player'].nunique()} unique")
+    st.caption(f"Players: {df['actual_player'].nunique()} unique")
 with col3:
-    st.caption(f"🌍 Markets: {df['country'].nunique()} countries")
+    st.caption(f"Markets: {df['country'].nunique()} countries")
 
 st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data ")
