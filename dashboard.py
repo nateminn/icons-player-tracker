@@ -8,7 +8,6 @@ import numpy as np
 # Page configuration
 st.set_page_config(
     page_title="Icons Player Demand Tracker",
-    page_icon="⚽",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -17,13 +16,11 @@ st.set_page_config(
 st.markdown("""
     <style>
     .main-header {
-        font-size: 3rem;
-        font-weight: bold;
-        background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: center;
-        padding: 1rem 0;
+            font-size: 3rem;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            padding: 1rem 0;
     }
     .metric-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
