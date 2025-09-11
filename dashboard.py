@@ -577,4 +577,4 @@ with col2:
 with col3:
     st.caption(f"🌍 Markets: {df['country'].nunique()} countries")
 
-st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Built with Streamlit")
+st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data ")
