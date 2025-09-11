@@ -535,7 +535,7 @@ if not filtered_df.empty:
     with col1:
         csv = filtered_df.to_csv(index=False)
         st.download_button(
-            label="📥 Download Filtered Data (CSV)",
+            label="Download Filtered Data (CSV)",
             data=csv,
             file_name=f"player_demand_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -552,7 +552,7 @@ if not filtered_df.empty:
         summary_csv = summary_data.to_csv()
         
         st.download_button(
-            label="📊 Download Player Summary (CSV)",
+            label="Download Player Summary (CSV)",
             data=summary_csv,
             file_name=f"player_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -560,7 +560,7 @@ if not filtered_df.empty:
     
     with col3:
         # Info about the current filter
-        st.info(f"📈 Showing {len(filtered_df):,} rows from {len(df):,} total")
+        st.info(f"Showing {len(filtered_df):,} rows from {len(df):,} total")
 
 else:
     # Empty state when filters return no data
