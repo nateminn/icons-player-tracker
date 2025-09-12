@@ -719,10 +719,14 @@ if not filtered_df.empty:
         )
     
     with col2:
-        # Summary statistics with opportunity scores
-        summary_data = player_stats[['actual_player', 'july_2025_volume', 'country', 'opportunity_score', 'merch_ratio']].round(1)
-        summary_data.columns = ['Player', 'Total_Volume', 'Countries', 'Opportunity_Score', 'Merch_Ratio']
-        summary_csv = summary_data.to_csv(index=False)
+        # Summary statistics
+        summary_data = filtered_df.groupby('actual_player').agg({
+            'july_2025_volume': ['sum', 'mean'],
+            'country': 'nunique',
+            'name_variation': 'nunique'
+        }).round(0)
+        summary_data.columns = ['Total_Volume', 'Avg_Volume', 'Countries', 'Name_Variations']
+        summary_csv = summary_data.to_csv()
         
         st.download_button(
             label="📊 Download Player Summary (CSV)",
