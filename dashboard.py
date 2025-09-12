@@ -474,7 +474,7 @@ if not filtered_df.empty:
     
     with tab5:
         # Comparisons
-        st.markdown("###Player Comparisons")
+        st.markdown("### Player Comparisons")
         
         players_to_compare = st.multiselect(
             "Select players to compare (max 10):",
