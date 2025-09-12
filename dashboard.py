@@ -537,7 +537,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_radar, use_container_width=True)
             
             # Comparison metrics table
-            st.markdown("#### 📋 Detailed Comparison Metrics")
+            st.markdown("#### Detailed Comparison Metrics")
             comparison_metrics = comparison_df.groupby('actual_player').agg({
                 'july_2025_volume': 'sum',
                 'country': 'nunique',
