@@ -436,17 +436,8 @@ if not filtered_df.empty:
             st.metric("Top Player", top_player)
         
         # Add filters for the table
-                
-        with col1:
-            min_volume_filter = st.number_input(
-                "Minimum Total Volume",
-                min_value=0,
-                value=0,
-                step=1000,
-                key="all_players_min_vol"
-            )
         
-        with col2:
+        with col1:
             sort_by = st.selectbox(
                 "Sort by",
                 options=['Total Volume', 'Name Searches', 'Merch Searches', 'Merch %', 'Countries', 'Player'],
@@ -454,7 +445,7 @@ if not filtered_df.empty:
                 key="all_players_sort"
             )
         
-        with col3:
+        with col2:
             sort_order = st.radio(
                 "Order",
                 options=['Descending', 'Ascending'],
