@@ -391,7 +391,6 @@ if not filtered_df.empty:
         player_summary = filtered_df.groupby('actual_player').agg({
             'july_2025_volume': 'sum',
             'country': 'nunique',
-            'search_type': 'nunique',
             'name_variation': 'nunique'
         }).reset_index()
         
@@ -409,7 +408,6 @@ if not filtered_df.empty:
             'Player',
             'Total Volume',
             'Countries',
-            'Search Types',
             'Name Variations',
             'Name Searches',
             'Merch Searches',
