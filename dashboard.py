@@ -453,8 +453,6 @@ if not filtered_df.empty:
                 key="all_players_order"
             )
         
-        # Apply filters
-        filtered_summary = player_summary[player_summary['Total Volume'] >= min_volume_filter]
         
         # Apply sorting
         ascending = (sort_order == 'Ascending')
