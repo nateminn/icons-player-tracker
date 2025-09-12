@@ -436,8 +436,17 @@ if not filtered_df.empty:
             st.metric("Top Player", top_player)
         
         # Add filters for the table
-        
+                
         with col1:
+            min_volume_filter = st.number_input(
+                "Minimum Total Volume",
+                min_value=0,
+                value=0,
+                step=1000,
+                key="all_players_min_vol"
+            )
+        
+        with col2:
             sort_by = st.selectbox(
                 "Sort by",
                 options=['Total Volume', 'Name Searches', 'Merch Searches', 'Merch %', 'Countries', 'Player'],
@@ -445,7 +454,7 @@ if not filtered_df.empty:
                 key="all_players_sort"
             )
         
-        with col2:
+        with col3:
             sort_order = st.radio(
                 "Order",
                 options=['Descending', 'Ascending'],
@@ -453,6 +462,8 @@ if not filtered_df.empty:
                 key="all_players_order"
             )
         
+        # Apply filters
+        filtered_summary = player_summary[player_summary['Total Volume'] >= min_volume_filter]
         
         # Apply sorting
         ascending = (sort_order == 'Ascending')
@@ -650,7 +661,7 @@ if not filtered_df.empty:
     
     # Export functionality
     st.markdown("---")
-    st.markdown("###  Export Data")
+    st.markdown("### 💾 Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -673,7 +684,7 @@ if not filtered_df.empty:
         summary_csv = summary_data.to_csv()
         
         st.download_button(
-            label=" Download Player Summary (CSV)",
+            label="📊 Download Player Summary (CSV)",
             data=summary_csv,
             file_name=f"player_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -681,7 +692,7 @@ if not filtered_df.empty:
     
     with col3:
         # Info about the current filter
-        st.info(f" Showing {len(filtered_df):,} rows from {len(df):,} total")
+        st.info(f"📊 Showing {len(filtered_df):,} rows from {len(df):,} total")
 
 else:
     # Empty state when filters return no data
@@ -692,10 +703,10 @@ else:
 st.markdown("---")
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.caption(f" Data: {len(df):,} total rows")
+    st.caption(f"💾 Data: {len(df):,} total rows")
 with col2:
-    st.caption(f" Players: {df['actual_player'].nunique()} unique")
+    st.caption(f"👥 Players: {df['actual_player'].nunique()} unique")
 with col3:
-    st.caption(f" Markets: {df['country'].nunique()} countries")
+    st.caption(f"🌍 Markets: {df['country'].nunique()} countries")
 
 st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Built with Streamlit")
