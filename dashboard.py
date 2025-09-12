@@ -472,6 +472,7 @@ if not filtered_df.empty:
             st.warning("Please select maximum 10 players for comparison")
     
     with tab5:
+        # Comparisons (moved from tab4)
         # Merchandise Analysis
         st.markdown("### 👕 Merchandise Search Analysis")
         
