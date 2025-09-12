@@ -384,7 +384,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_names, use_container_width=True)
     
     with tab4:
-        # ALL PLAYERS TAB
+        # ALL PLAYERS TAB - CLEAN VERSION
         st.markdown("### 📋 Complete Players Database")
         
         # Create summary for all players
@@ -422,31 +422,10 @@ if not filtered_df.empty:
         # Add ranking
         player_summary.insert(0, 'Rank', range(1, len(player_summary) + 1))
         
-        # Display metrics
-        col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Total Players", f"{len(player_summary):,}")
-        with col2:
-            st.metric("Total Search Volume", f"{player_summary['Total Volume'].sum():,}")
-        with col3:
-            avg_vol = player_summary['Total Volume'].mean()
-            st.metric("Avg Volume/Player", f"{avg_vol:,.0f}")
-        with col4:
-            top_player = player_summary.iloc[0]['Player'] if len(player_summary) > 0 else "N/A"
-            st.metric("Top Player", top_player)
+        # Sorting controls only - NO VOLUME FILTER
+        col1, col2 = st.columns(2)
         
-        # Add filters for the table
-                
         with col1:
-            min_volume_filter = st.number_input(
-                "Minimum Total Volume",
-                min_value=0,
-                value=0,
-                step=1000,
-                key="all_players_min_vol"
-            )
-        
-        with col2:
             sort_by = st.selectbox(
                 "Sort by",
                 options=['Total Volume', 'Name Searches', 'Merch Searches', 'Merch %', 'Countries', 'Player'],
@@ -454,7 +433,7 @@ if not filtered_df.empty:
                 key="all_players_sort"
             )
         
-        with col3:
+        with col2:
             sort_order = st.radio(
                 "Order",
                 options=['Descending', 'Ascending'],
@@ -462,18 +441,15 @@ if not filtered_df.empty:
                 key="all_players_order"
             )
         
-        # Apply filters
-        filtered_summary = player_summary[player_summary['Total Volume'] >= min_volume_filter]
-        
-        # Apply sorting
+        # Apply sorting only
         ascending = (sort_order == 'Ascending')
-        filtered_summary = filtered_summary.sort_values(sort_by, ascending=ascending)
+        sorted_summary = player_summary.sort_values(sort_by, ascending=ascending)
         
-        # Reset ranking after filtering/sorting
-        filtered_summary['Rank'] = range(1, len(filtered_summary) + 1)
+        # Reset ranking after sorting
+        sorted_summary['Rank'] = range(1, len(sorted_summary) + 1)
         
         # Format the dataframe for display
-        styled_df = filtered_summary.style.format({
+        styled_df = sorted_summary.style.format({
             'Total Volume': '{:,.0f}',
             'Name Searches': '{:,.0f}',
             'Merch Searches': '{:,.0f}',
@@ -481,7 +457,6 @@ if not filtered_df.empty:
         }).background_gradient(subset=['Total Volume'], cmap='Blues')
         
         # Display the table
-        st.markdown("---")
         st.dataframe(
             styled_df,
             use_container_width=True,
@@ -490,18 +465,14 @@ if not filtered_df.empty:
         
         # Export button for this table
         st.markdown("---")
-        csv_export = filtered_summary.to_csv(index=False)
-        col1, col2 = st.columns(2)
-        with col1:
-            st.download_button(
-                label="📥 Download All Players Summary (CSV)",
-                data=csv_export,
-                file_name=f"all_players_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-                mime="text/csv",
-                key="download_all_players"
-            )
-        with col2:
-            st.info(f"Showing {len(filtered_summary)} of {len(player_summary)} total players")
+        csv_export = sorted_summary.to_csv(index=False)
+        st.download_button(
+            label="📥 Download All Players Summary (CSV)",
+            data=csv_export,
+            file_name=f"all_players_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+            mime="text/csv",
+            key="download_all_players"
+        )
     
     with tab5:
         # Comparisons
