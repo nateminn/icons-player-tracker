@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
-import numpy as n
+import numpy as np
 
 # Page configuration
 st.set_page_config(
@@ -81,15 +81,20 @@ if df.empty:
     """)
     st.stop()
 else:
-    st.success(f" Successfully loaded {len(df):,} rows of data")
+    st.success(f"✅ Successfully loaded {len(df):,} rows of data")
 
 # Sidebar filters
 with st.sidebar:
-    st.markdown("## Dashboard Controls")
-    st.markdown("### Filters")
+    st.markdown("## 📊 Dashboard Controls")
+    st.markdown("### 🔍 Filters")
+    
+    # Add refresh button
+    if st.button("🔄 Refresh Data"):
+        st.cache_data.clear()
+        st.rerun()
     
     # Show data status
-    st.info(f"  Dataset: {len(df):,} rows")
+    st.info(f"📊 Dataset: {len(df):,} rows")
     st.caption("Data source: GitHub Repository")
     
     # Country filter
@@ -197,8 +202,15 @@ if not filtered_df.empty:
     
     st.markdown("---")
     
-    # Tabs for different views
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📈 Overview", "🌍 Market Analysis", "👤 Player Details", "📊 Comparisons", "👕 Merchandise"])
+    # Tabs for different views - 6 TABS TOTAL
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+        "📈 Overview", 
+        "🌍 Market Analysis", 
+        "👤 Player Details",
+        "📋 All Players",
+        "📊 Comparisons", 
+        "👕 Merchandise"
+    ])
     
     with tab1:
         # Overview charts
@@ -372,6 +384,128 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_names, use_container_width=True)
     
     with tab4:
+        # ALL PLAYERS TAB
+        st.markdown("### 📋 Complete Players Database")
+        
+        # Create summary for all players
+        player_summary = filtered_df.groupby('actual_player').agg({
+            'july_2025_volume': 'sum',
+            'country': 'nunique',
+            'search_type': 'nunique',
+            'name_variation': 'nunique'
+        }).reset_index()
+        
+        # Add merchandise volume separately
+        merch_volume = filtered_df[filtered_df['search_type'] == 'Merchandise'].groupby('actual_player')['july_2025_volume'].sum()
+        name_volume = filtered_df[filtered_df['search_type'] == 'Name Only'].groupby('actual_player')['july_2025_volume'].sum()
+        
+        player_summary['name_searches'] = player_summary['actual_player'].map(name_volume).fillna(0).astype(int)
+        player_summary['merch_searches'] = player_summary['actual_player'].map(merch_volume).fillna(0).astype(int)
+        player_summary['merch_ratio'] = ((player_summary['merch_searches'] / player_summary['july_2025_volume'] * 100)
+                                         .fillna(0).round(1))
+        
+        # Rename columns for display
+        player_summary.columns = [
+            'Player',
+            'Total Volume',
+            'Countries',
+            'Search Types',
+            'Name Variations',
+            'Name Searches',
+            'Merch Searches',
+            'Merch %'
+        ]
+        
+        # Sort by total volume by default
+        player_summary = player_summary.sort_values('Total Volume', ascending=False)
+        
+        # Add ranking
+        player_summary.insert(0, 'Rank', range(1, len(player_summary) + 1))
+        
+        # Display metrics
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Total Players", f"{len(player_summary):,}")
+        with col2:
+            st.metric("Total Search Volume", f"{player_summary['Total Volume'].sum():,}")
+        with col3:
+            avg_vol = player_summary['Total Volume'].mean()
+            st.metric("Avg Volume/Player", f"{avg_vol:,.0f}")
+        with col4:
+            top_player = player_summary.iloc[0]['Player'] if len(player_summary) > 0 else "N/A"
+            st.metric("Top Player", top_player)
+        
+        # Add filters for the table
+        st.markdown("---")
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            min_volume_filter = st.number_input(
+                "Minimum Total Volume",
+                min_value=0,
+                value=0,
+                step=1000,
+                key="all_players_min_vol"
+            )
+        
+        with col2:
+            sort_by = st.selectbox(
+                "Sort by",
+                options=['Total Volume', 'Name Searches', 'Merch Searches', 'Merch %', 'Countries', 'Player'],
+                index=0,
+                key="all_players_sort"
+            )
+        
+        with col3:
+            sort_order = st.radio(
+                "Order",
+                options=['Descending', 'Ascending'],
+                horizontal=True,
+                key="all_players_order"
+            )
+        
+        # Apply filters
+        filtered_summary = player_summary[player_summary['Total Volume'] >= min_volume_filter]
+        
+        # Apply sorting
+        ascending = (sort_order == 'Ascending')
+        filtered_summary = filtered_summary.sort_values(sort_by, ascending=ascending)
+        
+        # Reset ranking after filtering/sorting
+        filtered_summary['Rank'] = range(1, len(filtered_summary) + 1)
+        
+        # Format the dataframe for display
+        styled_df = filtered_summary.style.format({
+            'Total Volume': '{:,.0f}',
+            'Name Searches': '{:,.0f}',
+            'Merch Searches': '{:,.0f}',
+            'Merch %': '{:.1f}%'
+        }).background_gradient(subset=['Total Volume'], cmap='Blues')
+        
+        # Display the table
+        st.markdown("---")
+        st.dataframe(
+            styled_df,
+            use_container_width=True,
+            height=600
+        )
+        
+        # Export button for this table
+        st.markdown("---")
+        csv_export = filtered_summary.to_csv(index=False)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.download_button(
+                label="📥 Download All Players Summary (CSV)",
+                data=csv_export,
+                file_name=f"all_players_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                mime="text/csv",
+                key="download_all_players"
+            )
+        with col2:
+            st.info(f"Showing {len(filtered_summary)} of {len(player_summary)} total players")
+    
+    with tab5:
         # Comparisons
         st.markdown("### 📊 Player Comparisons")
         
@@ -452,7 +586,7 @@ if not filtered_df.empty:
         elif len(players_to_compare) > 10:
             st.warning("Please select maximum 10 players for comparison")
     
-    with tab5:
+    with tab6:
         # Merchandise Analysis
         st.markdown("### 👕 Merchandise Search Analysis")
         
@@ -529,7 +663,7 @@ if not filtered_df.empty:
     
     # Export functionality
     st.markdown("---")
-    st.markdown("### 💾 Export Data")
+    st.markdown("### Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -577,4 +711,4 @@ with col2:
 with col3:
     st.caption(f"Markets: {df['country'].nunique()} countries")
 
-st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data ")
+st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Built with Streamlit")
