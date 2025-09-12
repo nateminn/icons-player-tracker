@@ -555,7 +555,7 @@ if not filtered_df.empty:
     
     with tab6:
         # Merchandise Analysis
-        st.markdown("### 👕 Merchandise Search Analysis")
+        st.markdown("### Merchandise Search Analysis")
         
         merch_df = filtered_df[filtered_df['search_type'] == 'Merchandise']
         
@@ -589,7 +589,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_terms, use_container_width=True)
             
             # Player merchandise performance
-            st.markdown("#### 🏆 Top Players by Merchandise Searches")
+            st.markdown("#### Top Players by Merchandise Searches")
             player_merch = merch_df.groupby('actual_player')['july_2025_volume'].sum().nlargest(20).reset_index()
             
             fig_player_merch = px.bar(
