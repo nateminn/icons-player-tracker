@@ -245,7 +245,7 @@ if not filtered_df.empty:
             st.plotly_chart(fig_pie, use_container_width=True)
         
         # Search Type Breakdown
-        st.markdown("### 🔍 Search Type Analysis")
+        st.markdown("### Search Type Analysis")
         search_type_data = filtered_df.groupby(['search_type', 'actual_player'])['july_2025_volume'].sum().reset_index()
         search_type_pivot = search_type_data.pivot(index='actual_player', columns='search_type', values='july_2025_volume').fillna(0)
         
@@ -266,7 +266,7 @@ if not filtered_df.empty:
     
     with tab2:
         # Market Analysis
-        st.markdown("### 🌍 Market Deep Dive")
+        st.markdown("### Market Deep Dive")
         
         # Create pivot table for heatmap
         pivot_data = filtered_df.groupby(['actual_player', 'country'])['july_2025_volume'].sum().reset_index()
@@ -325,7 +325,7 @@ if not filtered_df.empty:
     
     with tab3:
         # Player Details
-        st.markdown("### 👤 Individual Player Analysis")
+        st.markdown("### Individual Player Analysis")
         
         selected_player = st.selectbox(
             "Select a player to analyze:",
@@ -385,7 +385,7 @@ if not filtered_df.empty:
     
     with tab4:
         # ALL PLAYERS TAB - CLEAN VERSION
-        st.markdown("### 📋 Complete Players Database")
+        st.markdown("### Complete Players Database")
         
         # Create summary for all players
         player_summary = filtered_df.groupby('actual_player').agg({
@@ -465,7 +465,7 @@ if not filtered_df.empty:
         st.markdown("---")
         csv_export = sorted_summary.to_csv(index=False)
         st.download_button(
-            label="📥 Download All Players Summary (CSV)",
+            label="Download All Players Summary (CSV)",
             data=csv_export,
             file_name=f"all_players_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv",
