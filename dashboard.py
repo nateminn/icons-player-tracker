@@ -436,9 +436,7 @@ if not filtered_df.empty:
             st.metric("Top Player", top_player)
         
         # Add filters for the table
-        st.markdown("---")
-        col1, col2, col3 = st.columns(3)
-        
+                
         with col1:
             min_volume_filter = st.number_input(
                 "Minimum Total Volume",
@@ -663,13 +661,13 @@ if not filtered_df.empty:
     
     # Export functionality
     st.markdown("---")
-    st.markdown("### Export Data")
+    st.markdown("###  Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
         csv = filtered_df.to_csv(index=False)
         st.download_button(
-            label="Download Filtered Data (CSV)",
+            label="📥 Download Filtered Data (CSV)",
             data=csv,
             file_name=f"player_demand_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -686,7 +684,7 @@ if not filtered_df.empty:
         summary_csv = summary_data.to_csv()
         
         st.download_button(
-            label="Download Player Summary (CSV)",
+            label=" Download Player Summary (CSV)",
             data=summary_csv,
             file_name=f"player_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -694,7 +692,7 @@ if not filtered_df.empty:
     
     with col3:
         # Info about the current filter
-        st.info(f"Showing {len(filtered_df):,} rows from {len(df):,} total")
+        st.info(f" Showing {len(filtered_df):,} rows from {len(df):,} total")
 
 else:
     # Empty state when filters return no data
@@ -705,10 +703,10 @@ else:
 st.markdown("---")
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.caption(f"Data: {len(df):,} total rows")
+    st.caption(f" Data: {len(df):,} total rows")
 with col2:
-    st.caption(f"Players: {df['actual_player'].nunique()} unique")
+    st.caption(f" Players: {df['actual_player'].nunique()} unique")
 with col3:
-    st.caption(f"Markets: {df['country'].nunique()} countries")
+    st.caption(f" Markets: {df['country'].nunique()} countries")
 
 st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Built with Streamlit")
