@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
-import numpy as np  # Fixed the typo here
+import numpy as np
 
 # Page configuration
 st.set_page_config(
@@ -34,13 +34,6 @@ st.markdown("""
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .insight-box {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        padding: 1rem;
-        border-radius: 10px;
-        color: white;
-        margin: 0.5rem 0;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -209,14 +202,14 @@ if not filtered_df.empty:
     
     st.markdown("---")
     
-    # Tabs for different views - ADDED NEW INSIGHTS TAB
+    # Tabs for different views - 6 TABS TOTAL
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📈 Overview", 
         "🌍 Market Analysis", 
-        "👤 Player Details", 
+        "👤 Player Details",
+        "📋 All Players",
         "📊 Comparisons", 
-        "👕 Merchandise",
-        "🎯 Market Insights"  # NEW TAB
+        "👕 Merchandise"
     ])
     
     with tab1:
@@ -391,6 +384,128 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_names, use_container_width=True)
     
     with tab4:
+        # ALL PLAYERS TAB
+        st.markdown("### 📋 Complete Players Database")
+        
+        # Create summary for all players
+        player_summary = filtered_df.groupby('actual_player').agg({
+            'july_2025_volume': 'sum',
+            'country': 'nunique',
+            'search_type': 'nunique',
+            'name_variation': 'nunique'
+        }).reset_index()
+        
+        # Add merchandise volume separately
+        merch_volume = filtered_df[filtered_df['search_type'] == 'Merchandise'].groupby('actual_player')['july_2025_volume'].sum()
+        name_volume = filtered_df[filtered_df['search_type'] == 'Name Only'].groupby('actual_player')['july_2025_volume'].sum()
+        
+        player_summary['name_searches'] = player_summary['actual_player'].map(name_volume).fillna(0).astype(int)
+        player_summary['merch_searches'] = player_summary['actual_player'].map(merch_volume).fillna(0).astype(int)
+        player_summary['merch_ratio'] = ((player_summary['merch_searches'] / player_summary['july_2025_volume'] * 100)
+                                         .fillna(0).round(1))
+        
+        # Rename columns for display
+        player_summary.columns = [
+            'Player',
+            'Total Volume',
+            'Countries',
+            'Search Types',
+            'Name Variations',
+            'Name Searches',
+            'Merch Searches',
+            'Merch %'
+        ]
+        
+        # Sort by total volume by default
+        player_summary = player_summary.sort_values('Total Volume', ascending=False)
+        
+        # Add ranking
+        player_summary.insert(0, 'Rank', range(1, len(player_summary) + 1))
+        
+        # Display metrics
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Total Players", f"{len(player_summary):,}")
+        with col2:
+            st.metric("Total Search Volume", f"{player_summary['Total Volume'].sum():,}")
+        with col3:
+            avg_vol = player_summary['Total Volume'].mean()
+            st.metric("Avg Volume/Player", f"{avg_vol:,.0f}")
+        with col4:
+            top_player = player_summary.iloc[0]['Player'] if len(player_summary) > 0 else "N/A"
+            st.metric("Top Player", top_player)
+        
+        # Add filters for the table
+        st.markdown("---")
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            min_volume_filter = st.number_input(
+                "Minimum Total Volume",
+                min_value=0,
+                value=0,
+                step=1000,
+                key="all_players_min_vol"
+            )
+        
+        with col2:
+            sort_by = st.selectbox(
+                "Sort by",
+                options=['Total Volume', 'Name Searches', 'Merch Searches', 'Merch %', 'Countries', 'Player'],
+                index=0,
+                key="all_players_sort"
+            )
+        
+        with col3:
+            sort_order = st.radio(
+                "Order",
+                options=['Descending', 'Ascending'],
+                horizontal=True,
+                key="all_players_order"
+            )
+        
+        # Apply filters
+        filtered_summary = player_summary[player_summary['Total Volume'] >= min_volume_filter]
+        
+        # Apply sorting
+        ascending = (sort_order == 'Ascending')
+        filtered_summary = filtered_summary.sort_values(sort_by, ascending=ascending)
+        
+        # Reset ranking after filtering/sorting
+        filtered_summary['Rank'] = range(1, len(filtered_summary) + 1)
+        
+        # Format the dataframe for display
+        styled_df = filtered_summary.style.format({
+            'Total Volume': '{:,.0f}',
+            'Name Searches': '{:,.0f}',
+            'Merch Searches': '{:,.0f}',
+            'Merch %': '{:.1f}%'
+        }).background_gradient(subset=['Total Volume'], cmap='Blues')
+        
+        # Display the table
+        st.markdown("---")
+        st.dataframe(
+            styled_df,
+            use_container_width=True,
+            height=600
+        )
+        
+        # Export button for this table
+        st.markdown("---")
+        csv_export = filtered_summary.to_csv(index=False)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.download_button(
+                label="📥 Download All Players Summary (CSV)",
+                data=csv_export,
+                file_name=f"all_players_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                mime="text/csv",
+                key="download_all_players"
+            )
+        with col2:
+            st.info(f"Showing {len(filtered_summary)} of {len(player_summary)} total players")
+    
+    with tab5:
         # Comparisons
         st.markdown("### 📊 Player Comparisons")
         
@@ -471,8 +586,7 @@ if not filtered_df.empty:
         elif len(players_to_compare) > 10:
             st.warning("Please select maximum 10 players for comparison")
     
-    with tab5:
-        # Comparisons (moved from tab4)
+    with tab6:
         # Merchandise Analysis
         st.markdown("### 👕 Merchandise Search Analysis")
         
@@ -547,164 +661,6 @@ if not filtered_df.empty:
         else:
             st.info("No merchandise data available for the selected filters")
     
-    # NEW TAB 7: MARKET INSIGHTS
-    with tab7:
-        st.markdown("### 🎯 Smart Market Insights & Opportunities")
-        
-        # Calculate opportunity scores
-        st.markdown("#### 💡 Market Opportunity Analysis")
-        
-        # 1. Calculate market penetration for each player
-        player_stats = filtered_df.groupby('actual_player').agg({
-            'july_2025_volume': 'sum',
-            'country': 'nunique',
-            'search_type': 'nunique',
-            'name_variation': 'nunique'
-        }).reset_index()
-        
-        # Add merchandise ratio
-        merch_volume = filtered_df[filtered_df['search_type'] == 'Merchandise'].groupby('actual_player')['july_2025_volume'].sum()
-        total_volume = filtered_df.groupby('actual_player')['july_2025_volume'].sum()
-        merch_ratio = (merch_volume / total_volume * 100).fillna(0)
-        player_stats['merch_ratio'] = player_stats['actual_player'].map(merch_ratio).fillna(0)
-        
-        # Calculate opportunity score
-        player_stats['market_coverage'] = player_stats['country'] / df['country'].nunique() * 100
-        player_stats['search_diversity'] = player_stats['search_type'] / df['search_type'].nunique() * 100
-        player_stats['opportunity_score'] = (
-            (100 - player_stats['market_coverage']) * 0.4 +  # Higher score for untapped markets
-            (100 - player_stats['merch_ratio']) * 0.3 +      # Higher score for low merch conversion
-            player_stats['july_2025_volume'] / player_stats['july_2025_volume'].max() * 30  # Volume potential
-        )
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            # Top opportunity players
-            top_opportunities = player_stats.nlargest(10, 'opportunity_score')[
-                ['actual_player', 'opportunity_score', 'market_coverage', 'merch_ratio']
-            ].round(1)
-            
-            fig_opp = px.bar(
-                top_opportunities,
-                x='opportunity_score',
-                y='actual_player',
-                orientation='h',
-                title='🚀 Top 10 Players with Market Opportunity',
-                color='opportunity_score',
-                color_continuous_scale='RdYlGn',
-                labels={'opportunity_score': 'Opportunity Score', 'actual_player': 'Player'}
-            )
-            st.plotly_chart(fig_opp, use_container_width=True)
-        
-        with col2:
-            # Underserved markets
-            country_coverage = filtered_df.groupby('country').agg({
-                'actual_player': 'nunique',
-                'july_2025_volume': 'sum'
-            }).reset_index()
-            country_coverage['players_per_million_searches'] = (
-                country_coverage['actual_player'] / (country_coverage['july_2025_volume'] / 1000000)
-            ).round(1)
-            
-            underserved = country_coverage.nsmallest(10, 'players_per_million_searches')
-            
-            fig_underserved = px.bar(
-                underserved,
-                x='players_per_million_searches',
-                y='country',
-                orientation='h',
-                title='🎯 Underserved Markets (Few Players, High Demand)',
-                color='july_2025_volume',
-                color_continuous_scale='Oranges',
-                labels={'players_per_million_searches': 'Players per Million Searches'}
-            )
-            st.plotly_chart(fig_underserved, use_container_width=True)
-        
-        # Key insights section
-        st.markdown("#### 📊 Automated Key Insights")
-        
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            st.markdown('<div class="insight-box">', unsafe_allow_html=True)
-            st.markdown("**🔥 Hottest Player**")
-            hottest = player_stats.nlargest(1, 'july_2025_volume')['actual_player'].values[0]
-            st.markdown(f"{hottest}")
-            st.markdown(f"Volume: {player_stats[player_stats['actual_player']==hottest]['july_2025_volume'].values[0]:,.0f}")
-            st.markdown('</div>', unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown('<div class="insight-box">', unsafe_allow_html=True)
-            st.markdown("**💎 Hidden Gem**")
-            # Players with high search diversity but low total volume
-            hidden_gems = player_stats[
-                (player_stats['july_2025_volume'] < player_stats['july_2025_volume'].median()) &
-                (player_stats['search_diversity'] > 50)
-            ].nlargest(1, 'opportunity_score')
-            if not hidden_gems.empty:
-                gem = hidden_gems['actual_player'].values[0]
-                st.markdown(f"{gem}")
-                st.markdown(f"Opportunity Score: {hidden_gems['opportunity_score'].values[0]:.1f}")
-            else:
-                st.markdown("No hidden gems found")
-            st.markdown('</div>', unsafe_allow_html=True)
-        
-        with col3:
-            st.markdown('<div class="insight-box">', unsafe_allow_html=True)
-            st.markdown("**🌍 Best Global Reach**")
-            global_player = player_stats.nlargest(1, 'country')
-            gp_name = global_player['actual_player'].values[0]
-            st.markdown(f"{gp_name}")
-            st.markdown(f"Present in {global_player['country'].values[0]} markets")
-            st.markdown('</div>', unsafe_allow_html=True)
-        
-        # Market gaps analysis
-        st.markdown("#### 🔍 Market Gap Analysis")
-        
-        # Find players missing from key markets
-        key_markets = ['United States', 'United Kingdom', 'Germany', 'Brazil', 'Spain']
-        available_key_markets = [m for m in key_markets if m in filtered_df['country'].unique()]
-        
-        if available_key_markets:
-            market_presence = {}
-            for player in player_stats.nlargest(20, 'july_2025_volume')['actual_player']:
-                player_countries = filtered_df[filtered_df['actual_player'] == player]['country'].unique()
-                missing_markets = [m for m in available_key_markets if m not in player_countries]
-                if missing_markets:
-                    market_presence[player] = missing_markets
-            
-            if market_presence:
-                st.markdown("**Players Missing from Key Markets:**")
-                gap_data = []
-                for player, markets in list(market_presence.items())[:5]:
-                    gap_data.append({
-                        'Player': player,
-                        'Missing Markets': ', '.join(markets),
-                        'Number of Gaps': len(markets)
-                    })
-                gap_df = pd.DataFrame(gap_data)
-                st.dataframe(gap_df, use_container_width=True)
-        
-        # Merchandise conversion opportunities
-        st.markdown("#### 🛍️ Merchandise Conversion Opportunities")
-        
-        # Find players with high general search but low merchandise search
-        low_merch = player_stats[
-            (player_stats['july_2025_volume'] > player_stats['july_2025_volume'].median()) &
-            (player_stats['merch_ratio'] < 20)
-        ].nlargest(10, 'july_2025_volume')[['actual_player', 'july_2025_volume', 'merch_ratio']]
-        
-        if not low_merch.empty:
-            low_merch.columns = ['Player', 'Total Searches', 'Merch %']
-            low_merch['Potential'] = '⭐' * (5 - (low_merch['Merch %'] / 5).astype(int).clip(0, 4))
-            
-            st.markdown("**High-volume players with low merchandise conversion:**")
-            st.dataframe(
-                low_merch.style.background_gradient(subset=['Total Searches'], cmap='Greens'),
-                use_container_width=True
-            )
-    
     # Export functionality
     st.markdown("---")
     st.markdown("### 💾 Export Data")
@@ -755,4 +711,4 @@ with col2:
 with col3:
     st.caption(f"🌍 Markets: {df['country'].nunique()} countries")
 
-st.caption("Icons Player Demand Tracker v2.1 | July 2025 Data | Built with Streamlit")
+st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Built with Streamlit")
