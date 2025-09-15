@@ -197,9 +197,14 @@ if not filtered_df.empty:
     
     st.markdown("---")
     
-    # Tabs for different views
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📈 Overview", "🌍 Market Analysis", "👤 Player Details", "📊 Comparisons", "👕 Merchandise"])
-    
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    "📈 Overview", 
+    "🌍 Market Analysis", 
+    "👤 Player Details",
+    "📊 Comparisons", 
+    "👕 Merchandise"
+    "📋 All Players",  # NEW
+])
     with tab1:
         # Overview charts
         col1, col2 = st.columns(2)
@@ -526,6 +531,82 @@ if not filtered_df.empty:
             
         else:
             st.info("No merchandise data available for the selected filters")
+
+    with tab6:
+            # Merchandise Analysis
+            st.markdown("### 👕 Merchandise Search Analysis")
+            
+            merch_df = filtered_df[filtered_df['search_type'] == 'Merchandise']
+            
+            if not merch_df.empty:
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    # Top merchandise categories
+                    merch_cat_totals = merch_df.groupby('merch_category')['july_2025_volume'].sum().reset_index()
+                    fig_merch_cat = px.pie(
+                        merch_cat_totals,
+                        values='july_2025_volume',
+                        names='merch_category',
+                        title='Merchandise Search Volume by Category'
+                    )
+                    st.plotly_chart(fig_merch_cat, use_container_width=True)
+                
+                with col2:
+                    # Top merchandise terms
+                    merch_terms = merch_df.groupby('merch_term')['july_2025_volume'].sum().nlargest(15).reset_index()
+                    fig_terms = px.bar(
+                        merch_terms,
+                        x='july_2025_volume',
+                        y='merch_term',
+                        orientation='h',
+                        title='Top 15 Merchandise Search Terms',
+                        color='july_2025_volume',
+                        color_continuous_scale='Reds',
+                        labels={'july_2025_volume': 'Search Volume', 'merch_term': 'Merchandise Term'}
+                    )
+                    st.plotly_chart(fig_terms, use_container_width=True)
+                
+                # Player merchandise performance
+                st.markdown("#### 🏆 Top Players by Merchandise Searches")
+                player_merch = merch_df.groupby('actual_player')['july_2025_volume'].sum().nlargest(20).reset_index()
+                
+                fig_player_merch = px.bar(
+                    player_merch,
+                    x='actual_player',
+                    y='july_2025_volume',
+                    title='Top 20 Players - Merchandise Search Volume',
+                    color='july_2025_volume',
+                    color_continuous_scale='Viridis',
+                    labels={'july_2025_volume': 'Merchandise Searches', 'actual_player': 'Player'}
+                )
+                fig_player_merch.update_layout(xaxis_tickangle=-45)
+                st.plotly_chart(fig_player_merch, use_container_width=True)
+                
+                # Merchandise by country
+                st.markdown("#### 🌍 Merchandise Searches by Country")
+                country_merch = merch_df.groupby(['country', 'merch_category']).agg({
+                    'july_2025_volume': 'sum'
+                }).reset_index()
+                
+                # Top countries for merchandise
+                top_merch_countries = country_merch.groupby('country')['july_2025_volume'].sum().nlargest(10).index
+                country_merch_filtered = country_merch[country_merch['country'].isin(top_merch_countries)]
+                
+                fig_country_merch = px.bar(
+                    country_merch_filtered,
+                    x='country',
+                    y='july_2025_volume',
+                    color='merch_category',
+                    title='Merchandise Categories by Country (Top 10 Markets)',
+                    labels={'july_2025_volume': 'Search Volume'},
+                    barmode='stack'
+                )
+                st.plotly_chart(fig_country_merch, use_container_width=True)
+                
+            else:
+                st.info("No merchandise data available for the selected filters")
+
     
     # Export functionality
     st.markdown("---")
