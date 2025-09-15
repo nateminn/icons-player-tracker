@@ -18,20 +18,16 @@ st.set_page_config(
 # Custom CSS for better styling - UPDATED TO FIX TITLE SPACING
 st.markdown("""
     <style>
-    /* Remove default Streamlit padding at the top */
+    /* Remove default Streamlit padding at the top but keep space for sidebar toggle */
     .block-container {
-        padding-top: 0rem !important;
+        padding-top: 2rem !important;  /* Changed from 0rem to leave room for toggle */
         padding-bottom: 0rem !important;
     }
     
-    /* Hide Streamlit header */
+    /* Don't hide the entire header - just minimize it */
     header[data-testid="stHeader"] {
-        display: none !important;
-    }
-    
-    /* Remove top padding from main */
-    div[data-testid="stAppViewContainer"] > .main {
-        padding-top: 0rem !important;
+        height: 2rem !important;  /* Keep minimal header for sidebar toggle */
+        background: transparent !important;
     }
     
     /* Adjust main header positioning */
@@ -41,22 +37,25 @@ st.markdown("""
         color: black;
         text-align: center;
         padding: 1rem 0;
-        margin-top: 0rem !important;
+        margin-top: -1rem !important;  /* Reduced negative margin */
         margin-bottom: 0.5rem;
     }
     
-    /* Fix sidebar spacing and ensure toggle is visible */
+    /* Fix sidebar spacing */
     section[data-testid="stSidebar"] {
-        top: 0rem !important;
+        top: 2rem !important;  /* Align with header */
     }
     
     section[data-testid="stSidebar"] > div {
         padding-top: 0.5rem !important;
     }
     
-    /* Ensure sidebar toggle button is visible */
-    button[kind="header"] {
+    /* Keep the sidebar toggle visible */
+    button[aria-label="Open sidebar"] {
+        display: block !important;
         visibility: visible !important;
+        top: 0.5rem !important;
+        left: 0.5rem !important;
     }
     
     /* Other styles */
@@ -74,7 +73,7 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
-    /* Hide hamburger menu and footer but keep sidebar toggle */
+    /* Hide hamburger menu and footer */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     </style>
