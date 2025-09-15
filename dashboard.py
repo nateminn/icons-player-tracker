@@ -30,7 +30,7 @@ st.markdown("""
         color: black;
         text-align: center;
         padding: 0.5rem 0;  /* Reduced from 1rem to 0.5rem */
-        margin-top: -2rem;  /* Negative margin to pull it up */
+        margin-top: 0rem;  /* Negative margin to pull it up */
         margin-bottom: 0.5rem;
     }
     
