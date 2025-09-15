@@ -15,18 +15,19 @@ st.set_page_config(
     menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
 )
 
-# Custom CSS for better styling - UPDATED TO FIX TITLE SPACING
+# Custom CSS for better styling - FIXED SIDEBAR TOGGLE VISIBILITY
 st.markdown("""
     <style>
-    /* Remove default Streamlit padding at the top */
+    /* Keep minimal top padding for sidebar toggle */
     .block-container {
-        padding-top: 0rem !important;
+        padding-top: 2.5rem !important;
         padding-bottom: 0rem !important;
     }
     
-    /* Hide Streamlit header */
+    /* Minimize header but keep it for sidebar toggle */
     header[data-testid="stHeader"] {
-        display: none !important;
+        height: 3rem !important;
+        background: transparent !important;
     }
     
     /* Remove top padding from main */
@@ -41,13 +42,13 @@ st.markdown("""
         color: black;
         text-align: center;
         padding: 1rem 0;
-        margin-top: 0rem !important;
+        margin-top: -1.5rem !important;
         margin-bottom: 0.5rem;
     }
     
     /* Fix sidebar spacing */
     section[data-testid="stSidebar"] {
-        top: 0rem !important;
+        top: 3rem !important;
     }
     
     section[data-testid="stSidebar"] > div {
@@ -69,10 +70,9 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
-    /* Hide hamburger menu and footer */
+    /* Hide hamburger menu and footer only */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
-    header {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
 
