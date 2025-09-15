@@ -171,7 +171,7 @@ def enhance_with_player_details(df, player_dict):
 
 # Header
 st.markdown('<h1 class="main-header">Icons Player Demand Tracker</h1>', unsafe_allow_html=True)
-st.markdown("### Global Search Demand Analysis for Football Players - July 2025")
+st.markdown("### Global Search Demand Analysis - July 2025")
 
 # Load data
 with st.spinner('Loading data from GitHub...'):
