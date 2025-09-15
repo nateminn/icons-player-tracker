@@ -69,7 +69,7 @@ with st.spinner('Loading data from GitHub...'):
 
 if df.empty:
     st.error("""
-    ### ⚠️ Data Loading Error
+    ### Data Loading Error
     
     Could not load the data from GitHub. Please check:
     1. Your internet connection
@@ -81,22 +81,13 @@ if df.empty:
     """)
     st.stop()
 else:
-    st.success(f"✅ Successfully loaded {len(df):,} rows of data")
+    st.success(f" Successfully loaded {len(df):,} rows of data")
 
 # Sidebar filters
 with st.sidebar:
-    st.markdown("## 📊 Dashboard Controls")
-    st.markdown("### 🔍 Filters")
-    
-    # Add refresh button
-    if st.button("🔄 Refresh Data"):
-        st.cache_data.clear()
-        st.rerun()
-    
-    # Show data status
-    st.info(f"📊 Dataset: {len(df):,} rows")
-    st.caption("Data source: GitHub Repository")
-    
+    st.markdown("## Dashboard Controls")
+    st.markdown("### Filters")
+
     # Country filter
     selected_countries = st.multiselect(
         "Select Countries:",
