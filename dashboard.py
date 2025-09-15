@@ -11,16 +11,27 @@ import requests
 st.set_page_config(
     page_title="Icons Player Demand Tracker",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
 )
 
-# Custom CSS for better styling
+# Custom CSS for better styling - UPDATED TO FIX PADDING
 st.markdown("""
     <style>
     /* Remove default Streamlit padding at the top */
     .block-container {
-        padding-top: 1rem !important;
+        padding-top: 0rem !important;
         padding-bottom: 0rem !important;
+    }
+    
+    /* Hide Streamlit header completely */
+    header[data-testid="stHeader"] {
+        display: none !important;
+    }
+    
+    /* Remove the top padding from main container */
+    div[data-testid="stAppViewContainer"] > .main {
+        padding-top: 0rem !important;
     }
     
     /* Adjust main header positioning */
@@ -29,18 +40,18 @@ st.markdown("""
         font-weight: bold;
         color: black;
         text-align: center;
-        padding: 0.5rem 0;  /* Reduced from 1rem to 0.5rem */
-        margin-top: 0rem;  /* Negative margin to pull it up */
+        padding: 1rem 0;
+        margin-top: 0rem !important;
         margin-bottom: 0.5rem;
     }
     
-    /* Fix sidebar spacing */
+    /* Fix sidebar spacing - move it up */
     section[data-testid="stSidebar"] {
-        top: 2rem !important;  /* Adjust top position */
+        top: 0rem !important;
     }
     
     section[data-testid="stSidebar"] > div {
-        padding-top: 1rem !important;  /* Reduce padding at top of sidebar */
+        padding-top: 0.5rem !important;
     }
     
     /* Reduce space above sidebar title */
@@ -52,12 +63,7 @@ st.markdown("""
     /* Adjust the main content area */
     .main .block-container {
         max-width: 100%;
-        padding-top: 1rem !important;
-    }
-    
-    /* Remove extra space at the very top of the app */
-    .stApp > header {
-        height: 3rem !important;  /* Reduce header height */
+        padding-top: 0rem !important;
     }
     
     /* Other existing styles */
@@ -79,10 +85,16 @@ st.markdown("""
     /* Hide the hamburger menu and footer for cleaner look */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
+    header {visibility: hidden;}
     
     /* Reduce spacing between elements */
     .element-container {
         margin-bottom: 0.5rem !important;
+    }
+    
+    /* Push everything up */
+    .appview-container {
+        padding-top: 0rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -479,11 +491,10 @@ if not filtered_df.empty:
             )
             st.plotly_chart(fig_avg, use_container_width=True)
     
-    # Replace the existing tab3 (Player Details) section with this cleaner version:
-
+    # UPDATED TAB 3 - PLAYER DETAILS WITHOUT EMOJIS
     with tab3:
-        # Enhanced Player Details with cleaner layout
-        st.markdown("### 👤 Individual Player Analysis")
+        # Enhanced Player Details with cleaner layout - NO EMOJIS
+        st.markdown("### Individual Player Analysis")
         
         # Get unique players sorted by total volume
         player_volumes = filtered_df.groupby('actual_player')['july_2025_volume'].sum().sort_values(ascending=False)
@@ -502,7 +513,7 @@ if not filtered_df.empty:
         
         # SECTION 1: PLAYER PROFILE CARD
         st.markdown("---")
-        st.markdown("#### 📋 Player Profile")
+        st.markdown("#### Player Profile")
         
         if player_info:
             # Create a clean profile card with columns
@@ -544,11 +555,11 @@ if not filtered_df.empty:
                 else:
                     st.success("No previous clubs recorded")
         else:
-            st.info("📊 Player profile data not available - showing search metrics only")
+            st.info("Player profile data not available - showing search metrics only")
         
         # SECTION 2: KEY SEARCH METRICS
         st.markdown("---")
-        st.markdown("#### 📊 Search Performance Metrics")
+        st.markdown("#### Search Performance Metrics")
         
         # Calculate key metrics
         total_searches = player_data['july_2025_volume'].sum()
@@ -595,10 +606,10 @@ if not filtered_df.empty:
         
         # SECTION 3: VISUALIZATIONS
         st.markdown("---")
-        st.markdown("#### 📈 Search Volume Analysis")
+        st.markdown("#### Search Volume Analysis")
         
         # Tab selection for different views
-        viz_tab1, viz_tab2, viz_tab3 = st.tabs(["🌍 By Country", "🔍 By Search Type", "📝 Name Variations"])
+        viz_tab1, viz_tab2, viz_tab3 = st.tabs(["By Country", "By Search Type", "Name Variations"])
         
         with viz_tab1:
             # Country breakdown - horizontal bar chart for better readability
@@ -633,21 +644,6 @@ if not filtered_df.empty:
                 yaxis_title=""
             )
             st.plotly_chart(fig_country, use_container_width=True)
-            
-            # Top 3 markets summary
-            if len(player_country_data) >= 3:
-                st.markdown("**🏆 Top 3 Markets:**")
-                top_3 = player_country_data.nlargest(3, 'july_2025_volume')
-                col1, col2, col3 = st.columns(3)
-                for idx, (col, row) in enumerate(zip([col1, col2, col3], top_3.itertuples())):
-                    with col:
-                        medal = ["🥇", "🥈", "🥉"][idx]
-                        percentage = (row.july_2025_volume / total_searches * 100)
-                        st.metric(
-                            label=f"{medal} {row.country}",
-                            value=f"{row.july_2025_volume:,}",
-                            delta=f"{percentage:.1f}% of total"
-                        )
         
         with viz_tab2:
             # Search type breakdown - donut chart
@@ -670,18 +666,6 @@ if not filtered_df.empty:
             
             fig_search.update_layout(height=450)
             st.plotly_chart(fig_search, use_container_width=True)
-            
-            # Search type summary cards
-            st.markdown("**Search Type Breakdown:**")
-            search_cols = st.columns(len(player_search_type))
-            for col, (_, row) in zip(search_cols, player_search_type.iterrows()):
-                with col:
-                    percentage = (row['july_2025_volume'] / total_searches * 100)
-                    st.metric(
-                        label=row['search_type'],
-                        value=f"{row['july_2025_volume']:,}",
-                        delta=f"{percentage:.1f}%"
-                    )
         
         with viz_tab3:
             # Name variations - cleaner presentation
@@ -713,14 +697,10 @@ if not filtered_df.empty:
                     yaxis_title=""
                 )
                 st.plotly_chart(fig_names, use_container_width=True)
-                
-                # Most popular variation
-                if len(name_var_data) > 0:
-                    top_variation = name_var_data.iloc[0]
-                    st.info(f"**Most searched variation:** \"{top_variation['name_variation']}\" with {top_variation['july_2025_volume']:,} searches ({top_variation['july_2025_volume']/total_searches*100:.1f}% of total)")
             else:
                 st.info("No name variation data available")
-        
+    
+    # KEEP THE REST OF YOUR TABS AS IS
     with tab4:
         # Enhanced All Players tab with player details
         st.markdown("### Complete Players Database")
