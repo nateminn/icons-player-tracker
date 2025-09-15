@@ -45,13 +45,18 @@ st.markdown("""
         margin-bottom: 0.5rem;
     }
     
-    /* Fix sidebar spacing */
+    /* Fix sidebar spacing and ensure toggle is visible */
     section[data-testid="stSidebar"] {
         top: 0rem !important;
     }
     
     section[data-testid="stSidebar"] > div {
         padding-top: 0.5rem !important;
+    }
+    
+    /* Ensure sidebar toggle button is visible */
+    button[kind="header"] {
+        visibility: visible !important;
     }
     
     /* Other styles */
@@ -69,10 +74,9 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
-    /* Hide hamburger menu and footer */
+    /* Hide hamburger menu and footer but keep sidebar toggle */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
-    header {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
 
