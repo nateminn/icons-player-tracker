@@ -781,7 +781,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_radar, use_container_width=True)
             
             # Comparison metrics table
-            st.markdown("#### 📋 Detailed Comparison Metrics")
+            st.markdown("#### Detailed Comparison Metrics")
             comparison_metrics = comparison_df.groupby('actual_player').agg({
                 'july_2025_volume': 'sum',
                 'country': 'nunique',
@@ -799,7 +799,7 @@ if not filtered_df.empty:
     
     with tab6:
         # Merchandise Analysis - KEEP AS IS
-        st.markdown("### 👕 Merchandise Search Analysis")
+        st.markdown("### Merchandise Search Analysis")
         
         merch_df = filtered_df[filtered_df['search_type'] == 'Merchandise']
         
@@ -833,7 +833,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_terms, use_container_width=True)
             
             # Player merchandise performance
-            st.markdown("#### 🏆 Top Players by Merchandise Searches")
+            st.markdown("#### Top Players by Merchandise Searches")
             player_merch = merch_df.groupby('actual_player')['july_2025_volume'].sum().nlargest(20).reset_index()
             
             fig_player_merch = px.bar(
@@ -849,7 +849,7 @@ if not filtered_df.empty:
             st.plotly_chart(fig_player_merch, use_container_width=True)
             
             # Merchandise by country
-            st.markdown("#### 🌍 Merchandise Searches by Country")
+            st.markdown("#### Merchandise Searches by Country")
             country_merch = merch_df.groupby(['country', 'merch_category']).agg({
                 'july_2025_volume': 'sum'
             }).reset_index()
@@ -874,7 +874,7 @@ if not filtered_df.empty:
     
     # Export functionality
     st.markdown("---")
-    st.markdown("### 💾 Export Data")
+    st.markdown("### Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
