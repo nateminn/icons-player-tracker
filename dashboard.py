@@ -202,7 +202,7 @@ with st.sidebar:
     st.markdown("### Filters")
     
     # Show data status
-    st.info(f"📊 Dataset: {len(df):,} rows")
+    st.info(f"  Dataset: {len(df):,} rows")
     st.caption("Data source: GitHub Repository")
     
     # Country filter
@@ -269,6 +269,7 @@ if 'Merchandise' in selected_search_types:
 
 if only_with_volume:
     filtered_df = filtered_df[filtered_df['has_volume'] == 1]
+
 
 # Main dashboard
 if not filtered_df.empty:
