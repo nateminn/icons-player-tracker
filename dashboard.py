@@ -17,13 +17,50 @@ st.set_page_config(
 # Custom CSS for better styling
 st.markdown("""
     <style>
-    .main-header {
-            font-size: 3rem;
-            font-weight: bold;
-            color: black;
-            text-align: center;
-            padding: 1rem 0;
+    /* Remove default Streamlit padding at the top */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 0rem !important;
     }
+    
+    /* Adjust main header positioning */
+    .main-header {
+        font-size: 3rem;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        padding: 0.5rem 0;  /* Reduced from 1rem to 0.5rem */
+        margin-top: -2rem;  /* Negative margin to pull it up */
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Fix sidebar spacing */
+    section[data-testid="stSidebar"] {
+        top: 2rem !important;  /* Adjust top position */
+    }
+    
+    section[data-testid="stSidebar"] > div {
+        padding-top: 1rem !important;  /* Reduce padding at top of sidebar */
+    }
+    
+    /* Reduce space above sidebar title */
+    section[data-testid="stSidebar"] h2 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    
+    /* Adjust the main content area */
+    .main .block-container {
+        max-width: 100%;
+        padding-top: 1rem !important;
+    }
+    
+    /* Remove extra space at the very top of the app */
+    .stApp > header {
+        height: 3rem !important;  /* Reduce header height */
+    }
+    
+    /* Other existing styles */
     .metric-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 1.5rem;
@@ -31,11 +68,21 @@ st.markdown("""
         color: white;
         text-align: center;
     }
+    
     .stMetric {
         background-color: #f0f2f6;
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* Hide the hamburger menu and footer for cleaner look */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    
+    /* Reduce spacing between elements */
+    .element-container {
+        margin-bottom: 0.5rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
