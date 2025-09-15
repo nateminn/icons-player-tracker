@@ -15,7 +15,7 @@ st.set_page_config(
     menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
 )
 
-# Custom CSS for better styling - UPDATED TO FIX PADDING
+# Custom CSS for better styling - UPDATED TO FIX TITLE SPACING
 st.markdown("""
     <style>
     /* Remove default Streamlit padding at the top */
@@ -24,12 +24,12 @@ st.markdown("""
         padding-bottom: 0rem !important;
     }
     
-    /* Hide Streamlit header completely */
+    /* Hide Streamlit header */
     header[data-testid="stHeader"] {
         display: none !important;
     }
     
-    /* Remove the top padding from main container */
+    /* Remove top padding from main */
     div[data-testid="stAppViewContainer"] > .main {
         padding-top: 0rem !important;
     }
@@ -45,7 +45,7 @@ st.markdown("""
         margin-bottom: 0.5rem;
     }
     
-    /* Fix sidebar spacing - move it up */
+    /* Fix sidebar spacing */
     section[data-testid="stSidebar"] {
         top: 0rem !important;
     }
@@ -54,19 +54,7 @@ st.markdown("""
         padding-top: 0.5rem !important;
     }
     
-    /* Reduce space above sidebar title */
-    section[data-testid="stSidebar"] h2 {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
-    
-    /* Adjust the main content area */
-    .main .block-container {
-        max-width: 100%;
-        padding-top: 0rem !important;
-    }
-    
-    /* Other existing styles */
+    /* Other styles */
     .metric-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 1.5rem;
@@ -74,7 +62,6 @@ st.markdown("""
         color: white;
         text-align: center;
     }
-    
     .stMetric {
         background-color: #f0f2f6;
         padding: 15px;
@@ -82,20 +69,10 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
-    /* Hide the hamburger menu and footer for cleaner look */
+    /* Hide hamburger menu and footer */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
-    
-    /* Reduce spacing between elements */
-    .element-container {
-        margin-bottom: 0.5rem !important;
-    }
-    
-    /* Push everything up */
-    .appview-container {
-        padding-top: 0rem !important;
-    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -103,7 +80,7 @@ st.markdown("""
 def load_csv_data():
     """Load the CSV data from GitHub"""
     try:
-        # Load from your GitHub repository - main-2.0 branch
+        # Load from your GitHub repository - try main-2.0 branch first
         url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2.0/ICONS_DASHBOARD_MASTER_20250911.csv"
         df = pd.read_csv(url)
         
@@ -117,8 +94,8 @@ def load_csv_data():
         return df
         
     except Exception as e:
-        # Try main branch as fallback
         try:
+            # Fallback to main branch
             url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main/ICONS_DASHBOARD_MASTER_20250911.csv"
             df = pd.read_csv(url)
             df.columns = df.columns.str.strip()
@@ -147,7 +124,6 @@ def load_player_details():
         return player_df, player_dict
         
     except Exception as e:
-        st.warning(f"Player details not available yet. Upload player_essential_data_json.json to GitHub.")
         return pd.DataFrame(), {}
 
 def enhance_with_player_details(df, player_dict):
@@ -201,12 +177,15 @@ with st.spinner('Loading data from GitHub...'):
 
 if df.empty:
     st.error("""
-    ### Data Loading Error
+    ### ⚠️ Data Loading Error
     
     Could not load the data from GitHub. Please check:
     1. Your internet connection
     2. The GitHub repository is accessible
     3. The CSV file exists at the specified location
+    
+    **Expected file location:**
+    https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main/ICONS_DASHBOARD_MASTER_20250911.csv
     """)
     st.stop()
 else:
@@ -221,7 +200,11 @@ else:
 with st.sidebar:
     st.markdown("## Dashboard Controls")
     st.markdown("### Filters")
-
+    
+    # Show data status
+    st.info(f"📊 Dataset: {len(df):,} rows")
+    st.caption("Data source: GitHub Repository")
+    
     # Country filter
     selected_countries = st.multiselect(
         "Select Countries:",
@@ -236,20 +219,6 @@ with st.sidebar:
         options=available_players,
         default=available_players
     )
-    
-    # Position filter (if player data is loaded)
-    if 'position' in df.columns:
-        positions = sorted(df[df['position'] != '']['position'].unique())
-        if positions:
-            selected_positions = st.multiselect(
-                "Select Positions:",
-                options=positions,
-                default=positions
-            )
-        else:
-            selected_positions = []
-    else:
-        selected_positions = []
     
     # Search type filter
     search_types = sorted(df['search_type'].unique())
@@ -293,10 +262,6 @@ filtered_df = df[
     (df['july_2025_volume'] <= volume_range[1])
 ]
 
-# Apply position filter if available
-if selected_positions and 'position' in df.columns:
-    filtered_df = filtered_df[filtered_df['position'].isin(selected_positions)]
-
 # Additional filter for merchandise categories
 if 'Merchandise' in selected_search_types:
     merch_filter = filtered_df['merch_category'].isin(selected_merch_categories) | filtered_df['search_type'] != 'Merchandise'
@@ -328,20 +293,12 @@ if not filtered_df.empty:
         )
     
     with col3:
-        if 'age' in filtered_df.columns and filtered_df['age'].sum() > 0:
-            avg_age = filtered_df[filtered_df['age'] > 0].groupby('actual_player')['age'].first().mean()
-            st.metric(
-                "Avg Player Age",
-                f"{avg_age:.1f} years" if not pd.isna(avg_age) else "N/A",
-                delta="Current squad"
-            )
-        else:
-            avg_volume_per_player = filtered_df.groupby('actual_player')['july_2025_volume'].sum().mean()
-            st.metric(
-                "Avg Volume per Player",
-                f"{avg_volume_per_player:,.0f}",
-                delta="Across selected markets"
-            )
+        avg_volume_per_player = filtered_df.groupby('actual_player')['july_2025_volume'].sum().mean()
+        st.metric(
+            "Avg Volume per Player",
+            f"{avg_volume_per_player:,.0f}",
+            delta="Across selected markets"
+        )
     
     with col4:
         top_country = filtered_df.groupby('country')['july_2025_volume'].sum().idxmax()
@@ -353,12 +310,12 @@ if not filtered_df.empty:
     
     st.markdown("---")
     
-    # Tabs for different views - 6 TABS TOTAL
+    # Tabs for different views - ADDED ALL PLAYERS TAB
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📈 Overview", 
         "🌍 Market Analysis", 
         "👤 Player Details",
-        "📋 All Players",
+        "📋 All Players",  # NEW TAB
         "📊 Comparisons", 
         "👕 Merchandise"
     ])
@@ -395,25 +352,8 @@ if not filtered_df.empty:
             fig_pie.update_layout(height=500)
             st.plotly_chart(fig_pie, use_container_width=True)
         
-        # Position Analysis (if player data is loaded)
-        if 'position' in filtered_df.columns and filtered_df['position'].str.len().sum() > 0:
-            st.markdown("### Position Analysis")
-            position_data = filtered_df[filtered_df['position'] != ''].groupby('position')['july_2025_volume'].sum().reset_index()
-            position_data = position_data.sort_values('july_2025_volume', ascending=False)
-            
-            fig_position = px.bar(
-                position_data,
-                x='position',
-                y='july_2025_volume',
-                title='Search Volume by Player Position',
-                color='july_2025_volume',
-                color_continuous_scale='Viridis',
-                labels={'july_2025_volume': 'Search Volume', 'position': 'Position'}
-            )
-            st.plotly_chart(fig_position, use_container_width=True)
-        
         # Search Type Breakdown
-        st.markdown("### Search Type Analysis")
+        st.markdown("### 🔍 Search Type Analysis")
         search_type_data = filtered_df.groupby(['search_type', 'actual_player'])['july_2025_volume'].sum().reset_index()
         search_type_pivot = search_type_data.pivot(index='actual_player', columns='search_type', values='july_2025_volume').fillna(0)
         
@@ -434,7 +374,7 @@ if not filtered_df.empty:
     
     with tab2:
         # Market Analysis
-        st.markdown("### Market Deep Dive")
+        st.markdown("### 🌍 Market Deep Dive")
         
         # Create pivot table for heatmap
         pivot_data = filtered_df.groupby(['actual_player', 'country'])['july_2025_volume'].sum().reset_index()
@@ -491,19 +431,16 @@ if not filtered_df.empty:
             )
             st.plotly_chart(fig_avg, use_container_width=True)
     
-    # UPDATED TAB 3 - PLAYER DETAILS WITHOUT EMOJIS
     with tab3:
-        # Enhanced Player Details with cleaner layout - NO EMOJIS
-        st.markdown("### Individual Player Analysis")
+        # ENHANCED PLAYER DETAILS TAB
+        st.markdown("### 👤 Individual Player Analysis")
         
         # Get unique players sorted by total volume
         player_volumes = filtered_df.groupby('actual_player')['july_2025_volume'].sum().sort_values(ascending=False)
         
-        # Player selector at the top
         selected_player = st.selectbox(
             "Select a player to analyze:",
-            options=player_volumes.index.tolist(),
-            key="player_selector"
+            options=player_volumes.index.tolist()
         )
         
         player_data = filtered_df[filtered_df['actual_player'] == selected_player]
@@ -511,12 +448,11 @@ if not filtered_df.empty:
         # Get additional player info if available
         player_info = player_dict.get(selected_player, {}) if player_dict else {}
         
-        # SECTION 1: PLAYER PROFILE CARD
-        st.markdown("---")
-        st.markdown("#### Player Profile")
-        
+        # PLAYER PROFILE SECTION
         if player_info:
-            # Create a clean profile card with columns
+            st.markdown("---")
+            st.markdown("#### Player Profile")
+            
             profile_col1, profile_col2, profile_col3, profile_col4 = st.columns(4)
             
             with profile_col1:
@@ -535,8 +471,6 @@ if not filtered_df.empty:
                 st.markdown("**Nationality**")
                 st.info(player_info.get('nationality', 'N/A'))
             
-            # League and Previous Teams in a second row
-            st.markdown("")  # Add some spacing
             league_col1, league_col2 = st.columns([1, 3])
             
             with league_col1:
@@ -547,163 +481,78 @@ if not filtered_df.empty:
                 st.markdown("**Career History**")
                 previous_teams = player_info.get('previous_teams', [])
                 if previous_teams:
-                    # Create a nice flowing list of previous teams
                     teams_display = " → ".join(previous_teams[:8])
                     if len(previous_teams) > 8:
                         teams_display += f" (+{len(previous_teams) - 8} more)"
                     st.success(teams_display)
                 else:
                     st.success("No previous clubs recorded")
-        else:
-            st.info("Player profile data not available - showing search metrics only")
         
-        # SECTION 2: KEY SEARCH METRICS
+        # SEARCH METRICS
         st.markdown("---")
         st.markdown("#### Search Performance Metrics")
         
-        # Calculate key metrics
-        total_searches = player_data['july_2025_volume'].sum()
-        countries_count = player_data['country'].nunique()
-        name_variations = player_data['name_variation'].nunique()
-        avg_per_country = total_searches / countries_count if countries_count > 0 else 0
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Total Searches", f"{player_data['july_2025_volume'].sum():,}")
+        with col2:
+            st.metric("Countries", f"{player_data['country'].nunique()}")
+        with col3:
+            st.metric("Name Variations", f"{player_data['name_variation'].nunique()}")
+        with col4:
+            search_type_breakdown = player_data.groupby('search_type')['july_2025_volume'].sum()
+            merch_searches = search_type_breakdown.get('Merchandise', 0)
+            total_searches = player_data['july_2025_volume'].sum()
+            merch_percentage = (merch_searches / total_searches * 100) if total_searches > 0 else 0
+            st.metric("Merch Interest", f"{merch_percentage:.1f}%")
         
-        # Calculate search type breakdown
-        search_type_breakdown = player_data.groupby('search_type')['july_2025_volume'].sum()
-        merch_searches = search_type_breakdown.get('Merchandise', 0)
-        name_searches = search_type_breakdown.get('Name Only', 0)
-        merch_percentage = (merch_searches / total_searches * 100) if total_searches > 0 else 0
-        
-        # Display metrics in a clean grid
-        metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
-        
-        with metric_col1:
-            st.metric(
-                label="Total Search Volume",
-                value=f"{total_searches:,}",
-                delta="All markets combined"
-            )
-        
-        with metric_col2:
-            st.metric(
-                label="Market Reach",
-                value=f"{countries_count} countries",
-                delta=f"{avg_per_country:,.0f} avg/country"
-            )
-        
-        with metric_col3:
-            st.metric(
-                label="Name Variations",
-                value=f"{name_variations}",
-                delta="Different search terms"
-            )
-        
-        with metric_col4:
-            st.metric(
-                label="Merchandise Interest",
-                value=f"{merch_percentage:.1f}%",
-                delta=f"{merch_searches:,} searches"
-            )
-        
-        # SECTION 3: VISUALIZATIONS
+        # VISUALIZATIONS
         st.markdown("---")
-        st.markdown("#### Search Volume Analysis")
         
-        # Tab selection for different views
-        viz_tab1, viz_tab2, viz_tab3 = st.tabs(["By Country", "By Search Type", "Name Variations"])
+        # Player market breakdown
+        player_country_data = player_data.groupby('country')['july_2025_volume'].sum().reset_index()
+        fig_player = px.bar(
+            player_country_data,
+            x='country',
+            y='july_2025_volume',
+            title=f'{selected_player} - Search Volume by Country',
+            color='july_2025_volume',
+            color_continuous_scale='Blues',
+            labels={'july_2025_volume': 'Search Volume'}
+        )
+        st.plotly_chart(fig_player, use_container_width=True)
         
-        with viz_tab1:
-            # Country breakdown - horizontal bar chart for better readability
-            player_country_data = player_data.groupby('country')['july_2025_volume'].sum().reset_index()
-            player_country_data = player_country_data.sort_values('july_2025_volume', ascending=True)
-            
-            # Show top 15 countries if there are many
-            if len(player_country_data) > 15:
-                player_country_data = player_country_data.nlargest(15, 'july_2025_volume')
-                chart_title = f'{selected_player} - Top 15 Countries by Search Volume'
-            else:
-                chart_title = f'{selected_player} - Search Volume by Country'
-            
-            fig_country = px.bar(
-                player_country_data,
-                x='july_2025_volume',
-                y='country',
-                orientation='h',
-                title=chart_title,
-                color='july_2025_volume',
-                color_continuous_scale='Blues',
-                labels={'july_2025_volume': 'Search Volume', 'country': 'Country'},
-                text='july_2025_volume'
-            )
-            
-            # Format the text on bars
-            fig_country.update_traces(texttemplate='%{text:,.0f}', textposition='outside')
-            fig_country.update_layout(
-                height=max(400, len(player_country_data) * 25),  # Dynamic height based on countries
-                showlegend=False,
-                xaxis_title="Search Volume",
-                yaxis_title=""
-            )
-            st.plotly_chart(fig_country, use_container_width=True)
+        col1, col2 = st.columns(2)
         
-        with viz_tab2:
-            # Search type breakdown - donut chart
+        with col1:
+            # Search type breakdown for player
             player_search_type = player_data.groupby('search_type')['july_2025_volume'].sum().reset_index()
-            
             fig_search = px.pie(
                 player_search_type,
                 values='july_2025_volume',
                 names='search_type',
-                title=f'{selected_player} - Search Type Distribution',
-                hole=0.4,  # Make it a donut chart
-                color_discrete_sequence=px.colors.qualitative.Set3
+                title=f'{selected_player} - Search Type Distribution'
             )
-            
-            fig_search.update_traces(
-                textposition='inside',
-                textinfo='percent+label',
-                hovertemplate='<b>%{label}</b><br>Volume: %{value:,.0f}<br>Percentage: %{percent}<extra></extra>'
-            )
-            
-            fig_search.update_layout(height=450)
             st.plotly_chart(fig_search, use_container_width=True)
         
-        with viz_tab3:
-            # Name variations - cleaner presentation
-            name_var_data = player_data.groupby('name_variation')['july_2025_volume'].sum().reset_index()
-            name_var_data = name_var_data.sort_values('july_2025_volume', ascending=False)
-            
-            # Limit to top 15 for cleaner display
-            display_limit = min(15, len(name_var_data))
-            name_var_display = name_var_data.head(display_limit)
-            
-            if len(name_var_display) > 0:
+        with col2:
+            # Name variations performance
+            name_var_data = player_data.groupby('name_variation')['july_2025_volume'].sum().nlargest(10).reset_index()
+            if len(name_var_data) > 0:
                 fig_names = px.bar(
-                    name_var_display,
+                    name_var_data,
                     x='july_2025_volume',
                     y='name_variation',
                     orientation='h',
-                    title=f'Top {display_limit} Name Variations for {selected_player}',
+                    title=f'Top Name Variations - {selected_player}',
                     color='july_2025_volume',
-                    color_continuous_scale='Greens',
-                    labels={'july_2025_volume': 'Search Volume', 'name_variation': 'Search Term'},
-                    text='july_2025_volume'
-                )
-                
-                fig_names.update_traces(texttemplate='%{text:,.0f}', textposition='outside')
-                fig_names.update_layout(
-                    height=max(400, display_limit * 30),
-                    showlegend=False,
-                    xaxis_title="Search Volume",
-                    yaxis_title=""
+                    color_continuous_scale='Greens'
                 )
                 st.plotly_chart(fig_names, use_container_width=True)
-            else:
-                st.info("No name variation data available")
     
-    # KEEP THE REST OF YOUR TABS AS IS
     with tab4:
         # Enhanced All Players tab with player details
-        st.markdown("### Complete Players Database")
+        st.markdown("### 📋 Complete Players Database")
         
         # Create summary for all players
         player_summary = filtered_df.groupby('actual_player').agg({
@@ -869,8 +718,8 @@ if not filtered_df.empty:
         )
     
     with tab5:
-        # Comparisons
-        st.markdown("### Player Comparisons")
+        # Comparisons - KEEP AS IS
+        st.markdown("### 📊 Player Comparisons")
         
         players_to_compare = st.multiselect(
             "Select players to compare (max 10):",
@@ -932,25 +781,14 @@ if not filtered_df.empty:
                 )
                 st.plotly_chart(fig_radar, use_container_width=True)
             
-            # Comparison metrics table with player details
-            st.markdown("#### Detailed Comparison Metrics")
+            # Comparison metrics table
+            st.markdown("#### 📋 Detailed Comparison Metrics")
             comparison_metrics = comparison_df.groupby('actual_player').agg({
                 'july_2025_volume': 'sum',
                 'country': 'nunique',
                 'name_variation': 'nunique'
             }).round(0).reset_index()
-            
-            # Add player details if available
-            if player_dict:
-                for idx, row in comparison_metrics.iterrows():
-                    player_info = player_dict.get(row['actual_player'], {})
-                    if player_info:
-                        comparison_metrics.at[idx, 'Team'] = player_info.get('team', 'N/A')
-                        comparison_metrics.at[idx, 'Position'] = player_info.get('position', 'N/A')
-                        comparison_metrics.at[idx, 'Age'] = player_info.get('age', 'N/A')
-            
-            comparison_metrics.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations'] + \
-                                        (['Team', 'Position', 'Age'] if player_dict else [])
+            comparison_metrics.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations']
             comparison_metrics = comparison_metrics.sort_values('Total Volume', ascending=False)
             
             st.dataframe(
@@ -961,8 +799,8 @@ if not filtered_df.empty:
             st.warning("Please select maximum 10 players for comparison")
     
     with tab6:
-        # Merchandise Analysis
-        st.markdown("### Merchandise Search Analysis")
+        # Merchandise Analysis - KEEP AS IS
+        st.markdown("### 👕 Merchandise Search Analysis")
         
         merch_df = filtered_df[filtered_df['search_type'] == 'Merchandise']
         
@@ -996,7 +834,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_terms, use_container_width=True)
             
             # Player merchandise performance
-            st.markdown("#### Top Players by Merchandise Searches")
+            st.markdown("#### 🏆 Top Players by Merchandise Searches")
             player_merch = merch_df.groupby('actual_player')['july_2025_volume'].sum().nlargest(20).reset_index()
             
             fig_player_merch = px.bar(
@@ -1012,7 +850,7 @@ if not filtered_df.empty:
             st.plotly_chart(fig_player_merch, use_container_width=True)
             
             # Merchandise by country
-            st.markdown("#### Merchandise Searches by Country")
+            st.markdown("#### 🌍 Merchandise Searches by Country")
             country_merch = merch_df.groupby(['country', 'merch_category']).agg({
                 'july_2025_volume': 'sum'
             }).reset_index()
@@ -1037,7 +875,7 @@ if not filtered_df.empty:
     
     # Export functionality
     st.markdown("---")
-    st.markdown("### Export Data")
+    st.markdown("### 💾 Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -1085,4 +923,4 @@ with col2:
 with col3:
     st.caption(f"Markets: {df['country'].nunique()} countries")
 
-st.caption("Icons Player Demand Tracker v2.0 | September 2025 Data | Built with Streamlit")
+st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data")
