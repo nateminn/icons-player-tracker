@@ -204,10 +204,6 @@ with st.sidebar:
     st.markdown("## Dashboard Controls")
     st.markdown("### Filters")
     
-    # Show data status
-    st.info(f"📊 Dataset: {len(df):,} rows")
-    st.caption("Data source: GitHub Repository")
-    
     # Country filter
     selected_countries = st.multiselect(
         "Select Countries:",
