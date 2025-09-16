@@ -132,13 +132,13 @@ with st.sidebar:
     st.markdown("### Filters")
     
     # Show data status
-    st.info(f"📊 Dataset: {len(df):,} rows")
-    st.info(f"👥 Total Players: {unique_players_count}")
+    st.info(f" Dataset: {len(df):,} rows")
+    st.info(f" Total Players: {unique_players_count}")
     col1, col2 = st.columns(2)
     with col1:
-        st.success(f"✅ Signed: {signed_players}")
+        st.success(f" Signed: {signed_players}")
     with col2:
-        st.warning(f"⏳ Unsigned: {unsigned_players}")
+        st.warning(f" Unsigned: {unsigned_players}")
     
     st.caption("Data source: GitHub Repository")
     st.markdown("---")
@@ -618,7 +618,7 @@ if not filtered_df.empty:
                 )
     with tab4:
         # Comparisons
-        st.markdown("### 📊 Player Comparisons")
+        st.markdown("### Player Comparisons")
         
         players_to_compare = st.multiselect(
             "Select players to compare (max 10):",
@@ -681,7 +681,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_radar, use_container_width=True)
             
             # Comparison metrics table with status
-            st.markdown("#### 📋 Detailed Comparison Metrics")
+            st.markdown("#### Detailed Comparison Metrics")
             comparison_metrics = comparison_df.groupby('actual_player').agg({
                 'july_2025_volume': 'sum',
                 'country': 'nunique',
@@ -801,7 +801,7 @@ if not filtered_df.empty:
                 values='Player Count',
                 names='Status',
                 title='Player Distribution by Status',
-                color_discrete_map={'✅ Signed': '#2ecc71', '⏳ Unsigned': '#3498db'}
+                color_discrete_map={' Signed': '#2ecc71', ' Unsigned': '#3498db'}
             )
             st.plotly_chart(fig_status_players, use_container_width=True)
         
@@ -811,7 +811,7 @@ if not filtered_df.empty:
                 values='Total Volume',
                 names='Status',
                 title='Search Volume by Status',
-                color_discrete_map={'✅ Signed': '#2ecc71', '⏳ Unsigned': '#3498db'}
+                color_discrete_map={' Signed': '#2ecc71', ' Unsigned': '#3498db'}
             )
             st.plotly_chart(fig_status_volume, use_container_width=True)
         
@@ -821,7 +821,7 @@ if not filtered_df.empty:
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("##### ✅ Top Signed Players")
+            st.markdown("#####  Top Signed Players")
             signed_top = filtered_df[filtered_df['status'] == 'signed'].groupby('actual_player')['july_2025_volume'].sum().nlargest(10).reset_index()
             fig_signed = px.bar(
                 signed_top,
@@ -834,7 +834,7 @@ if not filtered_df.empty:
             st.plotly_chart(fig_signed, use_container_width=True)
         
         with col2:
-            st.markdown("##### ⏳ Top Unsigned Players")
+            st.markdown("#####  Top Unsigned Players")
             unsigned_top = filtered_df[filtered_df['status'] == 'unsigned'].groupby('actual_player')['july_2025_volume'].sum().nlargest(10).reset_index()
             fig_unsigned = px.bar(
                 unsigned_top,
@@ -857,7 +857,7 @@ if not filtered_df.empty:
         
         metrics_comparison.columns = ['Status', 'Avg Volume per Entry', 'Countries Covered', 'Name Variations']
         metrics_comparison['Status'] = metrics_comparison['Status'].apply(
-            lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
+            lambda x: ' Signed' if x == 'signed' else ' Unsigned'
         )
         
         st.dataframe(
@@ -867,13 +867,13 @@ if not filtered_df.empty:
     
     # Export functionality
     st.markdown("---")
-    st.markdown("### 💾 Export Data")
+    st.markdown("###  Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
         csv = filtered_df.to_csv(index=False)
         st.download_button(
-            label="📥 Download Filtered Data (CSV)",
+            label=" Download Filtered Data (CSV)",
             data=csv,
             file_name=f"player_demand_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -891,7 +891,7 @@ if not filtered_df.empty:
         summary_csv = summary_data.to_csv()
         
         st.download_button(
-            label="📊 Download Player Summary (CSV)",
+            label=" Download Player Summary (CSV)",
             data=summary_csv,
             file_name=f"player_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -910,14 +910,14 @@ else:
 st.markdown("---")
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.caption(f"📊 Data: {len(df):,} total rows")
+    st.caption(f" Data: {len(df):,} total rows")
 with col2:
-    st.caption(f"👥 Players: {df['actual_player'].nunique()} total")
+    st.caption(f" Players: {df['actual_player'].nunique()} total")
 with col3:
     signed_count = df[df['status'] == 'signed']['actual_player'].nunique()
-    st.caption(f"✅ Signed: {signed_count}")
+    st.caption(f" Signed: {signed_count}")
 with col4:
     unsigned_count = df[df['status'] == 'unsigned']['actual_player'].nunique()
-    st.caption(f"⏳ Unsigned: {unsigned_count}")
+    st.caption(f" Unsigned: {unsigned_count}")
 
 st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Enhanced with Player Status")
