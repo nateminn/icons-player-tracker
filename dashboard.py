@@ -777,39 +777,8 @@ if not filtered_df.empty:
     
     with tab6:
         # NEW TAB - Status Analysis
-        st.markdown("### 📋 Status Analysis - Signed vs Unsigned Players")
+        st.markdown("###  Status Analysis - Signed vs Unsigned Players")
         
-        # Overall status comparison
-        status_summary = filtered_df.groupby('status').agg({
-            'actual_player': 'nunique',
-            'july_2025_volume': 'sum'
-        }).reset_index()
-        status_summary.columns = ['Status', 'Player Count', 'Total Volume']
-        status_summary['Status'] = status_summary['Status'].apply(
-            lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
-        )
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            fig_status_players = px.pie(
-                status_summary,
-                values='Player Count',
-                names='Status',
-                title='Player Distribution by Status',
-                color_discrete_map={' Signed': '#2ecc71', ' Unsigned': '#3498db'}
-            )
-            st.plotly_chart(fig_status_players, use_container_width=True)
-        
-        with col2:
-            fig_status_volume = px.pie(
-                status_summary,
-                values='Total Volume',
-                names='Status',
-                title='Search Volume by Status',
-                color_discrete_map={' Signed': '#2ecc71', ' Unsigned': '#3498db'}
-            )
-            st.plotly_chart(fig_status_volume, use_container_width=True)
         
         # Top performers by status
         st.markdown("#### Top Performing Players by Status")
