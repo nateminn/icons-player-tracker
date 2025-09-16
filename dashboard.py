@@ -45,7 +45,7 @@ def load_csv_data():
     """Load the CSV data from GitHub"""
     try:
         # Load the MERGED CSV with both signed and unsigned players
-        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2/ICONS_DASHBOARD_MERGED_20250916_103417.csv"
+        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2.0/ICONS_DASHBOARD_MERGED_20250916_103417.csv"
         df = pd.read_csv(url)
         
         # Clean column names
