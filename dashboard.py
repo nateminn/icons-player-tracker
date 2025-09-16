@@ -100,31 +100,7 @@ def load_player_details():
 st.markdown('<h1 class="main-header">Icons Player Demand Tracker</h1>', unsafe_allow_html=True)
 st.markdown("### Global Search Demand Analysis for Football Players - July 2025")
 
-# Load data
-with st.spinner('Loading data from GitHub...'):
-    df = load_csv_data()
-    player_dict = load_player_details()
 
-if df.empty:
-    st.error("""
-    ### ⚠️ Data Loading Error
-    
-    Could not load the data from GitHub. Please check:
-    1. Your internet connection
-    2. The GitHub repository is accessible
-    3. The CSV file exists at the specified location
-    
-    **Expected file location:**
-    https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2/ICONS_DASHBOARD_MERGED_20250916_103417.csv
-    """)
-    st.stop()
-else:
-    # Count unique players and their status
-    unique_players_count = df['actual_player'].nunique()
-    signed_players = df[df['status'] == 'signed']['actual_player'].nunique()
-    unsigned_players = df[df['status'] == 'unsigned']['actual_player'].nunique()
-    
-    st.success(f"✓ Successfully loaded {len(df):,} rows | {unique_players_count} total players ({signed_players} signed, {unsigned_players} unsigned)")
 
 # Sidebar filters
 with st.sidebar:
