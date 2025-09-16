@@ -777,10 +777,12 @@ if not filtered_df.empty:
     
     with tab6:
         # NEW TAB - Status Analysis
-        st.markdown("##  Status Analysis - Signed vs Unsigned Players")
+        st.markdown("###  Status Analysis - Signed vs Unsigned Players")
         
         # Top performers by status
-        st.markdown("## Top Performing Players by Status")
+        st.markdown("#### Top Performing Players by Status")
+        st.markdown("""<div style='margin-top: -20px;'></div>""", unsafe_allow_html=True)
+
         
         col1, col2 = st.columns(2)
         
