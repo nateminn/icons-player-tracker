@@ -842,24 +842,7 @@ if not filtered_df.empty:
             )
             st.plotly_chart(fig_unsigned, use_container_width=True)
         
-        # Average metrics comparison
-        st.markdown("#### Performance Metrics Comparison")
         
-        metrics_comparison = filtered_df.groupby('status').agg({
-            'july_2025_volume': 'mean',
-            'country': lambda x: filtered_df[filtered_df['status'] == x.iloc[0]]['country'].nunique(),
-            'name_variation': lambda x: filtered_df[filtered_df['status'] == x.iloc[0]]['name_variation'].nunique()
-        }).round(0).reset_index()
-        
-        metrics_comparison.columns = ['Status', 'Avg Volume per Entry', 'Countries Covered', 'Name Variations']
-        metrics_comparison['Status'] = metrics_comparison['Status'].apply(
-            lambda x: ' Signed' if x == 'signed' else ' Unsigned'
-        )
-        
-        st.dataframe(
-            metrics_comparison.style.background_gradient(subset=['Avg Volume per Entry'], cmap='Greens'),
-            use_container_width=True
-        )
     
     # Export functionality
     st.markdown("---")
