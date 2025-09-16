@@ -424,11 +424,6 @@ if not filtered_df.empty:
             # Get additional player info if available
             player_info = player_dict.get(selected_player, {}) if player_dict else {}
             
-            # Display status
-            if player_status == 'signed':
-                st.success(f"✅ **{selected_player}** - SIGNED PLAYER")
-            else:
-                st.info(f"⏳ **{selected_player}** - UNSIGNED PLAYER")
             
             st.markdown("---")
             
