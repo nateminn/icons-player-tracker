@@ -131,18 +131,6 @@ with st.sidebar:
     st.markdown("## Dashboard Controls")
     st.markdown("### Filters")
     
-    # Show data status
-    st.info(f" Dataset: {len(df):,} rows")
-    st.info(f" Total Players: {unique_players_count}")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.success(f" Signed: {signed_players}")
-    with col2:
-        st.warning(f" Unsigned: {unsigned_players}")
-    
-    st.caption("Data source: GitHub Repository")
-    st.markdown("---")
-    
     # STATUS FILTER - NEW!
     st.markdown("#### Player Status")
     status_options = ['All', 'Signed', 'Unsigned']
