@@ -777,15 +777,15 @@ if not filtered_df.empty:
     
     with tab6:
         # NEW TAB - Status Analysis
-        st.markdown("###  Status Analysis - Signed vs Unsigned Players")
+        st.markdown("##  Status Analysis - Signed vs Unsigned Players")
         
         # Top performers by status
-        st.markdown("# Top Performing Players by Status")
+        st.markdown("## Top Performing Players by Status")
         
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("##  ")
+            st.markdown("#  ")
             signed_top = filtered_df[filtered_df['status'] == 'signed'].groupby('actual_player')['july_2025_volume'].sum().nlargest(20).reset_index()
             fig_signed = px.bar(
                 signed_top,
@@ -798,7 +798,7 @@ if not filtered_df.empty:
             st.plotly_chart(fig_signed, use_container_width=True)
         
         with col2:
-            st.markdown("## ")
+            st.markdown("# ")
             unsigned_top = filtered_df[filtered_df['status'] == 'unsigned'].groupby('actual_player')['july_2025_volume'].sum().nlargest(20).reset_index()
             fig_unsigned = px.bar(
                 unsigned_top,
