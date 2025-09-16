@@ -4,6 +4,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 import numpy as np
+import requests
+import json
 
 # Page configuration
 st.set_page_config(
@@ -43,7 +45,7 @@ def load_csv_data():
     """Load the CSV data from GitHub"""
     try:
         # Load the MERGED CSV with both signed and unsigned players
-        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2.0/ICONS_DASHBOARD_MERGED_20250916_103417.csv"
+        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2/ICONS_DASHBOARD_MERGED_20250916_103417.csv"
         df = pd.read_csv(url)
         
         # Clean column names
@@ -76,6 +78,24 @@ def load_csv_data():
         st.error(f"Unable to load data from GitHub. Error: {str(e)}")
         return pd.DataFrame()
 
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def load_player_details():
+    """Load player details from GitHub"""
+    try:
+        # Load from your GitHub repository
+        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2/player_essential_data_json.json"
+        response = requests.get(url)
+        data = response.json()
+        
+        # Create a dictionary for quick lookup
+        player_dict = {player['name']: player for player in data['players']}
+        
+        return player_dict
+        
+    except Exception as e:
+        st.warning(f"Could not load player details: {str(e)}")
+        return {}
+
 # Header
 st.markdown('<h1 class="main-header">Icons Player Demand Tracker</h1>', unsafe_allow_html=True)
 st.markdown("### Global Search Demand Analysis for Football Players - July 2025")
@@ -83,6 +103,7 @@ st.markdown("### Global Search Demand Analysis for Football Players - July 2025"
 # Load data
 with st.spinner('Loading data from GitHub...'):
     df = load_csv_data()
+    player_dict = load_player_details()
 
 if df.empty:
     st.error("""
@@ -110,6 +131,17 @@ with st.sidebar:
     st.markdown("## Dashboard Controls")
     st.markdown("### Filters")
     
+    # Show data status
+    st.info(f"📊 Dataset: {len(df):,} rows")
+    st.info(f"👥 Total Players: {unique_players_count}")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.success(f"✅ Signed: {signed_players}")
+    with col2:
+        st.warning(f"⏳ Unsigned: {unsigned_players}")
+    
+    st.caption("Data source: GitHub Repository")
+    st.markdown("---")
     
     # STATUS FILTER - NEW!
     st.markdown("#### Player Status")
@@ -469,11 +501,11 @@ if not filtered_df.empty:
             st.metric("Name Variations", f"{player_data['name_variation'].nunique()}")
         
         with metric_col4:
-            top_country = player_data.groupby('country')['july_2025_volume'].sum().idxmax()
+            top_country = player_data.groupby('country')['july_2025_volume'].sum().idxmax() if not player_data.empty else "N/A"
             st.metric("Top Market", top_country)
         
         with metric_col5:
-            avg_per_country = player_data['july_2025_volume'].sum() / player_data['country'].nunique()
+            avg_per_country = player_data['july_2025_volume'].sum() / player_data['country'].nunique() if player_data['country'].nunique() > 0 else 0
             st.metric("Avg/Country", f"{avg_per_country:,.0f}")
         
         st.markdown("---")
@@ -536,11 +568,13 @@ if not filtered_df.empty:
             # Market concentration
             top_3_countries = player_country_data.nlargest(3, 'july_2025_volume')
             top_3_volume = top_3_countries['july_2025_volume'].sum()
-            concentration = (top_3_volume / player_data['july_2025_volume'].sum() * 100)
+            total_volume = player_data['july_2025_volume'].sum()
+            concentration = (top_3_volume / total_volume * 100) if total_volume > 0 else 0
             st.info(f"**Market Concentration:** Top 3 countries account for {concentration:.1f}% of searches")
         
         with insights_col2:
             # Merchandise vs Name searches
+            merch_searches = player_data[player_data['search_type'] == 'Merchandise']['july_2025_volume'].sum()
             name_searches = player_data[player_data['search_type'] == 'Name Only']['july_2025_volume'].sum()
             if name_searches > 0:
                 merch_to_name_ratio = merch_searches / name_searches
@@ -548,6 +582,8 @@ if not filtered_df.empty:
                     st.success(f"**High Commercial Interest:** Merch searches are {merch_to_name_ratio:.1f}x name searches")
                 else:
                     st.warning(f"**Growth Opportunity:** Merch searches only {merch_to_name_ratio:.2f}x name searches")
+            else:
+                st.info("**No name-only searches recorded**")
     
     with tab4:
         # Comparisons
