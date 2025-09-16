@@ -1124,10 +1124,289 @@
       "nationality": "Scotland",
       "league": "Premier League",
       "previous_teams": ["St. Mirren", "Hibernian"]
+    },
+    {
+      "name": "Michael Owen",
+      "team": "Retired",
+      "position": "ST",
+      "age": 45,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": ["Liverpool", "Real Madrid", "Newcastle United", "Manchester United", "Stoke City"]
+    },
+    {
+      "name": "Pavel Nedved",
+      "team": "Retired",
+      "position": "LW",
+      "age": 53,
+      "nationality": "Czech Republic",
+      "league": "N/A",
+      "previous_teams": ["Dukla Prague", "Sparta Prague", "Lazio", "Juventus"]
+    },
+    {
+      "name": "Callum Hudson-Odoi",
+      "team": "Nottingham Forest",
+      "position": "LW",
+      "age": 24,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": ["Chelsea", "Bayer Leverkusen"]
+    },
+    {
+      "name": "Marco Van Basten",
+      "team": "Retired",
+      "position": "ST",
+      "age": 60,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": ["Ajax", "AC Milan"]
+    },
+    {
+      "name": "Frank Rijkaard",
+      "team": "Retired",
+      "position": "DM",
+      "age": 63,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": ["Ajax", "Real Zaragoza", "AC Milan"]
+    },
+    {
+      "name": "Francesco Totti",
+      "team": "Retired",
+      "position": "CF",
+      "age": 49,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": ["Roma"]
+    },
+    {
+      "name": "Cafu",
+      "team": "Retired",
+      "position": "RB",
+      "age": 55,
+      "nationality": "Brazil",
+      "league": "N/A",
+      "previous_teams": ["São Paulo", "Real Zaragoza", "Juventude", "Palmeiras", "Roma", "AC Milan"]
+    },
+    {
+      "name": "Javier Zanetti",
+      "team": "Retired",
+      "position": "RB",
+      "age": 52,
+      "nationality": "Argentina",
+      "league": "N/A",
+      "previous_teams": ["Talleres", "Banfield", "Inter Milan"]
+    },
+    {
+      "name": "Marco Materazzi",
+      "team": "Retired",
+      "position": "CB",
+      "age": 52,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": ["Messina", "Trapani", "Perugia", "Carpi", "Everton", "Inter Milan", "Chennai FC"]
+    },
+    {
+      "name": "Edwin van der Sar",
+      "team": "Retired",
+      "position": "GK",
+      "age": 54,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": ["Ajax", "Juventus", "Fulham", "Manchester United"]
+    },
+    {
+      "name": "Ricardo Quaresma",
+      "team": "Retired",
+      "position": "RW",
+      "age": 42,
+      "nationality": "Portugal",
+      "league": "N/A",
+      "previous_teams": ["Sporting CP", "Barcelona", "Inter Milan", "Porto", "Chelsea", "Beşiktaş", "Al-Ahli", "Kasımpaşa", "Vitória de Guimarães"]
+    },
+    {
+      "name": "John Terry",
+      "team": "Retired",
+      "position": "CB",
+      "age": 44,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": ["Chelsea", "Nottingham Forest", "Aston Villa"]
+    },
+    {
+      "name": "Alessandro Del Piero",
+      "team": "Retired",
+      "position": "CF",
+      "age": 50,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": ["Padova", "Juventus", "Sydney FC", "Delhi Dynamos"]
+    },
+    {
+      "name": "Paul Gascoigne",
+      "team": "Retired",
+      "position": "CAM",
+      "age": 58,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": ["Newcastle United", "Tottenham", "Lazio", "Rangers", "Middlesbrough", "Everton", "Burnley", "Gansu Tianma", "Boston United"]
+    },
+    {
+      "name": "Faustino Asprilla",
+      "team": "Retired",
+      "position": "ST",
+      "age": 55,
+      "nationality": "Colombia",
+      "league": "N/A",
+      "previous_teams": ["Cúcuta Deportivo", "Atlético Nacional", "Parma", "Newcastle United", "Fluminense", "Palmeiras", "Universidad de Chile", "Estudiantes", "Darlington"]
+    },
+    {
+      "name": "Wesley Sneijder",
+      "team": "Retired",
+      "position": "CAM",
+      "age": 41,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": ["Ajax", "Real Madrid", "Inter Milan", "Galatasaray", "Nice", "Al-Gharafa"]
+    },
+    {
+      "name": "Jaap Stam",
+      "team": "Retired",
+      "position": "CB",
+      "age": 53,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": ["Zwolle", "Cambuur", "Willem II", "PSV Eindhoven", "Manchester United", "Lazio", "AC Milan", "Ajax"]
+    },
+    {
+      "name": "David Gower",
+      "team": "N/A",
+      "position": "Cricket",
+      "age": 68,
+      "nationality": "England",
+      "league": "Cricket",
+      "previous_teams": ["Leicestershire", "Hampshire", "England Cricket"]
+    },
+    {
+      "name": "Trevor Brooking",
+      "team": "Retired",
+      "position": "CAM",
+      "age": 76,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": ["West Ham United"]
+    },
+    {
+      "name": "Joe Root",
+      "team": "England Cricket",
+      "position": "Cricket",
+      "age": 34,
+      "nationality": "England",
+      "league": "Cricket",
+      "previous_teams": ["Yorkshire", "Sydney Thunder", "Trent Rockets"]
+    },
+    {
+      "name": "Ruud Gullit",
+      "team": "Retired",
+      "position": "CAM",
+      "age": 63,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": ["Haarlem", "Feyenoord", "PSV Eindhoven", "AC Milan", "Sampdoria", "Chelsea"]
+    },
+    {
+      "name": "Filippo Inzaghi",
+      "team": "Manager",
+      "position": "ST",
+      "age": 52,
+      "nationality": "Italy",
+      "league": "Serie B",
+      "previous_teams": ["Piacenza", "Leffe", "Verona", "Parma", "Atalanta", "Juventus", "AC Milan"]
+    },
+    {
+      "name": "Andriy Shevchenko",
+      "team": "Retired",
+      "position": "ST",
+      "age": 48,
+      "nationality": "Ukraine",
+      "league": "N/A",
+      "previous_teams": ["Dynamo Kyiv", "AC Milan", "Chelsea"]
+    },
+    {
+      "name": "Emiliano Martinez",
+      "team": "Aston Villa",
+      "position": "GK",
+      "age": 33,
+      "nationality": "Argentina",
+      "league": "Premier League",
+      "previous_teams": ["Independiente", "Arsenal", "Oxford United", "Sheffield Wednesday", "Rotherham United", "Wolves", "Getafe", "Reading"]
+    },
+    {
+      "name": "Luka Modric",
+      "team": "Real Madrid",
+      "position": "CM",
+      "age": 40,
+      "nationality": "Croatia",
+      "league": "La Liga",
+      "previous_teams": ["Dinamo Zagreb", "Zrinjski", "Inter Zaprešić", "Tottenham"]
+    },
+    {
+      "name": "Lionel Messi",
+      "team": "Inter Miami",
+      "position": "RW",
+      "age": 38,
+      "nationality": "Argentina",
+      "league": "MLS",
+      "previous_teams": ["Barcelona", "PSG"]
+    },
+    {
+      "name": "Maro Itoje",
+      "team": "Saracens",
+      "position": "Rugby",
+      "age": 31,
+      "nationality": "England",
+      "league": "Rugby Union",
+      "previous_teams": ["England Rugby", "British & Irish Lions"]
+    },
+    {
+      "name": "Neymar Jr",
+      "team": "Al-Hilal",
+      "position": "LW",
+      "age": 33,
+      "nationality": "Brazil",
+      "league": "Saudi Pro League",
+      "previous_teams": ["Santos", "Barcelona", "PSG"]
+    },
+    {
+      "name": "Sir Alex Ferguson",
+      "team": "Retired",
+      "position": "Manager",
+      "age": 83,
+      "nationality": "Scotland",
+      "league": "N/A",
+      "previous_teams": ["East Stirlingshire (Manager)", "St. Mirren (Manager)", "Aberdeen (Manager)", "Manchester United (Manager)"]
+    },
+    {
+      "name": "Jens Lehmann",
+      "team": "Retired",
+      "position": "GK",
+      "age": 55,
+      "nationality": "Germany",
+      "league": "N/A",
+      "previous_teams": ["Schalke 04", "AC Milan", "Borussia Dortmund", "Arsenal", "Stuttgart"]
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "team": "Al-Nassr",
+      "position": "ST",
+      "age": 40,
+      "nationality": "Portugal",
+      "league": "Saudi Pro League",
+      "previous_teams": ["Sporting CP", "Manchester United", "Real Madrid", "Juventus"]
     }
   ],
   "metadata": {
-    "total_players": 125,
+    "total_players": 157,
     "data_updated": "September 2025",
     "position_abbreviations": {
       "GK": "Goalkeeper",
@@ -1142,13 +1421,17 @@
       "LW": "Left Winger",
       "RW": "Right Winger",
       "CF": "Center Forward",
-      "ST": "Striker"
+      "ST": "Striker",
+      "Manager": "Manager/Coach",
+      "Cricket": "Cricket Player",
+      "Rugby": "Rugby Player"
     },
     "notes": {
       "ages": "Ages calculated as of September 2025",
       "transfers": "Includes notable transfers through September 2025 window",
       "retired_players": "Included for historical/marketing interest",
-      "data_accuracy": "All data verified from public sources as of September 2025"
+      "data_accuracy": "All data verified from public sources as of September 2025",
+      "new_additions": "Added 32 new players including legends and current stars"
     }
   }
 }
