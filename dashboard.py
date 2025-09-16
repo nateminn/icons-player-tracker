@@ -830,7 +830,7 @@ if not filtered_df.empty:
             st.plotly_chart(fig_signed, use_container_width=True)
         
         with col2:
-            st.markdown("#####  Top Unsigned Players")
+            st.markdown("##### ")
             unsigned_top = filtered_df[filtered_df['status'] == 'unsigned'].groupby('actual_player')['july_2025_volume'].sum().nlargest(10).reset_index()
             fig_unsigned = px.bar(
                 unsigned_top,
