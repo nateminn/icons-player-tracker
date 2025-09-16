@@ -780,7 +780,7 @@ if not filtered_df.empty:
         st.markdown("###  Status Analysis - Signed vs Unsigned Players")
         
         # Top performers by status
-        st.markdown("#### Top Performing Players by Status")
+        st.markdown("# Top Performing Players by Status")
         
         col1, col2 = st.columns(2)
         
