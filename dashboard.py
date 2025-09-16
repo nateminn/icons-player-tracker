@@ -82,8 +82,8 @@ def load_csv_data():
 def load_player_details():
     """Load player details from GitHub"""
     try:
-        # Load from your GitHub repository
-        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2/player_essential_data_json.json"
+        # CORRECTED URL - using main-2.0 instead of main-2
+        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2.0/player_essential_data_json.json"
         response = requests.get(url)
         data = response.json()
         
