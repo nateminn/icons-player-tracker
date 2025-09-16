@@ -313,7 +313,7 @@ if not filtered_df.empty:
             st.plotly_chart(fig_pie, use_container_width=True)
         
         # Search Type Breakdown
-        st.markdown("### 🔍 Search Type Analysis")
+        st.markdown("### Search Type Analysis")
         search_type_data = filtered_df.groupby(['search_type', 'actual_player'])['july_2025_volume'].sum().reset_index()
         search_type_pivot = search_type_data.pivot(index='actual_player', columns='search_type', values='july_2025_volume').fillna(0)
         
@@ -334,7 +334,7 @@ if not filtered_df.empty:
     
     with tab2:
         # Market Analysis
-        st.markdown("### 🌍 Market Deep Dive")
+        st.markdown("### Market Deep Dive")
         
         # Create pivot table for heatmap
         pivot_data = filtered_df.groupby(['actual_player', 'country'])['july_2025_volume'].sum().reset_index()
@@ -689,7 +689,7 @@ if not filtered_df.empty:
             
             # Format status column
             comparison_metrics['Status'] = comparison_metrics['Status'].apply(
-                lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
+                lambda x: ' Signed' if x == 'signed' else ' Unsigned'
             )
             
             st.dataframe(
@@ -701,7 +701,7 @@ if not filtered_df.empty:
     
     with tab5:
         # Merchandise Analysis
-        st.markdown("### 👕 Merchandise Search Analysis")
+        st.markdown("###  Merchandise Search Analysis")
         
         merch_df = filtered_df[filtered_df['search_type'] == 'Merchandise']
         
