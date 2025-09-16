@@ -779,7 +779,6 @@ if not filtered_df.empty:
         # NEW TAB - Status Analysis
         st.markdown("###  Status Analysis - Signed vs Unsigned Players")
         
-        
         # Top performers by status
         st.markdown("#### Top Performing Players by Status")
         
