@@ -476,33 +476,41 @@ if not filtered_df.empty:
             
             st.markdown("---")
             
-            # SEARCH PERFORMANCE METRICS - WITH COLORED BOXES
-            st.markdown("#### **Search Performance Metrics**")
-            
-            # Calculate metrics
-            total_searches = player_data['july_2025_volume'].sum()
-            countries = player_data['country'].nunique()
-            name_variations = player_data['name_variation'].nunique()
-            merch_searches = player_data[player_data['search_type'] == 'Merchandise']['july_2025_volume'].sum()
-            merch_pct = (merch_searches/total_searches*100) if total_searches > 0 else 0
-            
-            col1, col2, col3, col4 = st.columns(4)
-            
-            with col1:
-                st.markdown("**Total Searches**")
-                st.info(f"### {total_searches:,}")
-            
-            with col2:
-                st.markdown("**Countries**")
-                st.info(f"### {countries}")
-            
-            with col3:
-                st.markdown("**Name Variations**")
-                st.info(f"### {name_variations}")
-            
-            with col4:
-                st.markdown("**Merch Interest**")
-                st.info(f"### {merch_pct:.1f}%")
+         # SEARCH PERFORMANCE METRICS - WITH GREY BOXES
+        st.markdown("#### **Search Performance Metrics**")
+        
+        # Calculate metrics
+        total_searches = player_data['july_2025_volume'].sum()
+        countries = player_data['country'].nunique()
+        name_variations = player_data['name_variation'].nunique()
+        merch_searches = player_data[player_data['search_type'] == 'Merchandise']['july_2025_volume'].sum()
+        merch_pct = (merch_searches/total_searches*100) if total_searches > 0 else 0
+        
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.metric(
+                label="Total Searches",
+                value=f"{total_searches:,}"
+            )
+        
+        with col2:
+            st.metric(
+                label="Countries",
+                value=f"{countries}"
+            )
+        
+        with col3:
+            st.metric(
+                label="Name Variations",
+                value=f"{name_variations}"
+            )
+        
+        with col4:
+            st.metric(
+                label="Merch Interest",
+                value=f"{merch_pct:.1f}%"
+            )
             
             st.markdown("---")
             
