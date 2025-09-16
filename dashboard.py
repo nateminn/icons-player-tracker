@@ -899,4 +899,4 @@ with col4:
     unsigned_count = df[df['status'] == 'unsigned']['actual_player'].nunique()
     st.caption(f" Unsigned: {unsigned_count}")
 
-st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Enhanced with Player Status")
+st.caption("Icons Player Demand Tracker v2.0")
