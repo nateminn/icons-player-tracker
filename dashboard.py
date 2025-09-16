@@ -372,10 +372,10 @@ if not filtered_df.empty:
             st.plotly_chart(fig_avg, use_container_width=True)
     
     with tab3:
-        # Player Details
+        # Player Details - ENHANCED WITH FULL PLAYER INFO
         st.markdown("### 👤 Individual Player Analysis")
         
-        # Add player status to selection
+        # Get unique players sorted by total volume
         player_options = sorted(filtered_df['actual_player'].unique())
         player_status_map = dict(filtered_df[['actual_player', 'status']].drop_duplicates().values)
         
@@ -394,60 +394,160 @@ if not filtered_df.empty:
         player_data = filtered_df[filtered_df['actual_player'] == selected_player]
         player_status = player_status_map.get(selected_player, 'unknown')
         
-        # Show player status
-        if player_status == 'signed':
-            st.success(f"✅ {selected_player} - SIGNED PLAYER")
-        else:
-            st.info(f"⏳ {selected_player} - UNSIGNED PLAYER")
+        # Get additional player info if available
+        player_info = player_dict.get(selected_player, {}) if player_dict else {}
         
-        col1, col2, col3 = st.columns(3)
-        with col1:
+        # ENHANCED PLAYER PROFILE SECTION - CLEAN AND CONCISE
+        if player_info:
+            # Status banner with player name
+            if player_status == 'signed':
+                st.success(f"### ✅ {selected_player} - SIGNED PLAYER")
+            else:
+                st.info(f"### ⏳ {selected_player} - UNSIGNED PLAYER")
+            
+            # Create a clean info box with all player details
+            st.markdown("---")
+            
+            # Main info in columns
+            col1, col2, col3 = st.columns([2, 2, 1])
+            
+            with col1:
+                st.markdown("**🏃 Player Profile**")
+                info_text = f"""
+                **Position:** {player_info.get('position', 'N/A')} | **Age:** {player_info.get('age', 'N/A')} years  
+                **Nationality:** {player_info.get('nationality', 'N/A')}  
+                **Current Team:** {player_info.get('team', 'N/A')}  
+                **League:** {player_info.get('league', 'N/A')}
+                """
+                st.markdown(info_text)
+            
+            with col2:
+                st.markdown("**🏆 Career Path**")
+                previous_teams = player_info.get('previous_teams', [])
+                if previous_teams:
+                    # Show last 5 teams with arrow separator
+                    recent_teams = previous_teams[-5:] if len(previous_teams) > 5 else previous_teams
+                    career_path = " → ".join(recent_teams)
+                    if len(previous_teams) > 5:
+                        st.markdown(f"*...({len(previous_teams)-5} earlier clubs)* → {career_path} → **{player_info.get('team', 'Current')}**")
+                    else:
+                        st.markdown(f"{career_path} → **{player_info.get('team', 'Current')}**")
+                else:
+                    st.markdown("*Youth product*")
+            
+            with col3:
+                st.markdown("**📊 Search Metrics**")
+                total_searches = player_data['july_2025_volume'].sum()
+                merch_searches = player_data[player_data['search_type'] == 'Merchandise']['july_2025_volume'].sum()
+                merch_pct = (merch_searches/total_searches*100) if total_searches > 0 else 0
+                
+                st.metric("Total Volume", f"{total_searches:,}")
+                st.metric("Merch Interest", f"{merch_pct:.1f}%")
+        
+        else:
+            # No player info available - just show status
+            if player_status == 'signed':
+                st.success(f"### ✅ {selected_player} - SIGNED PLAYER")
+            else:
+                st.info(f"### ⏳ {selected_player} - UNSIGNED PLAYER")
+        
+        st.markdown("---")
+        
+        # SEARCH PERFORMANCE SECTION - More compact
+        st.markdown("#### 📈 Search Performance Analysis")
+        
+        # Key metrics in a single row
+        metric_col1, metric_col2, metric_col3, metric_col4, metric_col5 = st.columns(5)
+        
+        with metric_col1:
             st.metric("Total Searches", f"{player_data['july_2025_volume'].sum():,}")
-        with col2:
+        
+        with metric_col2:
             st.metric("Countries", f"{player_data['country'].nunique()}")
-        with col3:
+        
+        with metric_col3:
             st.metric("Name Variations", f"{player_data['name_variation'].nunique()}")
         
-        # Player market breakdown
+        with metric_col4:
+            top_country = player_data.groupby('country')['july_2025_volume'].sum().idxmax()
+            st.metric("Top Market", top_country)
+        
+        with metric_col5:
+            avg_per_country = player_data['july_2025_volume'].sum() / player_data['country'].nunique()
+            st.metric("Avg/Country", f"{avg_per_country:,.0f}")
+        
+        st.markdown("---")
+        
+        # VISUALIZATIONS
+        # Market breakdown
+        st.markdown("#### 🌍 Market Breakdown")
         player_country_data = player_data.groupby('country')['july_2025_volume'].sum().reset_index()
         fig_player = px.bar(
             player_country_data,
             x='country',
             y='july_2025_volume',
-            title=f'{selected_player} - Search Volume by Country',
+            title=f'Search Volume by Country',
             color='july_2025_volume',
             color_continuous_scale='Blues',
-            labels={'july_2025_volume': 'Search Volume'}
+            labels={'july_2025_volume': 'Search Volume'},
+            height=350
         )
         st.plotly_chart(fig_player, use_container_width=True)
         
+        # Two column layout for remaining charts
         col1, col2 = st.columns(2)
         
         with col1:
-            # Search type breakdown for player
+            # Search type breakdown
             player_search_type = player_data.groupby('search_type')['july_2025_volume'].sum().reset_index()
             fig_search = px.pie(
                 player_search_type,
                 values='july_2025_volume',
                 names='search_type',
-                title=f'{selected_player} - Search Type Distribution'
+                title='Search Type Distribution',
+                height=300
             )
             st.plotly_chart(fig_search, use_container_width=True)
         
         with col2:
-            # Name variations performance
-            name_var_data = player_data.groupby('name_variation')['july_2025_volume'].sum().nlargest(10).reset_index()
+            # Top name variations
+            name_var_data = player_data.groupby('name_variation')['july_2025_volume'].sum().nlargest(5).reset_index()
             if len(name_var_data) > 0:
                 fig_names = px.bar(
                     name_var_data,
                     x='july_2025_volume',
                     y='name_variation',
                     orientation='h',
-                    title=f'Top Name Variations - {selected_player}',
+                    title='Top 5 Name Variations',
                     color='july_2025_volume',
-                    color_continuous_scale='Greens'
+                    color_continuous_scale='Greens',
+                    height=300
                 )
+                fig_names.update_layout(showlegend=False)
                 st.plotly_chart(fig_names, use_container_width=True)
+        
+        # Summary insights
+        st.markdown("---")
+        st.markdown("#### 💡 Quick Insights")
+        
+        insights_col1, insights_col2 = st.columns(2)
+        
+        with insights_col1:
+            # Market concentration
+            top_3_countries = player_country_data.nlargest(3, 'july_2025_volume')
+            top_3_volume = top_3_countries['july_2025_volume'].sum()
+            concentration = (top_3_volume / player_data['july_2025_volume'].sum() * 100)
+            st.info(f"**Market Concentration:** Top 3 countries account for {concentration:.1f}% of searches")
+        
+        with insights_col2:
+            # Merchandise vs Name searches
+            name_searches = player_data[player_data['search_type'] == 'Name Only']['july_2025_volume'].sum()
+            if name_searches > 0:
+                merch_to_name_ratio = merch_searches / name_searches
+                if merch_to_name_ratio > 0.5:
+                    st.success(f"**High Commercial Interest:** Merch searches are {merch_to_name_ratio:.1f}x name searches")
+                else:
+                    st.warning(f"**Growth Opportunity:** Merch searches only {merch_to_name_ratio:.2f}x name searches")
     
     with tab4:
         # Comparisons
