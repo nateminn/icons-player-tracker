@@ -4,61 +4,24 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 import numpy as np
-import json
-import requests
 
 # Page configuration
 st.set_page_config(
     page_title="Icons Player Demand Tracker",
     layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
+    initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling - UPDATED TO FIX TITLE SPACING
+# Custom CSS for better styling
 st.markdown("""
     <style>
-    /* Remove default Streamlit padding at the top but keep space for sidebar toggle */
-    .block-container {
-        padding-top: 2rem !important;  /* Changed from 0rem to leave room for toggle */
-        padding-bottom: 0rem !important;
-    }
-    
-    /* Don't hide the entire header - just minimize it */
-    header[data-testid="stHeader"] {
-        height: 2rem !important;  /* Keep minimal header for sidebar toggle */
-        background: transparent !important;
-    }
-    
-    /* Adjust main header positioning */
     .main-header {
-        font-size: 3rem;
-        font-weight: bold;
-        color: black;
-        text-align: center;
-        padding: 1rem 0;
-        margin-top: -1rem !important;  /* Reduced negative margin */
-        margin-bottom: 0.5rem;
+            font-size: 3rem;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            padding: 1rem 0;
     }
-    
-    /* Fix sidebar spacing */
-    section[data-testid="stSidebar"] {
-        top: 2rem !important;  /* Align with header */
-    }
-    
-    section[data-testid="stSidebar"] > div {
-        padding-top: 0.5rem !important;
-    }
-    
-    /* Keep the sidebar toggle visible */
-    button[aria-label="Open sidebar"] {
-        display: block !important;
-        visibility: visible !important;
-        top: 0.5rem !important;
-        left: 0.5rem !important;
-    }
-    
-    /* Other styles */
     .metric-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 1.5rem;
@@ -72,10 +35,6 @@ st.markdown("""
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    
-    /* Hide hamburger menu and footer */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
 
@@ -83,8 +42,8 @@ st.markdown("""
 def load_csv_data():
     """Load the CSV data from GitHub"""
     try:
-        # Load from your GitHub repository - try main-2.0 branch first
-        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2.0/ICONS_DASHBOARD_MASTER_20250911.csv"
+        # Load the MERGED CSV with both signed and unsigned players
+        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2/ICONS_DASHBOARD_MERGED_20250916_103417.csv"
         df = pd.read_csv(url)
         
         # Clean column names
@@ -94,89 +53,36 @@ def load_csv_data():
         df['july_2025_volume'] = pd.to_numeric(df['july_2025_volume'], errors='coerce').fillna(0)
         df['has_volume'] = pd.to_numeric(df['has_volume'], errors='coerce').fillna(0)
         
-        return df
-        
-    except Exception as e:
-        try:
-            # Fallback to main branch
-            url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main/ICONS_DASHBOARD_MASTER_20250911.csv"
-            df = pd.read_csv(url)
-            df.columns = df.columns.str.strip()
-            df['july_2025_volume'] = pd.to_numeric(df['july_2025_volume'], errors='coerce').fillna(0)
-            df['has_volume'] = pd.to_numeric(df['has_volume'], errors='coerce').fillna(0)
-            return df
-        except:
-            st.error(f"Unable to load data from GitHub. Error: {str(e)}")
-            return pd.DataFrame()
-
-@st.cache_data(ttl=3600)
-def load_player_details():
-    """Load player details from GitHub"""
-    try:
-        # Load from main-2.0 branch
-        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2.0/player_essential_data_json.json"
-        response = requests.get(url)
-        data = response.json()
-        
-        # Convert to DataFrame for easier manipulation
-        player_df = pd.DataFrame(data['players'])
-        
-        # Create a dictionary for quick lookup
-        player_dict = {player['name']: player for player in data['players']}
-        
-        return player_df, player_dict
-        
-    except Exception as e:
-        return pd.DataFrame(), {}
-
-def enhance_with_player_details(df, player_dict):
-    """Enhance the dashboard DataFrame with player details"""
-    if not player_dict:
-        return df
-    
-    # Add new columns
-    df['team'] = ''
-    df['position'] = ''
-    df['age'] = 0
-    df['nationality'] = ''
-    df['player_league'] = ''
-    df['previous_teams'] = ''
-    
-    # Match players and add their info
-    for index, row in df.iterrows():
-        player_name = row['actual_player']
-        
-        # Try different matching strategies
-        player_info = None
-        
-        # Exact match
-        if player_name in player_dict:
-            player_info = player_dict[player_name]
+        # Ensure status column exists and is properly formatted
+        if 'status' not in df.columns:
+            # If status column doesn't exist, create it with default value
+            df['status'] = 'unsigned'
         else:
-            # Try partial match (last name)
-            for full_name, info in player_dict.items():
-                if player_name.lower() in full_name.lower() or full_name.lower() in player_name.lower():
-                    player_info = info
-                    break
+            # Clean up status column values
+            df['status'] = df['status'].str.strip().str.lower()
+            # Standardize values
+            df['status'] = df['status'].replace({
+                'sign': 'signed',
+                'unsign': 'unsigned',
+                'signed': 'signed',
+                'unsigned': 'unsigned'
+            })
+            # Fill any NaN values with 'unsigned'
+            df['status'] = df['status'].fillna('unsigned')
         
-        if player_info:
-            df.at[index, 'team'] = player_info.get('team', '')
-            df.at[index, 'position'] = player_info.get('position', '')
-            df.at[index, 'age'] = player_info.get('age', 0)
-            df.at[index, 'nationality'] = player_info.get('nationality', '')
-            df.at[index, 'player_league'] = player_info.get('league', '')
-            df.at[index, 'previous_teams'] = ', '.join(player_info.get('previous_teams', []))
-    
-    return df
+        return df
+        
+    except Exception as e:
+        st.error(f"Unable to load data from GitHub. Error: {str(e)}")
+        return pd.DataFrame()
 
 # Header
 st.markdown('<h1 class="main-header">Icons Player Demand Tracker</h1>', unsafe_allow_html=True)
-st.markdown("### Global Search Demand Analysis - July 2025")
+st.markdown("### Global Search Demand Analysis for Football Players - July 2025")
 
 # Load data
 with st.spinner('Loading data from GitHub...'):
     df = load_csv_data()
-    player_df, player_dict = load_player_details()
 
 if df.empty:
     st.error("""
@@ -188,21 +94,53 @@ if df.empty:
     3. The CSV file exists at the specified location
     
     **Expected file location:**
-    https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main/ICONS_DASHBOARD_MASTER_20250911.csv
+    https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2/ICONS_DASHBOARD_MERGED_20250916_103417.csv
     """)
     st.stop()
 else:
-    # Enhance with player details if available
-    if player_dict:
-        df = enhance_with_player_details(df, player_dict)
-        st.success(f"✓ Successfully loaded {len(df):,} rows with detailed player data")
-    else:
-        st.success(f"✓ Successfully loaded {len(df):,} rows of data")
+    # Count unique players and their status
+    unique_players_count = df['actual_player'].nunique()
+    signed_players = df[df['status'] == 'signed']['actual_player'].nunique()
+    unsigned_players = df[df['status'] == 'unsigned']['actual_player'].nunique()
+    
+    st.success(f"✓ Successfully loaded {len(df):,} rows | {unique_players_count} total players ({signed_players} signed, {unsigned_players} unsigned)")
 
 # Sidebar filters
 with st.sidebar:
     st.markdown("## Dashboard Controls")
     st.markdown("### Filters")
+    
+    # Show data status
+    st.info(f"📊 Dataset: {len(df):,} rows")
+    st.info(f"👥 Total Players: {unique_players_count}")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.success(f"✅ Signed: {signed_players}")
+    with col2:
+        st.warning(f"⏳ Unsigned: {unsigned_players}")
+    
+    st.caption("Data source: GitHub Repository")
+    st.markdown("---")
+    
+    # STATUS FILTER - NEW!
+    st.markdown("#### Player Status")
+    status_options = ['All', 'Signed', 'Unsigned']
+    selected_status = st.selectbox(
+        "Filter by Status:",
+        options=status_options,
+        index=0,  # Default to 'All'
+        help="Filter players by their signing status"
+    )
+    
+    # Apply status filter to get relevant players
+    if selected_status == 'Signed':
+        status_filtered_df = df[df['status'] == 'signed']
+    elif selected_status == 'Unsigned':
+        status_filtered_df = df[df['status'] == 'unsigned']
+    else:
+        status_filtered_df = df
+    
+    st.markdown("---")
     
     # Country filter
     selected_countries = st.multiselect(
@@ -211,12 +149,15 @@ with st.sidebar:
         default=sorted(df['country'].unique())  
     )
     
-    # Player filter
-    available_players = sorted(df[df['country'].isin(selected_countries)]['actual_player'].unique())
+    # Player filter - Updated to default to ALL players and respect status filter
+    available_players = sorted(status_filtered_df[status_filtered_df['country'].isin(selected_countries)]['actual_player'].unique())
+    
+    # DEFAULT TO ALL AVAILABLE PLAYERS
     selected_players = st.multiselect(
         "Select Players:",
         options=available_players,
-        default=available_players
+        default=available_players,  # This now defaults to ALL players (respecting status filter)
+        help=f"Showing {len(available_players)} players based on status and country filters"
     )
     
     # Search type filter
@@ -252,7 +193,7 @@ with st.sidebar:
     # Only show data with volume
     only_with_volume = st.checkbox("Show only items with search volume", value=True)
 
-# Apply filters
+# Apply filters including the new status filter
 filtered_df = df[
     (df['country'].isin(selected_countries)) &
     (df['actual_player'].isin(selected_players)) &
@@ -260,6 +201,12 @@ filtered_df = df[
     (df['july_2025_volume'] >= volume_range[0]) &
     (df['july_2025_volume'] <= volume_range[1])
 ]
+
+# Apply status filter
+if selected_status == 'Signed':
+    filtered_df = filtered_df[filtered_df['status'] == 'signed']
+elif selected_status == 'Unsigned':
+    filtered_df = filtered_df[filtered_df['status'] == 'unsigned']
 
 # Additional filter for merchandise categories
 if 'Merchandise' in selected_search_types:
@@ -272,7 +219,7 @@ if only_with_volume:
 # Main dashboard
 if not filtered_df.empty:
     
-    # Key Metrics Row
+    # Key Metrics Row - Updated to show status breakdown
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
@@ -285,18 +232,21 @@ if not filtered_df.empty:
     
     with col2:
         unique_players = filtered_df['actual_player'].nunique()
+        total_available = df['actual_player'].nunique()
         st.metric(
             "Players Analyzed",
             f"{unique_players}",
-            delta=f"of {df['actual_player'].nunique()} total"
+            delta=f"of {total_available} total"
         )
     
     with col3:
-        avg_volume_per_player = filtered_df.groupby('actual_player')['july_2025_volume'].sum().mean()
+        # Show signed vs unsigned in filtered data
+        signed_in_filter = filtered_df[filtered_df['status'] == 'signed']['actual_player'].nunique()
+        unsigned_in_filter = filtered_df[filtered_df['status'] == 'unsigned']['actual_player'].nunique()
         st.metric(
-            "Avg Volume per Player",
-            f"{avg_volume_per_player:,.0f}",
-            delta="Across selected markets"
+            "Player Status",
+            f"{signed_in_filter} Signed",
+            delta=f"{unsigned_in_filter} Unsigned"
         )
     
     with col4:
@@ -309,14 +259,14 @@ if not filtered_df.empty:
     
     st.markdown("---")
     
-    # Tabs for different views - ADDED ALL PLAYERS TAB
+    # Tabs for different views - Added Status Analysis tab
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📈 Overview", 
         "🌍 Market Analysis", 
-        "👤 Player Details",
-        "📋 All Players",  # NEW TAB
+        "👤 Player Details", 
         "📊 Comparisons", 
-        "👕 Merchandise"
+        "👕 Merchandise",
+        "📋 Status Analysis"  # NEW TAB
     ])
     
     with tab1:
@@ -324,17 +274,19 @@ if not filtered_df.empty:
         col1, col2 = st.columns(2)
         
         with col1:
-            # Top players by total volume
-            player_volumes = filtered_df.groupby('actual_player')['july_2025_volume'].sum().nlargest(15).reset_index()
+            # Top players by total volume - color by status
+            player_volumes = filtered_df.groupby(['actual_player', 'status'])['july_2025_volume'].sum().reset_index()
+            player_volumes = player_volumes.nlargest(15, 'july_2025_volume')
+            
             fig_bar = px.bar(
                 player_volumes,
                 x='july_2025_volume',
                 y='actual_player',
                 orientation='h',
                 title='Top 15 Players by Total Search Volume',
-                color='july_2025_volume',
-                color_continuous_scale='Blues',
-                labels={'july_2025_volume': 'Search Volume', 'actual_player': 'Player'}
+                color='status',
+                color_discrete_map={'signed': '#2ecc71', 'unsigned': '#3498db'},
+                labels={'july_2025_volume': 'Search Volume', 'actual_player': 'Player', 'status': 'Status'}
             )
             fig_bar.update_layout(height=500)
             st.plotly_chart(fig_bar, use_container_width=True)
@@ -431,82 +383,41 @@ if not filtered_df.empty:
             st.plotly_chart(fig_avg, use_container_width=True)
     
     with tab3:
-        # ENHANCED PLAYER DETAILS TAB
+        # Player Details
         st.markdown("### 👤 Individual Player Analysis")
         
-        # Get unique players sorted by total volume
-        player_volumes = filtered_df.groupby('actual_player')['july_2025_volume'].sum().sort_values(ascending=False)
+        # Add player status to selection
+        player_options = sorted(filtered_df['actual_player'].unique())
+        player_status_map = dict(filtered_df[['actual_player', 'status']].drop_duplicates().values)
         
-        selected_player = st.selectbox(
+        # Format player names with status indicator
+        player_display = [f"{player} ({'✅ Signed' if player_status_map.get(player) == 'signed' else '⏳ Unsigned'})" 
+                         for player in player_options]
+        
+        selected_display = st.selectbox(
             "Select a player to analyze:",
-            options=player_volumes.index.tolist()
+            options=player_display
         )
         
+        # Extract actual player name from display
+        selected_player = selected_display.split(' (')[0]
+        
         player_data = filtered_df[filtered_df['actual_player'] == selected_player]
+        player_status = player_status_map.get(selected_player, 'unknown')
         
-        # Get additional player info if available
-        player_info = player_dict.get(selected_player, {}) if player_dict else {}
+        # Show player status
+        if player_status == 'signed':
+            st.success(f"✅ {selected_player} - SIGNED PLAYER")
+        else:
+            st.info(f"⏳ {selected_player} - UNSIGNED PLAYER")
         
-        # PLAYER PROFILE SECTION
-        if player_info:
-            st.markdown("---")
-            st.markdown("#### Player Profile")
-            
-            profile_col1, profile_col2, profile_col3, profile_col4 = st.columns(4)
-            
-            with profile_col1:
-                st.markdown("**Current Team**")
-                st.info(player_info.get('team', 'N/A'))
-                
-            with profile_col2:
-                st.markdown("**Position**")
-                st.info(player_info.get('position', 'N/A'))
-                
-            with profile_col3:
-                st.markdown("**Age**")
-                st.info(f"{player_info.get('age', 'N/A')} years")
-                
-            with profile_col4:
-                st.markdown("**Nationality**")
-                st.info(player_info.get('nationality', 'N/A'))
-            
-            league_col1, league_col2 = st.columns([1, 3])
-            
-            with league_col1:
-                st.markdown("**Current League**")
-                st.success(player_info.get('league', 'N/A'))
-            
-            with league_col2:
-                st.markdown("**Career History**")
-                previous_teams = player_info.get('previous_teams', [])
-                if previous_teams:
-                    teams_display = " → ".join(previous_teams[:8])
-                    if len(previous_teams) > 8:
-                        teams_display += f" (+{len(previous_teams) - 8} more)"
-                    st.success(teams_display)
-                else:
-                    st.success("No previous clubs recorded")
-        
-        # SEARCH METRICS
-        st.markdown("---")
-        st.markdown("#### Search Performance Metrics")
-        
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3 = st.columns(3)
         with col1:
             st.metric("Total Searches", f"{player_data['july_2025_volume'].sum():,}")
         with col2:
             st.metric("Countries", f"{player_data['country'].nunique()}")
         with col3:
             st.metric("Name Variations", f"{player_data['name_variation'].nunique()}")
-        with col4:
-            search_type_breakdown = player_data.groupby('search_type')['july_2025_volume'].sum()
-            merch_searches = search_type_breakdown.get('Merchandise', 0)
-            total_searches = player_data['july_2025_volume'].sum()
-            merch_percentage = (merch_searches / total_searches * 100) if total_searches > 0 else 0
-            st.metric("Merch Interest", f"{merch_percentage:.1f}%")
-        
-        # VISUALIZATIONS
-        st.markdown("---")
         
         # Player market breakdown
         player_country_data = player_data.groupby('country')['july_2025_volume'].sum().reset_index()
@@ -550,174 +461,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_names, use_container_width=True)
     
     with tab4:
-        # Enhanced All Players tab with player details
-        st.markdown("### 📋 Complete Players Database")
-        
-        # Create summary for all players
-        player_summary = filtered_df.groupby('actual_player').agg({
-            'july_2025_volume': 'sum',
-            'country': 'nunique',
-            'name_variation': 'nunique'
-        }).reset_index()
-        
-        # Add player details if available
-        if player_df is not None and not player_df.empty:
-            player_summary = player_summary.merge(
-                player_df[['name', 'team', 'position', 'age', 'nationality', 'league']],
-                left_on='actual_player',
-                right_on='name',
-                how='left'
-            )
-            # Drop the duplicate name column
-            if 'name' in player_summary.columns:
-                player_summary = player_summary.drop('name', axis=1)
-        
-        # Add merchandise volume separately
-        merch_volume = filtered_df[filtered_df['search_type'] == 'Merchandise'].groupby('actual_player')['july_2025_volume'].sum()
-        name_volume = filtered_df[filtered_df['search_type'] == 'Name Only'].groupby('actual_player')['july_2025_volume'].sum()
-        
-        player_summary['name_searches'] = player_summary['actual_player'].map(name_volume).fillna(0).astype(int)
-        player_summary['merch_searches'] = player_summary['actual_player'].map(merch_volume).fillna(0).astype(int)
-        player_summary['merch_ratio'] = ((player_summary['merch_searches'] / player_summary['july_2025_volume'] * 100)
-                                         .fillna(0).round(1))
-        
-        # Prepare display columns based on available data
-        if 'team' in player_summary.columns:
-            display_columns = [
-                'actual_player', 'team', 'position', 'age', 'nationality', 'league',
-                'july_2025_volume', 'country', 'name_searches', 'merch_searches', 'merch_ratio'
-            ]
-            column_names = [
-                'Player', 'Team', 'Pos', 'Age', 'Nation', 'League',
-                'Total Volume', 'Countries', 'Name Searches', 'Merch Searches', 'Merch %'
-            ]
-        else:
-            display_columns = [
-                'actual_player', 'july_2025_volume', 'country', 
-                'name_searches', 'merch_searches', 'merch_ratio'
-            ]
-            column_names = [
-                'Player', 'Total Volume', 'Countries',
-                'Name Searches', 'Merch Searches', 'Merch %'
-            ]
-        
-        player_summary = player_summary[display_columns]
-        player_summary.columns = column_names
-        
-        # Sort by total volume by default
-        player_summary = player_summary.sort_values('Total Volume', ascending=False)
-        
-        # Add ranking
-        player_summary.insert(0, 'Rank', range(1, len(player_summary) + 1))
-        
-        # Filtering controls
-        col1, col2, col3, col4 = st.columns(4)
-        
-        with col1:
-            # Filter by position if available
-            if 'Pos' in player_summary.columns:
-                positions = ['All'] + sorted(player_summary['Pos'].dropna().unique().tolist())
-                selected_position = st.selectbox("Position", positions, key="all_players_position")
-            else:
-                selected_position = 'All'
-        
-        with col2:
-            # Filter by league if available
-            if 'League' in player_summary.columns:
-                leagues = ['All'] + sorted(player_summary['League'].dropna().unique().tolist())
-                selected_league = st.selectbox("League", leagues, key="all_players_league")
-            else:
-                selected_league = 'All'
-        
-        with col3:
-            # Sort by
-            sort_options = ['Total Volume', 'Name Searches', 'Merch Searches', 'Merch %', 'Player']
-            if 'Age' in player_summary.columns:
-                sort_options.insert(4, 'Age')
-            sort_by = st.selectbox(
-                "Sort by",
-                options=sort_options,
-                index=0,
-                key="all_players_sort"
-            )
-        
-        with col4:
-            # Sort order
-            sort_order = st.radio(
-                "Order",
-                options=['Descending', 'Ascending'],
-                horizontal=True,
-                key="all_players_order"
-            )
-        
-        # Apply filters
-        filtered_summary = player_summary.copy()
-        
-        if selected_position != 'All' and 'Pos' in filtered_summary.columns:
-            filtered_summary = filtered_summary[filtered_summary['Pos'] == selected_position]
-        
-        if selected_league != 'All' and 'League' in filtered_summary.columns:
-            filtered_summary = filtered_summary[filtered_summary['League'] == selected_league]
-        
-        # Apply sorting
-        ascending = (sort_order == 'Ascending')
-        sorted_summary = filtered_summary.sort_values(sort_by, ascending=ascending)
-        
-        # Reset ranking after filtering and sorting
-        sorted_summary['Rank'] = range(1, len(sorted_summary) + 1)
-        
-        # Display metrics
-        col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Players Shown", len(sorted_summary))
-        with col2:
-            st.metric("Total Search Volume", f"{sorted_summary['Total Volume'].sum():,}")
-        with col3:
-            if 'Age' in sorted_summary.columns:
-                avg_age = sorted_summary[sorted_summary['Age'] > 0]['Age'].mean()
-                st.metric("Average Age", f"{avg_age:.1f}" if not pd.isna(avg_age) else "N/A")
-            else:
-                st.metric("Unique Players", len(sorted_summary))
-        with col4:
-            if 'League' in sorted_summary.columns:
-                leagues_count = sorted_summary['League'].nunique()
-                st.metric("Leagues", leagues_count)
-            else:
-                countries_count = sorted_summary['Countries'].sum()
-                st.metric("Total Countries", countries_count)
-        
-        # Format the dataframe for display
-        format_dict = {
-            'Total Volume': '{:,.0f}',
-            'Name Searches': '{:,.0f}',
-            'Merch Searches': '{:,.0f}',
-            'Merch %': '{:.1f}%'
-        }
-        if 'Age' in sorted_summary.columns:
-            format_dict['Age'] = lambda x: f'{int(x)}' if pd.notna(x) and x > 0 else 'N/A'
-        
-        styled_df = sorted_summary.style.format(format_dict).background_gradient(subset=['Total Volume'], cmap='Blues')
-        
-        # Display the table
-        st.dataframe(
-            styled_df,
-            use_container_width=True,
-            height=600
-        )
-        
-        # Export button for this table
-        st.markdown("---")
-        csv_export = sorted_summary.to_csv(index=False)
-        st.download_button(
-            label="Download Players Summary (CSV)",
-            data=csv_export,
-            file_name=f"all_players_detailed_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-            mime="text/csv",
-            key="download_all_players_detailed"
-        )
-    
-    with tab5:
-        # Comparisons - KEEP AS IS
+        # Comparisons
         st.markdown("### 📊 Player Comparisons")
         
         players_to_compare = st.multiselect(
@@ -780,15 +524,21 @@ if not filtered_df.empty:
                 )
                 st.plotly_chart(fig_radar, use_container_width=True)
             
-            # Comparison metrics table
-            st.markdown("#### Detailed Comparison Metrics")
+            # Comparison metrics table with status
+            st.markdown("#### 📋 Detailed Comparison Metrics")
             comparison_metrics = comparison_df.groupby('actual_player').agg({
                 'july_2025_volume': 'sum',
                 'country': 'nunique',
-                'name_variation': 'nunique'
+                'name_variation': 'nunique',
+                'status': 'first'  # Get status for each player
             }).round(0).reset_index()
-            comparison_metrics.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations']
+            comparison_metrics.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations', 'Status']
             comparison_metrics = comparison_metrics.sort_values('Total Volume', ascending=False)
+            
+            # Format status column
+            comparison_metrics['Status'] = comparison_metrics['Status'].apply(
+                lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
+            )
             
             st.dataframe(
                 comparison_metrics.style.background_gradient(subset=['Total Volume'], cmap='Blues'),
@@ -797,9 +547,9 @@ if not filtered_df.empty:
         elif len(players_to_compare) > 10:
             st.warning("Please select maximum 10 players for comparison")
     
-    with tab6:
-        # Merchandise Analysis - KEEP AS IS
-        st.markdown("### Merchandise Search Analysis")
+    with tab5:
+        # Merchandise Analysis
+        st.markdown("### 👕 Merchandise Search Analysis")
         
         merch_df = filtered_df[filtered_df['search_type'] == 'Merchandise']
         
@@ -832,24 +582,25 @@ if not filtered_df.empty:
                 )
                 st.plotly_chart(fig_terms, use_container_width=True)
             
-            # Player merchandise performance
-            st.markdown("#### Top Players by Merchandise Searches")
-            player_merch = merch_df.groupby('actual_player')['july_2025_volume'].sum().nlargest(20).reset_index()
+            # Player merchandise performance - highlight signed vs unsigned
+            st.markdown("#### 🏆 Top Players by Merchandise Searches")
+            player_merch = merch_df.groupby(['actual_player', 'status'])['july_2025_volume'].sum().reset_index()
+            player_merch = player_merch.nlargest(20, 'july_2025_volume')
             
             fig_player_merch = px.bar(
                 player_merch,
                 x='actual_player',
                 y='july_2025_volume',
                 title='Top 20 Players - Merchandise Search Volume',
-                color='july_2025_volume',
-                color_continuous_scale='Viridis',
-                labels={'july_2025_volume': 'Merchandise Searches', 'actual_player': 'Player'}
+                color='status',
+                color_discrete_map={'signed': '#2ecc71', 'unsigned': '#3498db'},
+                labels={'july_2025_volume': 'Merchandise Searches', 'actual_player': 'Player', 'status': 'Status'}
             )
             fig_player_merch.update_layout(xaxis_tickangle=-45)
             st.plotly_chart(fig_player_merch, use_container_width=True)
             
             # Merchandise by country
-            st.markdown("#### Merchandise Searches by Country")
+            st.markdown("#### 🌍 Merchandise Searches by Country")
             country_merch = merch_df.groupby(['country', 'merch_category']).agg({
                 'july_2025_volume': 'sum'
             }).reset_index()
@@ -872,32 +623,119 @@ if not filtered_df.empty:
         else:
             st.info("No merchandise data available for the selected filters")
     
+    with tab6:
+        # NEW TAB - Status Analysis
+        st.markdown("### 📋 Status Analysis - Signed vs Unsigned Players")
+        
+        # Overall status comparison
+        status_summary = filtered_df.groupby('status').agg({
+            'actual_player': 'nunique',
+            'july_2025_volume': 'sum'
+        }).reset_index()
+        status_summary.columns = ['Status', 'Player Count', 'Total Volume']
+        status_summary['Status'] = status_summary['Status'].apply(
+            lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
+        )
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            fig_status_players = px.pie(
+                status_summary,
+                values='Player Count',
+                names='Status',
+                title='Player Distribution by Status',
+                color_discrete_map={'✅ Signed': '#2ecc71', '⏳ Unsigned': '#3498db'}
+            )
+            st.plotly_chart(fig_status_players, use_container_width=True)
+        
+        with col2:
+            fig_status_volume = px.pie(
+                status_summary,
+                values='Total Volume',
+                names='Status',
+                title='Search Volume by Status',
+                color_discrete_map={'✅ Signed': '#2ecc71', '⏳ Unsigned': '#3498db'}
+            )
+            st.plotly_chart(fig_status_volume, use_container_width=True)
+        
+        # Top performers by status
+        st.markdown("#### Top Performing Players by Status")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("##### ✅ Top Signed Players")
+            signed_top = filtered_df[filtered_df['status'] == 'signed'].groupby('actual_player')['july_2025_volume'].sum().nlargest(10).reset_index()
+            fig_signed = px.bar(
+                signed_top,
+                x='july_2025_volume',
+                y='actual_player',
+                orientation='h',
+                title='Top 10 Signed Players',
+                color_discrete_sequence=['#2ecc71']
+            )
+            st.plotly_chart(fig_signed, use_container_width=True)
+        
+        with col2:
+            st.markdown("##### ⏳ Top Unsigned Players")
+            unsigned_top = filtered_df[filtered_df['status'] == 'unsigned'].groupby('actual_player')['july_2025_volume'].sum().nlargest(10).reset_index()
+            fig_unsigned = px.bar(
+                unsigned_top,
+                x='july_2025_volume',
+                y='actual_player',
+                orientation='h',
+                title='Top 10 Unsigned Players',
+                color_discrete_sequence=['#3498db']
+            )
+            st.plotly_chart(fig_unsigned, use_container_width=True)
+        
+        # Average metrics comparison
+        st.markdown("#### Performance Metrics Comparison")
+        
+        metrics_comparison = filtered_df.groupby('status').agg({
+            'july_2025_volume': 'mean',
+            'country': lambda x: filtered_df[filtered_df['status'] == x.iloc[0]]['country'].nunique(),
+            'name_variation': lambda x: filtered_df[filtered_df['status'] == x.iloc[0]]['name_variation'].nunique()
+        }).round(0).reset_index()
+        
+        metrics_comparison.columns = ['Status', 'Avg Volume per Entry', 'Countries Covered', 'Name Variations']
+        metrics_comparison['Status'] = metrics_comparison['Status'].apply(
+            lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
+        )
+        
+        st.dataframe(
+            metrics_comparison.style.background_gradient(subset=['Avg Volume per Entry'], cmap='Greens'),
+            use_container_width=True
+        )
+    
     # Export functionality
     st.markdown("---")
-    st.markdown("### Export Data")
+    st.markdown("### 💾 Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
         csv = filtered_df.to_csv(index=False)
         st.download_button(
-            label="Download Filtered Data (CSV)",
+            label="📥 Download Filtered Data (CSV)",
             data=csv,
             file_name=f"player_demand_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
         )
     
     with col2:
-        # Summary statistics
+        # Summary statistics with status
         summary_data = filtered_df.groupby('actual_player').agg({
             'july_2025_volume': ['sum', 'mean'],
             'country': 'nunique',
-            'name_variation': 'nunique'
+            'name_variation': 'nunique',
+            'status': 'first'
         }).round(0)
-        summary_data.columns = ['Total_Volume', 'Avg_Volume', 'Countries', 'Name_Variations']
+        summary_data.columns = ['Total_Volume', 'Avg_Volume', 'Countries', 'Name_Variations', 'Status']
         summary_csv = summary_data.to_csv()
         
         st.download_button(
-            label="Download Player Summary (CSV)",
+            label="📊 Download Player Summary (CSV)",
             data=summary_csv,
             file_name=f"player_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -914,12 +752,16 @@ else:
 
 # Footer with data info
 st.markdown("---")
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.caption(f"Data: {len(df):,} total rows")
+    st.caption(f"📊 Data: {len(df):,} total rows")
 with col2:
-    st.caption(f"Players: {df['actual_player'].nunique()} unique")
+    st.caption(f"👥 Players: {df['actual_player'].nunique()} total")
 with col3:
-    st.caption(f"Markets: {df['country'].nunique()} countries")
+    signed_count = df[df['status'] == 'signed']['actual_player'].nunique()
+    st.caption(f"✅ Signed: {signed_count}")
+with col4:
+    unsigned_count = df[df['status'] == 'unsigned']['actual_player'].nunique()
+    st.caption(f"⏳ Unsigned: {unsigned_count}")
 
-st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data")
+st.caption("Icons Player Demand Tracker v2.0 | July 2025 Data | Enhanced with Player Status")
