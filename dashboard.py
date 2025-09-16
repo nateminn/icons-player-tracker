@@ -817,7 +817,7 @@ if not filtered_df.empty:
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("#####  Top Signed Players")
+            st.markdown("#####  ")
             signed_top = filtered_df[filtered_df['status'] == 'signed'].groupby('actual_player')['july_2025_volume'].sum().nlargest(10).reset_index()
             fig_signed = px.bar(
                 signed_top,
