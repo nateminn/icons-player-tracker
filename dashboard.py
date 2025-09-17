@@ -327,7 +327,7 @@ if not filtered_df.empty:
             y=search_type_pivot_top.columns.tolist(),
             title='Search Volume by Type (Top 20 Players)',
             labels={'value': 'Search Volume', 'actual_player': 'Player'},
-            color_discrete_sequence=px.colors.qualitative.Set3
+            color_discrete_sequence=px.colors.qualitative.Bold
         )
         fig_stacked.update_layout(height=400, xaxis_tickangle=-45)
         st.plotly_chart(fig_stacked, use_container_width=True)
