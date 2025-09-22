@@ -45,7 +45,7 @@ def load_csv_data():
     """Load the CSV data from GitHub"""
     try:
         # CORRECTED URL - using main-2.0 branch
-        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-2.0/ICONS_DASHBOARD_MERGED_20250916_103417.csv"
+        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/ICONS_DASHBOARD_MERGED_20250916_103417.csv"
         df = pd.read_csv(url)
         
         # Clean column names
