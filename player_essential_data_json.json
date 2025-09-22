@@ -2955,10 +2955,7 @@
   "metadata": {
     "total_unique_players": 228,
     "data_updated": "September 2025",
-    "duplicate_entries_resolved": [
-      "Alex Ferguson / Sir Alex Ferguson - Kept only Sir Alex Ferguson",
-      "All duplicates resolved and total names added as field"
-    ],
+    "duplicate_entries_resolved": ["All duplicates resolved and alternative names added as field"],
     "data_consistency": "All players now have identical field structure including total_names field",
     "position_abbreviations": {
       "GK": "Goalkeeper",
