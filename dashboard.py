@@ -217,9 +217,15 @@ if selected_status == 'Signed':
 elif selected_status == 'Unsigned':
     filtered_df = filtered_df[filtered_df['status'] == 'unsigned']
 
-# Additional filter for merchandise categories
-if 'Merchandise' in selected_search_types:
-    merch_filter = filtered_df['merch_category'].isin(selected_merch_categories) | filtered_df['search_type'] != 'Merchandise'
+
+# Apply merchandise category filter
+if 'Merchandise' in selected_search_types and selected_merch_categories:
+    # For merchandise rows, only keep those with selected categories
+    # For non-merchandise rows, keep them all
+    merch_filter = (
+        (filtered_df['search_type'] != 'Merchandise') |  # Keep all non-merchandise
+        (filtered_df['merch_category'].isin(selected_merch_categories))  # Keep only selected merch categories
+    )
     filtered_df = filtered_df[merch_filter]
 
 if only_with_volume:
