@@ -169,6 +169,8 @@ with st.sidebar:
         help=f"Showing {len(available_players)} players based on status and country filters"
     )
     
+    # In the sidebar section (replace lines 161-168)
+    
     # Search type filter
     search_types = sorted(df['search_type'].unique())
     selected_search_types = st.multiselect(
@@ -177,14 +179,20 @@ with st.sidebar:
         default=search_types
     )
     
-    # Merchandise category filter
-    merch_categories = sorted(df[df['merch_category'].notna()]['merch_category'].unique())
-    selected_merch_categories = st.multiselect(
-        "Merchandise Categories:",
-        options=merch_categories,
-        default=merch_categories
-    )
-    
+    # Merchandise category filter - ONLY show when Merchandise is selected
+    if 'Merchandise' in selected_search_types:
+        merch_categories = sorted(df[df['merch_category'].notna()]['merch_category'].unique())
+        selected_merch_categories = st.multiselect(
+            "Merchandise Categories:",
+            options=merch_categories,
+            default=merch_categories,
+            help="Filter merchandise searches by category"
+        )
+    else:
+        # If Merchandise not selected, default to all categories (for when it gets re-selected)
+        merch_categories = sorted(df[df['merch_category'].notna()]['merch_category'].unique())
+        selected_merch_categories = merch_categories  # Set to all by default
+        
     # Volume filter
     if len(df) > 0:
         min_vol = int(df['july_2025_volume'].min())
