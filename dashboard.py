@@ -752,7 +752,7 @@ if not filtered_df.empty:
         elif len(players_to_compare) > 10:
             st.warning("Please select maximum 10 players for comparison")
         
-     with tab5:
+    with tab5:
             # Merchandise Analysis
             st.markdown("###  Merchandise Search Analysis")
             
@@ -828,7 +828,7 @@ if not filtered_df.empty:
             else:
                 st.info("No merchandise data available for the selected filters")
     
-     with tab6:
+    with tab6:
         st.markdown("### 🎯 Player Opportunity Score Analysis")
         
         # Scoring key information
