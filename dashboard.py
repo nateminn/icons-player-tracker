@@ -828,7 +828,7 @@ if not filtered_df.empty:
             else:
                 st.info("No merchandise data available for the selected filters")
     
-        with tab6:
+     with tab6:
         st.markdown("### 🎯 Player Opportunity Score Analysis")
         
         # Scoring key information
