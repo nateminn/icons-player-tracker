@@ -486,110 +486,46 @@ if not filtered_df.empty:
             else:
                 st.info("Not Available")
         
-        # Career History Section
+        # Career Journey Section
         st.markdown("---")
         st.markdown("#### **Career Journey**")
         
+        st.markdown("**Full Career Path**")
+        if player_info and player_info.get('previous_teams'):
+            previous_teams = player_info.get('previous_teams', [])
+            current_team = player_info.get('team', '')
+            
+            # Build career path
+            if previous_teams:
+                career_path = " → ".join(previous_teams)
+                if current_team and current_team not in ['Retired', 'N/A'] and 'Deceased' not in current_team:
+                    career_path = career_path + " → " + current_team
+            else:
+                career_path = current_team if current_team else "No career history available"
+            
+            st.success(career_path)
+        else:
+            st.success("Career history not available")
+        
+        # Achievements Section - Simplified
+        st.markdown("---")
         col1, col2 = st.columns([1, 3])
         
         with col1:
-            st.markdown("**Career Span**")
-            # Calculate career span if possible
-            previous_teams = player_info.get('previous_teams', [])
-            if previous_teams:
-                num_clubs = len(previous_teams) + 1  # +1 for current team
-                st.metric("Clubs", f"{num_clubs}")
-            else:
-                st.metric("Clubs", "N/A")
+            st.markdown("**Achievements & Honours**")
         
         with col2:
-            st.markdown("**Full Career Path**")
-            if player_info and player_info.get('previous_teams'):
-                previous_teams = player_info.get('previous_teams', [])
-                current_team = player_info.get('team', '')
+            if player_info and player_info.get('major_trophies'):
+                trophies = player_info.get('major_trophies', [])
                 
-                # Build career path
-                if previous_teams:
-                    career_path = " → ".join(previous_teams)
-                    if current_team and current_team not in ['Retired', 'N/A'] and 'Deceased' not in current_team:
-                        career_path = career_path + " → " + current_team
+                if trophies and trophies != ['N/A']:
+                    # Display as bullet points in a single info box
+                    trophy_list = " • ".join(trophies)
+                    st.info(trophy_list)
                 else:
-                    career_path = current_team if current_team else "No career history available"
-                
-                st.success(career_path)
+                    st.info("No major trophies recorded")
             else:
-                st.success("Career history not available")
-        
-        # Achievements Section
-        st.markdown("---")
-        st.markdown("#### **Achievements & Honours**")
-        
-        if player_info and player_info.get('major_trophies'):
-            trophies = player_info.get('major_trophies', [])
-            
-            if trophies and trophies != ['N/A']:
-                # Group trophies by type
-                trophy_categories = {
-                    'World Honours': ['World Cup', 'Olympics', 'Olympic Gold Medal'],
-                    'Continental': ['Euros', 'Copa America', 'African Cup of Nations', 'Asian Cup'],
-                    'Club Honours': ['Champions League', 'Europa League', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga'],
-                    'Individual': ['Ballon d\'Or', 'FIFA World Player', 'The Best', 'Golden Boot', 'Player of the Year'],
-                    'Hall of Fame': ['PL HOF', 'Hall of Fame'],
-                    'Championships': ['NBA Championship', 'WBC Championship', 'WBA Championship', 'IBF Championship', 
-                                    'Masters Tournament', 'US Open', 'The Open Championship', 'Wimbledon', 
-                                    'French Open', 'Ashes Series', 'Six Nations Championship']
-                }
-                
-                # Display trophies in a nice grid
-                cols = st.columns(4)
-                trophy_count = 0
-                
-                for trophy in trophies:
-                    if trophy != 'N/A':
-                        col_idx = trophy_count % 4
-                        with cols[col_idx]:
-                            # Determine trophy type and apply appropriate color
-                            if 'Ballon' in trophy or 'Best' in trophy or 'FIFA World Player' in trophy:
-                                st.warning(f"🏆 {trophy}")
-                            elif 'World Cup' in trophy or 'Champions League' in trophy:
-                                st.success(f"🏆 {trophy}")
-                            elif 'Championship' in trophy or 'MVP' in trophy:
-                                st.info(f"🏅 {trophy}")
-                            else:
-                                st.info(f"🥇 {trophy}")
-                        trophy_count += 1
-            else:
-                st.info("No major trophies recorded")
-        else:
-            st.info("Trophy information not available")
-        
-        # Name Variations Section
-        st.markdown("---")
-        st.markdown("#### **Known Names & Aliases**")
-        
-        if player_info and player_info.get('total_names'):
-            name_list = player_info.get('total_names', [])
-            
-            if name_list:
-                # Display names in columns
-                name_cols = st.columns(min(len(name_list), 4))
-                for i, name in enumerate(name_list[:4]):  # Show max 4 names in first row
-                    with name_cols[i % len(name_cols)]:
-                        if name == selected_player:
-                            st.success(f"📛 {name} (Primary)")
-                        else:
-                            st.info(f"📛 {name}")
-                
-                # If more than 4 names, show rest in second row
-                if len(name_list) > 4:
-                    name_cols2 = st.columns(min(len(name_list) - 4, 4))
-                    for i, name in enumerate(name_list[4:8]):  # Show next 4
-                        with name_cols2[i % len(name_cols2)]:
-                            st.info(f"📛 {name}")
-            else:
-                st.info("No alternate names recorded")
-        else:
-            st.info("Name variations not available")
+                st.info("Trophy information not available")
         
         st.markdown("---")
         
@@ -629,7 +565,6 @@ if not filtered_df.empty:
                 value=f"{merch_pct:.1f}%"
             )
         
-        # Rest of the original code continues...
         st.markdown("---")
         
         # ADDITIONAL METRICS
@@ -656,7 +591,7 @@ if not filtered_df.empty:
         
         st.markdown("---")
         
-        # VISUALIZATIONS continue as in original...
+        # VISUALIZATIONS
         st.markdown("#### **Search Analysis**")
         
         # Market breakdown bar chart
