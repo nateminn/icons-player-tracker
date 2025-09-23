@@ -125,12 +125,6 @@ else:
     unsigned_players = df[df['status'] == 'unsigned']['actual_player'].nunique()
     
     st.success(f"✓ Successfully loaded {len(df):,} rows | {unique_players_count} total players ({signed_players} signed, {unsigned_players} unsigned)")
-
-google_search_df = None
-uploaded_google = st.file_uploader("Upload Google Search Volume CSV", type=['csv'], key="google_upload")
-if uploaded_google:
-    google_search_df = pd.read_csv(uploaded_google)
-    st.success(f"Loaded Google Search data for {len(google_search_df)} players")
     
 # Sidebar filters
 with st.sidebar:
