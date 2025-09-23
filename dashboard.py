@@ -406,226 +406,330 @@ if not filtered_df.empty:
             st.plotly_chart(fig_avg, use_container_width=True)
     
     with tab3:
-            # Player Details - REDESIGNED TO MATCH YOUR LAYOUT
-            st.markdown("### **Individual Player Analysis**")
-            
-            # Get unique players sorted by total volume
-            player_volumes_for_select = filtered_df.groupby('actual_player')['july_2025_volume'].sum().sort_values(ascending=False)
-            player_options = player_volumes_for_select.index.tolist()
-            
-            # Simple player selection without status in dropdown
-            selected_player = st.selectbox(
-                "Select a player to analyze:",
-                options=player_options
-            )
-            
-            player_data = filtered_df[filtered_df['actual_player'] == selected_player]
-            player_status_map = dict(filtered_df[['actual_player', 'status']].drop_duplicates().values)
-            player_status = player_status_map.get(selected_player, 'unknown')
-            
-            # Get additional player info if available
-            player_info = player_dict.get(selected_player, {}) if player_dict else {}
-            
-            
-            st.markdown("---")
-            
-            # PLAYER PROFILE SECTION - Match the exact layout you want
-            st.markdown("#### **Player Profile**")
-            
-            # Create columns for player info cards
-            col1, col2, col3, col4 = st.columns(4)
-            
-            with col1:
-                st.markdown("**Current Team**")
-                if player_info:
-                    st.info(player_info.get('team', 'N/A'))
-                else:
-                    st.info("N/A")
-            
-            with col2:
-                st.markdown("**Position**")
-                if player_info:
-                    st.info(player_info.get('position', 'N/A'))
-                else:
-                    st.info("N/A")
-            
-            with col3:
-                st.markdown("**Age**")
-                if player_info:
-                    age = player_info.get('age', 'N/A')
-                    st.info(f"{age} years" if age != 'N/A' else 'N/A')
-                else:
-                    st.info("N/A")
-            
-            with col4:
-                st.markdown("**Nationality**")
-                if player_info:
-                    st.info(player_info.get('nationality', 'N/A'))
-                else:
-                    st.info("N/A")
-            
-            # Second row for league and career
-            col1, col2 = st.columns([1, 3])
-            
-            with col1:
-                st.markdown("**Current League**")
-                if player_info:
-                    st.success(player_info.get('league', 'N/A'))
-                else:
-                    st.success("N/A")
-            
-            with col2:
-                st.markdown("**Career History**")
-                if player_info and player_info.get('previous_teams'):
-                    previous_teams = player_info.get('previous_teams', [])
-                    # Show all teams with arrow separator
-                    career_path = " → ".join(previous_teams)
-                    # Add current team at the end
-                    current_team = player_info.get('team', '')
-                    if current_team and current_team != 'Retired':
-                        career_path = career_path + " → " + current_team if career_path else current_team
-                    st.success(career_path if career_path else "No previous clubs recorded")
-                else:
-                    st.success("No career history available")
-            
-            st.markdown("---")
-            
-             # SEARCH PERFORMANCE METRICS - WITH GREY BOXES
-            st.markdown("#### **Search Performance Metrics**")
-            
-            # Calculate metrics
-            total_searches = player_data['july_2025_volume'].sum()
-            countries = player_data['country'].nunique()
-            name_variations = player_data['name_variation'].nunique()
-            merch_searches = player_data[player_data['search_type'] == 'Merchandise']['july_2025_volume'].sum()
-            merch_pct = (merch_searches/total_searches*100) if total_searches > 0 else 0
-            
-            col1, col2, col3, col4 = st.columns(4)
-            
-            with col1:
-                st.metric(
-                    label="Total Searches",
-                    value=f"{total_searches:,}"
-                )
-            
-            with col2:
-                st.metric(
-                    label="Countries",
-                    value=f"{countries}"
-                )
-            
-            with col3:
-                st.metric(
-                    label="Name Variations",
-                    value=f"{name_variations}"
-                )
-            
-            with col4:
-                st.metric(
-                    label="Merch Interest",
-                    value=f"{merch_pct:.1f}%"
-                )
-            
-            st.markdown("---")
-            
-            # ADDITIONAL METRICS
-            st.markdown("#### **Market Distribution**")
-            
-            # Top markets info
-            player_country_data = player_data.groupby('country')['july_2025_volume'].sum().sort_values(ascending=False).reset_index()
-            
-            if not player_country_data.empty:
-                # Show top 3 markets
-                col1, col2, col3 = st.columns(3)
+        # Player Details - ENHANCED WITH ALL AVAILABLE DATA
+        st.markdown("### **Individual Player Analysis**")
+        
+        # Get unique players sorted by total volume
+        player_volumes_for_select = filtered_df.groupby('actual_player')['july_2025_volume'].sum().sort_values(ascending=False)
+        player_options = player_volumes_for_select.index.tolist()
+        
+        # Simple player selection without status in dropdown
+        selected_player = st.selectbox(
+            "Select a player to analyze:",
+            options=player_options
+        )
+        
+        player_data = filtered_df[filtered_df['actual_player'] == selected_player]
+        player_status_map = dict(filtered_df[['actual_player', 'status']].drop_duplicates().values)
+        player_status = player_status_map.get(selected_player, 'unknown')
+        
+        # Get additional player info if available
+        player_info = player_dict.get(selected_player, {}) if player_dict else {}
+        
+        st.markdown("---")
+        
+        # PLAYER PROFILE SECTION - ENHANCED
+        st.markdown("#### **Player Profile**")
+        
+        # First row - Basic info
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.markdown("**Sport**")
+            st.info(player_info.get('sport', 'N/A'))
+        
+        with col2:
+            st.markdown("**Current Team**")
+            st.info(player_info.get('team', 'N/A'))
+        
+        with col3:
+            st.markdown("**Position**")
+            st.info(player_info.get('position', 'N/A'))
+        
+        with col4:
+            st.markdown("**Age**")
+            age = player_info.get('age', 'N/A')
+            if isinstance(age, (int, float)):
+                st.info(f"{age} years")
+            else:
+                st.info(str(age))
+        
+        # Second row - Additional details
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.markdown("**Nationality**")
+            st.success(player_info.get('nationality', 'N/A'))
+        
+        with col2:
+            st.markdown("**Current League**")
+            st.success(player_info.get('league', 'N/A'))
+        
+        with col3:
+            st.markdown("**Status**")
+            # Determine status from team info
+            team = player_info.get('team', '')
+            if 'Retired' in team or 'Deceased' in team:
+                st.warning(team)
+            elif team == 'Active':
+                st.success("Active")
+            elif team == 'Free Agent':
+                st.warning("Free Agent")
+            else:
+                st.success("Active Player")
+        
+        with col4:
+            st.markdown("**Instagram Followers**")
+            followers = player_info.get('instagram_followers', 'N/A')
+            if followers != 'N/A':
+                st.info(followers)
+            else:
+                st.info("Not Available")
+        
+        # Career History Section
+        st.markdown("---")
+        st.markdown("#### **Career Journey**")
+        
+        col1, col2 = st.columns([1, 3])
+        
+        with col1:
+            st.markdown("**Career Span**")
+            # Calculate career span if possible
+            previous_teams = player_info.get('previous_teams', [])
+            if previous_teams:
+                num_clubs = len(previous_teams) + 1  # +1 for current team
+                st.metric("Clubs", f"{num_clubs}")
+            else:
+                st.metric("Clubs", "N/A")
+        
+        with col2:
+            st.markdown("**Full Career Path**")
+            if player_info and player_info.get('previous_teams'):
+                previous_teams = player_info.get('previous_teams', [])
+                current_team = player_info.get('team', '')
                 
-                for i, col in enumerate([col1, col2, col3]):
-                    if i < len(player_country_data):
-                        with col:
-                            country = player_country_data.iloc[i]['country']
-                            volume = player_country_data.iloc[i]['july_2025_volume']
-                            percentage = (volume / total_searches * 100) if total_searches > 0 else 0
-                            st.metric(
-                                f"#{i+1} {country}",
-                                f"{volume:,}",
-                                f"{percentage:.1f}% of total"
-                            )
+                # Build career path
+                if previous_teams:
+                    career_path = " → ".join(previous_teams)
+                    if current_team and current_team not in ['Retired', 'N/A'] and 'Deceased' not in current_team:
+                        career_path = career_path + " → " + current_team
+                else:
+                    career_path = current_team if current_team else "No career history available"
+                
+                st.success(career_path)
+            else:
+                st.success("Career history not available")
+        
+        # Achievements Section
+        st.markdown("---")
+        st.markdown("#### **Achievements & Honours**")
+        
+        if player_info and player_info.get('major_trophies'):
+            trophies = player_info.get('major_trophies', [])
             
-            st.markdown("---")
+            if trophies and trophies != ['N/A']:
+                # Group trophies by type
+                trophy_categories = {
+                    'World Honours': ['World Cup', 'Olympics', 'Olympic Gold Medal'],
+                    'Continental': ['Euros', 'Copa America', 'African Cup of Nations', 'Asian Cup'],
+                    'Club Honours': ['Champions League', 'Europa League', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga'],
+                    'Individual': ['Ballon d\'Or', 'FIFA World Player', 'The Best', 'Golden Boot', 'Player of the Year'],
+                    'Hall of Fame': ['PL HOF', 'Hall of Fame'],
+                    'Championships': ['NBA Championship', 'WBC Championship', 'WBA Championship', 'IBF Championship', 
+                                    'Masters Tournament', 'US Open', 'The Open Championship', 'Wimbledon', 
+                                    'French Open', 'Ashes Series', 'Six Nations Championship']
+                }
+                
+                # Display trophies in a nice grid
+                cols = st.columns(4)
+                trophy_count = 0
+                
+                for trophy in trophies:
+                    if trophy != 'N/A':
+                        col_idx = trophy_count % 4
+                        with cols[col_idx]:
+                            # Determine trophy type and apply appropriate color
+                            if 'Ballon' in trophy or 'Best' in trophy or 'FIFA World Player' in trophy:
+                                st.warning(f"🏆 {trophy}")
+                            elif 'World Cup' in trophy or 'Champions League' in trophy:
+                                st.success(f"🏆 {trophy}")
+                            elif 'Championship' in trophy or 'MVP' in trophy:
+                                st.info(f"🏅 {trophy}")
+                            else:
+                                st.info(f"🥇 {trophy}")
+                        trophy_count += 1
+            else:
+                st.info("No major trophies recorded")
+        else:
+            st.info("Trophy information not available")
+        
+        # Name Variations Section
+        st.markdown("---")
+        st.markdown("#### **Known Names & Aliases**")
+        
+        if player_info and player_info.get('total_names'):
+            name_list = player_info.get('total_names', [])
             
-            # VISUALIZATIONS
-            st.markdown("#### **Search Analysis**")
-            
-            # Market breakdown bar chart
-            fig_player = px.bar(
-                player_country_data,
-                x='country',
-                y='july_2025_volume',
-                title=f'Search Volume by Country - {selected_player}',
-                color='july_2025_volume',
-                color_continuous_scale='Blues',
-                labels={'july_2025_volume': 'Search Volume'},
-                height=400
+            if name_list:
+                # Display names in columns
+                name_cols = st.columns(min(len(name_list), 4))
+                for i, name in enumerate(name_list[:4]):  # Show max 4 names in first row
+                    with name_cols[i % len(name_cols)]:
+                        if name == selected_player:
+                            st.success(f"📛 {name} (Primary)")
+                        else:
+                            st.info(f"📛 {name}")
+                
+                # If more than 4 names, show rest in second row
+                if len(name_list) > 4:
+                    name_cols2 = st.columns(min(len(name_list) - 4, 4))
+                    for i, name in enumerate(name_list[4:8]):  # Show next 4
+                        with name_cols2[i % len(name_cols2)]:
+                            st.info(f"📛 {name}")
+            else:
+                st.info("No alternate names recorded")
+        else:
+            st.info("Name variations not available")
+        
+        st.markdown("---")
+        
+        # SEARCH PERFORMANCE METRICS - Original section continues
+        st.markdown("#### **Search Performance Metrics**")
+        
+        # Calculate metrics
+        total_searches = player_data['july_2025_volume'].sum()
+        countries = player_data['country'].nunique()
+        name_variations = player_data['name_variation'].nunique()
+        merch_searches = player_data[player_data['search_type'] == 'Merchandise']['july_2025_volume'].sum()
+        merch_pct = (merch_searches/total_searches*100) if total_searches > 0 else 0
+        
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.metric(
+                label="Total Searches",
+                value=f"{total_searches:,}"
             )
-            st.plotly_chart(fig_player, use_container_width=True)
+        
+        with col2:
+            st.metric(
+                label="Countries",
+                value=f"{countries}"
+            )
+        
+        with col3:
+            st.metric(
+                label="Name Variations",
+                value=f"{name_variations}"
+            )
+        
+        with col4:
+            st.metric(
+                label="Merch Interest",
+                value=f"{merch_pct:.1f}%"
+            )
+        
+        # Rest of the original code continues...
+        st.markdown("---")
+        
+        # ADDITIONAL METRICS
+        st.markdown("#### **Market Distribution**")
+        
+        # Top markets info
+        player_country_data = player_data.groupby('country')['july_2025_volume'].sum().sort_values(ascending=False).reset_index()
+        
+        if not player_country_data.empty:
+            # Show top 3 markets
+            col1, col2, col3 = st.columns(3)
             
-            # Two column layout for pie charts
-            col1, col2 = st.columns(2)
-            
-            with col1:
-                # Search type breakdown
-                player_search_type = player_data.groupby('search_type')['july_2025_volume'].sum().reset_index()
-                fig_search = px.pie(
-                    player_search_type,
+            for i, col in enumerate([col1, col2, col3]):
+                if i < len(player_country_data):
+                    with col:
+                        country = player_country_data.iloc[i]['country']
+                        volume = player_country_data.iloc[i]['july_2025_volume']
+                        percentage = (volume / total_searches * 100) if total_searches > 0 else 0
+                        st.metric(
+                            f"#{i+1} {country}",
+                            f"{volume:,}",
+                            f"{percentage:.1f}% of total"
+                        )
+        
+        st.markdown("---")
+        
+        # VISUALIZATIONS continue as in original...
+        st.markdown("#### **Search Analysis**")
+        
+        # Market breakdown bar chart
+        fig_player = px.bar(
+            player_country_data,
+            x='country',
+            y='july_2025_volume',
+            title=f'Search Volume by Country - {selected_player}',
+            color='july_2025_volume',
+            color_continuous_scale='Blues',
+            labels={'july_2025_volume': 'Search Volume'},
+            height=400
+        )
+        st.plotly_chart(fig_player, use_container_width=True)
+        
+        # Two column layout for pie charts
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Search type breakdown
+            player_search_type = player_data.groupby('search_type')['july_2025_volume'].sum().reset_index()
+            fig_search = px.pie(
+                player_search_type,
+                values='july_2025_volume',
+                names='search_type',
+                title='Search Type Distribution',
+                height=350
+            )
+            st.plotly_chart(fig_search, use_container_width=True)
+        
+        with col2:
+            # Name variations breakdown
+            name_var_data = player_data.groupby('name_variation')['july_2025_volume'].sum().reset_index()
+            if len(name_var_data) > 0:
+                fig_names = px.pie(
+                    name_var_data,
                     values='july_2025_volume',
-                    names='search_type',
-                    title='Search Type Distribution',
+                    names='name_variation',
+                    title='Search by Name Variation',
                     height=350
                 )
-                st.plotly_chart(fig_search, use_container_width=True)
+                st.plotly_chart(fig_names, use_container_width=True)
+            else:
+                st.info("No name variation data available")
+        
+        # DETAILED DATA TABLE
+        st.markdown("---")
+        st.markdown("#### **Detailed Search Data**")
+        
+        # Create summary table
+        detailed_data = player_data.groupby(['country', 'search_type']).agg({
+            'july_2025_volume': 'sum'
+        }).reset_index()
+        
+        # Pivot for better display
+        if not detailed_data.empty:
+            pivot_table = detailed_data.pivot(
+                index='country',
+                columns='search_type',
+                values='july_2025_volume'
+            ).fillna(0).astype(int)
             
-            with col2:
-                # Name variations breakdown
-                name_var_data = player_data.groupby('name_variation')['july_2025_volume'].sum().reset_index()
-                if len(name_var_data) > 0:
-                    fig_names = px.pie(
-                        name_var_data,
-                        values='july_2025_volume',
-                        names='name_variation',
-                        title='Search by Name Variation',
-                        height=350
-                    )
-                    st.plotly_chart(fig_names, use_container_width=True)
-                else:
-                    st.info("No name variation data available")
+            # Add total column
+            pivot_table['Total'] = pivot_table.sum(axis=1)
             
-            # DETAILED DATA TABLE
-            st.markdown("---")
-            st.markdown("#### **Detailed Search Data**")
+            # Sort by total
+            pivot_table = pivot_table.sort_values('Total', ascending=False)
             
-            # Create summary table
-            detailed_data = player_data.groupby(['country', 'search_type']).agg({
-                'july_2025_volume': 'sum'
-            }).reset_index()
-            
-            # Pivot for better display
-            if not detailed_data.empty:
-                pivot_table = detailed_data.pivot(
-                    index='country',
-                    columns='search_type',
-                    values='july_2025_volume'
-                ).fillna(0).astype(int)
-                
-                # Add total column
-                pivot_table['Total'] = pivot_table.sum(axis=1)
-                
-                # Sort by total
-                pivot_table = pivot_table.sort_values('Total', ascending=False)
-                
-                # Format the table
-                st.dataframe(
-                    pivot_table.style.format("{:,.0f}").background_gradient(subset=['Total'], cmap='Blues'),
-                    use_container_width=True
-                )
+            # Format the table
+            st.dataframe(
+                pivot_table.style.format("{:,.0f}").background_gradient(subset=['Total'], cmap='Blues'),
+                use_container_width=True
+            )
     with tab4:
         # Comparisons
         st.markdown("### Player Comparisons")
