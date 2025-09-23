@@ -837,12 +837,6 @@ if not filtered_df.empty:
     with tab6:
         st.markdown("### 🎯 Player Opportunity Score Analysis")
     
-        # Check if Google search data is loaded
-        if google_search_df is None:
-            st.warning("Please load Google Search Volume CSV to see complete opportunity scores")
-            # Create empty dataframe to prevent errors
-            google_search_df = pd.DataFrame(columns=['Player Name', 'Google Search Volume'])
-    
         # Rest of your Tab 6 code continues...
         # Scoring key information
         with st.expander("📊 Scoring Methodology", expanded=False):
