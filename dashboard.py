@@ -791,315 +791,315 @@ if not filtered_df.empty:
     
 
 
-with tab6:
-      st.markdown("### 🎯 Player Opportunity Score Analysis")
-
-      # Scoring key information
-      with st.expander("📊 Scoring Methodology", expanded=False):
-          st.markdown("""
-          **SCORING WEIGHTS:**
-          - Google Search Demand: 25%
-          - Instagram Followers: 15%
-          - Current Team: 10%
-          - Previous Teams: 10%
-          - Nationality: 8%
-          - Major Trophies: 15%
-          - Sport: 5%
-          - Position: 5%
-          - Age/Status: 7%
-          
-          **POINT SCALES:**
-          - **Instagram:** >300M=10pts | 100-300M=8pts | 50-100M=6pts | 10-50M=4pts | 1-10M=2pts | N/A=0pts
-          - **Teams:** Elite (Real Madrid, Barcelona, Man United, etc.)=10pts | Top=7pts | Good=5pts | Retired=3pts
-          - **Trophies:** World Cup=10pts | Champions League=9pts | Ballon d'Or=10pts | Continental=6pts
-          - **Nationality:** Top (Brazil, Argentina, France, Germany, Spain)=10pts | Good=8pts | Other=5pts
-          """)
-
-      # Function to calculate opportunity score
-      def calculate_opportunity_score(row, google_search_vol=None):
-          score = 0
-
-          # 1. Google Search (25%) - if available
-          if google_search_vol and google_search_vol > 0:
-              # Normalize search volume (assuming max ~3M searches)
-              search_points = min(10, google_search_vol / 300000)
-              score += search_points * 0.25
-          # If no search data, don't penalize but also don't add points
-
-          # 2. Instagram Followers (15%)
-          instagram = row.get('instagram_followers', 'N/A')
-          instagram_points = 0
-          if instagram != 'N/A' and instagram:
-              try:
-                  num = float(instagram.replace('M', ''))
-                  if num > 300: instagram_points = 10
-                  elif num > 100: instagram_points = 8
-                  elif num > 50: instagram_points = 6
-                  elif num > 10: instagram_points = 4
-                  elif num > 1: instagram_points = 2
-                  else: instagram_points = 1
-              except:
-                  instagram_points = 0
-          score += instagram_points * 0.15
-
-          # 3. Current Team (10%)
-          elite_clubs = ["Real Madrid", "Barcelona", "Manchester United", "Manchester City",
-                        "Liverpool", "Bayern Munich", "PSG", "Chelsea", "Arsenal"]
-          top_clubs = ["Tottenham", "Inter Milan", "AC Milan", "Juventus", "Atletico Madrid",
-                      "Borussia Dortmund", "Roma", "Napoli"]
-
-          team = row.get('team', '')
-          team_points = 0
-          if any(club in str(team) for club in elite_clubs):
-              team_points = 10
-          elif any(club in str(team) for club in top_clubs):
-              team_points = 7
-          elif "Retired" in str(team):
-              team_points = 3
-          else:
-              team_points = 5
-          score += team_points * 0.10
-
-          # 4. Previous Teams (10%)
-          previous_teams = row.get('previous_teams', [])
-          prev_team_points = 0
-          if previous_teams:
-              for team in previous_teams:
-                  if any(club in str(team) for club in elite_clubs):
-                      prev_team_points += 2
-                  elif any(club in str(team) for club in top_clubs):
-                      prev_team_points += 1
-              prev_team_points = min(10, prev_team_points)
-          score += prev_team_points * 0.10
-
-          # 5. Nationality (8%)
-          top_nations = ["Brazil", "Argentina", "France", "Germany", "Spain"]
-          good_nations = ["England", "Italy", "Portugal", "Netherlands", "Belgium", "Croatia"]
-
-          nationality = row.get('nationality', '')
-          nation_points = 0
-          if nationality in top_nations:
-              nation_points = 10
-          elif nationality in good_nations:
-              nation_points = 8
-          else:
-              nation_points = 5
-          score += nation_points * 0.08
-
-          # 6. Major Trophies (15%)
-          trophies = row.get('major_trophies', [])
-          trophy_points = 0
-          if trophies and trophies != ['N/A']:
-              for trophy in trophies:
-                  if "World Cup" in str(trophy):
-                      trophy_points += 10
-                  if "Champions League" in str(trophy):
-                      trophy_points += 9
-                  if "Ballon d'Or" in str(trophy):
-                      trophy_points += 10
-                  if any(x in str(trophy) for x in ["Euros", "Copa America"]):
-                      trophy_points += 6
-                  if "NBA Championship" in str(trophy):
-                      trophy_points += 8
-              trophy_points = min(10, trophy_points / 2)  # Normalize
-          score += trophy_points * 0.15
-
-          # 7. Sport (5%)
-          sport = row.get('sport', '')
-          sport_points = 0
-          if sport == "Football":
-              sport_points = 10
-          elif sport == "Basketball":
-              sport_points = 7
-          elif sport == "Tennis":
-              sport_points = 5
-          elif sport == "Boxing":
-              sport_points = 4
-          else:
-              sport_points = 3
-          score += sport_points * 0.05
-
-          # 8. Position (5%)
-          position = row.get('position', '')
-          position_points = 5
-          if row.get('sport') == "Football":
-              if any(pos in str(position) for pos in ["ST", "CF", "RW", "LW"]):
-                  position_points = 10
-              elif any(pos in str(position) for pos in ["AM", "CAM"]):
-                  position_points = 8
-              elif "CM" in str(position):
-                  position_points = 6
-              elif any(pos in str(position) for pos in ["CB", "RB", "LB"]):
-                  position_points = 4
-              elif "GK" in str(position):
-                  position_points = 3
-          score += position_points * 0.05
-
-          # 9. Age/Status (7%)
-          age = row.get('age', 0)
-          age_points = 0
-          if isinstance(age, (int, float)):
-              if 24 <= age <= 32:
-                  age_points = 10
-              elif 18 <= age <= 23:
-                  age_points = 8
-              elif 33 <= age <= 38:
-                  age_points = 6
-              else:
-                  age_points = 3
-          elif "Deceased" in str(age):
-              age_points = 4
-          score += age_points * 0.07
-
-          return round(score, 2)
-
-      # Load ALL players from the JSON file directly
-      try:
-          # Load all players from the complete dataset
-          all_players_df = pd.DataFrame(player_dict.values()) if player_dict else pd.DataFrame()
-
-          if not all_players_df.empty:
-              # Get Google search volumes from main data (only for players that have search data)
-              player_search_totals = df.groupby('actual_player')['july_2025_volume'].sum().to_dict() if not df.empty else {}
-
-              # Map search volumes to all players (will be 0 for players not in search data)
-              all_players_df['google_search_volume'] = all_players_df['name'].map(player_search_totals).fillna(0)
-
-              # Calculate opportunity scores for ALL players
-              all_players_df['opportunity_score'] = all_players_df.apply(
-                  lambda row: calculate_opportunity_score(row.to_dict(), row['google_search_volume']),
-                  axis=1
-              )
-
-              # Sort by opportunity score
-              all_players_df = all_players_df.sort_values('opportunity_score', ascending=False)
-
-              # Add rank
-              all_players_df['rank'] = range(1, len(all_players_df) + 1)
-
-              # Display summary statistics
-              col1, col2, col3, col4 = st.columns(4)
-              with col1:
-                  st.metric("Total Players", len(all_players_df))
-              with col2:
-                  avg_score = all_players_df['opportunity_score'].mean()
-                  st.metric("Avg Opportunity Score", f"{avg_score:.2f}")
-              with col3:
-                  complete_data = all_players_df[all_players_df['instagram_followers'] != 'N/A'].shape[0]
-                  st.metric("Players with Instagram Data", f"{complete_data}/{len(all_players_df)}")
-              with col4:
-                  with_search = all_players_df[all_players_df['google_search_volume'] > 0].shape[0]
-                  st.metric("Players with Search Data", f"{with_search}/{len(all_players_df)}")
-
-              st.markdown("---")
-
-              # Filters for the table
-              col1, col2, col3 = st.columns(3)
-
-              with col1:
-                  sport_filter = st.multiselect(
-                      "Filter by Sport:",
-                      options=['All'] + sorted(all_players_df['sport'].unique()),
-                      default=['All']
-                  )
-
-              with col2:
-                  min_score, max_score = st.slider(
-                      "Opportunity Score Range:",
-                      min_value=0.0,
-                      max_value=10.0,
-                      value=(0.0, 10.0),
-                      step=0.1
-                  )
-
-              with col3:
-                  search_data_filter = st.selectbox(
-                      "Search Data Filter:",
-                      options=["All Players", "With Search Data Only", "Without Search Data Only"]
-                  )
-
-              # Apply filters
-              filtered_players = all_players_df.copy()
-
-              if 'All' not in sport_filter:
-                  filtered_players = filtered_players[filtered_players['sport'].isin(sport_filter)]
-
-              filtered_players = filtered_players[
-                  (filtered_players['opportunity_score'] >= min_score) &
-                  (filtered_players['opportunity_score'] <= max_score)
-              ]
-
-              if search_data_filter == "With Search Data Only":
-                  filtered_players = filtered_players[filtered_players['google_search_volume'] > 0]
-              elif search_data_filter == "Without Search Data Only":
-                  filtered_players = filtered_players[filtered_players['google_search_volume'] == 0]
-
-              # Prepare display dataframe
-              display_cols = [
-                  'rank', 'name', 'opportunity_score', 'google_search_volume',
-                  'instagram_followers', 'team', 'nationality', 'position',
-                  'age', 'sport', 'major_trophies'
-              ]
-
-              display_df = filtered_players[display_cols].copy()
-
-              # Format columns for display
-              display_df.columns = [
-                  'Rank', 'Player Name', 'Opportunity Score', 'Google Search Volume',
-                  'Instagram Followers', 'Current Team', 'Nationality', 'Position',
-                  'Age', 'Sport', 'Major Trophies'
-              ]
-
-              # Format Google search volume - show "N/A" for 0 values
-              display_df['Google Search Volume'] = display_df['Google Search Volume'].apply(
-                  lambda x: f"{int(x):,}" if x > 0 else "N/A"
-              )
-
-              # Format trophies (show count instead of full list)
-              display_df['Major Trophies'] = display_df['Major Trophies'].apply(
-                  lambda x: f"{len(x)} trophies" if isinstance(x, list) and x != ['N/A'] else "None"
-              )
-
-              # Display the table
-              st.markdown(f"### Player Opportunity Scores Table ({len(display_df)} players)")
-
-              # Use st.dataframe for better formatting
-              st.dataframe(
-                  display_df,
-                  use_container_width=True,
-                  hide_index=True,
-                  column_config={
-                      "Opportunity Score": st.column_config.NumberColumn(
-                          "Opportunity Score",
-                          help="Combined score from all metrics (0-10)",
-                          format="%.2f",
-                      ),
-                      "Rank": st.column_config.NumberColumn(
-                          "Rank",
-                          help="Ranking based on opportunity score",
-                          format="%d",
-                      ),
-                  }
-              )
-
-              # Export functionality
-              st.markdown("---")
-              csv = display_df.to_csv(index=False)
-              st.download_button(
-                  label="📥 Download Opportunity Scores (CSV)",
-                  data=csv,
-                  file_name=f"player_opportunity_scores_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-                  mime="text/csv"
-              )
-
-          else:
-              st.error("No player data found. Please check that the JSON file is loaded correctly.")
-
-      except Exception as e:
-          st.error(f"Error loading player data: {str(e)}")
-          st.info("Please make sure the player JSON file is available and properly formatted.")
-
+    with tab6:
+          st.markdown("### 🎯 Player Opportunity Score Analysis")
     
+          # Scoring key information
+          with st.expander("📊 Scoring Methodology", expanded=False):
+              st.markdown("""
+              **SCORING WEIGHTS:**
+              - Google Search Demand: 25%
+              - Instagram Followers: 15%
+              - Current Team: 10%
+              - Previous Teams: 10%
+              - Nationality: 8%
+              - Major Trophies: 15%
+              - Sport: 5%
+              - Position: 5%
+              - Age/Status: 7%
+              
+              **POINT SCALES:**
+              - **Instagram:** >300M=10pts | 100-300M=8pts | 50-100M=6pts | 10-50M=4pts | 1-10M=2pts | N/A=0pts
+              - **Teams:** Elite (Real Madrid, Barcelona, Man United, etc.)=10pts | Top=7pts | Good=5pts | Retired=3pts
+              - **Trophies:** World Cup=10pts | Champions League=9pts | Ballon d'Or=10pts | Continental=6pts
+              - **Nationality:** Top (Brazil, Argentina, France, Germany, Spain)=10pts | Good=8pts | Other=5pts
+              """)
+    
+          # Function to calculate opportunity score
+          def calculate_opportunity_score(row, google_search_vol=None):
+              score = 0
+    
+              # 1. Google Search (25%) - if available
+              if google_search_vol and google_search_vol > 0:
+                  # Normalize search volume (assuming max ~3M searches)
+                  search_points = min(10, google_search_vol / 300000)
+                  score += search_points * 0.25
+              # If no search data, don't penalize but also don't add points
+    
+              # 2. Instagram Followers (15%)
+              instagram = row.get('instagram_followers', 'N/A')
+              instagram_points = 0
+              if instagram != 'N/A' and instagram:
+                  try:
+                      num = float(instagram.replace('M', ''))
+                      if num > 300: instagram_points = 10
+                      elif num > 100: instagram_points = 8
+                      elif num > 50: instagram_points = 6
+                      elif num > 10: instagram_points = 4
+                      elif num > 1: instagram_points = 2
+                      else: instagram_points = 1
+                  except:
+                      instagram_points = 0
+              score += instagram_points * 0.15
+    
+              # 3. Current Team (10%)
+              elite_clubs = ["Real Madrid", "Barcelona", "Manchester United", "Manchester City",
+                            "Liverpool", "Bayern Munich", "PSG", "Chelsea", "Arsenal"]
+              top_clubs = ["Tottenham", "Inter Milan", "AC Milan", "Juventus", "Atletico Madrid",
+                          "Borussia Dortmund", "Roma", "Napoli"]
+    
+              team = row.get('team', '')
+              team_points = 0
+              if any(club in str(team) for club in elite_clubs):
+                  team_points = 10
+              elif any(club in str(team) for club in top_clubs):
+                  team_points = 7
+              elif "Retired" in str(team):
+                  team_points = 3
+              else:
+                  team_points = 5
+              score += team_points * 0.10
+    
+              # 4. Previous Teams (10%)
+              previous_teams = row.get('previous_teams', [])
+              prev_team_points = 0
+              if previous_teams:
+                  for team in previous_teams:
+                      if any(club in str(team) for club in elite_clubs):
+                          prev_team_points += 2
+                      elif any(club in str(team) for club in top_clubs):
+                          prev_team_points += 1
+                  prev_team_points = min(10, prev_team_points)
+              score += prev_team_points * 0.10
+    
+              # 5. Nationality (8%)
+              top_nations = ["Brazil", "Argentina", "France", "Germany", "Spain"]
+              good_nations = ["England", "Italy", "Portugal", "Netherlands", "Belgium", "Croatia"]
+    
+              nationality = row.get('nationality', '')
+              nation_points = 0
+              if nationality in top_nations:
+                  nation_points = 10
+              elif nationality in good_nations:
+                  nation_points = 8
+              else:
+                  nation_points = 5
+              score += nation_points * 0.08
+    
+              # 6. Major Trophies (15%)
+              trophies = row.get('major_trophies', [])
+              trophy_points = 0
+              if trophies and trophies != ['N/A']:
+                  for trophy in trophies:
+                      if "World Cup" in str(trophy):
+                          trophy_points += 10
+                      if "Champions League" in str(trophy):
+                          trophy_points += 9
+                      if "Ballon d'Or" in str(trophy):
+                          trophy_points += 10
+                      if any(x in str(trophy) for x in ["Euros", "Copa America"]):
+                          trophy_points += 6
+                      if "NBA Championship" in str(trophy):
+                          trophy_points += 8
+                  trophy_points = min(10, trophy_points / 2)  # Normalize
+              score += trophy_points * 0.15
+    
+              # 7. Sport (5%)
+              sport = row.get('sport', '')
+              sport_points = 0
+              if sport == "Football":
+                  sport_points = 10
+              elif sport == "Basketball":
+                  sport_points = 7
+              elif sport == "Tennis":
+                  sport_points = 5
+              elif sport == "Boxing":
+                  sport_points = 4
+              else:
+                  sport_points = 3
+              score += sport_points * 0.05
+    
+              # 8. Position (5%)
+              position = row.get('position', '')
+              position_points = 5
+              if row.get('sport') == "Football":
+                  if any(pos in str(position) for pos in ["ST", "CF", "RW", "LW"]):
+                      position_points = 10
+                  elif any(pos in str(position) for pos in ["AM", "CAM"]):
+                      position_points = 8
+                  elif "CM" in str(position):
+                      position_points = 6
+                  elif any(pos in str(position) for pos in ["CB", "RB", "LB"]):
+                      position_points = 4
+                  elif "GK" in str(position):
+                      position_points = 3
+              score += position_points * 0.05
+    
+              # 9. Age/Status (7%)
+              age = row.get('age', 0)
+              age_points = 0
+              if isinstance(age, (int, float)):
+                  if 24 <= age <= 32:
+                      age_points = 10
+                  elif 18 <= age <= 23:
+                      age_points = 8
+                  elif 33 <= age <= 38:
+                      age_points = 6
+                  else:
+                      age_points = 3
+              elif "Deceased" in str(age):
+                  age_points = 4
+              score += age_points * 0.07
+    
+              return round(score, 2)
+    
+          # Load ALL players from the JSON file directly
+          try:
+              # Load all players from the complete dataset
+              all_players_df = pd.DataFrame(player_dict.values()) if player_dict else pd.DataFrame()
+    
+              if not all_players_df.empty:
+                  # Get Google search volumes from main data (only for players that have search data)
+                  player_search_totals = df.groupby('actual_player')['july_2025_volume'].sum().to_dict() if not df.empty else {}
+    
+                  # Map search volumes to all players (will be 0 for players not in search data)
+                  all_players_df['google_search_volume'] = all_players_df['name'].map(player_search_totals).fillna(0)
+    
+                  # Calculate opportunity scores for ALL players
+                  all_players_df['opportunity_score'] = all_players_df.apply(
+                      lambda row: calculate_opportunity_score(row.to_dict(), row['google_search_volume']),
+                      axis=1
+                  )
+    
+                  # Sort by opportunity score
+                  all_players_df = all_players_df.sort_values('opportunity_score', ascending=False)
+    
+                  # Add rank
+                  all_players_df['rank'] = range(1, len(all_players_df) + 1)
+    
+                  # Display summary statistics
+                  col1, col2, col3, col4 = st.columns(4)
+                  with col1:
+                      st.metric("Total Players", len(all_players_df))
+                  with col2:
+                      avg_score = all_players_df['opportunity_score'].mean()
+                      st.metric("Avg Opportunity Score", f"{avg_score:.2f}")
+                  with col3:
+                      complete_data = all_players_df[all_players_df['instagram_followers'] != 'N/A'].shape[0]
+                      st.metric("Players with Instagram Data", f"{complete_data}/{len(all_players_df)}")
+                  with col4:
+                      with_search = all_players_df[all_players_df['google_search_volume'] > 0].shape[0]
+                      st.metric("Players with Search Data", f"{with_search}/{len(all_players_df)}")
+    
+                  st.markdown("---")
+    
+                  # Filters for the table
+                  col1, col2, col3 = st.columns(3)
+    
+                  with col1:
+                      sport_filter = st.multiselect(
+                          "Filter by Sport:",
+                          options=['All'] + sorted(all_players_df['sport'].unique()),
+                          default=['All']
+                      )
+    
+                  with col2:
+                      min_score, max_score = st.slider(
+                          "Opportunity Score Range:",
+                          min_value=0.0,
+                          max_value=10.0,
+                          value=(0.0, 10.0),
+                          step=0.1
+                      )
+    
+                  with col3:
+                      search_data_filter = st.selectbox(
+                          "Search Data Filter:",
+                          options=["All Players", "With Search Data Only", "Without Search Data Only"]
+                      )
+    
+                  # Apply filters
+                  filtered_players = all_players_df.copy()
+    
+                  if 'All' not in sport_filter:
+                      filtered_players = filtered_players[filtered_players['sport'].isin(sport_filter)]
+    
+                  filtered_players = filtered_players[
+                      (filtered_players['opportunity_score'] >= min_score) &
+                      (filtered_players['opportunity_score'] <= max_score)
+                  ]
+    
+                  if search_data_filter == "With Search Data Only":
+                      filtered_players = filtered_players[filtered_players['google_search_volume'] > 0]
+                  elif search_data_filter == "Without Search Data Only":
+                      filtered_players = filtered_players[filtered_players['google_search_volume'] == 0]
+    
+                  # Prepare display dataframe
+                  display_cols = [
+                      'rank', 'name', 'opportunity_score', 'google_search_volume',
+                      'instagram_followers', 'team', 'nationality', 'position',
+                      'age', 'sport', 'major_trophies'
+                  ]
+    
+                  display_df = filtered_players[display_cols].copy()
+    
+                  # Format columns for display
+                  display_df.columns = [
+                      'Rank', 'Player Name', 'Opportunity Score', 'Google Search Volume',
+                      'Instagram Followers', 'Current Team', 'Nationality', 'Position',
+                      'Age', 'Sport', 'Major Trophies'
+                  ]
+    
+                  # Format Google search volume - show "N/A" for 0 values
+                  display_df['Google Search Volume'] = display_df['Google Search Volume'].apply(
+                      lambda x: f"{int(x):,}" if x > 0 else "N/A"
+                  )
+    
+                  # Format trophies (show count instead of full list)
+                  display_df['Major Trophies'] = display_df['Major Trophies'].apply(
+                      lambda x: f"{len(x)} trophies" if isinstance(x, list) and x != ['N/A'] else "None"
+                  )
+    
+                  # Display the table
+                  st.markdown(f"### Player Opportunity Scores Table ({len(display_df)} players)")
+    
+                  # Use st.dataframe for better formatting
+                  st.dataframe(
+                      display_df,
+                      use_container_width=True,
+                      hide_index=True,
+                      column_config={
+                          "Opportunity Score": st.column_config.NumberColumn(
+                              "Opportunity Score",
+                              help="Combined score from all metrics (0-10)",
+                              format="%.2f",
+                          ),
+                          "Rank": st.column_config.NumberColumn(
+                              "Rank",
+                              help="Ranking based on opportunity score",
+                              format="%d",
+                          ),
+                      }
+                  )
+    
+                  # Export functionality
+                  st.markdown("---")
+                  csv = display_df.to_csv(index=False)
+                  st.download_button(
+                      label="📥 Download Opportunity Scores (CSV)",
+                      data=csv,
+                      file_name=f"player_opportunity_scores_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                      mime="text/csv"
+                  )
+    
+              else:
+                  st.error("No player data found. Please check that the JSON file is loaded correctly.")
+    
+          except Exception as e:
+              st.error(f"Error loading player data: {str(e)}")
+              st.info("Please make sure the player JSON file is available and properly formatted.")
+    
+        
     # Export functionality
     st.markdown("---")
     st.markdown("###  Export Data")
