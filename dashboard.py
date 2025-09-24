@@ -1180,23 +1180,7 @@ if not filtered_df.empty:
                     }
                 )
                 
-                # Top 10 Players Highlight
-                st.markdown("---")
-                st.markdown("### 🏆 Top 10 Players by Opportunity Score")
-                
-                top_10 = display_df.head(10)[['Rank', 'Player Name', 'Opportunity Score', 'Google Search Volume', 'Instagram Followers', 'Current Team']]
-                st.table(top_10)
-                
-                # Export functionality
-                st.markdown("---")
-                csv = display_df.to_csv(index=False)
-                st.download_button(
-                    label="📥 Download Opportunity Scores (CSV)",
-                    data=csv,
-                    file_name=f"player_opportunity_scores_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-                    mime="text/csv"
-                )
-                
+               
             else:
                 st.error("No player data found. Please check that the JSON file is loaded correctly.")
         
