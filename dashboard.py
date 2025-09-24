@@ -830,8 +830,7 @@ if not filtered_df.empty:
     
     with tab6:
         st.markdown("### 🎯 Player Opportunity Score Analysis")
-    
-        # Rest of your Tab 6 code continues...
+        
         # Scoring key information
         with st.expander("📊 Scoring Methodology", expanded=False):
             st.markdown("""
@@ -999,19 +998,43 @@ if not filtered_df.empty:
                 # PROPERLY MAP GOOGLE SEARCH VOLUME DATA
                 google_volumes_map = {}
                 
-                if google_search_df is not None:
+                # Try to load Google Search data if available
+                google_search_df = None
+                
+                # Option 1: Try to load from a CSV file if it exists
+                try:
+                    google_search_df = pd.read_csv('google_search_volumes.csv')
+                    st.success("✓ Loaded Google Search data from CSV")
+                except:
+                    pass
+                
+                # Option 2: Try to extract from the main dashboard data if loaded
+                if google_search_df is None and 'df' in locals() and not df.empty:
+                    try:
+                        # Get unique player search volumes from main dashboard data
+                        player_search_volumes = df.groupby('actual_player')['july_2025_volume'].sum().reset_index()
+                        player_search_volumes.columns = ['Player Name', 'Google Search Volume']
+                        google_search_df = player_search_volumes
+                        st.success("✓ Extracted Google Search data from dashboard")
+                    except:
+                        pass
+                
+                # Process Google Search data if available
+                if google_search_df is not None and not google_search_df.empty:
                     # Create a comprehensive name mapping
                     for _, row in google_search_df.iterrows():
-                        csv_player_name = row['Player Name'].strip()
-                        volume = row['Google Search Volume']
+                        csv_player_name = str(row.get('Player Name', '')).strip()
+                        volume = row.get('Google Search Volume', 0)
                         
-                        if volume != 'N/A' and pd.notna(volume):
+                        if volume and volume != 'N/A' and pd.notna(volume):
                             try:
                                 # Convert volume to number
                                 volume_num = float(str(volume).replace(',', ''))
                                 google_volumes_map[csv_player_name] = volume_num
                             except:
                                 pass
+                else:
+                    st.warning("⚠️ Google Search data not available. Scores will be calculated without search volume.")
                 
                 # Function to find Google volume for a player
                 def find_google_volume(player_name, player_info):
@@ -1024,6 +1047,12 @@ if not filtered_df.empty:
                     for variant in total_names:
                         if variant in google_volumes_map:
                             return google_volumes_map[variant]
+                    
+                    # Try partial matches (last name only)
+                    player_last_name = player_name.split()[-1] if ' ' in player_name else player_name
+                    for key in google_volumes_map:
+                        if player_last_name.lower() in key.lower() or key.lower() in player_name.lower():
+                            return google_volumes_map[key]
                     
                     # No match found
                     return 0
@@ -1174,7 +1203,7 @@ if not filtered_df.empty:
         except Exception as e:
             st.error(f"Error loading player data: {str(e)}")
             st.info("Please make sure the player JSON file is available and properly formatted.")
-        
+            
     # Export functionality
     st.markdown("---")
     st.markdown("###  Export Data")
