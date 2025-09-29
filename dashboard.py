@@ -205,10 +205,9 @@ with st.sidebar:
     # Determine which months to use
     if selected_month_option == 'All':
         selected_months = available_months
-        st.info(f"Viewing combined data for: {', '.join(selected_months)}")
     else:
         selected_months = [selected_month_option]
-        st.info(f"Viewing data for: {selected_month_option} 2025")
+ 
     
     # Combine the data based on selection
     df = combine_monthly_data(monthly_data, selected_months)
