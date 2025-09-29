@@ -760,131 +760,131 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_terms, use_container_width=True)
 
 
-  with tab6:
-        # Player Database - Comprehensive table view
-        st.markdown("### 📋 Complete Player Database")
-        st.markdown("*All data respects current dashboard filters*")
-        
-        # Aggregate player data from filtered dataframe
-        player_summary = filtered_df.groupby('actual_player').agg({
-            'volume': 'sum',
-            'country': lambda x: len(x.unique()),
-            'name_variation': lambda x: len(x.unique()),
-            'search_type': lambda x: len(x.unique()),
-            'status': 'first'
-        }).reset_index()
-        
-        player_summary.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations', 'Search Types', 'Status']
-        
-        # Calculate merchandise volume for each player
-        merch_volumes = filtered_df[filtered_df['search_type'] == 'Merchandise'].groupby('actual_player')['volume'].sum()
-        player_summary['Merchandise Volume'] = player_summary['Player'].map(merch_volumes).fillna(0).astype(int)
-        
-        # Calculate top country for each player
-        top_countries = filtered_df.groupby('actual_player').apply(
-            lambda x: x.groupby('country')['volume'].sum().idxmax()
-        )
-        player_summary['Top Market'] = player_summary['Player'].map(top_countries)
-        
-        # Add player info from JSON if available
-        if player_dict:
-            player_summary['Team'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('team', 'N/A'))
-            player_summary['Position'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('position', 'N/A'))
-            player_summary['Age'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('age', 'N/A'))
-            player_summary['Nationality'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('nationality', 'N/A'))
-            player_summary['League'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('league', 'N/A'))
-        
-        # Calculate merchandise percentage
-        player_summary['Merch %'] = ((player_summary['Merchandise Volume'] / player_summary['Total Volume']) * 100).round(1)
-        player_summary['Merch %'] = player_summary['Merch %'].fillna(0)
-        
-        # Format status column for display
-        player_summary['Status'] = player_summary['Status'].apply(
-            lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
-        )
-        
-        # Reorder columns for better display
-        if player_dict:
-            column_order = [
-                'Player', 'Status', 'Total Volume', 'Top Market', 'Countries', 
-                'Team', 'Position', 'Age', 'Nationality', 'League',
-                'Name Variations', 'Search Types', 'Merchandise Volume', 'Merch %'
-            ]
-        else:
-            column_order = [
-                'Player', 'Status', 'Total Volume', 'Top Market', 'Countries',
-                'Name Variations', 'Search Types', 'Merchandise Volume', 'Merch %'
-            ]
-        
-        player_summary = player_summary[column_order]
-        
-        # Sort by total volume by default
-        player_summary = player_summary.sort_values('Total Volume', ascending=False)
-        
-        # Display summary metrics
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            st.metric("Total Players", len(player_summary))
-        with col2:
-            signed_count = len(player_summary[player_summary['Status'] == '✅ Signed'])
-            st.metric("Signed Players", signed_count)
-        with col3:
-            unsigned_count = len(player_summary[player_summary['Status'] == '⏳ Unsigned'])
-            st.metric("Unsigned Players", unsigned_count)
-        
-        st.markdown("---")
-        
-        # Display options
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            sort_by = st.selectbox(
-                "Sort by:",
-                options=['Total Volume', 'Player', 'Countries', 'Merchandise Volume', 'Merch %', 'Age'],
-                index=0
+      with tab6:
+            # Player Database - Comprehensive table view
+            st.markdown("### 📋 Complete Player Database")
+            st.markdown("*All data respects current dashboard filters*")
+            
+            # Aggregate player data from filtered dataframe
+            player_summary = filtered_df.groupby('actual_player').agg({
+                'volume': 'sum',
+                'country': lambda x: len(x.unique()),
+                'name_variation': lambda x: len(x.unique()),
+                'search_type': lambda x: len(x.unique()),
+                'status': 'first'
+            }).reset_index()
+            
+            player_summary.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations', 'Search Types', 'Status']
+            
+            # Calculate merchandise volume for each player
+            merch_volumes = filtered_df[filtered_df['search_type'] == 'Merchandise'].groupby('actual_player')['volume'].sum()
+            player_summary['Merchandise Volume'] = player_summary['Player'].map(merch_volumes).fillna(0).astype(int)
+            
+            # Calculate top country for each player
+            top_countries = filtered_df.groupby('actual_player').apply(
+                lambda x: x.groupby('country')['volume'].sum().idxmax()
+            )
+            player_summary['Top Market'] = player_summary['Player'].map(top_countries)
+            
+            # Add player info from JSON if available
+            if player_dict:
+                player_summary['Team'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('team', 'N/A'))
+                player_summary['Position'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('position', 'N/A'))
+                player_summary['Age'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('age', 'N/A'))
+                player_summary['Nationality'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('nationality', 'N/A'))
+                player_summary['League'] = player_summary['Player'].apply(lambda x: player_dict.get(x, {}).get('league', 'N/A'))
+            
+            # Calculate merchandise percentage
+            player_summary['Merch %'] = ((player_summary['Merchandise Volume'] / player_summary['Total Volume']) * 100).round(1)
+            player_summary['Merch %'] = player_summary['Merch %'].fillna(0)
+            
+            # Format status column for display
+            player_summary['Status'] = player_summary['Status'].apply(
+                lambda x: '✅ Signed' if x == 'signed' else '⏳ Unsigned'
+            )
+            
+            # Reorder columns for better display
+            if player_dict:
+                column_order = [
+                    'Player', 'Status', 'Total Volume', 'Top Market', 'Countries', 
+                    'Team', 'Position', 'Age', 'Nationality', 'League',
+                    'Name Variations', 'Search Types', 'Merchandise Volume', 'Merch %'
+                ]
+            else:
+                column_order = [
+                    'Player', 'Status', 'Total Volume', 'Top Market', 'Countries',
+                    'Name Variations', 'Search Types', 'Merchandise Volume', 'Merch %'
+                ]
+            
+            player_summary = player_summary[column_order]
+            
+            # Sort by total volume by default
+            player_summary = player_summary.sort_values('Total Volume', ascending=False)
+            
+            # Display summary metrics
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                st.metric("Total Players", len(player_summary))
+            with col2:
+                signed_count = len(player_summary[player_summary['Status'] == '✅ Signed'])
+                st.metric("Signed Players", signed_count)
+            with col3:
+                unsigned_count = len(player_summary[player_summary['Status'] == '⏳ Unsigned'])
+                st.metric("Unsigned Players", unsigned_count)
+            
+            st.markdown("---")
+            
+            # Display options
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                sort_by = st.selectbox(
+                    "Sort by:",
+                    options=['Total Volume', 'Player', 'Countries', 'Merchandise Volume', 'Merch %', 'Age'],
+                    index=0
+                )
+            
+            with col2:
+                sort_order = st.radio(
+                    "Order:",
+                    options=['Descending', 'Ascending'],
+                    horizontal=True
+                )
+            
+            # Apply sorting
+            ascending = sort_order == 'Ascending'
+            if sort_by in player_summary.columns:
+                player_summary = player_summary.sort_values(sort_by, ascending=ascending)
+            
+            # Reset index for clean display
+            player_summary = player_summary.reset_index(drop=True)
+            player_summary.index = player_summary.index + 1  # Start index at 1
+            
+            # Display the table with formatting
+            st.dataframe(
+                player_summary.style.format({
+                    'Total Volume': '{:,.0f}',
+                    'Merchandise Volume': '{:,.0f}',
+                    'Merch %': '{:.1f}%',
+                    'Countries': '{:.0f}',
+                    'Name Variations': '{:.0f}',
+                    'Search Types': '{:.0f}'
+                }).background_gradient(subset=['Total Volume'], cmap='Blues'),
+                use_container_width=True,
+                height=600
+            )
+            
+            # Export option for the table
+            st.markdown("---")
+            csv = player_summary.to_csv(index=False)
+            st.download_button(
+                label="📥 Download Player Database (CSV)",
+                data=csv,
+                file_name=f"player_database_{selected_month_option}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                mime="text/csv"
             )
         
-        with col2:
-            sort_order = st.radio(
-                "Order:",
-                options=['Descending', 'Ascending'],
-                horizontal=True
-            )
-        
-        # Apply sorting
-        ascending = sort_order == 'Ascending'
-        if sort_by in player_summary.columns:
-            player_summary = player_summary.sort_values(sort_by, ascending=ascending)
-        
-        # Reset index for clean display
-        player_summary = player_summary.reset_index(drop=True)
-        player_summary.index = player_summary.index + 1  # Start index at 1
-        
-        # Display the table with formatting
-        st.dataframe(
-            player_summary.style.format({
-                'Total Volume': '{:,.0f}',
-                'Merchandise Volume': '{:,.0f}',
-                'Merch %': '{:.1f}%',
-                'Countries': '{:.0f}',
-                'Name Variations': '{:.0f}',
-                'Search Types': '{:.0f}'
-            }).background_gradient(subset=['Total Volume'], cmap='Blues'),
-            use_container_width=True,
-            height=600
-        )
-        
-        # Export option for the table
-        st.markdown("---")
-        csv = player_summary.to_csv(index=False)
-        st.download_button(
-            label="📥 Download Player Database (CSV)",
-            data=csv,
-            file_name=f"player_database_{selected_month_option}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-            mime="text/csv"
-        )
-    
     # Export functionality
     st.markdown("---")
     st.markdown("###  Export Data")
