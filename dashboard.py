@@ -534,9 +534,9 @@ if not filtered_df.empty:
         with col5:
             st.markdown("**Signing Status**")
             if player_status == 'signed':
-                st.success("✅ Signed")
+                st.success(" Signed")
             elif player_status == 'unsigned':
-                st.warning("⏳ Unsigned")
+                st.warning(" Unsigned")
             else:
                 st.info("Unknown")
         
@@ -761,18 +761,18 @@ if not filtered_df.empty:
     
     with tab6:
         # Opportunity Scores (placeholder - implement as needed)
-        st.markdown("### 🎯 Player Opportunity Score Analysis")
+        st.markdown("###  Player Opportunity Score Analysis")
         st.info("Opportunity scoring implementation can be added here based on your specific scoring criteria.")
     
     # Export functionality
     st.markdown("---")
-    st.markdown("### 📥 Export Data")
+    st.markdown("###  Export Data")
     col1, col2, col3 = st.columns(3)
     
     with col1:
         csv = filtered_df.to_csv(index=False)
         st.download_button(
-            label="📄 Download Filtered Data (CSV)",
+            label=" Download Filtered Data (CSV)",
             data=csv,
             file_name=f"player_demand_data_{selected_month_option}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
@@ -789,7 +789,7 @@ if not filtered_df.empty:
         summary_csv = summary_data.to_csv()
         
         st.download_button(
-            label="📊 Download Player Summary (CSV)",
+            label=" Download Player Summary (CSV)",
             data=summary_csv,
             file_name=f"player_summary_{selected_month_option}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
