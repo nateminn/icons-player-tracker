@@ -760,7 +760,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_terms, use_container_width=True)
 
 
-    with tab6:
+  with tab6:
         # Player Database - Comprehensive table view
         st.markdown("### 📋 Complete Player Database")
         st.markdown("*All data respects current dashboard filters*")
@@ -827,10 +827,10 @@ if not filtered_df.empty:
         with col1:
             st.metric("Total Players", len(player_summary))
         with col2:
-            signed_count = len(player_summary[player_summary['Status'] == ' Signed'])
+            signed_count = len(player_summary[player_summary['Status'] == '✅ Signed'])
             st.metric("Signed Players", signed_count)
         with col3:
-            unsigned_count = len(player_summary[player_summary['Status'] == ' Unsigned'])
+            unsigned_count = len(player_summary[player_summary['Status'] == '⏳ Unsigned'])
             st.metric("Unsigned Players", unsigned_count)
         
         st.markdown("---")
@@ -884,7 +884,6 @@ if not filtered_df.empty:
             file_name=f"player_database_{selected_month_option}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
         )
-    
     
     # Export functionality
     st.markdown("---")
