@@ -774,7 +774,7 @@ if not filtered_df.empty:
                 'status': 'first'
             }).reset_index()
             
-            player_summary.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations', 'Search Types', 'Status']
+            player_summary.columns = ['Player', 'Total Volume', 'Countries', 'Name Variations', 'Status']
             
             # Calculate merchandise volume for each player
             merch_volumes = filtered_df[filtered_df['search_type'] == 'Merchandise'].groupby('actual_player')['volume'].sum()
@@ -808,12 +808,12 @@ if not filtered_df.empty:
                 column_order = [
                     'Player', 'Status', 'Total Volume', 'Top Market', 'Countries', 
                     'Team', 'Position', 'Age', 'Nationality', 'League',
-                    'Name Variations', 'Search Types', 'Merchandise Volume', 'Merch %'
+                    'Name Variations', 'Merchandise Volume', 'Merch %'
                 ]
             else:
                 column_order = [
                     'Player', 'Status', 'Total Volume', 'Top Market', 'Countries',
-                    'Name Variations', 'Search Types', 'Merchandise Volume', 'Merch %'
+                    'Name Variations', 'Merchandise Volume', 'Merch %'
                 ]
             
             player_summary = player_summary[column_order]
@@ -869,7 +869,6 @@ if not filtered_df.empty:
                     'Merch %': '{:.1f}%',
                     'Countries': '{:.0f}',
                     'Name Variations': '{:.0f}',
-                    'Search Types': '{:.0f}'
                 }).background_gradient(subset=['Total Volume'], cmap='Blues'),
                 use_container_width=True,
                 height=600
