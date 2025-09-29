@@ -760,7 +760,7 @@ if not filtered_df.empty:
                 st.plotly_chart(fig_terms, use_container_width=True)
 
 
-      with tab6:
+    with tab6:
             # Player Database - Comprehensive table view
             st.markdown("### 📋 Complete Player Database")
             st.markdown("*All data respects current dashboard filters*")
