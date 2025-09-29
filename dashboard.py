@@ -361,13 +361,12 @@ if not filtered_df.empty:
     st.markdown("---")
     
     # Create tabs
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "📈 Overview", 
         "🌍 Market Analysis", 
         "👤 Player Details", 
         "📊 Comparisons", 
         "👕 Merchandise",
-        "🎯 Opportunity Scores"
     ])
     
     with tab1:
@@ -758,11 +757,6 @@ if not filtered_df.empty:
                     color_continuous_scale='Reds'
                 )
                 st.plotly_chart(fig_terms, use_container_width=True)
-    
-    with tab6:
-        # Opportunity Scores (placeholder - implement as needed)
-        st.markdown("###  Player Opportunity Score Analysis")
-        st.info("Opportunity scoring implementation can be added here based on your specific scoring criteria.")
     
     # Export functionality
     st.markdown("---")
