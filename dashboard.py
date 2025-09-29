@@ -192,7 +192,7 @@ with st.sidebar:
     st.markdown("### Filters")
     
     # MONTH FILTER - NEW PRIMARY FILTER
-    st.markdown("#### 📅 Month Selection")
+    st.markdown("#### Month Selection")
     available_months = list(monthly_data.keys())
     month_options = ['All'] + available_months
     
@@ -218,29 +218,6 @@ with st.sidebar:
         st.error("No data available for the selected period")
         st.stop()
     
-    # Show data summary
-    unique_players_count = df['actual_player'].nunique()
-    signed_players = df[df['status'] == 'signed']['actual_player'].nunique()
-    unsigned_players = df[df['status'] == 'unsigned']['actual_player'].nunique()
-    
-    st.success(f"✅ Loaded {len(df):,} rows | {unique_players_count} players ({signed_players} signed, {unsigned_players} unsigned)")
-    
-    # Debug information - can be removed later
-    with st.expander("🔍 Debug: Data Loading Details"):
-        for month in available_months:
-            if month in monthly_data:
-                month_df = monthly_data[month]
-                st.write(f"**{month}**: {len(month_df):,} rows | {month_df['actual_player'].nunique()} unique players")
-                signed = month_df[month_df['status'] == 'signed']['actual_player'].nunique()
-                unsigned = month_df[month_df['status'] == 'unsigned']['actual_player'].nunique()
-                st.write(f"  - Signed: {signed}, Unsigned: {unsigned}")
-        
-        if selected_month_option == 'All':
-            st.write("**Combined Data Processing:**")
-            st.write(f"Total rows after combination: {len(df):,}")
-            st.write(f"Expected if simply concatenated: {sum(len(monthly_data[m]) for m in available_months):,}")
-    
-    st.markdown("---")
     
     # STATUS FILTER
     st.markdown("#### Player Status")
