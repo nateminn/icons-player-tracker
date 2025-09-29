@@ -200,7 +200,6 @@ with st.sidebar:
         "Select Time Period:",
         options=month_options,
         index=0,  # Default to 'All'
-        help="Filter data by month or view combined data"
     )
     
     # Determine which months to use
