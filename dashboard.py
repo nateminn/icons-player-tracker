@@ -827,10 +827,10 @@ if not filtered_df.empty:
         with col1:
             st.metric("Total Players", len(player_summary))
         with col2:
-            signed_count = len(player_summary[player_summary['Status'] == '✅ Signed'])
+            signed_count = len(player_summary[player_summary['Status'] == ' Signed'])
             st.metric("Signed Players", signed_count)
         with col3:
-            unsigned_count = len(player_summary[player_summary['Status'] == '⏳ Unsigned'])
+            unsigned_count = len(player_summary[player_summary['Status'] == ' Unsigned'])
             st.metric("Unsigned Players", unsigned_count)
         
         st.markdown("---")
