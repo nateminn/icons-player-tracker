@@ -342,12 +342,23 @@ if not filtered_df.empty:
         )
     
     with col3:
-        signed_in_filter = filtered_df[filtered_df['status'] == 'signed']['actual_player'].nunique()
-        unsigned_in_filter = filtered_df[filtered_df['status'] == 'unsigned']['actual_player'].nunique()
+        # Count unique search terms (merch_term for merchandise, search_type for others)
+        unique_terms = set()
+        
+        # Add merchandise terms
+        merch_data = filtered_df[filtered_df['search_type'] == 'Merchandise']
+        if not merch_data.empty:
+            unique_terms.update(merch_data['merch_term'].dropna().unique())
+        
+        # Add non-merchandise search types
+        non_merch_types = filtered_df[filtered_df['search_type'] != 'Merchandise']['search_type'].unique()
+        unique_terms.update(non_merch_types)
+        
+        total_terms = len(unique_terms)
         st.metric(
-            "Player Status",
-            f"{signed_in_filter} Signed",
-            delta=f"{unsigned_in_filter} Unsigned"
+            "Search Terms",
+            f"{total_terms}",
+            delta="Unique terms"
         )
     
     with col4:
