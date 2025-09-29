@@ -46,12 +46,9 @@ def load_monthly_data():
     monthly_data = {}
     
     # Define the URLs for each month's data
-    # UPDATE THESE URLS WITH YOUR ACTUAL GITHUB RAW URLS
     month_urls = {
         'July': 'https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/Master_July_225.csv',
         'August': 'https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/Master_August_225.csv',
-        # Future months will be added here as they become available
-        # 'September': 'https://raw.githubusercontent.com/...'
     }
     
     for month, url in month_urls.items():
@@ -128,12 +125,28 @@ def combine_monthly_data(monthly_data, selected_months):
 def load_player_details():
     """Load player details from GitHub"""
     try:
-        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/rough_final_225_complete.json"
+        url = "https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/player_essential_data_json.json"
         response = requests.get(url)
-        data = response.json()
+        response.raise_for_status()  # Check for HTTP errors
+        
+        # Try to parse JSON
+        try:
+            data = response.json()
+        except json.JSONDecodeError as e:
+            st.warning(f"JSON parsing error: {e}")
+            # Try to clean the JSON if there's an issue
+            text = response.text.strip()
+            # Remove any BOM or extra characters at the beginning
+            if text.startswith('\ufeff'):
+                text = text[1:]
+            data = json.loads(text)
         
         # Create a dictionary for quick lookup
-        player_dict = {player['name']: player for player in data['players']}
+        if 'players' in data:
+            player_dict = {player['name']: player for player in data['players']}
+        else:
+            # If structure is different, try direct parsing
+            player_dict = {item['name']: item for item in data if 'name' in item}
         
         return player_dict
         
@@ -346,14 +359,13 @@ if not filtered_df.empty:
     st.markdown("---")
     
     # Create tabs
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📈 Overview", 
         "🌍 Market Analysis", 
         "👤 Player Details", 
         "📊 Comparisons", 
         "👕 Merchandise",
-        "🎯 Opportunity Scores",
-        "📅 Monthly Trends"  # NEW TAB
+        "🎯 Opportunity Scores"
     ])
     
     with tab1:
@@ -610,117 +622,6 @@ if not filtered_df.empty:
         # Opportunity Scores (placeholder - implement as needed)
         st.markdown("### 🎯 Player Opportunity Score Analysis")
         st.info("Opportunity scoring implementation can be added here based on your specific scoring criteria.")
-    
-    with tab7:
-        # NEW: Monthly Trends Tab
-        st.markdown("### 📅 Monthly Trends Analysis")
-        
-        if len(available_months) > 1 and selected_month_option == 'All':
-            # Load individual month data for comparison
-            trend_data = []
-            for month in available_months:
-                month_df = monthly_data[month]
-                month_summary = month_df.groupby('actual_player')['volume'].sum().reset_index()
-                month_summary['month'] = month
-                trend_data.append(month_summary)
-            
-            trend_df = pd.concat(trend_data)
-            
-            # Top players across all months
-            top_trending = trend_df.groupby('actual_player')['volume'].sum().nlargest(10).index
-            trend_df_filtered = trend_df[trend_df['actual_player'].isin(top_trending)]
-            
-            # Line chart for monthly trends
-            fig_trend = px.line(
-                trend_df_filtered,
-                x='month',
-                y='volume',
-                color='actual_player',
-                title='Monthly Search Volume Trends - Top 10 Players',
-                markers=True,
-                labels={'volume': 'Search Volume', 'month': 'Month'}
-            )
-            fig_trend.update_layout(height=500)
-            st.plotly_chart(fig_trend, use_container_width=True)
-            
-            # Month-over-month comparison
-            col1, col2 = st.columns(2)
-            
-            with col1:
-                # Calculate growth rates if we have 2+ months
-                if len(available_months) >= 2:
-                    month1, month2 = available_months[-2], available_months[-1]
-                    df1 = monthly_data[month1].groupby('actual_player')['volume'].sum()
-                    df2 = monthly_data[month2].groupby('actual_player')['volume'].sum()
-                    
-                    growth = ((df2 - df1) / df1 * 100).dropna().sort_values(ascending=False)
-                    
-                    # Top gainers
-                    top_gainers = growth.head(10).reset_index()
-                    top_gainers.columns = ['Player', 'Growth %']
-                    
-                    fig_gainers = px.bar(
-                        top_gainers,
-                        x='Growth %',
-                        y='Player',
-                        orientation='h',
-                        title=f'Top Growth: {month1} to {month2}',
-                        color='Growth %',
-                        color_continuous_scale='RdYlGn'
-                    )
-                    st.plotly_chart(fig_gainers, use_container_width=True)
-            
-            with col2:
-                # Monthly totals comparison
-                monthly_totals = []
-                for month in available_months:
-                    total = monthly_data[month]['volume'].sum()
-                    monthly_totals.append({'Month': month, 'Total Volume': total})
-                
-                monthly_totals_df = pd.DataFrame(monthly_totals)
-                
-                fig_monthly = px.bar(
-                    monthly_totals_df,
-                    x='Month',
-                    y='Total Volume',
-                    title='Total Search Volume by Month',
-                    color='Total Volume',
-                    color_continuous_scale='Blues',
-                    text='Total Volume'
-                )
-                fig_monthly.update_traces(texttemplate='%{text:,.0f}', textposition='outside')
-                st.plotly_chart(fig_monthly, use_container_width=True)
-            
-            # Detailed monthly comparison table
-            st.markdown("#### Detailed Monthly Comparison")
-            
-            comparison_players = st.multiselect(
-                "Select players for detailed comparison:",
-                options=sorted(trend_df['actual_player'].unique()),
-                default=list(top_trending)[:5]
-            )
-            
-            if comparison_players:
-                pivot_comparison = trend_df[trend_df['actual_player'].isin(comparison_players)].pivot(
-                    index='actual_player',
-                    columns='month',
-                    values='volume'
-                ).fillna(0)
-                
-                # Add total and average columns
-                pivot_comparison['Total'] = pivot_comparison.sum(axis=1)
-                pivot_comparison['Average'] = pivot_comparison.iloc[:, :-1].mean(axis=1)
-                
-                # Sort by total
-                pivot_comparison = pivot_comparison.sort_values('Total', ascending=False)
-                
-                # Format and display
-                st.dataframe(
-                    pivot_comparison.style.format("{:,.0f}").background_gradient(subset=['Total'], cmap='Blues'),
-                    use_container_width=True
-                )
-        else:
-            st.info("Monthly trends are available when viewing 'All' months and having multiple months of data.")
     
     # Export functionality
     st.markdown("---")
