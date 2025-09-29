@@ -225,7 +225,6 @@ with st.sidebar:
         "Filter by Status:",
         options=status_options,
         index=0,
-        help="Filter players by their signing status"
     )
     
     # Apply status filter
