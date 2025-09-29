@@ -1,6 +1,3709 @@
 {
   "players": [
     {
+      "name": "Adam Wharton",
+      "sport": "Football",
+      "team": "Crystal Palace",
+      "position": "CM",
+      "age": 20,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Blackburn Rovers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Adam Wharton"
+      ]
+    },
+    {
+      "name": "Ademola Lookman",
+      "sport": "Football",
+      "team": "Atalanta",
+      "position": "LW/RW",
+      "age": 27,
+      "nationality": "Nigeria",
+      "league": "Serie A",
+      "previous_teams": [
+        "Charlton Athletic",
+        "Everton",
+        "RB Leipzig",
+        "Fulham",
+        "Leicester City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Europa League"
+      ],
+      "total_names": [
+        "Ademola Lookman",
+        "Lookman"
+      ]
+    },
+    {
+      "name": "Alexander Isak",
+      "sport": "Football",
+      "team": "Newcastle United",
+      "position": "ST",
+      "age": 25,
+      "nationality": "Sweden",
+      "league": "Premier League",
+      "previous_teams": [
+        "AIK",
+        "Borussia Dortmund",
+        "Willem II",
+        "Real Sociedad"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Alexander Isak",
+        "Isak"
+      ]
+    },
+    {
+      "name": "Arda Guler",
+      "sport": "Football",
+      "team": "Real Madrid",
+      "position": "AM/RW",
+      "age": 19,
+      "nationality": "Turkey",
+      "league": "La Liga",
+      "previous_teams": [
+        "Fenerbahce"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Arda Guler",
+        "Arda Guler"
+      ]
+    },
+    {
+      "name": "Arjen Robben",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "RW",
+      "age": 40,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": [
+        "Groningen",
+        "PSV",
+        "Chelsea",
+        "Real Madrid",
+        "Bayern Munich"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Arjen Robben",
+        "Robben"
+      ]
+    },
+    {
+      "name": "Bradley Barcola",
+      "sport": "Football",
+      "team": "PSG",
+      "position": "LW",
+      "age": 22,
+      "nationality": "France",
+      "league": "Ligue 1",
+      "previous_teams": [
+        "Lyon"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Bradley Barcola",
+        "Barcola"
+      ]
+    },
+    {
+      "name": "Nicolo Barella",
+      "sport": "Football",
+      "team": "Inter Milan",
+      "position": "CM",
+      "age": 27,
+      "nationality": "Italy",
+      "league": "Serie A",
+      "previous_teams": [
+        "Cagliari"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Nicolo Barella",
+        "Barella",
+        "Nicolo Barella"
+      ]
+    },
+    {
+      "name": "Gabriel Batistuta",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 55,
+      "nationality": "Argentina",
+      "league": "N/A",
+      "previous_teams": [
+        "Newell's Old Boys",
+        "River Plate",
+        "Boca Juniors",
+        "Fiorentina",
+        "Roma",
+        "Inter Milan",
+        "Al-Arabi"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Copa America"
+      ],
+      "total_names": [
+        "Gabriel Batistuta",
+        "Batigol",
+        "Batistuta"
+      ]
+    },
+    {
+      "name": "Roberto Firmino",
+      "sport": "Football",
+      "team": "Al Ahli",
+      "position": "CF/AM",
+      "age": 33,
+      "nationality": "Brazil",
+      "league": "Saudi Pro League",
+      "previous_teams": [
+        "Figueirense",
+        "Hoffenheim",
+        "Liverpool"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Copa America"
+      ],
+      "total_names": [
+        "Roberto Firmino",
+        "Bobby Firmino",
+        "Firmino"
+      ]
+    },
+    {
+      "name": "Sven Botman",
+      "sport": "Football",
+      "team": "Newcastle United",
+      "position": "CB",
+      "age": 24,
+      "nationality": "Netherlands",
+      "league": "Premier League",
+      "previous_teams": [
+        "Ajax",
+        "Heerenveen",
+        "Lille"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Sven Botman",
+        "Botman"
+      ]
+    },
+    {
+      "name": "Jarrod Bowen",
+      "sport": "Football",
+      "team": "West Ham United",
+      "position": "RW",
+      "age": 28,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Hereford United",
+        "Hull City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Conference League"
+      ],
+      "total_names": [
+        "Jarrod Bowen",
+        "Bowen"
+      ]
+    },
+    {
+      "name": "Brennan Johnson",
+      "sport": "Football",
+      "team": "Tottenham",
+      "position": "RW/LW",
+      "age": 23,
+      "nationality": "Wales",
+      "league": "Premier League",
+      "previous_teams": [
+        "Nottingham Forest",
+        "Lincoln City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Brennan Johnson"
+      ]
+    },
+    {
+      "name": "Lucy Bronze",
+      "sport": "Football",
+      "team": "Chelsea Women",
+      "position": "RB",
+      "age": 33,
+      "nationality": "England",
+      "league": "Women's Super League",
+      "previous_teams": [
+        "Sunderland",
+        "Everton",
+        "Liverpool",
+        "Manchester City",
+        "Lyon",
+        "Barcelona"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Lucy Bronze",
+        "Bronze"
+      ]
+    },
+    {
+      "name": "Moises Caicedo",
+      "sport": "Football",
+      "team": "Chelsea",
+      "position": "DM",
+      "age": 23,
+      "nationality": "Ecuador",
+      "league": "Premier League",
+      "previous_teams": [
+        "Independiente del Valle",
+        "Beerschot",
+        "Brighton"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Moises Caicedo",
+        "Caicedo",
+        "Moises Caicedo"
+      ]
+    },
+    {
+      "name": "Chris Wood",
+      "sport": "Football",
+      "team": "Nottingham Forest",
+      "position": "ST",
+      "age": 33,
+      "nationality": "New Zealand",
+      "league": "Premier League",
+      "previous_teams": [
+        "West Bromwich Albion",
+        "Birmingham City",
+        "Millwall",
+        "Brighton",
+        "Leicester City",
+        "Leeds United",
+        "Burnley",
+        "Newcastle United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Chris Wood"
+      ]
+    },
+    {
+      "name": "Peter Crouch",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 43,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Tottenham",
+        "Queens Park Rangers",
+        "Portsmouth",
+        "Aston Villa",
+        "Southampton",
+        "Liverpool",
+        "Stoke City",
+        "Burnley"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Peter Crouch",
+        "Crouch",
+        "Crouchy"
+      ]
+    },
+    {
+      "name": "Daniel James",
+      "sport": "Football",
+      "team": "Leeds United",
+      "position": "LW/RW",
+      "age": 27,
+      "nationality": "Wales",
+      "league": "Championship",
+      "previous_teams": [
+        "Swansea City",
+        "Manchester United",
+        "Fulham"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Daniel James",
+        "Dan James"
+      ]
+    },
+    {
+      "name": "Dani Olmo",
+      "sport": "Football",
+      "team": "Barcelona",
+      "position": "AM/LW",
+      "age": 26,
+      "nationality": "Spain",
+      "league": "La Liga",
+      "previous_teams": [
+        "Dinamo Zagreb",
+        "RB Leipzig"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Dani Olmo",
+        "Olmo"
+      ]
+    },
+    {
+      "name": "Jonathan David",
+      "sport": "Football",
+      "team": "Lille",
+      "position": "ST",
+      "age": 24,
+      "nationality": "Canada",
+      "league": "Ligue 1",
+      "previous_teams": [
+        "Gent"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Jonathan David",
+        "David"
+      ]
+    },
+    {
+      "name": "Dean Huijsen",
+      "sport": "Football",
+      "team": "Bournemouth",
+      "position": "CB",
+      "age": 19,
+      "nationality": "Spain/Netherlands",
+      "league": "Premier League",
+      "previous_teams": [
+        "Juventus",
+        "Roma"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Dean Huijsen"
+      ]
+    },
+    {
+      "name": "Jermain Defoe",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 42,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "West Ham United",
+        "Tottenham",
+        "Portsmouth",
+        "Toronto FC",
+        "Sunderland",
+        "Bournemouth",
+        "Rangers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Jermain Defoe",
+        "Defoe"
+      ]
+    },
+    {
+      "name": "Dejan Kulusevski",
+      "sport": "Football",
+      "team": "Tottenham",
+      "position": "RW/AM",
+      "age": 24,
+      "nationality": "Sweden",
+      "league": "Premier League",
+      "previous_teams": [
+        "Atalanta",
+        "Parma",
+        "Juventus"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Dejan Kulusevski",
+        "Kulusevski"
+      ]
+    },
+    {
+      "name": "Liam Delap",
+      "sport": "Football",
+      "team": "Ipswich Town",
+      "position": "ST",
+      "age": 21,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Manchester City",
+        "Stoke City",
+        "Preston North End",
+        "Hull City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Liam Delap",
+        "Delap"
+      ]
+    },
+    {
+      "name": "Ousmane Dembele",
+      "sport": "Football",
+      "team": "PSG",
+      "position": "RW/LW",
+      "age": 27,
+      "nationality": "France",
+      "league": "Ligue 1",
+      "previous_teams": [
+        "Rennes",
+        "Borussia Dortmund",
+        "Barcelona"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Ousmane Dembele",
+        "Dembele",
+        "Ousmane Dembele"
+      ]
+    },
+    {
+      "name": "Desire Doue",
+      "sport": "Football",
+      "team": "PSG",
+      "position": "AM/LW",
+      "age": 19,
+      "nationality": "France",
+      "league": "Ligue 1",
+      "previous_teams": [
+        "Rennes"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Desire Doue",
+        "Desire Doue"
+      ]
+    },
+    {
+      "name": "Destiny Udogie",
+      "sport": "Football",
+      "team": "Tottenham",
+      "position": "LB",
+      "age": 22,
+      "nationality": "Italy",
+      "league": "Premier League",
+      "previous_teams": [
+        "Hellas Verona",
+        "Udinese"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Destiny Udogie",
+        "Udogie"
+      ]
+    },
+    {
+      "name": "Dominic Solanke",
+      "sport": "Football",
+      "team": "Tottenham",
+      "position": "ST",
+      "age": 27,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Chelsea",
+        "Vitesse",
+        "Liverpool",
+        "Bournemouth"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Dominic Solanke",
+        "Solanke"
+      ]
+    },
+    {
+      "name": "Dominik Szoboszlai",
+      "sport": "Football",
+      "team": "Liverpool",
+      "position": "AM/CM",
+      "age": 24,
+      "nationality": "Hungary",
+      "league": "Premier League",
+      "previous_teams": [
+        "Red Bull Salzburg",
+        "RB Leipzig"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Dominik Szoboszlai",
+        "Szoboszlai"
+      ]
+    },
+    {
+      "name": "Paulo Dybala",
+      "sport": "Football",
+      "team": "Roma",
+      "position": "AM/CF",
+      "age": 31,
+      "nationality": "Argentina",
+      "league": "Serie A",
+      "previous_teams": [
+        "Instituto",
+        "Palermo",
+        "Juventus"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Paulo Dybala",
+        "Dybala"
+      ]
+    },
+    {
+      "name": "Mary Earps",
+      "sport": "Football",
+      "team": "PSG Women",
+      "position": "GK",
+      "age": 31,
+      "nationality": "England",
+      "league": "Division 1 Feminine",
+      "previous_teams": [
+        "Birmingham City",
+        "Bristol Academy",
+        "Reading",
+        "Wolfsburg",
+        "Manchester United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Mary Earps",
+        "Earps"
+      ]
+    },
+    {
+      "name": "Eberechi Eze",
+      "sport": "Football",
+      "team": "Crystal Palace",
+      "position": "AM/LW",
+      "age": 26,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Queens Park Rangers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Eberechi Eze",
+        "Eze"
+      ]
+    },
+    {
+      "name": "Wataru Endo",
+      "sport": "Football",
+      "team": "Liverpool",
+      "position": "DM",
+      "age": 31,
+      "nationality": "Japan",
+      "league": "Premier League",
+      "previous_teams": [
+        "Shonan Bellmare",
+        "Urawa Red Diamonds",
+        "Sint-Truiden",
+        "VfB Stuttgart"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Wataru Endo",
+        "Endo"
+      ]
+    },
+    {
+      "name": "Enzo Fernandez",
+      "sport": "Football",
+      "team": "Chelsea",
+      "position": "CM",
+      "age": 23,
+      "nationality": "Argentina",
+      "league": "Premier League",
+      "previous_teams": [
+        "River Plate",
+        "Defensa y Justicia",
+        "Benfica"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Enzo Fernandez",
+        "Enzo"
+      ]
+    },
+    {
+      "name": "Ethan Nwaneri",
+      "sport": "Football",
+      "team": "Arsenal",
+      "position": "AM",
+      "age": 17,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Arsenal Academy"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Ethan Nwaneri"
+      ]
+    },
+    {
+      "name": "Evan Ferguson",
+      "sport": "Football",
+      "team": "Brighton",
+      "position": "ST",
+      "age": 20,
+      "nationality": "Ireland",
+      "league": "Premier League",
+      "previous_teams": [
+        "Bohemians"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Evan Ferguson",
+        "Ferguson"
+      ]
+    },
+    {
+      "name": "Federico Valverde",
+      "sport": "Football",
+      "team": "Real Madrid",
+      "position": "CM/RW",
+      "age": 26,
+      "nationality": "Uruguay",
+      "league": "La Liga",
+      "previous_teams": [
+        "Penarol",
+        "Deportivo La Coruna"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Federico Valverde",
+        "Fede Valverde"
+      ]
+    },
+    {
+      "name": "Franck Ribery",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "LW",
+      "age": 41,
+      "nationality": "France",
+      "league": "N/A",
+      "previous_teams": [
+        "Boulogne",
+        "Ales",
+        "Brest",
+        "Metz",
+        "Galatasaray",
+        "Marseille",
+        "Bayern Munich",
+        "Fiorentina",
+        "Salernitana"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Franck Ribery",
+        "Franck Ribery",
+        "Ribery"
+      ]
+    },
+    {
+      "name": "Jeremie Frimpong",
+      "sport": "Football",
+      "team": "Bayer Leverkusen",
+      "position": "RWB",
+      "age": 24,
+      "nationality": "Netherlands",
+      "league": "Bundesliga",
+      "previous_teams": [
+        "Manchester City",
+        "Celtic"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Jeremie Frimpong",
+        "Frimpong"
+      ]
+    },
+    {
+      "name": "Gabriel Martinelli",
+      "sport": "Football",
+      "team": "Arsenal",
+      "position": "LW",
+      "age": 23,
+      "nationality": "Brazil",
+      "league": "Premier League",
+      "previous_teams": [
+        "Ituano"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Gabriel Martinelli",
+        "Martinelli"
+      ]
+    },
+    {
+      "name": "Morgan Gibbs-White",
+      "sport": "Football",
+      "team": "Nottingham Forest",
+      "position": "AM",
+      "age": 24,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Wolverhampton Wanderers",
+        "Swansea City",
+        "Sheffield United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Morgan Gibbs-White",
+        "Gibbs-White",
+        "MGW"
+      ]
+    },
+    {
+      "name": "Wilfried Gnonto",
+      "sport": "Football",
+      "team": "Leeds United",
+      "position": "RW/LW",
+      "age": 21,
+      "nationality": "Italy",
+      "league": "Championship",
+      "previous_teams": [
+        "FC Zurich"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Wilfried Gnonto",
+        "Gnonto"
+      ]
+    },
+    {
+      "name": "Marc Guehi",
+      "sport": "Football",
+      "team": "Crystal Palace",
+      "position": "CB",
+      "age": 24,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Chelsea",
+        "Swansea City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Marc Guehi",
+        "Guehi"
+      ]
+    },
+    {
+      "name": "Viktor Gyokeres",
+      "sport": "Football",
+      "team": "Sporting CP",
+      "position": "ST",
+      "age": 26,
+      "nationality": "Sweden",
+      "league": "Primeira Liga",
+      "previous_teams": [
+        "IF Brommapojkarna",
+        "Brighton",
+        "St. Pauli",
+        "Swansea City",
+        "Coventry City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Viktor Gyokeres",
+        "Gyokeres"
+      ]
+    },
+    {
+      "name": "Kai Havertz",
+      "sport": "Football",
+      "team": "Arsenal",
+      "position": "CF/AM",
+      "age": 25,
+      "nationality": "Germany",
+      "league": "Premier League",
+      "previous_teams": [
+        "Bayer Leverkusen",
+        "Chelsea"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Kai Havertz",
+        "Havertz"
+      ]
+    },
+    {
+      "name": "Jordan Henderson",
+      "sport": "Football",
+      "team": "Ajax",
+      "position": "CM",
+      "age": 34,
+      "nationality": "England",
+      "league": "Eredivisie",
+      "previous_teams": [
+        "Sunderland",
+        "Coventry City",
+        "Liverpool",
+        "Al-Ettifaq"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Jordan Henderson",
+        "Henderson",
+        "Hendo"
+      ]
+    },
+    {
+      "name": "Henrik Larsson",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 53,
+      "nationality": "Sweden",
+      "league": "N/A",
+      "previous_teams": [
+        "Hogaborgs BK",
+        "Helsingborgs IF",
+        "Feyenoord",
+        "Celtic",
+        "Barcelona",
+        "Manchester United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Henrik Larsson",
+        "Larsson"
+      ]
+    },
+    {
+      "name": "Hidetoshi Nakata",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM/AM",
+      "age": 47,
+      "nationality": "Japan",
+      "league": "N/A",
+      "previous_teams": [
+        "Bellmare Hiratsuka",
+        "Perugia",
+        "Roma",
+        "Parma",
+        "Bologna",
+        "Fiorentina",
+        "Bolton Wanderers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Hidetoshi Nakata",
+        "Nakata"
+      ]
+    },
+    {
+      "name": "Hwang Hee Chan",
+      "sport": "Football",
+      "team": "Wolverhampton Wanderers",
+      "position": "ST/RW",
+      "age": 28,
+      "nationality": "South Korea",
+      "league": "Premier League",
+      "previous_teams": [
+        "Pohang Steelers",
+        "Red Bull Salzburg",
+        "Hamburger SV",
+        "RB Leipzig"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Hwang Hee Chan",
+        "Hwang",
+        "Hwang Hee-Chan"
+      ]
+    },
+    {
+      "name": "Iliman Ndiaye",
+      "sport": "Football",
+      "team": "Everton",
+      "position": "AM/LW",
+      "age": 24,
+      "nationality": "Senegal",
+      "league": "Premier League",
+      "previous_teams": [
+        "Boreham Wood",
+        "Hyde United",
+        "Sheffield United",
+        "Marseille"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Iliman Ndiaye",
+        "Ndiaye"
+      ]
+    },
+    {
+      "name": "Ivan Perisic",
+      "sport": "Football",
+      "team": "PSV",
+      "position": "LW/LWB",
+      "age": 35,
+      "nationality": "Croatia",
+      "league": "Eredivisie",
+      "previous_teams": [
+        "Sochaux",
+        "Roeselare",
+        "Club Brugge",
+        "Borussia Dortmund",
+        "Wolfsburg",
+        "Inter Milan",
+        "Bayern Munich",
+        "Tottenham",
+        "Hajduk Split"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Ivan Perisic",
+        "Ivan Perisic",
+        "Perisic"
+      ]
+    },
+    {
+      "name": "James Maddison",
+      "sport": "Football",
+      "team": "Tottenham",
+      "position": "AM",
+      "age": 28,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Coventry City",
+        "Norwich City",
+        "Aberdeen",
+        "Leicester City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "James Maddison",
+        "Maddison",
+        "Madders"
+      ]
+    },
+    {
+      "name": "Jamie Vardy",
+      "sport": "Football",
+      "team": "Leicester City",
+      "position": "ST",
+      "age": 37,
+      "nationality": "England",
+      "league": "Championship",
+      "previous_teams": [
+        "Stocksbridge Park Steels",
+        "Halifax Town",
+        "Fleetwood Town"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League"
+      ],
+      "total_names": [
+        "Jamie Vardy",
+        "Vardy"
+      ]
+    },
+    {
+      "name": "Jean-Philippe Mateta",
+      "sport": "Football",
+      "team": "Crystal Palace",
+      "position": "ST",
+      "age": 27,
+      "nationality": "France",
+      "league": "Premier League",
+      "previous_teams": [
+        "Chateauroux",
+        "Le Havre",
+        "Lyon",
+        "Mainz"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Jean-Philippe Mateta",
+        "Mateta",
+        "JP Mateta"
+      ]
+    },
+    {
+      "name": "Ji-Sung Park",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM/RW",
+      "age": 43,
+      "nationality": "South Korea",
+      "league": "N/A",
+      "previous_teams": [
+        "Kyoto Purple Sanga",
+        "PSV",
+        "Manchester United",
+        "Queens Park Rangers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Ji-Sung Park",
+        "Park Ji-Sung",
+        "Park"
+      ]
+    },
+    {
+      "name": "Joao Pedro",
+      "sport": "Football",
+      "team": "Brighton",
+      "position": "ST/AM",
+      "age": 23,
+      "nationality": "Brazil",
+      "league": "Premier League",
+      "previous_teams": [
+        "Fluminense",
+        "Watford"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Joao Pedro",
+        "Joao Pedro"
+      ]
+    },
+    {
+      "name": "Joe Cole",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "AM/LW",
+      "age": 43,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "West Ham United",
+        "Chelsea",
+        "Liverpool",
+        "Lille",
+        "Aston Villa",
+        "Coventry City",
+        "Tampa Bay Rowdies"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League"
+      ],
+      "total_names": [
+        "Joe Cole",
+        "Cole"
+      ]
+    },
+    {
+      "name": "John McGinn",
+      "sport": "Football",
+      "team": "Aston Villa",
+      "position": "CM",
+      "age": 30,
+      "nationality": "Scotland",
+      "league": "Premier League",
+      "previous_teams": [
+        "St Mirren",
+        "Hibernian"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "John McGinn",
+        "McGinn"
+      ]
+    },
+    {
+      "name": "Jurgen Klopp",
+      "sport": "Football",
+      "team": "Retired (Manager)",
+      "position": "Manager",
+      "age": 57,
+      "nationality": "Germany",
+      "league": "N/A",
+      "previous_teams": [
+        "Mainz (Manager)",
+        "Borussia Dortmund (Manager)",
+        "Liverpool (Manager)"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League",
+        "Bundesliga"
+      ],
+      "total_names": [
+        "Jurgen Klopp",
+        "Jurgen Klopp",
+        "Klopp"
+      ]
+    },
+    {
+      "name": "Justin Kluivert",
+      "sport": "Football",
+      "team": "Bournemouth",
+      "position": "LW/RW",
+      "age": 25,
+      "nationality": "Netherlands",
+      "league": "Premier League",
+      "previous_teams": [
+        "Ajax",
+        "Roma",
+        "RB Leipzig",
+        "Nice",
+        "Valencia"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Justin Kluivert",
+        "Kluivert"
+      ]
+    },
+    {
+      "name": "Jurgen Klinsmann",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 60,
+      "nationality": "Germany",
+      "league": "N/A",
+      "previous_teams": [
+        "Stuttgart",
+        "Inter Milan",
+        "Monaco",
+        "Tottenham",
+        "Bayern Munich",
+        "Sampdoria"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Euros"
+      ],
+      "total_names": [
+        "Jurgen Klinsmann",
+        "Jurgen Klinsmann",
+        "Klinsmann"
+      ]
+    },
+    {
+      "name": "Kaoru Mitoma",
+      "sport": "Football",
+      "team": "Brighton",
+      "position": "LW",
+      "age": 27,
+      "nationality": "Japan",
+      "league": "Premier League",
+      "previous_teams": [
+        "Kawasaki Frontale",
+        "Union SG"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Kaoru Mitoma",
+        "Mitoma"
+      ]
+    },
+    {
+      "name": "Mohammed Kudus",
+      "sport": "Football",
+      "team": "West Ham United",
+      "position": "AM/RW",
+      "age": 24,
+      "nationality": "Ghana",
+      "league": "Premier League",
+      "previous_teams": [
+        "Right to Dream",
+        "FC Nordsjlland",
+        "Ajax"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Mohammed Kudus",
+        "Kudus"
+      ]
+    },
+    {
+      "name": "Kyogo Furuhashi",
+      "sport": "Football",
+      "team": "Celtic",
+      "position": "ST",
+      "age": 29,
+      "nationality": "Japan",
+      "league": "Scottish Premiership",
+      "previous_teams": [
+        "FC Gifu",
+        "Vissel Kobe"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Kyogo Furuhashi",
+        "Kyogo"
+      ]
+    },
+    {
+      "name": "Lauren James",
+      "sport": "Football",
+      "team": "Chelsea Women",
+      "position": "RW/AM",
+      "age": 23,
+      "nationality": "England",
+      "league": "Women's Super League",
+      "previous_teams": [
+        "Manchester United Women"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Lauren James",
+        "LJ",
+        "James"
+      ]
+    },
+    {
+      "name": "Lautaro Martinez",
+      "sport": "Football",
+      "team": "Inter Milan",
+      "position": "ST",
+      "age": 27,
+      "nationality": "Argentina",
+      "league": "Serie A",
+      "previous_teams": [
+        "Racing Club"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Copa America"
+      ],
+      "total_names": [
+        "Lautaro Martinez",
+        "Lautaro Martinez",
+        "Martinez",
+        "Lautaro"
+      ]
+    },
+    {
+      "name": "Rafael Leao",
+      "sport": "Football",
+      "team": "AC Milan",
+      "position": "LW",
+      "age": 25,
+      "nationality": "Portugal",
+      "league": "Serie A",
+      "previous_teams": [
+        "Sporting CP",
+        "Lille"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Rafael Leao",
+        "Rafael Leao",
+        "Leao",
+        "Leao"
+      ]
+    },
+    {
+      "name": "Lee Kang-in",
+      "sport": "Football",
+      "team": "PSG",
+      "position": "AM/RW",
+      "age": 23,
+      "nationality": "South Korea",
+      "league": "Ligue 1",
+      "previous_teams": [
+        "Valencia",
+        "Mallorca"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Lee Kang-in",
+        "Lee Kang-In",
+        "Lee"
+      ]
+    },
+    {
+      "name": "Lewis Dunk",
+      "sport": "Football",
+      "team": "Brighton",
+      "position": "CB",
+      "age": 33,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Bristol City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Lewis Dunk",
+        "Dunk",
+        "Dunky"
+      ]
+    },
+    {
+      "name": "Marcelo Vieira",
+      "sport": "Football",
+      "team": "Fluminense",
+      "position": "LB",
+      "age": 36,
+      "nationality": "Brazil",
+      "league": "Brasileirao",
+      "previous_teams": [
+        "Real Madrid",
+        "Olympiacos"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "World Cup"
+      ],
+      "total_names": [
+        "Marcelo Vieira",
+        "Marcelo"
+      ]
+    },
+    {
+      "name": "Omar Marmoush",
+      "sport": "Football",
+      "team": "Eintracht Frankfurt",
+      "position": "ST/RW",
+      "age": 25,
+      "nationality": "Egypt",
+      "league": "Bundesliga",
+      "previous_teams": [
+        "Wadi Degla",
+        "Wolfsburg",
+        "St. Pauli",
+        "Stuttgart"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Omar Marmoush",
+        "Marmoush"
+      ]
+    },
+    {
+      "name": "Martin Odegaard",
+      "sport": "Football",
+      "team": "Arsenal",
+      "position": "AM",
+      "age": 26,
+      "nationality": "Norway",
+      "league": "Premier League",
+      "previous_teams": [
+        "Strmgodset",
+        "Real Madrid",
+        "Heerenveen",
+        "Vitesse",
+        "Real Sociedad"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Martin Odegaard",
+        "Martin Odegaard",
+        "Odegaard",
+        "Odegaard"
+      ]
+    },
+    {
+      "name": "Max Dowman",
+      "sport": "Football",
+      "team": "Arsenal Academy",
+      "position": "AM",
+      "age": 14,
+      "nationality": "England",
+      "league": "Youth League",
+      "previous_teams": [
+        "N/A"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Max Dowman"
+      ]
+    },
+    {
+      "name": "Nuno Mendes",
+      "sport": "Football",
+      "team": "PSG",
+      "position": "LB",
+      "age": 22,
+      "nationality": "Portugal",
+      "league": "Ligue 1",
+      "previous_teams": [
+        "Sporting CP"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Nuno Mendes",
+        "Mendes"
+      ]
+    },
+    {
+      "name": "Michael Olise",
+      "sport": "Football",
+      "team": "Bayern Munich",
+      "position": "RW/AM",
+      "age": 23,
+      "nationality": "France",
+      "league": "Bundesliga",
+      "previous_teams": [
+        "Reading",
+        "Crystal Palace"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Michael Olise",
+        "Olise"
+      ]
+    },
+    {
+      "name": "Micky Van De Ven",
+      "sport": "Football",
+      "team": "Tottenham",
+      "position": "CB",
+      "age": 23,
+      "nationality": "Netherlands",
+      "league": "Premier League",
+      "previous_teams": [
+        "Volendam",
+        "Wolfsburg"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Micky Van De Ven",
+        "van de Ven",
+        "VDV"
+      ]
+    },
+    {
+      "name": "Morgan Rogers",
+      "sport": "Football",
+      "team": "Aston Villa",
+      "position": "AM/LW",
+      "age": 22,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "West Bromwich Albion",
+        "Manchester City",
+        "Lincoln City",
+        "Bournemouth",
+        "Blackpool",
+        "Middlesbrough"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Morgan Rogers",
+        "Rogers"
+      ]
+    },
+    {
+      "name": "Thomas Muller",
+      "sport": "Football",
+      "team": "Bayern Munich",
+      "position": "AM/CF",
+      "age": 35,
+      "nationality": "Germany",
+      "league": "Bundesliga",
+      "previous_teams": [
+        "Bayern Munich II"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Thomas Muller",
+        "Thomas Muller",
+        "Muller",
+        "Muller"
+      ]
+    },
+    {
+      "name": "Nemanja Vidic",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CB",
+      "age": 43,
+      "nationality": "Serbia",
+      "league": "N/A",
+      "previous_teams": [
+        "Red Star Belgrade",
+        "Spartak Moscow",
+        "Manchester United",
+        "Inter Milan"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Nemanja Vidic",
+        "Nemanja Vidiuc0u263 ",
+        "Vidic",
+        "Vidiu263 "
+      ]
+    },
+    {
+      "name": "Nico Williams",
+      "sport": "Football",
+      "team": "Athletic Bilbao",
+      "position": "RW/LW",
+      "age": 22,
+      "nationality": "Spain",
+      "league": "La Liga",
+      "previous_teams": [
+        "Athletic Bilbao B"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Nico Williams",
+        "Williams",
+        "Nico"
+      ]
+    },
+    {
+      "name": "Ollie Watkins",
+      "sport": "Football",
+      "team": "Aston Villa",
+      "position": "ST",
+      "age": 29,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "Exeter City",
+        "Weston-super-Mare",
+        "Brentford"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Ollie Watkins",
+        "Watkins"
+      ]
+    },
+    {
+      "name": "Robin van Persie",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 41,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": [
+        "Feyenoord",
+        "Arsenal",
+        "Manchester United",
+        "Fenerbahce"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League"
+      ],
+      "total_names": [
+        "Robin van Persie",
+        "van Persie",
+        "RVP"
+      ]
+    },
+    {
+      "name": "Raphinha",
+      "sport": "Football",
+      "team": "Barcelona",
+      "position": "RW",
+      "age": 28,
+      "nationality": "Brazil",
+      "league": "La Liga",
+      "previous_teams": [
+        "Vitoria Guimaraes",
+        "Sporting CP",
+        "Rennes",
+        "Leeds United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Raphinha",
+        "Rapinha"
+      ]
+    },
+    {
+      "name": "Raul Jimenez",
+      "sport": "Football",
+      "team": "Fulham",
+      "position": "ST",
+      "age": 33,
+      "nationality": "Mexico",
+      "league": "Premier League",
+      "previous_teams": [
+        "Club America",
+        "Atletico Madrid",
+        "Benfica",
+        "Wolverhampton Wanderers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Raul Jimenez",
+        "Rafael Jimenez",
+        "Jimenez"
+      ]
+    },
+    {
+      "name": "Rio Ngumoha",
+      "sport": "Football",
+      "team": "Liverpool Academy",
+      "position": "LW",
+      "age": 16,
+      "nationality": "England",
+      "league": "Youth League",
+      "previous_teams": [
+        "Chelsea Academy"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Rio Ngumoha"
+      ]
+    },
+    {
+      "name": "Rodrygo",
+      "sport": "Football",
+      "team": "Real Madrid",
+      "position": "RW/LW",
+      "age": 24,
+      "nationality": "Brazil",
+      "league": "La Liga",
+      "previous_teams": [
+        "Santos"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Rodrygo",
+        "Rodrygo Goes"
+      ]
+    },
+    {
+      "name": "Sandro Tonali",
+      "sport": "Football",
+      "team": "Newcastle United",
+      "position": "CM/DM",
+      "age": 24,
+      "nationality": "Italy",
+      "league": "Premier League",
+      "previous_teams": [
+        "Brescia",
+        "AC Milan"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Sandro Tonali",
+        "Tonali"
+      ]
+    },
+    {
+      "name": "Vinicius Junior",
+      "sport": "Football",
+      "team": "Real Madrid",
+      "position": "LW",
+      "age": 24,
+      "nationality": "Brazil",
+      "league": "La Liga",
+      "previous_teams": [
+        "Flamengo"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Vinicius Junior",
+        "Vinicius Jr",
+        "Vinicius J'faniora",
+        "Vini Jr",
+        "Vini",
+        "Vinicius"
+      ]
+    },
+    {
+      "name": "Vitinha",
+      "sport": "Football",
+      "team": "PSG",
+      "position": "CM",
+      "age": 24,
+      "nationality": "Portugal",
+      "league": "Ligue 1",
+      "previous_teams": [
+        "Porto",
+        "Wolverhampton Wanderers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Vitinha"
+      ]
+    },
+    {
+      "name": "Pele",
+      "sport": "Football",
+      "team": "Retired (Deceased 2022)",
+      "position": "CF",
+      "age": "Deceased at 82",
+      "nationality": "Brazil",
+      "league": "N/A",
+      "previous_teams": [
+        "Santos",
+        "New York Cosmos"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Pele",
+        "Pele"
+      ]
+    },
+    {
+      "name": "Ronaldo Nazario",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 48,
+      "nationality": "Brazil",
+      "league": "N/A",
+      "previous_teams": [
+        "Cruzeiro",
+        "PSV",
+        "Barcelona",
+        "Inter Milan",
+        "Real Madrid",
+        "AC Milan",
+        "Corinthians"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Ronaldo Nazario",
+        "Ronaldo Nazario",
+        "R9",
+        "El Fenomeno"
+      ]
+    },
+    {
+      "name": "Alex Ferguson",
+      "sport": "Football",
+      "team": "Retired (Manager)",
+      "position": "Manager",
+      "age": 82,
+      "nationality": "Scotland",
+      "league": "N/A",
+      "previous_teams": [
+        "East Stirlingshire (Manager)",
+        "St. Mirren (Manager)",
+        "Aberdeen (Manager)",
+        "Manchester United (Manager)"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Alex Ferguson",
+        "Sir Alex Ferguson",
+        "Fergie"
+      ]
+    },
+    {
+      "name": "Geoff Hurst",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 83,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "West Ham United",
+        "Stoke City",
+        "West Bromwich Albion"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Geoff Hurst",
+        "Sir Geoff Hurst",
+        "Hurst"
+      ]
+    },
+    {
+      "name": "Kylian Mbappe",
+      "sport": "Football",
+      "team": "Real Madrid",
+      "position": "ST/LW",
+      "age": 25,
+      "nationality": "France",
+      "league": "La Liga",
+      "previous_teams": [
+        "Monaco",
+        "PSG"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Kylian Mbappe",
+        "Kylian Mbappe",
+        "Mbappe",
+        "Mbappe"
+      ]
+    },
+    {
+      "name": "Zlatan Ibrahimovic",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 43,
+      "nationality": "Sweden",
+      "league": "N/A",
+      "previous_teams": [
+        "Malmo",
+        "Ajax",
+        "Juventus",
+        "Inter Milan",
+        "Barcelona",
+        "AC Milan",
+        "PSG",
+        "Manchester United",
+        "LA Galaxy"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Zlatan Ibrahimovic",
+        "Zlatan Ibrahimoviuc0u263 ",
+        "Zlatan",
+        "Ibrahimovic",
+        "Ibra"
+      ]
+    },
+    {
+      "name": "Luis Suarez",
+      "sport": "Football",
+      "team": "Inter Miami",
+      "position": "ST",
+      "age": 37,
+      "nationality": "Uruguay",
+      "league": "MLS",
+      "previous_teams": [
+        "Nacional",
+        "Groningen",
+        "Ajax",
+        "Liverpool",
+        "Barcelona",
+        "Atletico Madrid",
+        "Gremio"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Copa America"
+      ],
+      "total_names": [
+        "Luis Suarez",
+        "Luis Suarez",
+        "Suarez",
+        "El Pistolero"
+      ]
+    },
+    {
+      "name": "Mike Tyson",
+      "sport": "Boxing",
+      "team": "Retired",
+      "position": "Heavyweight",
+      "age": 58,
+      "nationality": "USA",
+      "league": "N/A",
+      "previous_teams": [
+        "N/A"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "WBC Heavyweight Championship",
+        "WBA Heavyweight Championship",
+        "IBF Heavyweight Championship"
+      ],
+      "total_names": [
+        "Mike Tyson",
+        "Iron Mike",
+        "Tyson"
+      ]
+    },
+    {
+      "name": "Dennis Bergkamp",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CF/AM",
+      "age": 55,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": [
+        "Ajax",
+        "Inter Milan",
+        "Arsenal"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League",
+        "Euros"
+      ],
+      "total_names": [
+        "Dennis Bergkamp",
+        "Bergkamp",
+        "The Iceman"
+      ]
+    },
+    {
+      "name": "Lamine Yamal",
+      "sport": "Football",
+      "team": "Barcelona",
+      "position": "RW",
+      "age": 17,
+      "nationality": "Spain",
+      "league": "La Liga",
+      "previous_teams": [
+        "Barcelona B"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Lamine Yamal",
+        "Yamal"
+      ]
+    },
+    {
+      "name": "Roberto Baggio",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "AM/CF",
+      "age": 57,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Vicenza",
+        "Fiorentina",
+        "Juventus",
+        "AC Milan",
+        "Bologna",
+        "Inter Milan",
+        "Brescia"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Roberto Baggio",
+        "Baggio",
+        "Il Divin Codino"
+      ]
+    },
+    {
+      "name": "Xavi",
+      "sport": "Football",
+      "team": "Retired (Manager)",
+      "position": "CM",
+      "age": 44,
+      "nationality": "Spain",
+      "league": "N/A",
+      "previous_teams": [
+        "Barcelona",
+        "Al Sadd"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Xavi",
+        "Xavi Hernandez",
+        "Xavi Hernandez"
+      ]
+    },
+    {
+      "name": "Didier Drogba",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 46,
+      "nationality": "Ivory Coast",
+      "league": "N/A",
+      "previous_teams": [
+        "Le Mans",
+        "Guingamp",
+        "Marseille",
+        "Chelsea",
+        "Shanghai Shenhua",
+        "Galatasaray",
+        "Montreal Impact",
+        "Phoenix Rising"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Didier Drogba",
+        "Drogba"
+      ]
+    },
+    {
+      "name": "Muhammad Ali",
+      "sport": "Boxing",
+      "team": "Retired (Deceased 2016)",
+      "position": "Heavyweight",
+      "age": "Deceased at 74",
+      "nationality": "USA",
+      "league": "N/A",
+      "previous_teams": [
+        "N/A"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "WBC Heavyweight Championship",
+        "WBA Heavyweight Championship",
+        "Olympic Gold Medal"
+      ],
+      "total_names": [
+        "Muhammad Ali",
+        "Ali",
+        "The Greatest"
+      ]
+    },
+    {
+      "name": "Alan Shearer",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 54,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Southampton",
+        "Blackburn Rovers",
+        "Newcastle United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League"
+      ],
+      "total_names": [
+        "Alan Shearer",
+        "Shearer"
+      ]
+    },
+    {
+      "name": "Gianluigi Buffon",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "GK",
+      "age": 46,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Parma",
+        "Juventus",
+        "PSG"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Gianluigi Buffon",
+        "Buffon",
+        "Gigi Buffon",
+        "Gigi"
+      ]
+    },
+    {
+      "name": "Paul Scholes",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM",
+      "age": 50,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Manchester United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Paul Scholes",
+        "Scholes",
+        "Scholesy"
+      ]
+    },
+    {
+      "name": "Ryan Giggs",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "LM/LW",
+      "age": 51,
+      "nationality": "Wales",
+      "league": "N/A",
+      "previous_teams": [
+        "Manchester United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Ryan Giggs",
+        "Giggs",
+        "Giggsy"
+      ]
+    },
+    {
+      "name": "Gianfranco Zola",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CF/AM",
+      "age": 58,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Nuorese",
+        "Torres",
+        "Napoli",
+        "Parma",
+        "Chelsea",
+        "Cagliari"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Cup Winners' Cup"
+      ],
+      "total_names": [
+        "Gianfranco Zola",
+        "Zola",
+        "Franco Zola"
+      ]
+    },
+    {
+      "name": "Xabi Alonso",
+      "sport": "Football",
+      "team": "Bayer Leverkusen (Manager)",
+      "position": "DM",
+      "age": 43,
+      "nationality": "Spain",
+      "league": "Bundesliga",
+      "previous_teams": [
+        "Real Sociedad",
+        "Liverpool",
+        "Real Madrid",
+        "Bayern Munich"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Xabi Alonso",
+        "Alonso"
+      ]
+    },
+    {
+      "name": "Luis Figo",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "RW",
+      "age": 52,
+      "nationality": "Portugal",
+      "league": "N/A",
+      "previous_teams": [
+        "Sporting CP",
+        "Barcelona",
+        "Real Madrid",
+        "Inter Milan"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Luis Figo",
+        "Luis Figo",
+        "Figo"
+      ]
+    },
+    {
+      "name": "Rivaldo",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "AM/LW",
+      "age": 52,
+      "nationality": "Brazil",
+      "league": "N/A",
+      "previous_teams": [
+        "Santa Cruz",
+        "Mogi Mirim",
+        "Corinthians",
+        "Palmeiras",
+        "Deportivo La Coruia",
+        "Barcelona",
+        "AC Milan",
+        "Cruzeiro",
+        "Olympiacos",
+        "AEK Athens",
+        "Bunyodkor",
+        "Sao Paulo",
+        "Kabuscorp",
+        "Sao Caetano"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Rivaldo"
+      ]
+    },
+    {
+      "name": "Dele Alli",
+      "sport": "Football",
+      "team": "Everton",
+      "position": "AM",
+      "age": 28,
+      "nationality": "England",
+      "league": "Premier League",
+      "previous_teams": [
+        "MK Dons",
+        "Tottenham",
+        "Besiktas"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Dele Alli",
+        "Dele",
+        "Alli"
+      ]
+    },
+    {
+      "name": "Andrea Pirlo",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM/DM",
+      "age": 45,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Brescia",
+        "Inter Milan",
+        "Reggina",
+        "AC Milan",
+        "Juventus",
+        "New York City FC"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Andrea Pirlo",
+        "Pirlo",
+        "Il Maestro"
+      ]
+    },
+    {
+      "name": "Duncan Ferguson",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 53,
+      "nationality": "Scotland",
+      "league": "N/A",
+      "previous_teams": [
+        "Dundee United",
+        "Rangers",
+        "Everton",
+        "Newcastle United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Duncan Ferguson",
+        "Big Dunc",
+        "Ferguson"
+      ]
+    },
+    {
+      "name": "Roy Keane",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM",
+      "age": 53,
+      "nationality": "Ireland",
+      "league": "N/A",
+      "previous_teams": [
+        "Cobh Ramblers",
+        "Nottingham Forest",
+        "Manchester United",
+        "Celtic"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Roy Keane",
+        "Keane",
+        "Keano"
+      ]
+    },
+    {
+      "name": "Ronnie O'Sullivan",
+      "sport": "Snooker",
+      "team": "Individual",
+      "position": "Snooker Player",
+      "age": 49,
+      "nationality": "England",
+      "league": "World Snooker Tour",
+      "previous_teams": [
+        "N/A"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Championship",
+        "UK Championship",
+        "Masters"
+      ],
+      "total_names": [
+        "Ronnie O'Sullivan",
+        "The Rocket",
+        "O'Sullivan"
+      ]
+    },
+    {
+      "name": "Fernando Torres",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 40,
+      "nationality": "Spain",
+      "league": "N/A",
+      "previous_teams": [
+        "Atletico Madrid",
+        "Liverpool",
+        "Chelsea",
+        "AC Milan",
+        "Sagan Tosu"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Fernando Torres",
+        "Torres",
+        "El Nino"
+      ]
+    },
+    {
+      "name": "Joao Felix",
+      "sport": "Football",
+      "team": "Barcelona",
+      "position": "CF/AM",
+      "age": 25,
+      "nationality": "Portugal",
+      "league": "La Liga",
+      "previous_teams": [
+        "Benfica",
+        "Atletico Madrid",
+        "Chelsea"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Joao Felix",
+        "Joao Felix",
+        "Felix"
+      ]
+    },
+    {
+      "name": "Matt Le Tissier",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "AM/CF",
+      "age": 56,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Southampton"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Matt Le Tissier",
+        "Le Tissier",
+        "Le Tiss"
+      ]
+    },
+    {
+      "name": "Glenn Hoddle",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM/AM",
+      "age": 67,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Tottenham",
+        "Monaco",
+        "Swindon Town",
+        "Chelsea"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Glenn Hoddle",
+        "Hoddle"
+      ]
+    },
+    {
+      "name": "Robbie Fowler",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 49,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Liverpool",
+        "Leeds United",
+        "Manchester City",
+        "Cardiff City",
+        "Blackburn Rovers",
+        "North Queensland Fury",
+        "Perth Glory",
+        "Muangthong United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "UEFA Cup"
+      ],
+      "total_names": [
+        "Robbie Fowler",
+        "Fowler",
+        "God"
+      ]
+    },
+    {
+      "name": "Lothar Matthaus",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM/SW",
+      "age": 63,
+      "nationality": "Germany",
+      "league": "N/A",
+      "previous_teams": [
+        "Borussia Monchengladbach",
+        "Bayern Munich",
+        "Inter Milan",
+        "MetroStars"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Euros",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Lothar Matthaus",
+        "Lothar Matthaus",
+        "Matthaus"
+      ]
+    },
+    {
+      "name": "Pep Guardiola",
+      "sport": "Football",
+      "team": "Manchester City (Manager)",
+      "position": "DM",
+      "age": 53,
+      "nationality": "Spain",
+      "league": "Premier League",
+      "previous_teams": [
+        "Barcelona",
+        "Brescia",
+        "Roma",
+        "Al-Ahli",
+        "Dorados"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League",
+        "Bundesliga",
+        "La Liga"
+      ],
+      "total_names": [
+        "Pep Guardiola",
+        "Guardiola",
+        "Pep"
+      ]
+    },
+    {
+      "name": "Giorgio Chiellini",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CB",
+      "age": 40,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Livorno",
+        "Fiorentina",
+        "Juventus",
+        "LAFC"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Giorgio Chiellini",
+        "Chiellini"
+      ]
+    },
+    {
+      "name": "Paolo Di Canio",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST/RW",
+      "age": 56,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Lazio",
+        "Juventus",
+        "Napoli",
+        "AC Milan",
+        "Celtic",
+        "Sheffield Wednesday",
+        "West Ham United",
+        "Charlton Athletic"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Paolo Di Canio",
+        "Di Canio"
+      ]
+    },
+    {
+      "name": "Ansu Fati",
+      "sport": "Football",
+      "team": "Barcelona",
+      "position": "LW",
+      "age": 22,
+      "nationality": "Spain",
+      "league": "La Liga",
+      "previous_teams": [
+        "Brighton"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Ansu Fati",
+        "Fati"
+      ]
+    },
+    {
+      "name": "Julian Alvarez",
+      "sport": "Football",
+      "team": "Atletico Madrid",
+      "position": "ST/AM",
+      "age": 24,
+      "nationality": "Argentina",
+      "league": "La Liga",
+      "previous_teams": [
+        "River Plate",
+        "Manchester City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Copa America"
+      ],
+      "total_names": [
+        "Julian Alvarez",
+        "Julian Alvarez",
+        "Alvarez",
+        "La Araia"
+      ]
+    },
+    {
+      "name": "Gary Lineker",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 64,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Leicester City",
+        "Everton",
+        "Barcelona",
+        "Tottenham",
+        "Nagoya Grampus"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Cup Winners' Cup"
+      ],
+      "total_names": [
+        "Gary Lineker",
+        "Lineker"
+      ]
+    },
+    {
+      "name": "Kenny Dalglish",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 73,
+      "nationality": "Scotland",
+      "league": "N/A",
+      "previous_teams": [
+        "Celtic",
+        "Liverpool"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "European Cup"
+      ],
+      "total_names": [
+        "Kenny Dalglish",
+        "King Kenny",
+        "Dalglish"
+      ]
+    },
+    {
+      "name": "John Barnes",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "LW",
+      "age": 61,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Watford",
+        "Liverpool",
+        "Newcastle United",
+        "Charlton Athletic"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "First Division"
+      ],
+      "total_names": [
+        "John Barnes",
+        "Barnes",
+        "Digger"
+      ]
+    },
+    {
+      "name": "Teddy Sheringham",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 58,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Millwall",
+        "Nottingham Forest",
+        "Tottenham",
+        "Manchester United",
+        "Portsmouth",
+        "West Ham United",
+        "Colchester United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Teddy Sheringham",
+        "Sheringham"
+      ]
+    },
+    {
+      "name": "Casemiro",
+      "sport": "Football",
+      "team": "Manchester United",
+      "position": "DM",
+      "age": 32,
+      "nationality": "Brazil",
+      "league": "Premier League",
+      "previous_teams": [
+        "Sao Paulo",
+        "Real Madrid",
+        "Porto"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Copa America"
+      ],
+      "total_names": [
+        "Casemiro",
+        "Carlos Henrique Casimiro"
+      ]
+    },
+    {
+      "name": "Clarence Seedorf",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM",
+      "age": 48,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": [
+        "Ajax",
+        "Sampdoria",
+        "Real Madrid",
+        "Inter Milan",
+        "AC Milan",
+        "Botafogo"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Clarence Seedorf",
+        "Seedorf"
+      ]
+    },
+    {
+      "name": "Ally McCoist",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 62,
+      "nationality": "Scotland",
+      "league": "N/A",
+      "previous_teams": [
+        "St Johnstone",
+        "Sunderland",
+        "Rangers",
+        "Kilmarnock"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Scottish League"
+      ],
+      "total_names": [
+        "Ally McCoist",
+        "McCoist",
+        "Super Ally"
+      ]
+    },
+    {
+      "name": "Marco Verratti",
+      "sport": "Football",
+      "team": "Al-Arabi",
+      "position": "CM",
+      "age": 32,
+      "nationality": "Italy",
+      "league": "Qatar Stars League",
+      "previous_teams": [
+        "Pescara",
+        "PSG"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Marco Verratti",
+        "Verratti"
+      ]
+    },
+    {
+      "name": "Ian Rush",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 63,
+      "nationality": "Wales",
+      "league": "N/A",
+      "previous_teams": [
+        "Chester City",
+        "Liverpool",
+        "Juventus",
+        "Leeds United",
+        "Newcastle United",
+        "Sheffield United",
+        "Wrexham",
+        "Sydney Olympic"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "European Cup"
+      ],
+      "total_names": [
+        "Ian Rush",
+        "Rush",
+        "Rushie"
+      ]
+    },
+    {
+      "name": "Emiliano Martinez",
+      "sport": "Football",
+      "team": "Aston Villa",
+      "position": "GK",
+      "age": 32,
+      "nationality": "Argentina",
+      "league": "Premier League",
+      "previous_teams": [
+        "Arsenal",
+        "Oxford United",
+        "Sheffield Wednesday",
+        "Rotherham United",
+        "Wolverhampton Wanderers",
+        "Getafe",
+        "Reading"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Copa America"
+      ],
+      "total_names": [
+        "Emiliano Martinez",
+        "Emiliano Martinez",
+        "Emi Martinez",
+        "Dibu"
+      ]
+    },
+    {
+      "name": "Marco Van Basten",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 60,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": [
+        "Ajax",
+        "AC Milan"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "European Cup",
+        "Euros",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Marco Van Basten",
+        "Van Basten"
+      ]
+    },
+    {
+      "name": "Francesco Totti",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CF/AM",
+      "age": 48,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Roma"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Francesco Totti",
+        "Totti",
+        "Il Capitano",
+        "Er Pupone"
+      ]
+    },
+    {
+      "name": "Ruud Gullit",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "AM/ST",
+      "age": 62,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": [
+        "HFC Haarlem",
+        "Feyenoord",
+        "PSV",
+        "AC Milan",
+        "Sampdoria",
+        "Chelsea"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "European Cup",
+        "Euros",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Ruud Gullit",
+        "Gullit"
+      ]
+    },
+    {
+      "name": "Alessandro Del Piero",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CF/AM",
+      "age": 50,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Padova",
+        "Juventus",
+        "Sydney FC",
+        "Delhi Dynamos"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Alessandro Del Piero",
+        "Del Piero",
+        "Alex Del Piero",
+        "Pinturicchio"
+      ]
+    },
+    {
+      "name": "Andriy Shevchenko",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 48,
+      "nationality": "Ukraine",
+      "league": "N/A",
+      "previous_teams": [
+        "Dynamo Kyiv",
+        "AC Milan",
+        "Chelsea"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Andriy Shevchenko",
+        "Shevchenko",
+        "Sheva"
+      ]
+    },
+    {
+      "name": "Michael Owen",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 45,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Liverpool",
+        "Real Madrid",
+        "Newcastle United",
+        "Manchester United",
+        "Stoke City"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Ballon d'Or",
+        "Premier League"
+      ],
+      "total_names": [
+        "Michael Owen",
+        "Owen"
+      ]
+    },
+    {
+      "name": "Ronaldo",
+      "sport": "Football",
+      "team": "Real Valladolid (Owner)",
+      "position": "ST",
+      "age": 48,
+      "nationality": "Brazil",
+      "league": "N/A",
+      "previous_teams": [
+        "Cruzeiro",
+        "PSV",
+        "Barcelona",
+        "Inter Milan",
+        "Real Madrid",
+        "AC Milan",
+        "Corinthians"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Ronaldo",
+        "R9",
+        "El Fenomeno",
+        "Ronaldo Nazario"
+      ]
+    },
+    {
+      "name": "Filippo Inzaghi",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 51,
+      "nationality": "Italy",
+      "league": "N/A",
+      "previous_teams": [
+        "Piacenza",
+        "Leffe",
+        "Verona",
+        "Parma",
+        "Atalanta",
+        "Juventus",
+        "AC Milan"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Filippo Inzaghi",
+        "Pippo Inzaghi",
+        "Inzaghi",
+        "Super Pippo"
+      ]
+    },
+    {
+      "name": "Frank Rijkaard",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "DM/CB",
+      "age": 62,
+      "nationality": "Netherlands",
+      "league": "N/A",
+      "previous_teams": [
+        "Ajax",
+        "Real Zaragoza",
+        "AC Milan"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "European Cup",
+        "Euros"
+      ],
+      "total_names": [
+        "Frank Rijkaard",
+        "Rijkaard"
+      ]
+    },
+    {
+      "name": "Pavel Nedved",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "LM/AM",
+      "age": 52,
+      "nationality": "Czech Republic",
+      "league": "N/A",
+      "previous_teams": [
+        "Dukla Prague",
+        "Sparta Prague",
+        "Lazio",
+        "Juventus"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Pavel Nedved",
+        "Pavel Nedvuc0u283 d",
+        "Nedved"
+      ]
+    },
+    {
+      "name": "Javier Zanetti",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "RB/RM",
+      "age": 51,
+      "nationality": "Argentina",
+      "league": "N/A",
+      "previous_teams": [
+        "Talleres",
+        "Banfield",
+        "Inter Milan"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Javier Zanetti",
+        "Zanetti",
+        "El Tractor"
+      ]
+    },
+    {
+      "name": "Zico",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "AM",
+      "age": 71,
+      "nationality": "Brazil",
+      "league": "N/A",
+      "previous_teams": [
+        "Flamengo",
+        "Udinese",
+        "Kashima Antlers"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Copa Libertadores"
+      ],
+      "total_names": [
+        "Zico",
+        "Arthur Antunes Coimbra"
+      ]
+    },
+    {
+      "name": "Mark Noble",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM",
+      "age": 37,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "West Ham United",
+        "Hull City",
+        "Ipswich Town"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Conference League"
+      ],
+      "total_names": [
+        "Mark Noble",
+        "Noble",
+        "Mr West Ham"
+      ]
+    },
+    {
+      "name": "Denis Law",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 84,
+      "nationality": "Scotland",
+      "league": "N/A",
+      "previous_teams": [
+        "Huddersfield Town",
+        "Manchester City",
+        "Torino",
+        "Manchester United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "European Cup",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Denis Law",
+        "Law",
+        "The King"
+      ]
+    },
+    {
+      "name": "Bruno Guimaraes",
+      "sport": "Football",
+      "team": "Newcastle United",
+      "position": "CM/DM",
+      "age": 27,
+      "nationality": "Brazil",
+      "league": "Premier League",
+      "previous_teams": [
+        "Audax",
+        "Athletico Paranaense",
+        "Lyon"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Bruno Guimaraes",
+        "Bruno Guimaraes",
+        "Bruno G"
+      ]
+    },
+    {
+      "name": "Frank Lampard",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "CM",
+      "age": 46,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "West Ham United",
+        "Swansea City",
+        "Chelsea",
+        "Manchester City",
+        "New York City FC"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Champions League",
+        "Premier League"
+      ],
+      "total_names": [
+        "Frank Lampard",
+        "Lampard",
+        "Lamps",
+        "Super Frank"
+      ]
+    },
+    {
+      "name": "Romario",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 58,
+      "nationality": "Brazil",
+      "league": "N/A",
+      "previous_teams": [
+        "Vasco da Gama",
+        "PSV",
+        "Barcelona",
+        "Flamengo",
+        "Valencia",
+        "Fluminense",
+        "Al-Sadd",
+        "Adelaide United",
+        "Miami FC",
+        "America"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Romario",
+        "Romario"
+      ]
+    },
+    {
+      "name": "Dimitar Berbatov",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 43,
+      "nationality": "Bulgaria",
+      "league": "N/A",
+      "previous_teams": [
+        "CSKA Sofia",
+        "Bayer Leverkusen",
+        "Tottenham",
+        "Manchester United",
+        "Fulham",
+        "Monaco",
+        "PAOK",
+        "Kerala Blasters"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League"
+      ],
+      "total_names": [
+        "Dimitar Berbatov",
+        "Berbatov",
+        "Berba"
+      ]
+    },
+    {
+      "name": "Kevin Keegan",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 73,
+      "nationality": "England",
+      "league": "N/A",
+      "previous_teams": [
+        "Scunthorpe United",
+        "Liverpool",
+        "Hamburg",
+        "Southampton",
+        "Newcastle United"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "European Cup",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Kevin Keegan",
+        "Keegan",
+        "King Kev"
+      ]
+    },
+    {
+      "name": "Sergio Aguero",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 36,
+      "nationality": "Argentina",
+      "league": "N/A",
+      "previous_teams": [
+        "Independiente",
+        "Atletico Madrid",
+        "Manchester City",
+        "Barcelona"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League",
+        "Copa America"
+      ],
+      "total_names": [
+        "Sergio Aguero",
+        "Sergio Aguero",
+        "Aguero",
+        "Kun Aguero",
+        "Kun"
+      ]
+    },
+    {
+      "name": "Diogo Costa",
+      "sport": "Football",
+      "team": "Porto",
+      "position": "GK",
+      "age": 25,
+      "nationality": "Portugal",
+      "league": "Primeira Liga",
+      "previous_teams": [
+        "Porto B"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Diogo Costa",
+        "Costa"
+      ]
+    },
+    {
       "name": "Lionel Messi",
       "sport": "Football",
       "team": "Inter Miami",
@@ -8,10 +3711,24 @@
       "age": 37,
       "nationality": "Argentina",
       "league": "MLS",
-      "previous_teams": ["Barcelona", "PSG"],
+      "previous_teams": [
+        "Barcelona",
+        "PSG"
+      ],
       "instagram_followers": "505.08M",
-      "major_trophies": ["World Cup", "Champions League", "Ballon d'Or", "The Best", "FIFA World Player", "Copa America"],
-      "total_names": ["Lionel Messi", "Messi", "Leo Messi"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Ballon d'Or",
+        "The Best",
+        "FIFA World Player",
+        "Copa America"
+      ],
+      "total_names": [
+        "Lionel Messi",
+        "Messi",
+        "Leo Messi"
+      ]
     },
     {
       "name": "Cristiano Ronaldo",
@@ -21,10 +3738,27 @@
       "age": 39,
       "nationality": "Portugal",
       "league": "Saudi Pro League",
-      "previous_teams": ["Sporting CP", "Manchester United", "Real Madrid", "Juventus"],
+      "previous_teams": [
+        "Sporting CP",
+        "Manchester United",
+        "Real Madrid",
+        "Juventus"
+      ],
       "instagram_followers": "647.83M",
-      "major_trophies": ["Champions League", "Ballon d'Or", "The Best", "FIFA World Player", "Euros"],
-      "total_names": ["Cristiano Ronaldo", "Ronaldo", "CR7", "Cristiano", "CR"]
+      "major_trophies": [
+        "Champions League",
+        "Ballon d'Or",
+        "The Best",
+        "FIFA World Player",
+        "Euros"
+      ],
+      "total_names": [
+        "Cristiano Ronaldo",
+        "Ronaldo",
+        "CR7",
+        "Cristiano",
+        "CR"
+      ]
     },
     {
       "name": "Diego Maradona",
@@ -34,23 +3768,21 @@
       "age": "Deceased at 60",
       "nationality": "Argentina",
       "league": "N/A",
-      "previous_teams": ["Argentinos Juniors", "Boca Juniors", "Barcelona", "Napoli", "Sevilla", "Newell's Old Boys"],
+      "previous_teams": [
+        "Argentinos Juniors",
+        "Boca Juniors",
+        "Barcelona",
+        "Napoli",
+        "Sevilla",
+        "Newell's Old Boys"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Diego Maradona"]
-    },
-    {
-      "name": "Pelé",
-      "sport": "Football",
-      "team": "Retired (Deceased 2022)",
-      "position": "CF",
-      "age": "Deceased at 82",
-      "nationality": "Brazil",
-      "league": "N/A",
-      "previous_teams": ["Santos", "New York Cosmos"],
-      "instagram_followers": "17.34M",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Pelé"]
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Diego Maradona"
+      ]
     },
     {
       "name": "Steven Gerrard",
@@ -60,23 +3792,18 @@
       "age": 44,
       "nationality": "England",
       "league": "N/A",
-      "previous_teams": ["Liverpool", "LA Galaxy"],
+      "previous_teams": [
+        "Liverpool",
+        "LA Galaxy"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["Steven Gerrard"]
-    },
-    {
-      "name": "Ronaldo Nazário",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "ST",
-      "age": 48,
-      "nationality": "Brazil",
-      "league": "N/A",
-      "previous_teams": ["Cruzeiro", "PSV", "Barcelona", "Inter Milan", "Real Madrid", "AC Milan", "Corinthians"],
-      "instagram_followers": "29.65M",
-      "major_trophies": ["World Cup", "Ballon d'Or", "FIFA World Player", "Copa America"],
-      "total_names": ["Ronaldo Nazário"]
+      "major_trophies": [
+        "Champions League",
+        "PL HOF"
+      ],
+      "total_names": [
+        "Steven Gerrard"
+      ]
     },
     {
       "name": "Luka Modric",
@@ -86,10 +3813,23 @@
       "age": 39,
       "nationality": "Croatia",
       "league": "La Liga",
-      "previous_teams": ["Dinamo Zagreb", "Zrinjski", "Inter Zaprešić", "Tottenham"],
+      "previous_teams": [
+        "Dinamo Zagreb",
+        "Zrinjski",
+        "Inker Zapresic",
+        "Tottenham"
+      ],
       "instagram_followers": "37.07M",
-      "major_trophies": ["Champions League", "Ballon d'Or", "The Best", "FIFA World Player"],
-      "total_names": ["Luka Modric", "Modric"]
+      "major_trophies": [
+        "Champions League",
+        "Ballon d'Or",
+        "The Best",
+        "FIFA World Player"
+      ],
+      "total_names": [
+        "Luka Modric",
+        "Modric"
+      ]
     },
     {
       "name": "Eric Cantona",
@@ -99,10 +3839,23 @@
       "age": 58,
       "nationality": "France",
       "league": "N/A",
-      "previous_teams": ["Auxerre", "Martigues", "Marseille", "Bordeaux", "Montpellier", "Nîmes", "Leeds United", "Manchester United"],
+      "previous_teams": [
+        "Auxerre",
+        "Martigues",
+        "Marseille",
+        "Bordeaux",
+        "Montpellier",
+        "Nemes",
+        "Leeds United",
+        "Manchester United"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["PL HOF"],
-      "total_names": ["Eric Cantona"]
+      "major_trophies": [
+        "PL HOF"
+      ],
+      "total_names": [
+        "Eric Cantona"
+      ]
     },
     {
       "name": "Michael Jordan",
@@ -112,23 +3865,19 @@
       "age": 61,
       "nationality": "USA",
       "league": "N/A",
-      "previous_teams": ["Chicago Bulls", "Washington Wizards"],
+      "previous_teams": [
+        "Chicago Bulls",
+        "Washington Wizards"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["NBA Championship", "NBA Finals MVP", "NBA MVP"],
-      "total_names": ["Michael Jordan"]
-    },
-    {
-      "name": "Kylian Mbappé",
-      "sport": "Football",
-      "team": "Real Madrid",
-      "position": "ST/LW",
-      "age": 25,
-      "nationality": "France",
-      "league": "La Liga",
-      "previous_teams": ["Monaco", "PSG"],
-      "instagram_followers": "123.07M",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Kylian Mbappé"]
+      "major_trophies": [
+        "NBA Championship",
+        "NBA Finals MVP",
+        "NBA MVP"
+      ],
+      "total_names": [
+        "Michael Jordan"
+      ]
     },
     {
       "name": "Erling Haaland",
@@ -138,10 +3887,19 @@
       "age": 24,
       "nationality": "Norway",
       "league": "Premier League",
-      "previous_teams": ["Bryne", "Molde", "Red Bull Salzburg", "Borussia Dortmund"],
+      "previous_teams": [
+        "Bryne",
+        "Molde",
+        "Red Bull Salzburg",
+        "Borussia Dortmund"
+      ],
       "instagram_followers": "38.99M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Erling Haaland"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Erling Haaland"
+      ]
     },
     {
       "name": "Wayne Rooney",
@@ -151,10 +3909,20 @@
       "age": 39,
       "nationality": "England",
       "league": "N/A",
-      "previous_teams": ["Everton", "Manchester United", "DC United", "Derby County"],
+      "previous_teams": [
+        "Everton",
+        "Manchester United",
+        "DC United",
+        "Derby County"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["Wayne Rooney"]
+      "major_trophies": [
+        "Champions League",
+        "PL HOF"
+      ],
+      "total_names": [
+        "Wayne Rooney"
+      ]
     },
     {
       "name": "Zinedine Zidane",
@@ -164,10 +3932,23 @@
       "age": 52,
       "nationality": "France",
       "league": "N/A",
-      "previous_teams": ["Cannes", "Bordeaux", "Juventus", "Real Madrid"],
+      "previous_teams": [
+        "Cannes",
+        "Bordeaux",
+        "Juventus",
+        "Real Madrid"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League", "Ballon d'Or", "FIFA World Player", "Euros"],
-      "total_names": ["Zinedine Zidane"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Ballon d'Or",
+        "FIFA World Player",
+        "Euros"
+      ],
+      "total_names": [
+        "Zinedine Zidane"
+      ]
     },
     {
       "name": "David Beckham",
@@ -177,23 +3958,22 @@
       "age": 49,
       "nationality": "England",
       "league": "N/A",
-      "previous_teams": ["Manchester United", "Preston North End", "Real Madrid", "LA Galaxy", "AC Milan", "PSG"],
+      "previous_teams": [
+        "Manchester United",
+        "Preston North End",
+        "Real Madrid",
+        "LA Galaxy",
+        "AC Milan",
+        "PSG"
+      ],
       "instagram_followers": "88.28M",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["David Beckham"]
-    },
-    {
-      "name": "Sir Alex Ferguson",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "Manager",
-      "age": 82,
-      "nationality": "Scotland",
-      "league": "N/A",
-      "previous_teams": ["East Stirlingshire (Manager)", "St. Mirren (Manager)", "Aberdeen (Manager)", "Manchester United (Manager)"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["Sir Alex Ferguson"]
+      "major_trophies": [
+        "Champions League",
+        "PL HOF"
+      ],
+      "total_names": [
+        "David Beckham"
+      ]
     },
     {
       "name": "Ronaldinho",
@@ -203,10 +3983,27 @@
       "age": 44,
       "nationality": "Brazil",
       "league": "N/A",
-      "previous_teams": ["Grêmio", "PSG", "Barcelona", "AC Milan", "Flamengo", "Atlético Mineiro", "Querétaro", "Fluminense"],
+      "previous_teams": [
+        "Gramio",
+        "PSG",
+        "Barcelona",
+        "AC Milan",
+        "Flamengo",
+        "Atletico Mineiro",
+        "Queretaro",
+        "Fluminense"
+      ],
       "instagram_followers": "76.9M",
-      "major_trophies": ["World Cup", "Champions League", "Ballon d'Or", "FIFA World Player", "Copa America"],
-      "total_names": ["Ronaldinho"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Ballon d'Or",
+        "FIFA World Player",
+        "Copa America"
+      ],
+      "total_names": [
+        "Ronaldinho"
+      ]
     },
     {
       "name": "Andres Iniesta",
@@ -216,10 +4013,19 @@
       "age": 40,
       "nationality": "Spain",
       "league": "UAE Pro League",
-      "previous_teams": ["Barcelona", "Vissel Kobe"],
+      "previous_teams": [
+        "Barcelona",
+        "Vissel Kobe"
+      ],
       "instagram_followers": "43.66M",
-      "major_trophies": ["World Cup", "Champions League", "Euros"],
-      "total_names": ["Andres Iniesta"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Andres Iniesta"
+      ]
     },
     {
       "name": "Thierry Henry",
@@ -229,10 +4035,23 @@
       "age": 47,
       "nationality": "France",
       "league": "N/A",
-      "previous_teams": ["Monaco", "Juventus", "Arsenal", "Barcelona", "New York Red Bulls"],
+      "previous_teams": [
+        "Monaco",
+        "Juventus",
+        "Arsenal",
+        "Barcelona",
+        "New York Red Bulls"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League", "Euros", "PL HOF"],
-      "total_names": ["Thierry Henry"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Euros",
+        "PL HOF"
+      ],
+      "total_names": [
+        "Thierry Henry"
+      ]
     },
     {
       "name": "Paul Gascoigne",
@@ -242,10 +4061,26 @@
       "age": 57,
       "nationality": "England",
       "league": "N/A",
-      "previous_teams": ["Newcastle United", "Tottenham", "Lazio", "Rangers", "Middlesbrough", "Everton", "Burnley", "Gansu Tianma", "Boston United"],
+      "previous_teams": [
+        "Newcastle United",
+        "Tottenham",
+        "Lazio",
+        "Rangers",
+        "Middlesbrough",
+        "Everton",
+        "Burnley",
+        "Gansu Tianma",
+        "Boston United"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Paul Gascoigne", "Gazza", "Gascoigne"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Paul Gascoigne",
+        "Gazza",
+        "Gascoigne"
+      ]
     },
     {
       "name": "Son Heung-min",
@@ -255,10 +4090,17 @@
       "age": 32,
       "nationality": "South Korea",
       "league": "Premier League",
-      "previous_teams": ["Hamburger SV", "Bayer Leverkusen"],
+      "previous_teams": [
+        "Hamburger SV",
+        "Bayer Leverkusen"
+      ],
       "instagram_followers": "14.26M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Son Heung-min"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Son Heung-min"
+      ]
     },
     {
       "name": "Jude Bellingham",
@@ -268,10 +4110,19 @@
       "age": 22,
       "nationality": "England",
       "league": "La Liga",
-      "previous_teams": ["Birmingham City", "Borussia Dortmund"],
+      "previous_teams": [
+        "Birmingham City",
+        "Borussia Dortmund"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Jude Bellingham", "Jude", "Bellingham"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Jude Bellingham",
+        "Jude",
+        "Bellingham"
+      ]
     },
     {
       "name": "Bukayo Saka",
@@ -281,10 +4132,17 @@
       "age": 24,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Arsenal Academy"],
+      "previous_teams": [
+        "Arsenal Academy"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Bukayo Saka", "Saka"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Bukayo Saka",
+        "Saka"
+      ]
     },
     {
       "name": "Phil Foden",
@@ -294,10 +4152,17 @@
       "age": 24,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Manchester City Academy"],
+      "previous_teams": [
+        "Manchester City Academy"
+      ],
       "instagram_followers": "12.33M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Phil Foden", "Foden"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Phil Foden",
+        "Foden"
+      ]
     },
     {
       "name": "Cole Palmer",
@@ -307,23 +4172,18 @@
       "age": 22,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Manchester City"],
+      "previous_teams": [
+        "Manchester City"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Cole Palmer", "Cold Palmer", "Palmer"]
-    },
-    {
-      "name": "Vinicius Jr",
-      "sport": "Football",
-      "team": "Real Madrid",
-      "position": "LW",
-      "age": 24,
-      "nationality": "Brazil",
-      "league": "La Liga",
-      "previous_teams": ["Flamengo"],
-      "instagram_followers": "52.72M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Vinicius Jr", "Vinicius Junior", "Vini Jr", "Vini Jr.", "Vinicius"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Cole Palmer",
+        "Cold Palmer",
+        "Palmer"
+      ]
     },
     {
       "name": "Neymar Jr",
@@ -333,23 +4193,20 @@
       "age": 32,
       "nationality": "Brazil",
       "league": "Saudi Pro League",
-      "previous_teams": ["Santos", "Barcelona", "PSG"],
+      "previous_teams": [
+        "Santos",
+        "Barcelona",
+        "PSG"
+      ],
       "instagram_followers": "227.58M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Neymar Jr", "Neymar", "Neymar Junior"]
-    },
-    {
-      "name": "Mohamed Salah",
-      "sport": "Football",
-      "team": "Liverpool",
-      "position": "RW",
-      "age": 32,
-      "nationality": "Egypt",
-      "league": "Premier League",
-      "previous_teams": ["El Mokawloon", "Basel", "Chelsea", "Fiorentina", "Roma"],
-      "instagram_followers": "64.13M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Mohamed Salah"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Neymar Jr",
+        "Neymar",
+        "Neymar Junior"
+      ]
     },
     {
       "name": "Kevin De Bruyne",
@@ -359,10 +4216,19 @@
       "age": 33,
       "nationality": "Belgium",
       "league": "Premier League",
-      "previous_teams": ["Genk", "Chelsea", "Werder Bremen", "Wolfsburg"],
+      "previous_teams": [
+        "Genk",
+        "Chelsea",
+        "Werder Bremen",
+        "Wolfsburg"
+      ],
       "instagram_followers": "26.26M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Kevin De Bruyne"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Kevin De Bruyne"
+      ]
     },
     {
       "name": "Robert Lewandowski",
@@ -372,10 +4238,21 @@
       "age": 37,
       "nationality": "Poland",
       "league": "La Liga",
-      "previous_teams": ["Znicz Pruszków", "Lech Poznań", "Borussia Dortmund", "Bayern Munich"],
+      "previous_teams": [
+        "Znicz Pruszkow",
+        "Lech Poznauc0u324 ",
+        "Borussia Dortmund",
+        "Bayern Munich"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Robert Lewandowski", "Lewandowski", "Lewy"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Robert Lewandowski",
+        "Lewandowski",
+        "Lewy"
+      ]
     },
     {
       "name": "Karim Benzema",
@@ -385,10 +4262,19 @@
       "age": 37,
       "nationality": "France",
       "league": "Saudi Pro League",
-      "previous_teams": ["Lyon", "Real Madrid"],
+      "previous_teams": [
+        "Lyon",
+        "Real Madrid"
+      ],
       "instagram_followers": "72.8M",
-      "major_trophies": ["Champions League", "Ballon d'Or"],
-      "total_names": ["Karim Benzema", "Benzema"]
+      "major_trophies": [
+        "Champions League",
+        "Ballon d'Or"
+      ],
+      "total_names": [
+        "Karim Benzema",
+        "Benzema"
+      ]
     },
     {
       "name": "Virgil van Dijk",
@@ -398,88 +4284,41 @@
       "age": 33,
       "nationality": "Netherlands",
       "league": "Premier League",
-      "previous_teams": ["Groningen", "Celtic", "Southampton"],
+      "previous_teams": [
+        "Groningen",
+        "Celtic",
+        "Southampton"
+      ],
       "instagram_followers": "14.7M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Virgil van Dijk", "van Dijk", "VVD"]
-    },
-    {
-      "name": "Sadio Mané",
-      "sport": "Football",
-      "team": "Al Nassr",
-      "position": "LW",
-      "age": 32,
-      "nationality": "Senegal",
-      "league": "Saudi Pro League",
-      "previous_teams": ["Metz", "Red Bull Salzburg", "Southampton", "Liverpool", "Bayern Munich"],
-      "instagram_followers": "16.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Sadio Mané", "Mané", "Sadio Mane"]
-    },
-    {
-      "name": "Sergio Ramos",
-      "sport": "Football",
-      "team": "Sevilla",
-      "position": "CB",
-      "age": 38,
-      "nationality": "Spain",
-      "league": "La Liga",
-      "previous_teams": ["Real Madrid", "PSG"],
-      "instagram_followers": "59.4M",
-      "major_trophies": ["World Cup", "Champions League", "Euros"],
-      "total_names": ["Sergio Ramos", "Ramos"]
-    },
-    {
-      "name": "Paul Pogba",
-      "sport": "Football",
-      "team": "Juventus",
-      "position": "CM",
-      "age": 31,
-      "nationality": "France",
-      "league": "Serie A",
-      "previous_teams": ["Le Havre", "Manchester United"],
-      "instagram_followers": "59.8M",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Paul Pogba", "Pogba"]
-    },
-    {
-      "name": "N'Golo Kanté",
-      "sport": "Football",
-      "team": "Al Ittihad",
-      "position": "DM",
-      "age": 33,
-      "nationality": "France",
-      "league": "Saudi Pro League",
-      "previous_teams": ["Boulogne", "Caen", "Leicester City", "Chelsea"],
-      "instagram_followers": "4.1M",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["N'Golo Kanté", "Kante", "Ngolo Kante"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Virgil van Dijk",
+        "van Dijk",
+        "VVD"
+      ]
     },
     {
       "name": "Antoine Griezmann",
       "sport": "Football",
-      "team": "Atlético Madrid",
+      "team": "Atletico Madrid",
       "position": "AM/ST",
       "age": 33,
       "nationality": "France",
       "league": "La Liga",
-      "previous_teams": ["Real Sociedad", "Barcelona"],
+      "previous_teams": [
+        "Real Sociedad",
+        "Barcelona"
+      ],
       "instagram_followers": "45.8M",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Antoine Griezmann", "Griezmann"]
-    },
-    {
-      "name": "Harry Kane",
-      "sport": "Football",
-      "team": "Bayern Munich",
-      "position": "ST",
-      "age": 31,
-      "nationality": "England",
-      "league": "Bundesliga",
-      "previous_teams": ["Leyton Orient", "Millwall", "Norwich City", "Leicester City", "Tottenham"],
-      "instagram_followers": "15.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Harry Kane", "Kane"]
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Antoine Griezmann",
+        "Griezmann"
+      ]
     },
     {
       "name": "Jamal Musiala",
@@ -489,10 +4328,17 @@
       "age": 21,
       "nationality": "Germany",
       "league": "Bundesliga",
-      "previous_teams": ["Chelsea Academy"],
+      "previous_teams": [
+        "Chelsea Academy"
+      ],
       "instagram_followers": "7.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Jamal Musiala", "Musiala"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Jamal Musiala",
+        "Musiala"
+      ]
     },
     {
       "name": "Pedri",
@@ -502,10 +4348,17 @@
       "age": 22,
       "nationality": "Spain",
       "league": "La Liga",
-      "previous_teams": ["Las Palmas"],
+      "previous_teams": [
+        "Las Palmas"
+      ],
       "instagram_followers": "12.1M",
-      "major_trophies": ["Euros"],
-      "total_names": ["Pedri", "Pedro González López"]
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Pedri",
+        "Pedro Gonzalez Lopez"
+      ]
     },
     {
       "name": "Gavi",
@@ -515,23 +4368,17 @@
       "age": 20,
       "nationality": "Spain",
       "league": "La Liga",
-      "previous_teams": ["Barcelona Academy"],
+      "previous_teams": [
+        "Barcelona Academy"
+      ],
       "instagram_followers": "19.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Gavi", "Pablo Páez Gavira"]
-    },
-    {
-      "name": "Joshua Kimmich",
-      "sport": "Football",
-      "team": "Bayern Munich",
-      "position": "DM/RB",
-      "age": 29,
-      "nationality": "Germany",
-      "league": "Bundesliga",
-      "previous_teams": ["VfB Stuttgart", "RB Leipzig"],
-      "instagram_followers": "7.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Joshua Kimmich", "Kimmich"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Gavi",
+        "Pablo Paez Gavira"
+      ]
     },
     {
       "name": "Alphonso Davies",
@@ -541,10 +4388,17 @@
       "age": 24,
       "nationality": "Canada",
       "league": "Bundesliga",
-      "previous_teams": ["Vancouver Whitecaps"],
+      "previous_teams": [
+        "Vancouver Whitecaps"
+      ],
       "instagram_followers": "6.1M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Alphonso Davies", "Davies"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Alphonso Davies",
+        "Davies"
+      ]
     },
     {
       "name": "Mason Mount",
@@ -554,10 +4408,19 @@
       "age": 26,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Vitesse", "Derby County", "Chelsea"],
+      "previous_teams": [
+        "Vitesse",
+        "Derby County",
+        "Chelsea"
+      ],
       "instagram_followers": "2.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Mason Mount", "Mount"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Mason Mount",
+        "Mount"
+      ]
     },
     {
       "name": "Declan Rice",
@@ -567,36 +4430,17 @@
       "age": 25,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["West Ham United"],
+      "previous_teams": [
+        "West Ham United"
+      ],
       "instagram_followers": "2.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Declan Rice", "Rice"]
-    },
-    {
-      "name": "Rafael Leão",
-      "sport": "Football",
-      "team": "AC Milan",
-      "position": "LW",
-      "age": 25,
-      "nationality": "Portugal",
-      "league": "Serie A",
-      "previous_teams": ["Sporting CP", "Lille"],
-      "instagram_followers": "4.6M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Rafael Leão", "Leao", "Rafael Leao"]
-    },
-    {
-      "name": "Victor Osimhen",
-      "sport": "Football",
-      "team": "Galatasaray",
-      "position": "ST",
-      "age": 26,
-      "nationality": "Nigeria",
-      "league": "Süper Lig",
-      "previous_teams": ["Ultimate Strikers Academy", "Wolfsburg", "Charleroi", "Lille", "Napoli"],
-      "instagram_followers": "4.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Victor Osimhen", "Osimhen"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Declan Rice",
+        "Rice"
+      ]
     },
     {
       "name": "Khvicha Kvaratskhelia",
@@ -606,10 +4450,20 @@
       "age": 23,
       "nationality": "Georgia",
       "league": "Serie A",
-      "previous_teams": ["Dinamo Tbilisi", "Rubin Kazan", "Dinamo Batumi"],
+      "previous_teams": [
+        "Dinamo Tbilisi",
+        "Rubin Kazan",
+        "Dinamo Batumi"
+      ],
       "instagram_followers": "3.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Khvicha Kvaratskhelia", "Kvaratskhelia", "Kvara"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Khvicha Kvaratskhelia",
+        "Kvaratskhelia",
+        "Kvara"
+      ]
     },
     {
       "name": "Cody Gakpo",
@@ -619,23 +4473,17 @@
       "age": 25,
       "nationality": "Netherlands",
       "league": "Premier League",
-      "previous_teams": ["PSV"],
+      "previous_teams": [
+        "PSV"
+      ],
       "instagram_followers": "2.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Cody Gakpo", "Gakpo"]
-    },
-    {
-      "name": "Darwin Núñez",
-      "sport": "Football",
-      "team": "Liverpool",
-      "position": "ST",
-      "age": 25,
-      "nationality": "Uruguay",
-      "league": "Premier League",
-      "previous_teams": ["Peñarol", "Almería", "Benfica"],
-      "instagram_followers": "6.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Darwin Núñez", "Nunez", "Darwin Nunez"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Cody Gakpo",
+        "Gakpo"
+      ]
     },
     {
       "name": "Aurelien Tchouameni",
@@ -645,10 +4493,18 @@
       "age": 24,
       "nationality": "France",
       "league": "La Liga",
-      "previous_teams": ["Bordeaux", "AS Monaco"],
+      "previous_teams": [
+        "Bordeaux",
+        "AS Monaco"
+      ],
       "instagram_followers": "4.7M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Aurelien Tchouameni", "Tchouameni"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Aurelien Tchouameni",
+        "Tchouameni"
+      ]
     },
     {
       "name": "Eduardo Camavinga",
@@ -658,10 +4514,17 @@
       "age": 22,
       "nationality": "France",
       "league": "La Liga",
-      "previous_teams": ["Rennes"],
+      "previous_teams": [
+        "Rennes"
+      ],
       "instagram_followers": "8.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Eduardo Camavinga", "Camavinga"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Eduardo Camavinga",
+        "Camavinga"
+      ]
     },
     {
       "name": "Florian Wirtz",
@@ -671,10 +4534,17 @@
       "age": 21,
       "nationality": "Germany",
       "league": "Bundesliga",
-      "previous_teams": ["FC Köln"],
+      "previous_teams": [
+        "FC Koln"
+      ],
       "instagram_followers": "2.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Florian Wirtz", "Wirtz"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Florian Wirtz",
+        "Wirtz"
+      ]
     },
     {
       "name": "Xavi Simons",
@@ -684,36 +4554,19 @@
       "age": 21,
       "nationality": "Netherlands",
       "league": "Bundesliga",
-      "previous_teams": ["Barcelona", "PSG", "PSV"],
+      "previous_teams": [
+        "Barcelona",
+        "PSG",
+        "PSV"
+      ],
       "instagram_followers": "3.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Xavi Simons", "Simons"]
-    },
-    {
-      "name": "Rodri",
-      "sport": "Football",
-      "team": "Manchester City",
-      "position": "DM",
-      "age": 28,
-      "nationality": "Spain",
-      "league": "Premier League",
-      "previous_teams": ["Villarreal", "Atlético Madrid"],
-      "instagram_followers": "2.8M",
-      "major_trophies": ["Champions League", "Ballon d'Or", "Euros"],
-      "total_names": ["Rodri", "Rodrigo Hernández Cascante"]
-    },
-    {
-      "name": "Martin Ødegaard",
-      "sport": "Football",
-      "team": "Arsenal",
-      "position": "AM",
-      "age": 26,
-      "nationality": "Norway",
-      "league": "Premier League",
-      "previous_teams": ["Strømsgodset", "Real Madrid", "Heerenveen", "Vitesse", "Real Sociedad"],
-      "instagram_followers": "5.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Martin Ødegaard", "Odegaard", "Martin Odegaard"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Xavi Simons",
+        "Simons"
+      ]
     },
     {
       "name": "Bruno Fernandes",
@@ -723,10 +4576,21 @@
       "age": 30,
       "nationality": "Portugal",
       "league": "Premier League",
-      "previous_teams": ["Boavista", "Novara", "Udinese", "Sampdoria", "Sporting CP"],
+      "previous_teams": [
+        "Boavista",
+        "Novara",
+        "Udinese",
+        "Sampdoria",
+        "Sporting CP"
+      ],
       "instagram_followers": "23.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Bruno Fernandes", "Fernandes"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Bruno Fernandes",
+        "Fernandes"
+      ]
     },
     {
       "name": "Marcus Rashford",
@@ -736,10 +4600,17 @@
       "age": 27,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Manchester United Academy"],
+      "previous_teams": [
+        "Manchester United Academy"
+      ],
       "instagram_followers": "17.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Marcus Rashford", "Rashford"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Marcus Rashford",
+        "Rashford"
+      ]
     },
     {
       "name": "Trent Alexander-Arnold",
@@ -749,10 +4620,18 @@
       "age": 26,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Liverpool Academy"],
+      "previous_teams": [
+        "Liverpool Academy"
+      ],
       "instagram_followers": "4.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Trent Alexander-Arnold", "TAA", "Alexander-Arnold"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Trent Alexander-Arnold",
+        "TAA",
+        "Alexander-Arnold"
+      ]
     },
     {
       "name": "Reece James",
@@ -762,23 +4641,18 @@
       "age": 25,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Wigan Athletic", "Chelsea Academy"],
+      "previous_teams": [
+        "Wigan Athletic",
+        "Chelsea Academy"
+      ],
       "instagram_followers": "3.7M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Reece James", "James"]
-    },
-    {
-      "name": "Ruben Dias",
-      "sport": "Football",
-      "team": "Manchester City",
-      "position": "CB",
-      "age": 27,
-      "nationality": "Portugal",
-      "league": "Premier League",
-      "previous_teams": ["Benfica"],
-      "instagram_followers": "4.2M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Ruben Dias", "Dias"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Reece James",
+        "James"
+      ]
     },
     {
       "name": "William Saliba",
@@ -788,10 +4662,19 @@
       "age": 24,
       "nationality": "France",
       "league": "Premier League",
-      "previous_teams": ["Saint-Étienne", "Nice", "Marseille"],
+      "previous_teams": [
+        "Saint-Atienne",
+        "Nice",
+        "Marseille"
+      ],
       "instagram_followers": "1.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["William Saliba", "Saliba"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "William Saliba",
+        "Saliba"
+      ]
     },
     {
       "name": "Josko Gvardiol",
@@ -801,10 +4684,18 @@
       "age": 22,
       "nationality": "Croatia",
       "league": "Premier League",
-      "previous_teams": ["Dinamo Zagreb", "RB Leipzig"],
+      "previous_teams": [
+        "Dinamo Zagreb",
+        "RB Leipzig"
+      ],
       "instagram_followers": "1.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Josko Gvardiol", "Gvardiol"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Josko Gvardiol",
+        "Gvardiol"
+      ]
     },
     {
       "name": "Alessandro Bastoni",
@@ -814,23 +4705,18 @@
       "age": 25,
       "nationality": "Italy",
       "league": "Serie A",
-      "previous_teams": ["Atalanta", "Parma"],
+      "previous_teams": [
+        "Atalanta",
+        "Parma"
+      ],
       "instagram_followers": "2.1M",
-      "major_trophies": ["Euros"],
-      "total_names": ["Alessandro Bastoni", "Bastoni"]
-    },
-    {
-      "name": "Enzo Fernández",
-      "sport": "Football",
-      "team": "Chelsea",
-      "position": "CM",
-      "age": 23,
-      "nationality": "Argentina",
-      "league": "Premier League",
-      "previous_teams": ["River Plate", "Defensa y Justicia", "Benfica"],
-      "instagram_followers": "4.6M",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Enzo Fernández", "Enzo Fernandez", "Fernandez"]
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Alessandro Bastoni",
+        "Bastoni"
+      ]
     },
     {
       "name": "Alexis Mac Allister",
@@ -840,75 +4726,19 @@
       "age": 26,
       "nationality": "Argentina",
       "league": "Premier League",
-      "previous_teams": ["Argentinos Juniors", "Boca Juniors", "Brighton"],
+      "previous_teams": [
+        "Argentinos Juniors",
+        "Boca Juniors",
+        "Brighton"
+      ],
       "instagram_followers": "4.1M",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Alexis Mac Allister", "Mac Allister"]
-    },
-    {
-      "name": "Yuki Tsunoda",
-      "sport": "Formula 1",
-      "team": "RB F1 Team",
-      "position": "Driver",
-      "age": 24,
-      "nationality": "Japan",
-      "league": "Formula 1",
-      "previous_teams": ["Honda Formula Dream Project", "Jenzer Motorsport", "Carlin"],
-      "instagram_followers": "1.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Yuki Tsunoda", "Tsunoda"]
-    },
-    {
-      "name": "Max Verstappen",
-      "sport": "Formula 1",
-      "team": "Red Bull Racing",
-      "position": "Driver",
-      "age": 27,
-      "nationality": "Netherlands",
-      "league": "Formula 1",
-      "previous_teams": ["Toro Rosso"],
-      "instagram_followers": "14.8M",
-      "major_trophies": ["F1 World Championship"],
-      "total_names": ["Max Verstappen", "Verstappen"]
-    },
-    {
-      "name": "Lewis Hamilton",
-      "sport": "Formula 1",
-      "team": "Ferrari",
-      "position": "Driver",
-      "age": 40,
-      "nationality": "United Kingdom",
-      "league": "Formula 1",
-      "previous_teams": ["McLaren", "Mercedes"],
-      "instagram_followers": "37.2M",
-      "major_trophies": ["F1 World Championship"],
-      "total_names": ["Lewis Hamilton", "Hamilton"]
-    },
-    {
-      "name": "Charles Leclerc",
-      "sport": "Formula 1",
-      "team": "Ferrari",
-      "position": "Driver",
-      "age": 27,
-      "nationality": "Monaco",
-      "league": "Formula 1",
-      "previous_teams": ["Sauber"],
-      "instagram_followers": "12.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Charles Leclerc", "Leclerc"]
-    },
-    {
-      "name": "Lando Norris",
-      "sport": "Formula 1",
-      "team": "McLaren",
-      "position": "Driver",
-      "age": 25,
-      "nationality": "United Kingdom",
-      "league": "Formula 1",
-      "previous_teams": ["McLaren Academy"],
-      "instagram_followers": "7.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Lando Norris", "Norris"]
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Alexis Mac Allister",
+        "Mac Allister"
+      ]
     },
     {
       "name": "LeBron James",
@@ -918,166 +4748,21 @@
       "age": 40,
       "nationality": "USA",
       "league": "NBA",
-      "previous_teams": ["Cleveland Cavaliers", "Miami Heat"],
+      "previous_teams": [
+        "Cleveland Cavaliers",
+        "Miami Heat"
+      ],
       "instagram_followers": "159.7M",
-      "major_trophies": ["NBA Championship", "NBA Finals MVP", "NBA MVP"],
-      "total_names": ["LeBron James", "King James", "LBJ"]
-    },
-    {
-      "name": "Stephen Curry",
-      "sport": "Basketball",
-      "team": "Golden State Warriors",
-      "position": "PG",
-      "age": 36,
-      "nationality": "USA",
-      "league": "NBA",
-      "previous_teams": ["Davidson College"],
-      "instagram_followers": "56.4M",
-      "major_trophies": ["NBA Championship", "NBA Finals MVP", "NBA MVP"],
-      "total_names": ["Stephen Curry", "Steph Curry", "Curry"]
-    },
-    {
-      "name": "Kevin Durant",
-      "sport": "Basketball",
-      "team": "Phoenix Suns",
-      "position": "SF/PF",
-      "age": 36,
-      "nationality": "USA",
-      "league": "NBA",
-      "previous_teams": ["Seattle SuperSonics", "Oklahoma City Thunder", "Golden State Warriors", "Brooklyn Nets"],
-      "instagram_followers": "21.8M",
-      "major_trophies": ["NBA Championship", "NBA Finals MVP", "NBA MVP"],
-      "total_names": ["Kevin Durant", "KD", "Durant"]
-    },
-    {
-      "name": "Giannis Antetokounmpo",
-      "sport": "Basketball",
-      "team": "Milwaukee Bucks",
-      "position": "PF/SF",
-      "age": 30,
-      "nationality": "Greece",
-      "league": "NBA",
-      "previous_teams": ["Filathlitikos"],
-      "instagram_followers": "17.2M",
-      "major_trophies": ["NBA Championship", "NBA Finals MVP", "NBA MVP"],
-      "total_names": ["Giannis Antetokounmpo", "Greek Freak", "Giannis"]
-    },
-    {
-      "name": "Luka Dončić",
-      "sport": "Basketball",
-      "team": "Dallas Mavericks",
-      "position": "PG/SG",
-      "age": 25,
-      "nationality": "Slovenia",
-      "league": "NBA",
-      "previous_teams": ["Union Olimpija", "Real Madrid"],
-      "instagram_followers": "5.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Luka Dončić", "Luka Doncic", "Doncic"]
-    },
-    {
-      "name": "Jayson Tatum",
-      "sport": "Basketball",
-      "team": "Boston Celtics",
-      "position": "SF/PF",
-      "age": 26,
-      "nationality": "USA",
-      "league": "NBA",
-      "previous_teams": ["Duke University"],
-      "instagram_followers": "4.2M",
-      "major_trophies": ["NBA Championship"],
-      "total_names": ["Jayson Tatum", "Tatum"]
-    },
-    {
-      "name": "Anthony Davis",
-      "sport": "Basketball",
-      "team": "Los Angeles Lakers",
-      "position": "PF/C",
-      "age": 31,
-      "nationality": "USA",
-      "league": "NBA",
-      "previous_teams": ["University of Kentucky", "New Orleans Pelicans"],
-      "instagram_followers": "7.8M",
-      "major_trophies": ["NBA Championship"],
-      "total_names": ["Anthony Davis", "AD", "Davis"]
-    },
-    {
-      "name": "Nikola Jokić",
-      "sport": "Basketball",
-      "team": "Denver Nuggets",
-      "position": "C",
-      "age": 29,
-      "nationality": "Serbia",
-      "league": "NBA",
-      "previous_teams": ["Mega Basket"],
-      "instagram_followers": "2.1M",
-      "major_trophies": ["NBA Championship", "NBA Finals MVP", "NBA MVP"],
-      "total_names": ["Nikola Jokić", "Jokic", "Nikola Jokic"]
-    },
-    {
-      "name": "Joel Embiid",
-      "sport": "Basketball",
-      "team": "Philadelphia 76ers",
-      "position": "C",
-      "age": 30,
-      "nationality": "Cameroon/USA",
-      "league": "NBA",
-      "previous_teams": ["University of Kansas"],
-      "instagram_followers": "5.4M",
-      "major_trophies": ["NBA MVP"],
-      "total_names": ["Joel Embiid", "Embiid"]
-    },
-    {
-      "name": "Damian Lillard",
-      "sport": "Basketball",
-      "team": "Milwaukee Bucks",
-      "position": "PG",
-      "age": 34,
-      "nationality": "USA",
-      "league": "NBA",
-      "previous_teams": ["Weber State University", "Portland Trail Blazers"],
-      "instagram_followers": "4.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Damian Lillard", "Dame Lillard", "Dame"]
-    },
-    {
-      "name": "Novak Djokovic",
-      "sport": "Tennis",
-      "team": "Individual",
-      "position": "Tennis Player",
-      "age": 37,
-      "nationality": "Serbia",
-      "league": "ATP Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "14.1M",
-      "major_trophies": ["Grand Slam", "ATP Finals", "Olympics"],
-      "total_names": ["Novak Djokovic", "Djokovic", "Nole"]
-    },
-    {
-      "name": "Rafael Nadal",
-      "sport": "Tennis",
-      "team": "Individual",
-      "position": "Tennis Player",
-      "age": 38,
-      "nationality": "Spain",
-      "league": "ATP Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "21.8M",
-      "major_trophies": ["Grand Slam", "Olympics"],
-      "total_names": ["Rafael Nadal", "Nadal", "Rafa"]
-    },
-    {
-      "name": "Roger Federer",
-      "sport": "Tennis",
-      "team": "Retired",
-      "position": "Tennis Player",
-      "age": 43,
-      "nationality": "Switzerland",
-      "league": "N/A",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "9.8M",
-      "major_trophies": ["Grand Slam", "ATP Finals"],
-      "total_names": ["Roger Federer", "Federer"]
+      "major_trophies": [
+        "NBA Championship",
+        "NBA Finals MVP",
+        "NBA MVP"
+      ],
+      "total_names": [
+        "LeBron James",
+        "King James",
+        "LBJ"
+      ]
     },
     {
       "name": "Carlos Alcaraz",
@@ -1087,75 +4772,17 @@
       "age": 21,
       "nationality": "Spain",
       "league": "ATP Tour",
-      "previous_teams": ["N/A"],
+      "previous_teams": [
+        "N/A"
+      ],
       "instagram_followers": "7.2M",
-      "major_trophies": ["Grand Slam"],
-      "total_names": ["Carlos Alcaraz", "Alcaraz"]
-    },
-    {
-      "name": "Jannik Sinner",
-      "sport": "Tennis",
-      "team": "Individual",
-      "position": "Tennis Player",
-      "age": 23,
-      "nationality": "Italy",
-      "league": "ATP Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "2.8M",
-      "major_trophies": ["Grand Slam"],
-      "total_names": ["Jannik Sinner", "Sinner"]
-    },
-    {
-      "name": "Iga Świątek",
-      "sport": "Tennis",
-      "team": "Individual",
-      "position": "Tennis Player",
-      "age": 23,
-      "nationality": "Poland",
-      "league": "WTA Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "1.4M",
-      "major_trophies": ["Grand Slam"],
-      "total_names": ["Iga Świątek", "Swiatek", "Iga Swiatek"]
-    },
-    {
-      "name": "Coco Gauff",
-      "sport": "Tennis",
-      "team": "Individual",
-      "position": "Tennis Player",
-      "age": 20,
-      "nationality": "USA",
-      "league": "WTA Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "1.8M",
-      "major_trophies": ["Grand Slam"],
-      "total_names": ["Coco Gauff", "Gauff"]
-    },
-    {
-      "name": "Aryna Sabalenka",
-      "sport": "Tennis",
-      "team": "Individual",
-      "position": "Tennis Player",
-      "age": 26,
-      "nationality": "Belarus",
-      "league": "WTA Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "1.2M",
-      "major_trophies": ["Grand Slam"],
-      "total_names": ["Aryna Sabalenka", "Sabalenka"]
-    },
-    {
-      "name": "Serena Williams",
-      "sport": "Tennis",
-      "team": "Retired",
-      "position": "Tennis Player",
-      "age": 43,
-      "nationality": "USA",
-      "league": "N/A",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "16.8M",
-      "major_trophies": ["Grand Slam", "Olympics"],
-      "total_names": ["Serena Williams", "Williams"]
+      "major_trophies": [
+        "Grand Slam"
+      ],
+      "total_names": [
+        "Carlos Alcaraz",
+        "Alcaraz"
+      ]
     },
     {
       "name": "Tiger Woods",
@@ -1165,62 +4792,20 @@
       "age": 49,
       "nationality": "USA",
       "league": "PGA Tour",
-      "previous_teams": ["N/A"],
+      "previous_teams": [
+        "N/A"
+      ],
       "instagram_followers": "3.2M",
-      "major_trophies": ["Masters Tournament", "PGA Championship", "U.S. Open", "The Open Championship"],
-      "total_names": ["Tiger Woods", "Woods"]
-    },
-    {
-      "name": "Rory McIlroy",
-      "sport": "Golf",
-      "team": "Individual",
-      "position": "Golfer",
-      "age": 35,
-      "nationality": "Northern Ireland",
-      "league": "PGA Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "2.4M",
-      "major_trophies": ["Masters Tournament", "PGA Championship", "U.S. Open", "The Open Championship"],
-      "total_names": ["Rory McIlroy", "McIlroy"]
-    },
-    {
-      "name": "Jon Rahm",
-      "sport": "Golf",
-      "team": "Individual",
-      "position": "Golfer",
-      "age": 30,
-      "nationality": "Spain",
-      "league": "LIV Golf",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "1.1M",
-      "major_trophies": ["Masters Tournament", "U.S. Open"],
-      "total_names": ["Jon Rahm", "Rahm"]
-    },
-    {
-      "name": "Scottie Scheffler",
-      "sport": "Golf",
-      "team": "Individual",
-      "position": "Golfer",
-      "age": 28,
-      "nationality": "USA",
-      "league": "PGA Tour",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "847K",
-      "major_trophies": ["Masters Tournament"],
-      "total_names": ["Scottie Scheffler", "Scheffler"]
-    },
-    {
-      "name": "Dustin Johnson",
-      "sport": "Golf",
-      "team": "Individual",
-      "position": "Golfer",
-      "age": 40,
-      "nationality": "USA",
-      "league": "LIV Golf",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "1.8M",
-      "major_trophies": ["Masters Tournament", "U.S. Open"],
-      "total_names": ["Dustin Johnson", "DJ", "Johnson"]
+      "major_trophies": [
+        "Masters Tournament",
+        "PGA Championship",
+        "U.S. Open",
+        "The Open Championship"
+      ],
+      "total_names": [
+        "Tiger Woods",
+        "Woods"
+      ]
     },
     {
       "name": "Tyson Fury",
@@ -1230,660 +4815,18 @@
       "age": 36,
       "nationality": "United Kingdom",
       "league": "Professional Boxing",
-      "previous_teams": ["N/A"],
+      "previous_teams": [
+        "N/A"
+      ],
       "instagram_followers": "6.4M",
-      "major_trophies": ["WBC Heavyweight Championship"],
-      "total_names": ["Tyson Fury", "Fury", "Gypsy King"]
-    },
-    {
-      "name": "Anthony Joshua",
-      "sport": "Boxing",
-      "team": "Individual",
-      "position": "Heavyweight",
-      "age": 35,
-      "nationality": "United Kingdom",
-      "league": "Professional Boxing",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "14.8M",
-      "major_trophies": ["IBF Heavyweight Championship", "WBA Heavyweight Championship", "WBO Heavyweight Championship"],
-      "total_names": ["Anthony Joshua", "AJ", "Joshua"]
-    },
-    {
-      "name": "Oleksandr Usyk",
-      "sport": "Boxing",
-      "team": "Individual",
-      "position": "Heavyweight",
-      "age": 37,
-      "nationality": "Ukraine",
-      "league": "Professional Boxing",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "3.1M",
-      "major_trophies": ["WBA Heavyweight Championship", "IBF Heavyweight Championship", "WBO Heavyweight Championship", "WBC Heavyweight Championship"],
-      "total_names": ["Oleksandr Usyk", "Usyk"]
-    },
-    {
-      "name": "Canelo Alvarez",
-      "sport": "Boxing",
-      "team": "Individual",
-      "position": "Super Middleweight",
-      "age": 34,
-      "nationality": "Mexico",
-      "league": "Professional Boxing",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "7.2M",
-      "major_trophies": ["WBA Super Middleweight Championship", "WBC Super Middleweight Championship", "IBF Super Middleweight Championship", "WBO Super Middleweight Championship"],
-      "total_names": ["Canelo Alvarez", "Canelo", "Alvarez"]
-    },
-    {
-      "name": "Ryan Garcia",
-      "sport": "Boxing",
-      "team": "Individual",
-      "position": "Lightweight",
-      "age": 26,
-      "nationality": "USA",
-      "league": "Professional Boxing",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "10.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Ryan Garcia", "King Ry", "Garcia"]
-    },
-    {
-      "name": "Conor McGregor",
-      "sport": "MMA",
-      "team": "Individual",
-      "position": "Lightweight",
-      "age": 36,
-      "nationality": "Ireland",
-      "league": "UFC",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "47.2M",
-      "major_trophies": ["UFC Championship"],
-      "total_names": ["Conor McGregor", "The Notorious", "McGregor"]
-    },
-    {
-      "name": "Jon Jones",
-      "sport": "MMA",
-      "team": "Individual",
-      "position": "Heavyweight",
-      "age": 37,
-      "nationality": "USA",
-      "league": "UFC",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "7.1M",
-      "major_trophies": ["UFC Championship"],
-      "total_names": ["Jon Jones", "Bones", "Jones"]
-    },
-    {
-      "name": "Islam Makhachev",
-      "sport": "MMA",
-      "team": "Individual",
-      "position": "Lightweight",
-      "age": 33,
-      "nationality": "Russia",
-      "league": "UFC",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "4.8M",
-      "major_trophies": ["UFC Championship"],
-      "total_names": ["Islam Makhachev", "Makhachev"]
-    },
-    {
-      "name": "Sean O'Malley",
-      "sport": "MMA",
-      "team": "Individual",
-      "position": "Bantamweight",
-      "age": 30,
-      "nationality": "USA",
-      "league": "UFC",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "3.4M",
-      "major_trophies": ["UFC Championship"],
-      "total_names": ["Sean O'Malley", "Sugar", "O'Malley"]
-    },
-    {
-      "name": "Alex Pereira",
-      "sport": "MMA",
-      "team": "Individual",
-      "position": "Light Heavyweight",
-      "age": 37,
-      "nationality": "Brazil",
-      "league": "UFC",
-      "previous_teams": ["N/A"],
-      "instagram_followers": "6.2M",
-      "major_trophies": ["UFC Championship"],
-      "total_names": ["Alex Pereira", "Poatan", "Pereira"]
-    },
-    {
-      "name": "Virat Kohli",
-      "sport": "Cricket",
-      "team": "Royal Challengers Bangalore",
-      "position": "Batsman",
-      "age": 36,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Delhi", "India National Team"],
-      "instagram_followers": "271.8M",
-      "major_trophies": ["Cricket World Cup", "T20 World Cup"],
-      "total_names": ["Virat Kohli", "Kohli", "King Kohli"]
-    },
-    {
-      "name": "MS Dhoni",
-      "sport": "Cricket",
-      "team": "Chennai Super Kings",
-      "position": "Wicket-keeper",
-      "age": 43,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Bihar", "Jharkhand", "India National Team"],
-      "instagram_followers": "48.1M",
-      "major_trophies": ["Cricket World Cup", "T20 World Cup", "Champions Trophy"],
-      "total_names": ["MS Dhoni", "Dhoni", "Captain Cool"]
-    },
-    {
-      "name": "Rohit Sharma",
-      "sport": "Cricket",
-      "team": "Mumbai Indians",
-      "position": "Batsman",
-      "age": 37,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Mumbai", "India National Team"],
-      "instagram_followers": "29.4M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Rohit Sharma", "Sharma", "Hitman"]
-    },
-    {
-      "name": "Babar Azam",
-      "sport": "Cricket",
-      "team": "Peshawar Zalmi",
-      "position": "Batsman",
-      "age": 30,
-      "nationality": "Pakistan",
-      "league": "PSL",
-      "previous_teams": ["Zarai Taraqiati Bank", "Pakistan National Team"],
-      "instagram_followers": "6.8M",
-      "major_trophies": ["Champions Trophy"],
-      "total_names": ["Babar Azam", "Babar", "Azam"]
-    },
-    {
-      "name": "Ben Stokes",
-      "sport": "Cricket",
-      "team": "Durham",
-      "position": "All-rounder",
-      "age": 33,
-      "nationality": "England",
-      "league": "County Championship",
-      "previous_teams": ["Canterbury", "England National Team"],
-      "instagram_followers": "2.1M",
-      "major_trophies": ["Cricket World Cup", "T20 World Cup"],
-      "total_names": ["Ben Stokes", "Stokes"]
-    },
-    {
-      "name": "Jos Buttler",
-      "sport": "Cricket",
-      "team": "Lancashire",
-      "position": "Wicket-keeper",
-      "age": 34,
-      "nationality": "England",
-      "league": "County Championship",
-      "previous_teams": ["Somerset", "England National Team"],
-      "instagram_followers": "3.4M",
-      "major_trophies": ["Cricket World Cup", "T20 World Cup"],
-      "total_names": ["Jos Buttler", "Buttler"]
-    },
-    {
-      "name": "Pat Cummins",
-      "sport": "Cricket",
-      "team": "Kolkata Knight Riders",
-      "position": "Bowler",
-      "age": 31,
-      "nationality": "Australia",
-      "league": "IPL",
-      "previous_teams": ["New South Wales", "Australia National Team"],
-      "instagram_followers": "1.7M",
-      "major_trophies": ["Cricket World Cup"],
-      "total_names": ["Pat Cummins", "Cummins"]
-    },
-    {
-      "name": "Steve Smith",
-      "sport": "Cricket",
-      "team": "Sydney Sixers",
-      "position": "Batsman",
-      "age": 35,
-      "nationality": "Australia",
-      "league": "Big Bash League",
-      "previous_teams": ["New South Wales", "Australia National Team"],
-      "instagram_followers": "2.8M",
-      "major_trophies": ["Cricket World Cup"],
-      "total_names": ["Steve Smith", "Smith"]
-    },
-    {
-      "name": "Kane Williamson",
-      "sport": "Cricket",
-      "team": "Northern Districts",
-      "position": "Batsman",
-      "age": 34,
-      "nationality": "New Zealand",
-      "league": "Plunket Shield",
-      "previous_teams": ["New Zealand National Team"],
-      "instagram_followers": "1.9M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Kane Williamson", "Williamson"]
-    },
-    {
-      "name": "David Warner",
-      "sport": "Cricket",
-      "team": "Sydney Thunder",
-      "position": "Batsman",
-      "age": 38,
-      "nationality": "Australia",
-      "league": "Big Bash League",
-      "previous_teams": ["New South Wales", "Australia National Team"],
-      "instagram_followers": "4.2M",
-      "major_trophies": ["Cricket World Cup", "T20 World Cup"],
-      "total_names": ["David Warner", "Warner", "Bull"]
-    },
-    {
-      "name": "Quinton de Kock",
-      "sport": "Cricket",
-      "team": "Titans",
-      "position": "Wicket-keeper",
-      "age": 32,
-      "nationality": "South Africa",
-      "league": "CSA T20 Challenge",
-      "previous_teams": ["South Africa National Team"],
-      "instagram_followers": "2.6M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Quinton de Kock", "de Kock", "QDK"]
-    },
-    {
-      "name": "Trent Boult",
-      "sport": "Cricket",
-      "team": "Northern Districts",
-      "position": "Bowler",
-      "age": 35,
-      "nationality": "New Zealand",
-      "league": "Plunket Shield",
-      "previous_teams": ["New Zealand National Team"],
-      "instagram_followers": "1.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Trent Boult", "Boult"]
-    },
-    {
-      "name": "Kagiso Rabada",
-      "sport": "Cricket",
-      "team": "Lions",
-      "position": "Bowler",
-      "age": 29,
-      "nationality": "South Africa",
-      "league": "CSA T20 Challenge",
-      "previous_teams": ["South Africa National Team"],
-      "instagram_followers": "1.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Kagiso Rabada", "Rabada", "KG"]
-    },
-    {
-      "name": "Jasprit Bumrah",
-      "sport": "Cricket",
-      "team": "Mumbai Indians",
-      "position": "Bowler",
-      "age": 31,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Gujarat", "India National Team"],
-      "instagram_followers": "6.1M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Jasprit Bumrah", "Bumrah", "Boom Boom"]
-    },
-    {
-      "name": "Rashid Khan",
-      "sport": "Cricket",
-      "team": "Gujarat Titans",
-      "position": "Bowler",
-      "age": 26,
-      "nationality": "Afghanistan",
-      "league": "IPL",
-      "previous_teams": ["Afghanistan National Team"],
-      "instagram_followers": "4.7M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Rashid Khan", "Rashid", "Khan"]
-    },
-    {
-      "name": "Andre Russell",
-      "sport": "Cricket",
-      "team": "Kolkata Knight Riders",
-      "position": "All-rounder",
-      "age": 36,
-      "nationality": "Jamaica",
-      "league": "IPL",
-      "previous_teams": ["Jamaica", "West Indies National Team"],
-      "instagram_followers": "6.2M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Andre Russell", "Russell", "Dre Russ"]
-    },
-    {
-      "name": "Chris Gayle",
-      "sport": "Cricket",
-      "team": "Retired",
-      "position": "Batsman",
-      "age": 45,
-      "nationality": "Jamaica",
-      "league": "N/A",
-      "previous_teams": ["Jamaica", "West Indies National Team", "Royal Challengers Bangalore"],
-      "instagram_followers": "2.8M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Chris Gayle", "Gayle", "Universe Boss"]
-    },
-    {
-      "name": "AB de Villiers",
-      "sport": "Cricket",
-      "team": "Retired",
-      "position": "Batsman",
-      "age": 40,
-      "nationality": "South Africa",
-      "league": "N/A",
-      "previous_teams": ["Titans", "South Africa National Team", "Royal Challengers Bangalore"],
-      "instagram_followers": "8.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["AB de Villiers", "de Villiers", "AB", "Mr. 360"]
-    },
-    {
-      "name": "Hardik Pandya",
-      "sport": "Cricket",
-      "team": "Mumbai Indians",
-      "position": "All-rounder",
-      "age": 31,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Baroda", "India National Team"],
-      "instagram_followers": "20.8M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Hardik Pandya", "Pandya", "Harry"]
-    },
-    {
-      "name": "KL Rahul",
-      "sport": "Cricket",
-      "team": "Lucknow Super Giants",
-      "position": "Batsman",
-      "age": 32,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Karnataka", "India National Team"],
-      "instagram_followers": "12.4M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["KL Rahul", "Rahul", "KL"]
-    },
-    {
-      "name": "Rishabh Pant",
-      "sport": "Cricket",
-      "team": "Delhi Capitals",
-      "position": "Wicket-keeper",
-      "age": 27,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Delhi", "India National Team"],
-      "instagram_followers": "15.2M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Rishabh Pant", "Pant", "RP17"]
-    },
-    {
-      "name": "Suryakumar Yadav",
-      "sport": "Cricket",
-      "team": "Mumbai Indians",
-      "position": "Batsman",
-      "age": 34,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Mumbai", "India National Team"],
-      "instagram_followers": "8.6M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Suryakumar Yadav", "SKY", "Surya"]
-    },
-    {
-      "name": "Shubman Gill",
-      "sport": "Cricket",
-      "team": "Gujarat Titans",
-      "position": "Batsman",
-      "age": 25,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Punjab", "India National Team"],
-      "instagram_followers": "7.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Shubman Gill", "Gill", "Shubman"]
-    },
-    {
-      "name": "Ishan Kishan",
-      "sport": "Cricket",
-      "team": "Mumbai Indians",
-      "position": "Wicket-keeper",
-      "age": 26,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Jharkhand", "India National Team"],
-      "instagram_followers": "6.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Ishan Kishan", "Kishan", "Ishan"]
-    },
-    {
-      "name": "Mohammed Siraj",
-      "sport": "Cricket",
-      "team": "Royal Challengers Bangalore",
-      "position": "Bowler",
-      "age": 30,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Hyderabad", "India National Team"],
-      "instagram_followers": "4.1M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Mohammed Siraj", "Siraj", "Miyan"]
-    },
-    {
-      "name": "Yuzvendra Chahal",
-      "sport": "Cricket",
-      "team": "Rajasthan Royals",
-      "position": "Bowler",
-      "age": 34,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Haryana", "India National Team"],
-      "instagram_followers": "8.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Yuzvendra Chahal", "Chahal", "Yuzi"]
-    },
-    {
-      "name": "Ravindra Jadeja",
-      "sport": "Cricket",
-      "team": "Chennai Super Kings",
-      "position": "All-rounder",
-      "age": 36,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Saurashtra", "India National Team"],
-      "instagram_followers": "13.8M",
-      "major_trophies": ["Cricket World Cup", "T20 World Cup"],
-      "total_names": ["Ravindra Jadeja", "Jadeja", "Jaddu", "Sir Jadeja"]
-    },
-    {
-      "name": "R. Ashwin",
-      "sport": "Cricket",
-      "team": "Rajasthan Royals",
-      "position": "Bowler",
-      "age": 38,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Tamil Nadu", "India National Team"],
-      "instagram_followers": "3.7M",
-      "major_trophies": ["N/A"],
-      "total_names": ["R. Ashwin", "Ashwin", "Ravichandran Ashwin"]
-    },
-    {
-      "name": "Mohammed Shami",
-      "sport": "Cricket",
-      "team": "Gujarat Titans",
-      "position": "Bowler",
-      "age": 34,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Bengal", "India National Team"],
-      "instagram_followers": "5.9M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Mohammed Shami", "Shami"]
-    },
-    {
-      "name": "Umran Malik",
-      "sport": "Cricket",
-      "team": "Sunrisers Hyderabad",
-      "position": "Bowler",
-      "age": 25,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Jammu and Kashmir", "India National Team"],
-      "instagram_followers": "1.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Umran Malik", "Malik", "Umran"]
-    },
-    {
-      "name": "Arshdeep Singh",
-      "sport": "Cricket",
-      "team": "Punjab Kings",
-      "position": "Bowler",
-      "age": 25,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Punjab", "India National Team"],
-      "instagram_followers": "2.1M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Arshdeep Singh", "Arshdeep", "Singh"]
-    },
-    {
-      "name": "Washington Sundar",
-      "sport": "Cricket",
-      "team": "Sunrisers Hyderabad",
-      "position": "All-rounder",
-      "age": 25,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Tamil Nadu", "India National Team"],
-      "instagram_followers": "2.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Washington Sundar", "Sundar", "Washi"]
-    },
-    {
-      "name": "Axar Patel",
-      "sport": "Cricket",
-      "team": "Delhi Capitals",
-      "position": "All-rounder",
-      "age": 30,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Gujarat", "India National Team"],
-      "instagram_followers": "3.4M",
-      "major_trophies": ["T20 World Cup"],
-      "total_names": ["Axar Patel", "Axar", "Patel"]
-    },
-    {
-      "name": "Kuldeep Yadav",
-      "sport": "Cricket",
-      "team": "Delhi Capitals",
-      "position": "Bowler",
-      "age": 30,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Uttar Pradesh", "India National Team"],
-      "instagram_followers": "4.7M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Kuldeep Yadav", "Kuldeep", "Yadav"]
-    },
-    {
-      "name": "Prithvi Shaw",
-      "sport": "Cricket",
-      "team": "Delhi Capitals",
-      "position": "Batsman",
-      "age": 25,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Mumbai", "India National Team"],
-      "instagram_followers": "3.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Prithvi Shaw", "Shaw", "Prithvi"]
-    },
-    {
-      "name": "Devdutt Padikkal",
-      "sport": "Cricket",
-      "team": "Lucknow Super Giants",
-      "position": "Batsman",
-      "age": 24,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Karnataka"],
-      "instagram_followers": "1.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Devdutt Padikkal", "Padikkal", "DDP"]
-    },
-    {
-      "name": "Ruturaj Gaikwad",
-      "sport": "Cricket",
-      "team": "Chennai Super Kings",
-      "position": "Batsman",
-      "age": 27,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Maharashtra", "India National Team"],
-      "instagram_followers": "2.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Ruturaj Gaikwad", "Gaikwad", "Rutu"]
-    },
-    {
-      "name": "Shreyas Iyer",
-      "sport": "Cricket",
-      "team": "Kolkata Knight Riders",
-      "position": "Batsman",
-      "age": 30,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Mumbai", "India National Team"],
-      "instagram_followers": "4.9M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Shreyas Iyer", "Iyer", "Shreyas"]
-    },
-    {
-      "name": "Sanju Samson",
-      "sport": "Cricket",
-      "team": "Rajasthan Royals",
-      "position": "Wicket-keeper",
-      "age": 30,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Kerala", "India National Team"],
-      "instagram_followers": "3.6M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Sanju Samson", "Samson", "Sanju"]
-    },
-    {
-      "name": "Nitish Rana",
-      "sport": "Cricket",
-      "team": "Kolkata Knight Riders",
-      "position": "Batsman",
-      "age": 31,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Delhi"],
-      "instagram_followers": "1.9M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Nitish Rana", "Rana", "Nitish"]
-    },
-    {
-      "name": "Venkatesh Iyer",
-      "sport": "Cricket",
-      "team": "Kolkata Knight Riders",
-      "position": "All-rounder",
-      "age": 29,
-      "nationality": "India",
-      "league": "IPL",
-      "previous_teams": ["Madhya Pradesh", "India National Team"],
-      "instagram_followers": "1.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Venkatesh Iyer", "Iyer", "Venky"]
+      "major_trophies": [
+        "WBC Heavyweight Championship"
+      ],
+      "total_names": [
+        "Tyson Fury",
+        "Fury",
+        "Gypsy King"
+      ]
     },
     {
       "name": "Gareth Bale",
@@ -1893,10 +4836,21 @@
       "age": 35,
       "nationality": "Wales",
       "league": "N/A",
-      "previous_teams": ["Southampton", "Tottenham", "Real Madrid", "LAFC"],
+      "previous_teams": [
+        "Southampton",
+        "Tottenham",
+        "Real Madrid",
+        "LAFC"
+      ],
       "instagram_followers": "51.2M",
-      "major_trophies": ["Champions League", "Euros"],
-      "total_names": ["Gareth Bale", "Bale"]
+      "major_trophies": [
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Gareth Bale",
+        "Bale"
+      ]
     },
     {
       "name": "Eden Hazard",
@@ -1906,10 +4860,19 @@
       "age": 33,
       "nationality": "Belgium",
       "league": "N/A",
-      "previous_teams": ["Lille", "Chelsea", "Real Madrid"],
+      "previous_teams": [
+        "Lille",
+        "Chelsea",
+        "Real Madrid"
+      ],
       "instagram_followers": "33.1M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Eden Hazard", "Hazard"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Eden Hazard",
+        "Hazard"
+      ]
     },
     {
       "name": "Toni Kroos",
@@ -1919,49 +4882,20 @@
       "age": 34,
       "nationality": "Germany",
       "league": "N/A",
-      "previous_teams": ["Bayern Munich", "Bayer Leverkusen", "Real Madrid"],
+      "previous_teams": [
+        "Bayern Munich",
+        "Bayer Leverkusen",
+        "Real Madrid"
+      ],
       "instagram_followers": "45.8M",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Toni Kroos", "Kroos"]
-    },
-    {
-      "name": "Thiago Silva",
-      "sport": "Football",
-      "team": "Fluminense",
-      "position": "CB",
-      "age": 40,
-      "nationality": "Brazil",
-      "league": "Brasileirão",
-      "previous_teams": ["Juventude", "Porto", "Dynamo Moscow", "Fluminense", "AC Milan", "PSG", "Chelsea"],
-      "instagram_followers": "11.4M",
-      "major_trophies": ["Champions League", "Copa America"],
-      "total_names": ["Thiago Silva", "Silva", "Thiago"]
-    },
-    {
-      "name": "Gerard Piqué",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "CB",
-      "age": 37,
-      "nationality": "Spain",
-      "league": "N/A",
-      "previous_teams": ["Manchester United", "Real Zaragoza", "Barcelona"],
-      "instagram_followers": "21.8M",
-      "major_trophies": ["World Cup", "Champions League", "Euros"],
-      "total_names": ["Gerard Piqué", "Pique", "Gerard Pique"]
-    },
-    {
-      "name": "Jordi Alba",
-      "sport": "Football",
-      "team": "Inter Miami",
-      "position": "LB",
-      "age": 35,
-      "nationality": "Spain",
-      "league": "MLS",
-      "previous_teams": ["Valencia", "Barcelona"],
-      "instagram_followers": "12.7M",
-      "major_trophies": ["Euros", "Champions League"],
-      "total_names": ["Jordi Alba", "Alba"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Toni Kroos",
+        "Kroos"
+      ]
     },
     {
       "name": "Sergio Busquets",
@@ -1971,36 +4905,19 @@
       "age": 36,
       "nationality": "Spain",
       "league": "MLS",
-      "previous_teams": ["Barcelona"],
+      "previous_teams": [
+        "Barcelona"
+      ],
       "instagram_followers": "18.9M",
-      "major_trophies": ["World Cup", "Champions League", "Euros"],
-      "total_names": ["Sergio Busquets", "Busquets"]
-    },
-    {
-      "name": "Cesc Fàbregas",
-      "sport": "Football",
-      "team": "Como",
-      "position": "CM",
-      "age": 37,
-      "nationality": "Spain",
-      "league": "Serie A",
-      "previous_teams": ["Arsenal", "Barcelona", "Chelsea", "AS Monaco"],
-      "instagram_followers": "16.2M",
-      "major_trophies": ["World Cup", "Euros"],
-      "total_names": ["Cesc Fàbregas", "Fabregas", "Cesc Fabregas"]
-    },
-    {
-      "name": "Xavi Hernández",
-      "sport": "Football",
-      "team": "Retired (Manager)",
-      "position": "CM",
-      "age": 44,
-      "nationality": "Spain",
-      "league": "N/A",
-      "previous_teams": ["Barcelona", "Al Sadd"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League", "Euros"],
-      "total_names": ["Xavi Hernández", "Xavi", "Xavi Hernandez"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Sergio Busquets",
+        "Busquets"
+      ]
     },
     {
       "name": "Carles Puyol",
@@ -2010,75 +4927,19 @@
       "age": 46,
       "nationality": "Spain",
       "league": "N/A",
-      "previous_teams": ["Barcelona"],
+      "previous_teams": [
+        "Barcelona"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League", "Euros"],
-      "total_names": ["Carles Puyol", "Puyol"]
-    },
-    {
-      "name": "Iker Casillas",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "GK",
-      "age": 43,
-      "nationality": "Spain",
-      "league": "N/A",
-      "previous_teams": ["Real Madrid", "Porto"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League", "Euros"],
-      "total_names": ["Iker Casillas", "Casillas"]
-    },
-    {
-      "name": "Manuel Neuer",
-      "sport": "Football",
-      "team": "Bayern Munich",
-      "position": "GK",
-      "age": 38,
-      "nationality": "Germany",
-      "league": "Bundesliga",
-      "previous_teams": ["Schalke 04"],
-      "instagram_followers": "7.8M",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Manuel Neuer", "Neuer"]
-    },
-    {
-      "name": "Marc-André ter Stegen",
-      "sport": "Football",
-      "team": "Barcelona",
-      "position": "GK",
-      "age": 32,
-      "nationality": "Germany",
-      "league": "La Liga",
-      "previous_teams": ["Borussia Mönchengladbach"],
-      "instagram_followers": "8.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Marc-André ter Stegen", "ter Stegen", "Ter Stegen"]
-    },
-    {
-      "name": "Alisson Becker",
-      "sport": "Football",
-      "team": "Liverpool",
-      "position": "GK",
-      "age": 31,
-      "nationality": "Brazil",
-      "league": "Premier League",
-      "previous_teams": ["Internacional", "Roma"],
-      "instagram_followers": "12.1M",
-      "major_trophies": ["Champions League", "Copa America"],
-      "total_names": ["Alisson Becker", "Alisson"]
-    },
-    {
-      "name": "Ederson",
-      "sport": "Football",
-      "team": "Manchester City",
-      "position": "GK",
-      "age": 31,
-      "nationality": "Brazil",
-      "league": "Premier League",
-      "previous_teams": ["Ribeirão", "Rio Ave", "Benfica"],
-      "instagram_followers": "6.4M",
-      "major_trophies": ["Champions League", "Copa America"],
-      "total_names": ["Ederson", "Ederson Moraes"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League",
+        "Euros"
+      ],
+      "total_names": [
+        "Carles Puyol",
+        "Puyol"
+      ]
     },
     {
       "name": "Thibaut Courtois",
@@ -2088,10 +4949,19 @@
       "age": 32,
       "nationality": "Belgium",
       "league": "La Liga",
-      "previous_teams": ["Genk", "Chelsea", "Atlético Madrid"],
+      "previous_teams": [
+        "Genk",
+        "Chelsea",
+        "Atletico Madrid"
+      ],
       "instagram_followers": "6.1M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Thibaut Courtois", "Courtois"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Thibaut Courtois",
+        "Courtois"
+      ]
     },
     {
       "name": "Gianluigi Donnarumma",
@@ -2101,10 +4971,17 @@
       "age": 25,
       "nationality": "Italy",
       "league": "Ligue 1",
-      "previous_teams": ["AC Milan"],
+      "previous_teams": [
+        "AC Milan"
+      ],
       "instagram_followers": "4.8M",
-      "major_trophies": ["Euros"],
-      "total_names": ["Gianluigi Donnarumma", "Donnarumma"]
+      "major_trophies": [
+        "Euros"
+      ],
+      "total_names": [
+        "Gianluigi Donnarumma",
+        "Donnarumma"
+      ]
     },
     {
       "name": "Jordan Pickford",
@@ -2114,23 +4991,18 @@
       "age": 30,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Sunderland", "Preston North End"],
+      "previous_teams": [
+        "Sunderland",
+        "Preston North End"
+      ],
       "instagram_followers": "1.4M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Jordan Pickford", "Pickford"]
-    },
-    {
-      "name": "Aaron Ramsdale",
-      "sport": "Football",
-      "team": "Southampton",
-      "position": "GK",
-      "age": 26,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Sheffield United", "Bournemouth", "Arsenal"],
-      "instagram_followers": "892K",
-      "major_trophies": ["N/A"],
-      "total_names": ["Aaron Ramsdale", "Ramsdale"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Jordan Pickford",
+        "Pickford"
+      ]
     },
     {
       "name": "Hugo Lloris",
@@ -2140,75 +5012,19 @@
       "age": 37,
       "nationality": "France",
       "league": "MLS",
-      "previous_teams": ["Nice", "Lyon", "Tottenham"],
+      "previous_teams": [
+        "Nice",
+        "Lyon",
+        "Tottenham"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Hugo Lloris", "Lloris"]
-    },
-    {
-      "name": "Mike Maignan",
-      "sport": "Football",
-      "team": "AC Milan",
-      "position": "GK",
-      "age": 29,
-      "nationality": "France",
-      "league": "Serie A",
-      "previous_teams": ["PSG", "Lille"],
-      "instagram_followers": "1.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Mike Maignan", "Maignan"]
-    },
-    {
-      "name": "Yann Sommer",
-      "sport": "Football",
-      "team": "Inter Milan",
-      "position": "GK",
-      "age": 35,
-      "nationality": "Switzerland",
-      "league": "Serie A",
-      "previous_teams": ["Basel", "Borussia Mönchengladbach", "Bayern Munich"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Yann Sommer", "Sommer"]
-    },
-    {
-      "name": "Emiliano Martínez",
-      "sport": "Football",
-      "team": "Aston Villa",
-      "position": "GK",
-      "age": 32,
-      "nationality": "Argentina",
-      "league": "Premier League",
-      "previous_teams": ["Arsenal", "Sheffield Wednesday", "Rotherham United", "Wolverhampton Wanderers", "Getafe", "Arsenal"],
-      "instagram_followers": "7.2M",
-      "major_trophies": ["World Cup", "Copa America"],
-      "total_names": ["Emiliano Martínez", "Martinez", "Emi Martinez"]
-    },
-    {
-      "name": "Jan Oblak",
-      "sport": "Football",
-      "team": "Atlético Madrid",
-      "position": "GK",
-      "age": 31,
-      "nationality": "Slovenia",
-      "league": "La Liga",
-      "previous_teams": ["Olimpija Ljubljana", "Benfica"],
-      "instagram_followers": "4.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Jan Oblak", "Oblak"]
-    },
-    {
-      "name": "Kasper Schmeichel",
-      "sport": "Football",
-      "team": "Celtic",
-      "position": "GK",
-      "age": 38,
-      "nationality": "Denmark",
-      "league": "Scottish Premiership",
-      "previous_teams": ["Manchester City", "Darlington", "Bury", "Falkirk", "Cardiff City", "Coventry City", "Notts County", "Leeds United", "Leicester City", "Nice"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Kasper Schmeichel", "Schmeichel"]
+      "major_trophies": [
+        "World Cup"
+      ],
+      "total_names": [
+        "Hugo Lloris",
+        "Lloris"
+      ]
     },
     {
       "name": "David de Gea",
@@ -2218,192 +5034,19 @@
       "age": 34,
       "nationality": "Spain",
       "league": "Serie A",
-      "previous_teams": ["Atlético Madrid", "Manchester United"],
+      "previous_teams": [
+        "Atletico Madrid",
+        "Manchester United"
+      ],
       "instagram_followers": "19.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["David de Gea", "de Gea", "De Gea"]
-    },
-    {
-      "name": "Keylor Navas",
-      "sport": "Football",
-      "team": "PSG",
-      "position": "GK",
-      "age": 38,
-      "nationality": "Costa Rica",
-      "league": "Ligue 1",
-      "previous_teams": ["Saprissa", "Albacete", "Levante", "Real Madrid"],
-      "instagram_followers": "18.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Keylor Navas", "Navas"]
-    },
-    {
-      "name": "Fraser Forster",
-      "sport": "Football",
-      "team": "Tottenham",
-      "position": "GK",
-      "age": 36,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Newcastle United", "Stockport County", "Bristol Rovers", "Norwich City", "Celtic", "Southampton"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Fraser Forster", "Forster"]
-    },
-    {
-      "name": "Nick Pope",
-      "sport": "Football",
-      "team": "Newcastle United",
-      "position": "GK",
-      "age": 32,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Charlton Athletic", "Cambridge United", "Aldershot Town", "Harrow Borough", "Welling United", "Bury", "York City", "Burnley"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Nick Pope", "Pope"]
-    },
-    {
-      "name": "Andre Onana",
-      "sport": "Football",
-      "team": "Manchester United",
-      "position": "GK",
-      "age": 28,
-      "nationality": "Cameroon",
-      "league": "Premier League",
-      "previous_teams": ["Barcelona", "Ajax", "Inter Milan"],
-      "instagram_followers": "3.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Andre Onana", "Onana"]
-    },
-    {
-      "name": "Robert Sánchez",
-      "sport": "Football",
-      "team": "Chelsea",
-      "position": "GK",
-      "age": 27,
-      "nationality": "Spain",
-      "league": "Premier League",
-      "previous_teams": ["Brighton", "Forest Green Rovers", "Rochdale"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Robert Sánchez", "Sanchez", "Robert Sanchez"]
-    },
-    {
-      "name": "Bernd Leno",
-      "sport": "Football",
-      "team": "Fulham",
-      "position": "GK",
-      "age": 32,
-      "nationality": "Germany",
-      "league": "Premier League",
-      "previous_teams": ["Stuttgart", "Bayer Leverkusen", "Arsenal"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Bernd Leno", "Leno"]
-    },
-    {
-      "name": "Unai Simón",
-      "sport": "Football",
-      "team": "Athletic Bilbao",
-      "position": "GK",
-      "age": 27,
-      "nationality": "Spain",
-      "league": "La Liga",
-      "previous_teams": ["Athletic Bilbao B"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Euros"],
-      "total_names": ["Unai Simón", "Simon", "Unai Simon"]
-    },
-    {
-      "name": "Wojciech Szczęsny",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "GK",
-      "age": 34,
-      "nationality": "Poland",
-      "league": "N/A",
-      "previous_teams": ["Arsenal", "Roma", "Juventus"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Wojciech Szczęsny", "Szczesny", "Wojciech Szczesny"]
-    },
-    {
-      "name": "Samir Handanovič",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "GK",
-      "age": 40,
-      "nationality": "Slovenia",
-      "league": "N/A",
-      "previous_teams": ["Domžale", "Zadar", "Treviso", "Lazio", "Rimini", "Udinese", "Inter Milan"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Samir Handanovič", "Handanovic", "Samir Handanovic"]
-    },
-    {
-      "name": "Gigi Buffon",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "GK",
-      "age": 46,
-      "nationality": "Italy",
-      "league": "N/A",
-      "previous_teams": ["Parma", "Juventus", "PSG"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Gigi Buffon", "Buffon", "Gianluigi Buffon"]
-    },
-    {
-      "name": "Petr Čech",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "GK",
-      "age": 42,
-      "nationality": "Czech Republic",
-      "league": "N/A",
-      "previous_teams": ["Chmel Blšany", "Sparta Prague", "Rennes", "Chelsea", "Arsenal"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Petr Čech", "Cech", "Petr Cech"]
-    },
-    {
-      "name": "Edwin van der Sar",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "GK",
-      "age": 54,
-      "nationality": "Netherlands",
-      "league": "N/A",
-      "previous_teams": ["Ajax", "Juventus", "Fulham", "Manchester United"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Edwin van der Sar", "van der Sar"]
-    },
-    {
-      "name": "Oliver Kahn",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "GK",
-      "age": 55,
-      "nationality": "Germany",
-      "league": "N/A",
-      "previous_teams": ["Karlsruher SC", "Bayern Munich"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Oliver Kahn", "Kahn"]
-    },
-    {
-      "name": "Fabio Cannavaro",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "CB",
-      "age": 51,
-      "nationality": "Italy",
-      "league": "N/A",
-      "previous_teams": ["Napoli", "Parma", "Inter Milan", "Juventus", "Real Madrid", "Al-Ahli"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Ballon d'Or"],
-      "total_names": ["Fabio Cannavaro", "Cannavaro"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "David de Gea",
+        "de Gea",
+        "De Gea"
+      ]
     },
     {
       "name": "Paolo Maldini",
@@ -2413,36 +5056,18 @@
       "age": 56,
       "nationality": "Italy",
       "league": "N/A",
-      "previous_teams": ["AC Milan"],
+      "previous_teams": [
+        "AC Milan"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Paolo Maldini", "Maldini"]
-    },
-    {
-      "name": "Franco Baresi",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "CB",
-      "age": 64,
-      "nationality": "Italy",
-      "league": "N/A",
-      "previous_teams": ["AC Milan"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Franco Baresi", "Baresi"]
-    },
-    {
-      "name": "Rio Ferdinand",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "CB",
-      "age": 46,
-      "nationality": "England",
-      "league": "N/A",
-      "previous_teams": ["West Ham United", "Leeds United", "Manchester United", "Queens Park Rangers"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["Rio Ferdinand", "Ferdinand"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Paolo Maldini",
+        "Maldini"
+      ]
     },
     {
       "name": "John Terry",
@@ -2452,88 +5077,21 @@
       "age": 44,
       "nationality": "England",
       "league": "N/A",
-      "previous_teams": ["Chelsea", "Nottingham Forest", "Aston Villa"],
+      "previous_teams": [
+        "Chelsea",
+        "Nottingham Forest",
+        "Aston Villa"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["John Terry", "Terry", "JT"]
-    },
-    {
-      "name": "Nemanja Vidić",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "CB",
-      "age": 43,
-      "nationality": "Serbia",
-      "league": "N/A",
-      "previous_teams": ["Red Star Belgrade", "Spartak Moscow", "Manchester United", "Inter Milan"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["Nemanja Vidić", "Vidic", "Nemanja Vidic"]
-    },
-    {
-      "name": "Vincent Kompany",
-      "sport": "Football",
-      "team": "Bayern Munich (Manager)",
-      "position": "CB",
-      "age": 38,
-      "nationality": "Belgium",
-      "league": "N/A",
-      "previous_teams": ["Anderlecht", "Hamburg", "Manchester City", "Burnley"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["PL HOF"],
-      "total_names": ["Vincent Kompany", "Kompany"]
-    },
-    {
-      "name": "Jamie Carragher",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "CB",
-      "age": 46,
-      "nationality": "England",
-      "league": "N/A",
-      "previous_teams": ["Liverpool"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["Jamie Carragher", "Carragher", "Carra"]
-    },
-    {
-      "name": "Ashley Cole",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "LB",
-      "age": 44,
-      "nationality": "England",
-      "league": "N/A",
-      "previous_teams": ["Arsenal", "Crystal Palace", "Chelsea", "Roma", "LA Galaxy", "Derby County"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "PL HOF"],
-      "total_names": ["Ashley Cole", "Cole"]
-    },
-    {
-      "name": "Philipp Lahm",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "RB/DM",
-      "age": 41,
-      "nationality": "Germany",
-      "league": "N/A",
-      "previous_teams": ["Bayern Munich", "VfB Stuttgart"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Philipp Lahm", "Lahm"]
-    },
-    {
-      "name": "Dani Alves",
-      "sport": "Football",
-      "team": "Retired",
-      "position": "RB",
-      "age": 41,
-      "nationality": "Brazil",
-      "league": "N/A",
-      "previous_teams": ["Bahia", "Sevilla", "Barcelona", "Juventus", "PSG", "São Paulo"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["Champions League", "Copa America"],
-      "total_names": ["Dani Alves", "Alves"]
+      "major_trophies": [
+        "Champions League",
+        "PL HOF"
+      ],
+      "total_names": [
+        "John Terry",
+        "Terry",
+        "JT"
+      ]
     },
     {
       "name": "Cafu",
@@ -2543,10 +5101,22 @@
       "age": 54,
       "nationality": "Brazil",
       "league": "N/A",
-      "previous_teams": ["São Paulo", "Real Zaragoza", "Palmeiras", "Roma", "AC Milan"],
+      "previous_teams": [
+        "Sao Paulo",
+        "Real Zaragoza",
+        "Palmeiras",
+        "Roma",
+        "AC Milan"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Cafu", "Marcos Evangelista de Moraes"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Cafu",
+        "Marcos Evangelista de Moraes"
+      ]
     },
     {
       "name": "Roberto Carlos",
@@ -2556,75 +5126,26 @@
       "age": 51,
       "nationality": "Brazil",
       "league": "N/A",
-      "previous_teams": ["União São João", "Atlético Mineiro", "Palmeiras", "Inter Milan", "Real Madrid", "Fenerbahçe", "Corinthians", "Anzhi Makhachkala", "Delhi Dynamos"],
+      "previous_teams": [
+        "Uniao Sao Joao",
+        "Atletico Mineiro",
+        "Palmeiras",
+        "Inter Milan",
+        "Real Madrid",
+        "Fenerbahae",
+        "Corinthians",
+        "Anzhi Makhachkala",
+        "Delhi Dynamos"
+      ],
       "instagram_followers": "N/A",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Roberto Carlos", "Carlos"]
-    },
-    {
-      "name": "Marcelo",
-      "sport": "Football",
-      "team": "Fluminense",
-      "position": "LB",
-      "age": 36,
-      "nationality": "Brazil",
-      "league": "Brasileirão",
-      "previous_teams": ["Fluminense", "Real Madrid", "Olympiacos"],
-      "instagram_followers": "57.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Marcelo", "Marcelo Vieira"]
-    },
-    {
-      "name": "Dani Carvajal",
-      "sport": "Football",
-      "team": "Real Madrid",
-      "position": "RB",
-      "age": 32,
-      "nationality": "Spain",
-      "league": "La Liga",
-      "previous_teams": ["Bayer Leverkusen"],
-      "instagram_followers": "8.7M",
-      "major_trophies": ["Champions League", "Euros"],
-      "total_names": ["Dani Carvajal", "Carvajal"]
-    },
-    {
-      "name": "Andrew Robertson",
-      "sport": "Football",
-      "team": "Liverpool",
-      "position": "LB",
-      "age": 30,
-      "nationality": "Scotland",
-      "league": "Premier League",
-      "previous_teams": ["Queen's Park", "Dundee United", "Hull City"],
-      "instagram_followers": "3.2M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Andrew Robertson", "Robertson", "Robbo"]
-    },
-    {
-      "name": "Luke Shaw",
-      "sport": "Football",
-      "team": "Manchester United",
-      "position": "LB",
-      "age": 29,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Southampton"],
-      "instagram_followers": "4.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Luke Shaw", "Shaw"]
-    },
-    {
-      "name": "Ben Chilwell",
-      "sport": "Football",
-      "team": "Chelsea",
-      "position": "LB",
-      "age": 28,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Leicester City"],
-      "instagram_followers": "2.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Ben Chilwell", "Chilwell"]
+      "major_trophies": [
+        "World Cup",
+        "Champions League"
+      ],
+      "total_names": [
+        "Roberto Carlos",
+        "Carlos"
+      ]
     },
     {
       "name": "Kyle Walker",
@@ -2634,23 +5155,19 @@
       "age": 34,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Sheffield United", "Northampton Town", "Tottenham"],
+      "previous_teams": [
+        "Sheffield United",
+        "Northampton Town",
+        "Tottenham"
+      ],
       "instagram_followers": "2.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Kyle Walker", "Walker"]
-    },
-    {
-      "name": "João Cancelo",
-      "sport": "Football",
-      "team": "Al Hilal",
-      "position": "RB/LB",
-      "age": 30,
-      "nationality": "Portugal",
-      "league": "Saudi Pro League",
-      "previous_teams": ["Benfica", "Valencia", "Inter Milan", "Juventus", "Manchester City", "Bayern Munich", "Barcelona"],
-      "instagram_followers": "12.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["João Cancelo", "Cancelo", "Joao Cancelo"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Kyle Walker",
+        "Walker"
+      ]
     },
     {
       "name": "Achraf Hakimi",
@@ -2660,218 +5177,19 @@
       "age": 26,
       "nationality": "Morocco",
       "league": "Ligue 1",
-      "previous_teams": ["Real Madrid", "Borussia Dortmund", "Inter Milan"],
+      "previous_teams": [
+        "Real Madrid",
+        "Borussia Dortmund",
+        "Inter Milan"
+      ],
       "instagram_followers": "13.7M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Achraf Hakimi", "Hakimi"]
-    },
-    {
-      "name": "Theo Hernández",
-      "sport": "Football",
-      "team": "AC Milan",
-      "position": "LB",
-      "age": 27,
-      "nationality": "France",
-      "league": "Serie A",
-      "previous_teams": ["Atlético Madrid", "Alavés", "Real Madrid", "Real Sociedad"],
-      "instagram_followers": "4.9M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Theo Hernández", "Hernandez", "Theo Hernandez"]
-    },
-    {
-      "name": "Ferland Mendy",
-      "sport": "Football",
-      "team": "Real Madrid",
-      "position": "LB",
-      "age": 29,
-      "nationality": "France",
-      "league": "La Liga",
-      "previous_teams": ["Le Havre", "Lyon"],
-      "instagram_followers": "3.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Ferland Mendy", "Mendy"]
-    },
-    {
-      "name": "Benjamin Mendy",
-      "sport": "Football",
-      "team": "Lorient",
-      "position": "LB",
-      "age": 30,
-      "nationality": "France",
-      "league": "Ligue 1",
-      "previous_teams": ["Le Havre", "Marseille", "AS Monaco", "Manchester City"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Benjamin Mendy", "B. Mendy"]
-    },
-    {
-      "name": "Lucas Hernández",
-      "sport": "Football",
-      "team": "PSG",
-      "position": "CB/LB",
-      "age": 28,
-      "nationality": "France",
-      "league": "Ligue 1",
-      "previous_teams": ["Atlético Madrid", "Bayern Munich"],
-      "instagram_followers": "4.2M",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Lucas Hernández", "L. Hernandez", "Lucas Hernandez"]
-    },
-    {
-      "name": "Raphaël Varane",
-      "sport": "Football",
-      "team": "Como",
-      "position": "CB",
-      "age": 31,
-      "nationality": "France",
-      "league": "Serie A",
-      "previous_teams": ["Lens", "Real Madrid", "Manchester United"],
-      "instagram_followers": "12.4M",
-      "major_trophies": ["World Cup", "Champions League"],
-      "total_names": ["Raphaël Varane", "Varane", "Raphael Varane"]
-    },
-    {
-      "name": "Presnel Kimpembe",
-      "sport": "Football",
-      "team": "PSG",
-      "position": "CB",
-      "age": 29,
-      "nationality": "France",
-      "league": "Ligue 1",
-      "previous_teams": ["PSG Academy"],
-      "instagram_followers": "3.1M",
-      "major_trophies": ["World Cup"],
-      "total_names": ["Presnel Kimpembe", "Kimpembe"]
-    },
-    {
-      "name": "Jules Koundé",
-      "sport": "Football",
-      "team": "Barcelona",
-      "position": "CB/RB",
-      "age": 26,
-      "nationality": "France",
-      "league": "La Liga",
-      "previous_teams": ["Bordeaux", "Sevilla"],
-      "instagram_followers": "2.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Jules Koundé", "Kounde", "Jules Kounde"]
-    },
-    {
-      "name": "Dayot Upamecano",
-      "sport": "Football",
-      "team": "Bayern Munich",
-      "position": "CB",
-      "age": 26,
-      "nationality": "France",
-      "league": "Bundesliga",
-      "previous_teams": ["Valenciennes", "Liefering", "Red Bull Salzburg", "RB Leipzig"],
-      "instagram_followers": "1.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Dayot Upamecano", "Upamecano"]
-    },
-    {
-      "name": "Ibrahima Konaté",
-      "sport": "Football",
-      "team": "Liverpool",
-      "position": "CB",
-      "age": 25,
-      "nationality": "France",
-      "league": "Premier League",
-      "previous_teams": ["Sochaux", "RB Leipzig"],
-      "instagram_followers": "1.4M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Ibrahima Konaté", "Konate", "Ibrahima Konate"]
-    },
-    {
-      "name": "Wesley Fofana",
-      "sport": "Football",
-      "team": "Chelsea",
-      "position": "CB",
-      "age": 24,
-      "nationality": "France",
-      "league": "Premier League",
-      "previous_teams": ["Saint-Étienne", "Leicester City"],
-      "instagram_followers": "1.8M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Wesley Fofana", "Fofana"]
-    },
-    {
-      "name": "Fikayo Tomori",
-      "sport": "Football",
-      "team": "AC Milan",
-      "position": "CB",
-      "age": 27,
-      "nationality": "England",
-      "league": "Serie A",
-      "previous_teams": ["Chelsea", "Brighton", "Hull City", "Derby County"],
-      "instagram_followers": "1.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Fikayo Tomori", "Tomori"]
-    },
-    {
-      "name": "John Stones",
-      "sport": "Football",
-      "team": "Manchester City",
-      "position": "CB",
-      "age": 30,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Barnsley", "Everton"],
-      "instagram_followers": "2.4M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["John Stones", "Stones"]
-    },
-    {
-      "name": "Harry Maguire",
-      "sport": "Football",
-      "team": "Manchester United",
-      "position": "CB",
-      "age": 31,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Sheffield United", "Hull City", "Leicester City"],
-      "instagram_followers": "4.1M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Harry Maguire", "Maguire"]
-    },
-    {
-      "name": "Levi Colwill",
-      "sport": "Football",
-      "team": "Chelsea",
-      "position": "CB/LB",
-      "age": 22,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Huddersfield Town", "Brighton"],
-      "instagram_followers": "892K",
-      "major_trophies": ["N/A"],
-      "total_names": ["Levi Colwill", "Colwill"]
-    },
-    {
-      "name": "Marc Guéhi",
-      "sport": "Football",
-      "team": "Crystal Palace",
-      "position": "CB",
-      "age": 24,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Chelsea", "Swansea City"],
-      "instagram_followers": "682K",
-      "major_trophies": ["N/A"],
-      "total_names": ["Marc Guéhi", "Guehi", "Marc Guehi"]
-    },
-    {
-      "name": "Ezri Konsa",
-      "sport": "Football",
-      "team": "Aston Villa",
-      "position": "CB",
-      "age": 27,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Charlton Athletic", "Brentford"],
-      "instagram_followers": "N/A",
-      "major_trophies": ["N/A"],
-      "total_names": ["Ezri Konsa", "Konsa"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Achraf Hakimi",
+        "Hakimi"
+      ]
     },
     {
       "name": "Jadon Sancho",
@@ -2881,10 +5199,20 @@
       "age": 24,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Manchester City", "Watford", "Borussia Dortmund", "Manchester United"],
+      "previous_teams": [
+        "Manchester City",
+        "Watford",
+        "Borussia Dortmund",
+        "Manchester United"
+      ],
       "instagram_followers": "11.2M",
-      "major_trophies": ["N/A"],
-      "total_names": ["Jadon Sancho", "Sancho"]
+      "major_trophies": [
+        "N/A"
+      ],
+      "total_names": [
+        "Jadon Sancho",
+        "Sancho"
+      ]
     },
     {
       "name": "Jack Grealish",
@@ -2894,133 +5222,17 @@
       "age": 29,
       "nationality": "England",
       "league": "Premier League",
-      "previous_teams": ["Aston Villa"],
+      "previous_teams": [
+        "Aston Villa"
+      ],
       "instagram_followers": "5.8M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Jack Grealish", "Grealish"]
-    },
-    {
-      "name": "Raheem Sterling",
-      "sport": "Football",
-      "team": "Arsenal",
-      "position": "LW/RW",
-      "age": 30,
-      "nationality": "England",
-      "league": "Premier League",
-      "previous_teams": ["Queens Park Rangers", "Liverpool", "Manchester City", "Chelsea"],
-      "instagram_followers": "8.1M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Raheem Sterling", "Sterling"]
-    },
-    {
-      "name": "Riyad Mahrez",
-      "sport": "Football",
-      "team": "Al Ahli",
-      "position": "RW",
-      "age": 33,
-      "nationality": "Algeria",
-      "league": "Saudi Pro League",
-      "previous_teams": ["Le Havre", "Leicester City", "Manchester City"],
-      "instagram_followers": "8.4M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Riyad Mahrez", "Mahrez"]
-    },
-    {
-      "name": "Leroy Sané",
-      "sport": "Football",
-      "team": "Bayern Munich",
-      "position": "LW/RW",
-      "age": 28,
-      "nationality": "Germany",
-      "league": "Bundesliga",
-      "previous_teams": ["Schalke 04", "Manchester City"],
-      "instagram_followers": "6.7M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Leroy Sané", "Sane", "Leroy Sane"]
-    },
-    {
-      "name": "Serge Gnabry",
-      "sport": "Football",
-      "team": "Bayern Munich",
-      "position": "RW/LW",
-      "age": 29,
-      "nationality": "Germany",
-      "league": "Bundesliga",
-      "previous_teams": ["Arsenal", "West Bromwich Albion", "Werder Bremen", "1899 Hoffenheim"],
-      "instagram_followers": "4.9M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Serge Gnabry", "Gnabry"]
-    },
-    {
-      "name": "Kingsley Coman",
-      "sport": "Football",
-      "team": "Bayern Munich",
-      "position": "LW/RW",
-      "age": 28,
-      "nationality": "France",
-      "league": "Bundesliga",
-      "previous_teams": ["PSG", "Juventus"],
-      "instagram_followers": "6.2M",
-      "major_trophies": ["Champions League"],
-      "total_names": ["Kingsley Coman", "Coman"]
+      "major_trophies": [
+        "Champions League"
+      ],
+      "total_names": [
+        "Jack Grealish",
+        "Grealish"
+      ]
     }
-  ],
-  "metadata": {
-    "total_unique_players": 228,
-    "data_updated": "September 2025",
-    "duplicate_entries_resolved": [
-      "All duplicates from both source files have been resolved",
-      "Maintained all authentic data from existing files",
-      "Added additional players to reach exactly 228 total"
-    ],
-    "data_consistency": "All players have identical field structure including total_names field",
-    "position_abbreviations": {
-      "GK": "Goalkeeper",
-      "CB": "Center Back",
-      "LB": "Left Back",
-      "RB": "Right Back",
-      "LWB": "Left Wing Back",
-      "RWB": "Right Wing Back",
-      "DM": "Defensive Midfielder",
-      "CM": "Center Midfielder",
-      "CAM": "Central Attacking Midfielder",
-      "AM": "Attacking Midfielder",
-      "LM": "Left Midfielder",
-      "RM": "Right Midfielder",
-      "LW": "Left Winger",
-      "RW": "Right Winger",
-      "CF": "Center Forward",
-      "ST": "Striker",
-      "SF": "Small Forward",
-      "PF": "Power Forward",
-      "C": "Center",
-      "PG": "Point Guard",
-      "SG": "Shooting Guard",
-      "Manager": "Manager/Coach",
-      "Driver": "Formula 1 Driver",
-      "Heavyweight": "Boxing Heavyweight",
-      "Super Middleweight": "Boxing Super Middleweight",
-      "Lightweight": "Boxing/MMA Lightweight",
-      "Bantamweight": "MMA Bantamweight",
-      "Light Heavyweight": "MMA Light Heavyweight",
-      "Tennis Player": "Tennis Player",
-      "Golfer": "Golf Player",
-      "Batsman": "Cricket Batsman",
-      "Bowler": "Cricket Bowler",
-      "All-rounder": "Cricket All-rounder",
-      "Wicket-keeper": "Cricket Wicket-keeper"
-    },
-    "notes": {
-      "ages": "Ages calculated as of September 2025",
-      "transfers": "Includes notable transfers through September 2025 window",
-      "retired_players": "Included for historical/marketing interest",
-      "data_accuracy": "All data verified from public sources as of September 2025",
-      "sports_included": ["Football", "Basketball", "Formula 1", "Tennis", "Golf", "Boxing", "MMA", "Cricket"],
-      "merge_process": "Combined data from complete_player_data_fixed.json and player_essential_data_json.json, resolved all duplicates, and added additional players to reach exactly 228 unique players",
-      "instagram_note": "Instagram follower counts preserved from original data where available. Real data maintained for all major players (Messi 505.08M, Cristiano 647.83M, Neymar 227.58M, etc.)",
-      "trophy_standardization": "Added appropriate major trophies for all sports disciplines",
-      "total_names": "Complete list of all name variations including main name for comprehensive search matching",
-      "real_data_preserved": "All authentic Instagram follower counts and trophy information from source files maintained exactly as provided"
-    }
-  }
+  ]
 }
