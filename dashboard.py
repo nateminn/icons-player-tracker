@@ -104,20 +104,32 @@ def combine_monthly_data(monthly_data, selected_months):
     # Concatenate all selected months
     combined_df = pd.concat(combined_dfs, ignore_index=True)
     
-    # If "All" is selected, aggregate the data properly
+    # If "All" is selected with multiple months, aggregate the data properly
     if len(selected_months) > 1:
-        # For aggregated view, sum volumes across months for same player/country/search combinations
-        aggregation_columns = ['actual_player', 'name_variation', 'country', 'country_code', 
-                              'merch_category', 'merch_term', 'search_type', 'status']
+        # For aggregated view, we need to be careful about how we combine
+        # Some columns should be aggregated (volumes), others should be preserved
+        
+        # Define grouping columns - these identify unique search terms
+        grouping_columns = ['actual_player', 'name_variation', 'country', 'country_code', 
+                           'search_type', 'status']
+        
+        # Add merch columns only if they exist
+        if 'merch_category' in combined_df.columns:
+            grouping_columns.append('merch_category')
+        if 'merch_term' in combined_df.columns:
+            grouping_columns.append('merch_term')
+        
+        # Remove any columns that don't exist in the dataframe
+        grouping_columns = [col for col in grouping_columns if col in combined_df.columns]
         
         # Group by all relevant columns and sum the volumes
-        combined_df = combined_df.groupby(aggregation_columns, dropna=False).agg({
+        combined_df = combined_df.groupby(grouping_columns, dropna=False).agg({
             'volume': 'sum',
             'has_volume': 'max'  # Use max to indicate if any month had volume
         }).reset_index()
         
         # Add a combined month indicator
-        combined_df['month'] = 'Combined'
+        combined_df['month'] = 'Combined (' + ', '.join(selected_months) + ')'
     
     return combined_df
 
@@ -212,6 +224,21 @@ with st.sidebar:
     unsigned_players = df[df['status'] == 'unsigned']['actual_player'].nunique()
     
     st.success(f"✅ Loaded {len(df):,} rows | {unique_players_count} players ({signed_players} signed, {unsigned_players} unsigned)")
+    
+    # Debug information - can be removed later
+    with st.expander("🔍 Debug: Data Loading Details"):
+        for month in available_months:
+            if month in monthly_data:
+                month_df = monthly_data[month]
+                st.write(f"**{month}**: {len(month_df):,} rows | {month_df['actual_player'].nunique()} unique players")
+                signed = month_df[month_df['status'] == 'signed']['actual_player'].nunique()
+                unsigned = month_df[month_df['status'] == 'unsigned']['actual_player'].nunique()
+                st.write(f"  - Signed: {signed}, Unsigned: {unsigned}")
+        
+        if selected_month_option == 'All':
+            st.write("**Combined Data Processing:**")
+            st.write(f"Total rows after combination: {len(df):,}")
+            st.write(f"Expected if simply concatenated: {sum(len(monthly_data[m]) for m in available_months):,}")
     
     st.markdown("---")
     
