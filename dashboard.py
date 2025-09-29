@@ -484,39 +484,42 @@ if not filtered_df.empty:
             st.plotly_chart(fig_avg, use_container_width=True)
     
     with tab3:
-        # Player Details
-        st.markdown("### Individual Player Analysis")
+        # Player Details - ENHANCED VERSION
+        st.markdown("### **Individual Player Analysis**")
         
         # Get unique players sorted by total volume
         player_volumes_for_select = filtered_df.groupby('actual_player')['volume'].sum().sort_values(ascending=False)
         player_options = player_volumes_for_select.index.tolist()
         
+        # Simple player selection
         selected_player = st.selectbox(
             "Select a player to analyze:",
             options=player_options
         )
         
         player_data = filtered_df[filtered_df['actual_player'] == selected_player]
+        player_status = player_data['status'].iloc[0] if len(player_data) > 0 else 'unknown'
+        
+        # Get additional player info if available
         player_info = player_dict.get(selected_player, {}) if player_dict else {}
         
-        # Display player profile and metrics (same as before but using 'volume' instead of 'july_2025_volume')
-        st.markdown("#### Player Profile")
+        st.markdown("---")
         
-        col1, col2, col3, col4 = st.columns(4)
+        # PLAYER PROFILE SECTION - ENHANCED
+        st.markdown("#### **Player Profile**")
+        
+        # First row - Basic info with 5 columns (added signing status)
+        col1, col2, col3, col4, col5 = st.columns(5)
         
         with col1:
-            st.markdown("**Sport**")
-            st.info(player_info.get('sport', 'N/A'))
-        
-        with col2:
             st.markdown("**Current Team**")
             st.info(player_info.get('team', 'N/A'))
         
-        with col3:
+        with col2:
             st.markdown("**Position**")
             st.info(player_info.get('position', 'N/A'))
         
-        with col4:
+        with col3:
             st.markdown("**Age**")
             age = player_info.get('age', 'N/A')
             if isinstance(age, (int, float)):
@@ -524,10 +527,44 @@ if not filtered_df.empty:
             else:
                 st.info(str(age))
         
-        # Search Performance Metrics
-        st.markdown("---")
-        st.markdown("#### Search Performance Metrics")
+        with col4:
+            st.markdown("**Nationality**")
+            st.info(player_info.get('nationality', 'N/A'))
         
+        with col5:
+            st.markdown("**Signing Status**")
+            if player_status == 'signed':
+                st.success("✅ Signed")
+            elif player_status == 'unsigned':
+                st.warning("⏳ Unsigned")
+            else:
+                st.info("Unknown")
+        
+        # Second row - League and Career History
+        col1, col2 = st.columns([1, 3])
+        
+        with col1:
+            st.markdown("**Current League**")
+            st.success(player_info.get('league', 'N/A'))
+        
+        with col2:
+            st.markdown("**Career History**")
+            if player_info and player_info.get('previous_teams'):
+                previous_teams = player_info.get('previous_teams', [])
+                career_path = " → ".join(previous_teams)
+                current_team = player_info.get('team', '')
+                if current_team and current_team != 'Retired' and 'Deceased' not in current_team:
+                    career_path = career_path + " → " + current_team if career_path else current_team
+                st.success(career_path if career_path else "No previous clubs recorded")
+            else:
+                st.success("No career history available")
+        
+        st.markdown("---")
+        
+        # SEARCH PERFORMANCE METRICS
+        st.markdown("#### **Search Performance Metrics**")
+        
+        # Calculate metrics
         total_searches = player_data['volume'].sum()
         countries = player_data['country'].nunique()
         name_variations = player_data['name_variation'].nunique()
@@ -537,17 +574,59 @@ if not filtered_df.empty:
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.metric("Total Searches", f"{total_searches:,}")
-        with col2:
-            st.metric("Countries", f"{countries}")
-        with col3:
-            st.metric("Name Variations", f"{name_variations}")
-        with col4:
-            st.metric("Merch Interest", f"{merch_pct:.1f}%")
+            st.metric(
+                label="Total Searches",
+                value=f"{total_searches:,}"
+            )
         
-        # Visualizations
+        with col2:
+            st.metric(
+                label="Countries",
+                value=f"{countries}"
+            )
+        
+        with col3:
+            st.metric(
+                label="Name Variations",
+                value=f"{name_variations}"
+            )
+        
+        with col4:
+            st.metric(
+                label="Merch Interest",
+                value=f"{merch_pct:.1f}%"
+            )
+        
+        st.markdown("---")
+        
+        # MARKET DISTRIBUTION
+        st.markdown("#### **Market Distribution**")
+        
+        # Top markets info
         player_country_data = player_data.groupby('country')['volume'].sum().sort_values(ascending=False).reset_index()
         
+        if not player_country_data.empty:
+            # Show top 3 markets
+            col1, col2, col3 = st.columns(3)
+            
+            for i, col in enumerate([col1, col2, col3]):
+                if i < len(player_country_data):
+                    with col:
+                        country = player_country_data.iloc[i]['country']
+                        volume = player_country_data.iloc[i]['volume']
+                        percentage = (volume / total_searches * 100) if total_searches > 0 else 0
+                        st.metric(
+                            f"#{i+1} {country}",
+                            f"{volume:,}",
+                            f"{percentage:.1f}% of total"
+                        )
+        
+        st.markdown("---")
+        
+        # VISUALIZATIONS
+        st.markdown("#### **Search Analysis**")
+        
+        # Market breakdown bar chart
         fig_player = px.bar(
             player_country_data,
             x='country',
@@ -555,9 +634,69 @@ if not filtered_df.empty:
             title=f'Search Volume by Country - {selected_player}',
             color='volume',
             color_continuous_scale='Blues',
-            labels={'volume': 'Search Volume'}
+            labels={'volume': 'Search Volume'},
+            height=400
         )
         st.plotly_chart(fig_player, use_container_width=True)
+        
+        # Two column layout for pie charts
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Search type breakdown
+            player_search_type = player_data.groupby('search_type')['volume'].sum().reset_index()
+            fig_search = px.pie(
+                player_search_type,
+                values='volume',
+                names='search_type',
+                title='Search Type Distribution',
+                height=350
+            )
+            st.plotly_chart(fig_search, use_container_width=True)
+        
+        with col2:
+            # Name variations breakdown
+            name_var_data = player_data.groupby('name_variation')['volume'].sum().reset_index()
+            if len(name_var_data) > 0:
+                fig_names = px.pie(
+                    name_var_data,
+                    values='volume',
+                    names='name_variation',
+                    title='Search by Name Variation',
+                    height=350
+                )
+                st.plotly_chart(fig_names, use_container_width=True)
+            else:
+                st.info("No name variation data available")
+        
+        # DETAILED DATA TABLE
+        st.markdown("---")
+        st.markdown("#### **Detailed Search Data**")
+        
+        # Create summary table
+        detailed_data = player_data.groupby(['country', 'search_type']).agg({
+            'volume': 'sum'
+        }).reset_index()
+        
+        # Pivot for better display
+        if not detailed_data.empty:
+            pivot_table = detailed_data.pivot(
+                index='country',
+                columns='search_type',
+                values='volume'
+            ).fillna(0).astype(int)
+            
+            # Add total column
+            pivot_table['Total'] = pivot_table.sum(axis=1)
+            
+            # Sort by total
+            pivot_table = pivot_table.sort_values('Total', ascending=False)
+            
+            # Format the table
+            st.dataframe(
+                pivot_table.style.format("{:,.0f}").background_gradient(subset=['Total'], cmap='Blues'),
+                use_container_width=True
+            )
     
     with tab4:
         # Comparisons (similar structure, using 'volume' column)
