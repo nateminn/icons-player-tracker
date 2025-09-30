@@ -725,11 +725,29 @@ if not filtered_df.empty:
         # Comparisons (similar structure, using 'volume' column)
         st.markdown("### Player Comparisons")
         
+        # Initialize session state for comparison players if not exists
+        if 'comparison_players' not in st.session_state:
+            st.session_state.comparison_players = sorted(filtered_df.groupby('actual_player')['volume'].sum().nlargest(3).index)
+        
+        # Get available players
+        available_players = sorted(filtered_df['actual_player'].unique())
+        
+        # Filter out any previously selected players that are no longer available
+        valid_selections = [p for p in st.session_state.comparison_players if p in available_players]
+        
+        # If no valid selections remain, default to top 3
+        if not valid_selections:
+            valid_selections = sorted(filtered_df.groupby('actual_player')['volume'].sum().nlargest(3).index)
+        
         players_to_compare = st.multiselect(
             "Select players to compare (max 10):",
-            options=sorted(filtered_df['actual_player'].unique()),
-            default=sorted(filtered_df.groupby('actual_player')['volume'].sum().nlargest(3).index)
+            options=available_players,
+            default=valid_selections,
+            key='comparison_multiselect'
         )
+        
+        # Update session state
+        st.session_state.comparison_players = players_to_compare
         
         if players_to_compare and len(players_to_compare) <= 10:
             comparison_df = filtered_df[filtered_df['actual_player'].isin(players_to_compare)]
@@ -749,7 +767,7 @@ if not filtered_df.empty:
                 labels={'volume': 'Search Volume'}
             )
             st.plotly_chart(fig_comparison, use_container_width=True)
-    
+
     with tab5:
         # Merchandise Analysis
         st.markdown("### Merchandise Search Analysis")
