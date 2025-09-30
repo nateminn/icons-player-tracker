@@ -557,9 +557,9 @@ if not filtered_df.empty:
         with col5:
             st.markdown("**Signing Status**")
             if player_status == 'signed':
-                st.success("✅ Signed")
+                st.success(" Signed")
             elif player_status == 'unsigned':
-                st.warning("⏳ Unsigned")
+                st.warning(" Unsigned")
             else:
                 st.info("Unknown")
         
