@@ -22,7 +22,7 @@
     {
       "name": "Diego Costa",
       "sport": "Football",
-      "team": "Retired",
+      "team": "Gremio",
       "position": "ST",
       "age": 36,
       "nationality": "Spain/Brazil",
@@ -38,6 +38,7 @@
         "Atletico Mineiro",
         "Wolverhampton Wanderers",
         "Botafogo"
+        "Gremio"
       ],
       "instagram_followers": "N/A",
       "major_trophies": [
