@@ -20,6 +20,37 @@
       ]
     },
     {
+      "name": "Diego Costa",
+      "sport": "Football",
+      "team": "Retired",
+      "position": "ST",
+      "age": 36,
+      "nationality": "Spain/Brazil",
+      "league": "N/A",
+      "previous_teams": [
+        "Barcelona B",
+        "Braga",
+        "Penafiel",
+        "Atletico Madrid",
+        "Real Valladolid",
+        "Rayo Vallecano",
+        "Chelsea",
+        "Atletico Mineiro",
+        "Wolverhampton Wanderers",
+        "Botafogo"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Premier League",
+        "La Liga",
+        "Europa League"
+      ],
+      "total_names": [
+        "Diego Costa",
+        "Costa"
+      ]
+    },
+    {
       "name": "Ademola Lookman",
       "sport": "Football",
       "team": "Atalanta",
