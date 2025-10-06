@@ -40,7 +40,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-@st.cache_data(ttl=3600)  # Cache for 1 hour
+@st.cache_data(ttl=21600)  # Cache for 1 hour
 def load_monthly_data():
     """Load monthly CSV data from GitHub"""
     monthly_data = {}
@@ -86,7 +86,7 @@ def load_monthly_data():
     
     return monthly_data
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=21600)
 def combine_monthly_data(monthly_data, selected_months):
     """Combine selected months into a single dataframe"""
     if not monthly_data or not selected_months:
@@ -133,7 +133,7 @@ def combine_monthly_data(monthly_data, selected_months):
     
     return combined_df
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=21600)
 def load_player_details():
     """Load player details from GitHub"""
     try:
