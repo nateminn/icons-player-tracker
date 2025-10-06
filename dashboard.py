@@ -371,13 +371,14 @@ if not filtered_df.empty:
     st.markdown("---")
     
     # Create tabs
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "📈 Overview", 
         "🌍 Market Analysis", 
         "👤 Player Details", 
         "📊 Comparisons", 
         "👕 Merchandise",
-        "📋 Player Database"
+        "📋 Player Database",
+        "📉 Monthly Trends"
     ])
     
     with tab1:
@@ -923,7 +924,222 @@ if not filtered_df.empty:
             file_name=f"player_database_{selected_month_option}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
         )
-    
+
+
+    # Add this tab to your existing tabs section
+    # Insert after tab6 (Player Database) in your code
+
+    with tab7:
+        st.markdown("### Monthly Trends Analysis")
+        
+        # Check if multiple months are available for comparison
+        if len(selected_months) < 2:
+            st.info("📊 Select multiple months to see trend analysis. Currently showing data for a single month.")
+            st.markdown("---")
+            
+            # Show single month summary instead
+            st.markdown("#### Top 20 Players This Month")
+            single_month_data = filtered_df.groupby('actual_player')['volume'].sum().nlargest(20).reset_index()
+            
+            fig_single = px.bar(
+                single_month_data,
+                x='actual_player',
+                y='volume',
+                title=f'Top 20 Players by Search Volume - {selected_months[0]}',
+                labels={'volume': 'Search Volume', 'actual_player': 'Player'},
+                color='volume',
+                color_continuous_scale='Blues'
+            )
+            fig_single.update_layout(height=500, xaxis_tickangle=-45)
+            st.plotly_chart(fig_single, use_container_width=True)
+            
+        else:
+            # MULTIPLE MONTHS SELECTED - Show trend analysis
+            
+            # Get raw monthly data (not combined/summed) for trend lines
+            trend_data_list = []
+            for month in selected_months:
+                if month in monthly_data:
+                    month_df = monthly_data[month].copy()
+                    
+                    # Apply the same filters as the main dashboard
+                    month_filtered = month_df[
+                        (month_df['country'].isin(selected_countries)) &
+                        (month_df['actual_player'].isin(selected_players)) &
+                        (month_df['search_type'].isin(selected_search_types)) &
+                        (month_df['volume'] >= volume_range[0]) &
+                        (month_df['volume'] <= volume_range[1])
+                    ]
+                    
+                    # Apply status filter
+                    if selected_status == 'Signed':
+                        month_filtered = month_filtered[month_filtered['status'] == 'signed']
+                    elif selected_status == 'Unsigned':
+                        month_filtered = month_filtered[month_filtered['status'] == 'unsigned']
+                    
+                    # Apply merchandise category filter if needed
+                    if 'Merchandise' in selected_search_types and selected_merch_categories:
+                        merch_filter = (
+                            (month_filtered['search_type'] != 'Merchandise') |
+                            (month_filtered['merch_category'].isin(selected_merch_categories))
+                        )
+                        month_filtered = month_filtered[merch_filter]
+                    
+                    if only_with_volume:
+                        month_filtered = month_filtered[month_filtered['has_volume'] == 1]
+                    
+                    trend_data_list.append(month_filtered)
+            
+            # Combine all months without summing (keep separate)
+            all_months_df = pd.concat(trend_data_list, ignore_index=True)
+            
+            # Calculate total volume per player across ALL selected months to get top 20
+            player_totals = all_months_df.groupby('actual_player')['volume'].sum().nlargest(20)
+            top_20_players = player_totals.index.tolist()
+            
+            # Filter to only top 20 players
+            top_20_trend_data = all_months_df[all_months_df['actual_player'].isin(top_20_players)]
+            
+            # Group by player and month to get monthly volumes
+            monthly_volumes = top_20_trend_data.groupby(['actual_player', 'month'])['volume'].sum().reset_index()
+            
+            # CHART 1: Trend Lines for Top 20 Players
+            st.markdown("#### Top 20 Players - Search Volume Trends")
+            st.markdown(f"*Based on total volume across {', '.join(selected_months)}*")
+            
+            # Sort months chronologically for proper line chart
+            month_order = ['July', 'August', 'September', 'October', 'November', 'December']
+            monthly_volumes['month'] = pd.Categorical(monthly_volumes['month'], categories=month_order, ordered=True)
+            monthly_volumes = monthly_volumes.sort_values('month')
+            
+            fig_trends = px.line(
+                monthly_volumes,
+                x='month',
+                y='volume',
+                color='actual_player',
+                title=f'Top 20 Players - Monthly Search Volume Trends',
+                labels={'volume': 'Search Volume', 'month': 'Month', 'actual_player': 'Player'},
+                markers=True,
+                height=600
+            )
+            
+            fig_trends.update_layout(
+                hovermode='x unified',
+                legend=dict(
+                    orientation="v",
+                    yanchor="top",
+                    y=1,
+                    xanchor="left",
+                    x=1.02
+                )
+            )
+            
+            st.plotly_chart(fig_trends, use_container_width=True)
+            
+            st.markdown("---")
+            
+            # CHART 2: Biggest Movers (Most Recent Month vs Previous Month)
+            st.markdown("#### Biggest Movers - Month-over-Month Change")
+            
+            # Get the two most recent months in the selection
+            selected_months_sorted = [m for m in month_order if m in selected_months]
+            
+            if len(selected_months_sorted) >= 2:
+                most_recent = selected_months_sorted[-1]
+                previous = selected_months_sorted[-2]
+                
+                st.markdown(f"*Comparing {previous} → {most_recent}*")
+                
+                # Get volumes for both months
+                previous_volumes = monthly_volumes[monthly_volumes['month'] == previous].set_index('actual_player')['volume']
+                recent_volumes = monthly_volumes[monthly_volumes['month'] == most_recent].set_index('actual_player')['volume']
+                
+                # Calculate changes
+                changes = pd.DataFrame({
+                    'player': monthly_volumes['actual_player'].unique(),
+                })
+                changes['previous'] = changes['player'].map(previous_volumes).fillna(0)
+                changes['recent'] = changes['player'].map(recent_volumes).fillna(0)
+                changes['change'] = changes['recent'] - changes['previous']
+                changes['pct_change'] = ((changes['change'] / changes['previous']) * 100).replace([np.inf, -np.inf], 0).fillna(0)
+                
+                # Filter to only players with data in at least one of the months
+                changes = changes[(changes['previous'] > 0) | (changes['recent'] > 0)]
+                
+                # Get top 10 gainers and top 10 decliners
+                top_gainers = changes.nlargest(10, 'change')
+                top_decliners = changes.nsmallest(10, 'change')
+                
+                # Combine them
+                movers = pd.concat([top_gainers, top_decliners]).drop_duplicates()
+                movers = movers.sort_values('change', ascending=True)  # Sort for better visualization
+                
+                # Create diverging bar chart
+                fig_movers = go.Figure()
+                
+                # Color code: green for positive, red for negative
+                colors = ['#2ecc71' if x >= 0 else '#e74c3c' for x in movers['change']]
+                
+                fig_movers.add_trace(go.Bar(
+                    y=movers['player'],
+                    x=movers['change'],
+                    orientation='h',
+                    marker=dict(color=colors),
+                    text=movers['change'].apply(lambda x: f'{x:+,.0f}'),
+                    textposition='outside',
+                    hovertemplate='<b>%{y}</b><br>' +
+                                  'Change: %{x:+,.0f}<br>' +
+                                  '<extra></extra>'
+                ))
+                
+                fig_movers.update_layout(
+                    title=f'Top Movers: Change in Search Volume ({previous} → {most_recent})',
+                    xaxis_title='Change in Search Volume',
+                    yaxis_title='Player',
+                    height=600,
+                    showlegend=False,
+                    xaxis=dict(zeroline=True, zerolinewidth=2, zerolinecolor='black')
+                )
+                
+                st.plotly_chart(fig_movers, use_container_width=True)
+                
+                # Summary table
+                st.markdown("---")
+                st.markdown("#### Detailed Movement Summary")
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown("**Top 10 Gainers**")
+                    gainers_display = top_gainers[['player', 'previous', 'recent', 'change', 'pct_change']].copy()
+                    gainers_display.columns = ['Player', previous, most_recent, 'Change', '% Change']
+                    st.dataframe(
+                        gainers_display.style.format({
+                            previous: '{:,.0f}',
+                            most_recent: '{:,.0f}',
+                            'Change': '{:+,.0f}',
+                            '% Change': '{:+.1f}%'
+                        }).background_gradient(subset=['Change'], cmap='Greens'),
+                        use_container_width=True,
+                        hide_index=True
+                    )
+                
+                with col2:
+                    st.markdown("**Top 10 Decliners**")
+                    decliners_display = top_decliners[['player', 'previous', 'recent', 'change', 'pct_change']].copy()
+                    decliners_display.columns = ['Player', previous, most_recent, 'Change', '% Change']
+                    st.dataframe(
+                        decliners_display.style.format({
+                            previous: '{:,.0f}',
+                            most_recent: '{:,.0f}',
+                            'Change': '{:+,.0f}',
+                            '% Change': '{:+.1f}%'
+                        }).background_gradient(subset=['Change'], cmap='Reds_r'),
+                        use_container_width=True,
+                        hide_index=True
+                    )
+            else:
+                st.info("Need at least 2 months selected to calculate month-over-month changes.")
         
     # Export functionality
     st.markdown("---")
