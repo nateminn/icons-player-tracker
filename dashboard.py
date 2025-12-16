@@ -44,13 +44,15 @@ st.markdown("""
 def load_monthly_data():
     """Load monthly CSV data from GitHub"""
     monthly_data = {}
-    
-    # Define the URLs for each month's data
+  
+        # Define the URLs for each month's data
     month_urls = {
         'July': 'https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/Master_July_225.csv',
         'August': 'https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/Master_August_225.csv',
+        'September': 'https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/Master_September_225.csv',
+        'October': 'https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/Master_October_225.csv',
+        'November': 'https://raw.githubusercontent.com/nateminn/icons-player-tracker/refs/heads/main-3/Master_November_225.csv',
     }
-    
     for month, url in month_urls.items():
         try:
             df = pd.read_csv(url)
