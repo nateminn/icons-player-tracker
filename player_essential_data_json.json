@@ -182,6 +182,26 @@
         "Nicolo Barella"
       ]
     },
+        {
+      "name": "Estevao",
+      "sport": "Football",
+      "team": "Chelsea",
+      "position": "RW/AM",
+      "age": 17,
+      "nationality": "Brazil",
+      "league": "Premier League",
+      "previous_teams": [
+        "Palmeiras"
+      ],
+      "instagram_followers": "N/A",
+      "major_trophies": [
+        "Campeonato Brasileiro"
+      ],
+      "total_names": [
+        "Estevao",
+        "Messinho"
+      ]
+    },
     {
       "name": "Gabriel Batistuta",
       "sport": "Football",
